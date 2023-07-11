@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Article | MrMineev </title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"rel="stylesheet">
+    <link rel="stylesheet" href="article-style.css">
+  </head>
+  <body>
+    <!-- BACK TO TOP BUTTON -->
+    <a href="#" class="back-to-top">
+      <span class="material-icons">arrow_upward</span>
+    </a>
+
+    <h1 id="global-name" onclick="window.location.href='../index.html'">MrMineev</h1>
+    <div id="global-name-line"></div>
+
+    
+    <h2 id="article-name">🌍 AI-Powered Rocket Simulation with Gravitational Dynamics</h2>
+    
+    <div id="article-content">
+      <div class="section-name" style="text-align: center;">
+        <h2 style="display: inline;" class="symbol-change">§</h2><h2 style="display: inline;"> Building Simulator</h2>
+      </div>
+      <p class="content-text">
+        Let’s start by considering two bodies with the masses M<sub>1</sub> and M<sub>2</sub>, then the resulting gravitational force is:
+      </p>
+      <div class="cmath">`F = G * (m_(1) * m_(2)) / r^2`</div>
+      <p class="content-text">
+        Where r is the distance between the center of masses of the two bodies, and G is the gravitational constant. Now let's write the Python class for the Body.
+      </p>
+<pre> <code style="color:rgb(68, 68, 68); font-weight:400; background-color:rgb(240, 240, 240);background:rgb(240, 240, 240);display:block;padding: .5em;">import <span style="color:rgb(57, 115, 0); font-weight:400;">math</span>
+
+<span style="color:rgb(57, 71, 204); font-weight:400;">class</span> Body:
+    name = <span style="color:rgb(136, 0, 0); font-weight:400;">&#x27;Body&#x27;</span>
+    mass = <span style="color:rgb(136, 0, 0); font-weight:400;">0.0</span>
+    vx = vy = <span style="color:rgb(136, 0, 0); font-weight:400;">0.0</span> <span style="color: #06b46b; font-style: italic"># velocity</span>
+    px = py = <span style="color:rgb(136, 0, 0); font-weight:400;">0.0</span> <span style="color: #06b46b; font-style: italic"># position</span>
+    G = <span style="color:rgb(136, 0, 0); font-weight:400;">6.67428e-11</span> <span style="color: #06b46b; font-style: italic"># kg^(-2) m^2</span>
+    color = (<span style="color:rgb(136, 0, 0); font-weight:400;">0</span>, <span style="color:rgb(136, 0, 0); font-weight:400;">0</span>, <span style="color:rgb(136, 0, 0); font-weight:400;">0</span>) <span style="color: #06b46b; font-style: italic"># color of body for rendering </span>
+    radius = <span style="color:rgb(136, 0, 0); font-weight:400;">0</span>
+
+    <span style="color:rgb(57, 71, 204); font-weight:400;">def</span> attraction(<span style="color:rgb(57, 115, 0); font-weight:400;">self</span>, other):
+        sx, sy = <span style="color:rgb(57, 115, 0); font-weight:400;">self</span>.px, <span style="color:rgb(57, 115, 0); font-weight:400;">self</span>.py
+        ox, oy = other.px, other.py
+        dx = (ox - sx) <span style="color: #06b46b; font-style: italic"># difference in x</span>
+        dy = (oy - sy) <span style="color: #06b46b; font-style: italic"># difference in y</span>
+        d = <span style="color:rgb(57, 115, 0); font-weight:400;">math</span>.<span style="color:rgb(57, 115, 0); font-weight:400;">sqrt</span>(dx ** <span style="color:rgb(136, 0, 0); font-weight:400;">2</span> + dy ** <span style="color:rgb(136, 0, 0); font-weight:400;">2</span>) <span style="color: #06b46b; font-style: italic"># distance betweeen bodies</span>
+
+        <span style="color:rgb(57, 71, 204); font-weight:700;">if</span> d == <span style="color:rgb(136, 0, 0); font-weight:400;">0</span>:
+            raise ValueError(<span style="color:rgb(136, 0, 0); font-weight:400;">&quot;Collision between objects %r and %r&quot;</span> % (<span style="color:rgb(57, 115, 0); font-weight:400;">self</span>.name, other.name))
+
+        f = <span style="color:rgb(57, 115, 0); font-weight:400;">self</span>.G * <span style="color:rgb(57, 115, 0); font-weight:400;">self</span>.mass * other.mass / (d ** <span style="color:rgb(136, 0, 0); font-weight:400;">2</span>) <span style="color: #06b46b; font-style: italic"># gravitational force</span>
+
+        <span style="color: #06b46b; font-style: italic"># calculating the force vector</span>
+        theta = <span style="color:rgb(57, 115, 0); font-weight:400;">math</span>.<span style="color:rgb(57, 115, 0); font-weight:400;">atan2</span>(dy, dx)
+        fx = <span style="color:rgb(57, 115, 0); font-weight:400;">math</span>.<span style="color:rgb(57, 115, 0); font-weight:400;">cos</span>(theta) * f
+        fy = <span style="color:rgb(57, 115, 0); font-weight:400;">math</span>.<span style="color:rgb(57, 115, 0); font-weight:400;">sin</span>(theta) * f
+
+        <span style="color:rgb(68, 68, 68); font-weight:700;">return</span> fx, fy</code></pre>
+
+        <p class="content-text">
+          Now that we have written the Body class, we need to figure out to update the body's location. So we want to write the Gravity class to work with multiple instances of Body.
+        </p>
+
+        <pre>
+<code style="font-weight:400; display:block; padding: .5em;"><span style="color:rgb(0, 0, 255); font-weight:400;">import</span> <span style="color:rgb(57, 115, 0);">math</span>
+<span style="color:rgb(0, 0, 255); font-weight:400;">from</span> engine.body <span style="color:rgb(0, 0, 255); font-weight:400;">import</span> <span style="color:rgb(57, 115, 0);">Body</span>
+
+<span style="color:rgb(0, 0, 255); font-weight:400;">class</span> <span class="hljs-title class_">Gravity</span>:
+  timestep = <span style="color:rgb(136, 0, 0); font-weight:400;">1</span>
+
+  <span style="color:rgb(0, 0, 255); font-weight:400;">def</span> <span class="hljs-title function_">__init__</span>(<span style="color:rgb(0, 0, 0); font-weight:400;">self, bodies</span>):
+      self.bodies = bodies
+
+  <span style="color:rgb(0, 0, 255); font-weight:400;">def</span> <span class="hljs-title function_">add_body</span>(<span style="color:rgb(0, 0, 0); font-weight:400;">self, body</span>):
+      self.bodies.append(body)
+
+  <span style="color:rgb(0, 0, 255); font-weight:400;">def</span> <span class="hljs-title function_">update</span>(<span style="color:rgb(0, 0, 0); font-weight:400;">self</span>):
+      forces = []
+      <span style="color:rgb(0, 0, 255); font-weight:400;">for</span> body <span style="color:rgb(0, 0, 255); font-weight:400;">in</span> self.bodies:
+          total_fx = total_fy = <span style="color:rgb(136, 0, 0); font-weight:400;">0.0</span>
+          <span style="color:rgb(0, 0, 255); font-weight:400;">for</span> other <span style="color:rgb(0, 0, 255); font-weight:400;">in</span> self.bodies:
+              <span style="color:rgb(0, 0, 255); font-weight:400;">if</span> body <span style="color:rgb(0, 0, 255); font-weight:400;">is</span> other:
+                  <span style="color:rgb(0, 0, 255); font-weight:400;">continue</span>
+
+              fx, fy = body.attraction(other)
+              total_fx += fx
+              total_fy += fy
+          forces.append(
+              (total_fx, total_fy)
+          )
+      <span style="color:rgb(0, 0, 255); font-weight:400;">for</span> index <span style="color:rgb(0, 0, 255); font-weight:400;">in</span> <span style="color:rgb(0, 0, 255); font-weight:400;">range</span>(<span style="color:rgb(136, 0, 0); font-weight:400;">0</span>, <span style="color:rgb(0, 0, 255); font-weight:400;">len</span>(self.bodies)):
+          fx, fy = forces[index]
+          self.bodies[index].vx = fx / self.bodies[index].mass * self.timestep
+          self.bodies[index].vy = fy / self.bodies[index].mass * self.timestep
+
+          self.bodies[index].px += self.bodies[index].vx * self.timestep
+          self.bodies[index].py += self.bodies[index].vy * self.timestep</code></pre>
+
+        <p class="content-text">
+          Here, for each body, I loop through each other body and add the force between those to the total force being applied to the body. Now how can we apply the force to the body? Simple, we know that
+        </p>
+        <div class="cmath">`F = ma`</div> 
+        <p class="content-text">And that</p>
+        <div class="cmath">`a = (Delta V) / t`</div> 
+        <p class="content-text">
+        Now knowing these formulas, we can calculate the ΔV so that we can calculate the new location:
+        </p>
+        <div class="cmath">`\text{New Position} = \text{Previous Position} + Delta V * t`</div>
+
+        <p class="content-text">
+          And this works. I will spare the details about implementing the pygame application. But here is what we get out of these formulas:
+        </p> 
+
+
+        <div style="text-align: center;">
+          <video preload="auto" width="50%" title="Shallow red." loop="" autoplay="" playsinline="" muted="true" class="note-video"><source src="../assets/earth-moon.mp4" type="video/webm"></video>
+        </div>
+
+        <p class="content-text">
+          I made the green circle with the characteristics of the moon and the blue circle with the features of Earth. This animation looks dull. The moon is getting attracted to the Earth. We need to give the moon velocity to make the moon orbit around the Earth. After a quick Google search, it is easy to find that the moon's velocity is about 1022 km/s. Applying that to the moon's velocity, we get:
+        </p>
+
+        <div style="text-align: center;">
+          <video preload="auto" width="50%" title="Shallow red." loop="" autoplay="" playsinline="" muted="true" class="note-video"><source src="../assets/moon-ordbit.mp4" type="video/webm"></video>
+        </div>
+
+        <p class="content-text">
+          Nice orbiting motion!
+        </p>
+
+
+        <div class="section-name" style="text-align: center;">
+          <h2 style="display: inline;" class="symbol-change">§</h2><h2 style="display: inline;"> Adding the Rocket</h2>
+        </div>
+
+        <p class="content-text">
+          To keep it simple the rocket is just an instance of the class Body with some additional force applied to fly. So all we need to do to add the rocket is just copy & paste previously written code with some slight changes to be able to steer the rocket by applying additional force:
+        </p>
+
+        <div style="margin-top: 30px; text-align: center;">
+          <video preload="auto" width="50%" title="Shallow red." loop="" autoplay="" playsinline="" muted="true" class="note-video"><source src="../assets/rocket-earth.mp4" type="video/webm"></video>
+        </div>
+
+        <p class="content-text">
+          Nice! Now we implemented the rocket into the simulator.
+        </p>
+
+        <div class="section-name" style="text-align: center;">
+          <h2 style="display: inline;" class="symbol-change">§</h2><h2 style="display: inline;"> AI-Powered Rocket</h2>
+        </div>
+
+        <p class="content-text">
+          Now to the so-called elephant in the room. How to train an AI to control the rocket? Well, my first thought was to record multiple “good flights” (by this I mean flights that made an orbit around the earth) and then create multiple duplicates of that flight just rotating by different angles to create more training data. I recorded all the positions, and velocities of each body at each point during the flight, and recorded the response I made: 0 - no action, 1 - turned rockets on 2 - turned rockets off. I used this TensorFlow model to train:
+        </p>
+
+        <pre>
+          <code style="color:rgb(0, 0, 0); font-weight:400;display:block;padding: .5em;">import tensorflow <span style="color:rgb(0, 0, 255); font-weight:400;">as</span> tf
+
+<span style="color:rgb(43, 145, 175); font-weight:400;"># loading training data</span>
+<span style="color:rgb(43, 145, 175); font-weight:400;"># ...</span>
+
+<span style="color:rgb(43, 145, 175); font-weight:400;"># now to the model</span>
+x_train = tf.keras.utils.normalize(x_train, axis=<span style="color:rgb(136, 0, 0); font-weight:400;">1</span>)
+
+model = tf.keras.models.Sequential()
+
+model.<span style="color:rgb(0, 0, 255); font-weight:400;">add</span>(tf.keras.layers.Flatten())
+model.<span style="color:rgb(0, 0, 255); font-weight:400;">add</span>(tf.keras.layers.Dense(<span style="color:rgb(136, 0, 0); font-weight:400;">2048</span>, activation = tf.nn.relu))
+model.<span style="color:rgb(0, 0, 255); font-weight:400;">add</span>(tf.keras.layers.Dense(<span style="color:rgb(136, 0, 0); font-weight:400;">516</span>, activation = tf.nn.relu))
+model.<span style="color:rgb(0, 0, 255); font-weight:400;">add</span>(tf.keras.layers.Dense(<span style="color:rgb(136, 0, 0); font-weight:400;">216</span>, activation = tf.nn.relu))
+model.<span style="color:rgb(0, 0, 255); font-weight:400;">add</span>(tf.keras.layers.Dense(<span style="color:rgb(136, 0, 0); font-weight:400;">64</span>, activation = tf.nn.relu))
+model.<span style="color:rgb(0, 0, 255); font-weight:400;">add</span>(tf.keras.layers.Dense(<span style="color:rgb(136, 0, 0); font-weight:400;">5</span>, activation = tf.nn.softmax))
+
+model.compile(optimizer=<span style="color:rgb(163, 21, 21); font-weight:400;">&#x27;adam&#x27;</span>,
+              loss=<span style="color:rgb(163, 21, 21); font-weight:400;">&#x27;sparse_categorical_crossentropy&#x27;</span>,
+              metrics=<span style="color:rgb(163, 21, 21); font-weight:400;">&#x27;accuracy&#x27;</span>)
+
+model.fit(x_train, y_train, epochs=<span style="color:rgb(136, 0, 0); font-weight:400;">5</span>)
+
+model.save(<span style="color:rgb(163, 21, 21); font-weight:400;">&#x27;rocket_alpha_1.model&#x27;</span>)
+</code></pre>
+
+      <p class="content-text" style="margin-top: 30px;">
+        To put it lightly it didn’t work. The information i provided seems to be not enough for the model. What other information should i include?
+      </p>
+
+      <div style="margin-top: 30px; text-align: center;">
+        <video preload="auto" width="50%" title="Shallow red." loop="" autoplay="" playsinline="" muted="true" class="note-video"><source src="../assets/first-ai-atempt.mp4" type="video/webm"></video>
+      </div>
+
+      <p class="content-text">
+        To put it lightly, it didn’t work. The information I provided seems to be not enough for the model. What other information should I include? I tried adding some data about the trajectory and the current time. However, the AI model would pick one of the actions and just stick with it, thus correctly answering X% (where X is the percentage of training instances with the action the AI chose) of the training data. I even tried inflating the dataset with duplicates to make the number of examples with each action the same to reduce the correct answers and force the model to devise another strategy. However, the TensorFlow model would still not find a pattern in the data. After recording about 5-8 flights with about 5000 training instances for each flight and creating duplicates of each flight just rotated by different angles. In total, I had about  75000 training instances. I guess the data wasn’t diverse enough or had insufficient training instances. The point is training the Tensorflow model didn’t work. 
+      <p>
+      <p class="content-text">
+        So instead of creating the TensorFlow model, I would just write a piece of software that would steer the rocket with no Machine Learning involved. So I decided to launch the rocket and constantly steer it to the right while it is on, and when the rocket flies out of some area, I will turn it off. After some tries, I found these values. For every 80 seconds, I would turn right by 5°. When the rocket’s distance from the center of the Earth is 120% of the radius of the Earth, I will turn the rocket off. And this is what I get:
+      </p>
+
+      <div style="margin-top: 30px; text-align: center;">
+        <video preload="auto" width="50%" title="Shallow red." loop="" autoplay="" playsinline="" muted="true" class="note-video"><source src="../assets/rocket-ordbit.mp4" type="video/webm"></video>
+      </div>
+
+      <p class="content-text">
+        A nice looking orbit!
+      </p>
+
+      <div class="section-name" style="text-align: center;">
+        <h2 style="display: inline;" class="symbol-change">§</h2><h2 style="display: inline;"> Links</h2>
+      </div>
+      
+      <button class="button-link">
+        GitHub
+      </button>
+      &nbsp;
+      <a rel="noopener noreferrer" target="_blank" class="link" href="https://github.com/MrMineev/GravitySimulator">https://github.com/MrMineev/GravitySimulator</a>
+    </div>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    
+    <script src="linenumber.js"></script>
+
+    <script async="true" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=AM_CHTML"> </script>
+    <script async="true" src="https://cdn.jsdelivr.net/npm/mathjax@2.7.6/MathJax.js?config=AM_CHTML"> </script>
+  </body>
+</html>
+
