@@ -24,8 +24,7 @@
   height: 200px;
   border-radius: 20px 0 20px 20px;
   border: 2px solid black;
-  border-bottom: 6px solid black;
-  border-right: 6px solid black;
+  box-shadow: 5px 5px#000000;
   box-sizing: border-box;
   overflow: hidden;
 }
