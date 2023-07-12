@@ -6,6 +6,8 @@
     <title>Article | MrMineev </title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"rel="stylesheet">
     <link rel="stylesheet" href="article-style.css">
+
+    <link rel="icon" href="../assets/mag.png">
   </head>
   <body>
     <!-- BACK TO TOP BUTTON -->
@@ -24,18 +26,448 @@
       </div>
 
       <p class="content-text">
-
+        You can describe the basic concept of collaborative filtering in one sentence:
       </p>
+      <div class="quote">
+        Past agreement leads to future alignment.
+      </div>
+      <p class="content-text">
+        This means that if two people liked the same items multiple times in the past, they will probably both like the same items in the future. So the algorithm would work by storing the review of each user on each item (0 if the user didn’t rate the item). And to recommend items to user A, we will find other users, like B and C, that are similar to A and recommend what B and C liked to A. When I say similar I mean there is some function simil(A, B) representing the similarity rate between users A and B. So the probable user u rating of the i-th item is an aggregation of some similar users' rating of the item:
+      </p>
+
+      <div class="cmath">`r_(u, i) = aggr_{u' ∈ U} (r_(u', i))`</div>
+
+      <p class="content-text">
+        There are a lot of different aggr functions. The Pearson correlation and vector cosine-based similarity are the most popular. I will only define these functions:<br><br>
+        1) Cosine Similarity
+      </p>
+
+      <div class="cmath">`S_(C)(A, B) = (A * B) / (||A|| * ||B||) = (sum_(i=1)^n A_(i)B_(i))/sqrt((sum_(i=1)^n A_(i)^2) * (sum_(i=1)^n B_(i)^2))`</div>
+
+      <p class="content-text">
+        2) Pearson correlation
+      </p>
+
+      <div class="cmath">`ρ_(A, B) = (sum_(i=1)^n (A_(i) - bar A)(B_(i) - bar B)) / (sqrt(sum_(i=1)^n (A_(i) - bar A)^2) sqrt(sum_(i=1)^n (B_(i) - bar B)^2))`</div><br>
+
+      <p class="content-text">
+        Here A and B are some r<sub>x</sub> and r<sub>y</sub>, respectively. To keep everything simple, I will be using the Consine Similarity. Let's go through an example to see how collaborative filtering works. In this example, ratings range from 1 to 10.
+      </p>
+
+      <br>
+
+      <table class="random-table">
+        <tr>
+          <th></th>
+          <th>User 1</th>
+          <th>User 2</th>
+          <th>User 3</th>
+          <th>User 4</th>
+          <th>User 5</th>
+          <th>User 6</th>
+          <th>User 7</th>
+          <th>User 8</th>
+          <th>User 9</th>
+          <th>User 10</th>
+        </tr>
+        <tr>
+          <th>Item 1</th>
+          <td>5</td>
+          <td>2</td>
+          <td>0</td>
+          <td>0</td>
+          <td>9</td>
+          <td>5</td>
+          <td>2</td>
+          <td>0</td>
+          <td>0</td>
+          <td>9</td>
+        </tr>
+        <tr>
+          <th>Item 2</th>
+          <td>10</td>
+          <td>0</td>
+          <td>7</td>
+          <td>2</td>
+          <td>1</td>
+          <td>10</td>
+          <td>0</td>
+          <td>7</td>
+          <td>2</td>
+          <td>1</td>
+        </tr>
+        <tr>
+          <th>Item 3</th>
+          <td>0</td>
+          <td>0</td>
+          <td>5</td>
+          <td>8</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>5</td>
+          <td>8</td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <th>Item 4</th>
+          <td>1</td>
+          <td>9</td>
+          <td>8</td>
+          <td>0</td>
+          <td>0</td>
+          <td>1</td>
+          <td>9</td>
+          <td>8</td>
+          <td>0</td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <th>Item 5</th>
+          <td>0</td>
+          <td>6</td>
+          <td>0</td>
+          <td>0</td>
+          <td>10</td>
+          <td>0</td>
+          <td>6</td>
+          <td>0</td>
+          <td>0</td>
+          <td>10</td>
+        </tr>
+        <tr>
+          <th>Item 6</th>
+          <td>10</td>
+          <td>10</td>
+          <td>4</td>
+          <td>0</td>
+          <td>8</td>
+          <td>10</td>
+          <td>10</td>
+          <td>4</td>
+          <td>0</td>
+          <td>8</td>
+        <tr>
+          <th>Item 7</th>
+          <td>0</td>
+          <td>3</td>
+          <td>2</td>
+          <td>5</td>
+          <td>1</td>
+          <td>0</td>
+          <td>3</td>
+          <td>2</td>
+          <td>5</td>
+          <td>1</td>
+        </tr>
+        <tr>
+          <th>Item 8</th>
+          <td>0</td>
+          <td>3</td>
+          <td>2</td>
+          <td>5</td>
+          <td>1</td>
+          <td>0</td>
+          <td>3</td>
+          <td>2</td>
+          <td>5</td>
+          <td>1</td>
+        </tr>
+        <tr>
+          <th>Item 8</th>
+          <td>0</td>
+          <td>3</td>
+          <td>2</td>
+          <td>5</td>
+          <td>1</td>
+          <td>0</td>
+          <td>3</td>
+          <td>2</td>
+          <td>5</td>
+          <td>1</td>
+        </tr>
+        <tr>
+          <th>Item 9</th>
+          <td>0</td>
+          <td>3</td>
+          <td>2</td>
+          <td>5</td>
+          <td>1</td>
+          <td>0</td>
+          <td>3</td>
+          <td>2</td>
+          <td>5</td>
+          <td>1</td>
+        </tr>
+        <tr>
+          <th>Item 10</th>
+          <td>0</td>
+          <td>3</td>
+          <td>2</td>
+          <td>5</td>
+          <td>1</td>
+          <td>0</td>
+          <td>3</td>
+          <td>2</td>
+          <td>5</td>
+          <td>1</td>
+        </tr>
+        <tr>
+          <th>Item 11</th>
+          <td>0</td>
+          <td>3</td>
+          <td>2</td>
+          <td>5</td>
+          <td>1</td>
+          <td>0</td>
+          <td>3</td>
+          <td>2</td>
+          <td>5</td>
+          <td>1</td>
+        </tr>
+        <tr>
+          <th>Item 12</th>
+          <td>0</td>
+          <td>3</td>
+          <td>2</td>
+          <td>5</td>
+          <td>1</td>
+          <td>0</td>
+          <td>3</td>
+          <td>2</td>
+          <td>5</td>
+          <td>1</td>
+        </tr>
+      </table>
+    
+      <br>
+      <br>
+      <div style="margin-right: 10%; text-align: center;">
+        <button class="button-table-name">Generate</button>
+      </div>
+
+      <br>
+
+      <p class="content-text">
+        The goal is to recommend some items to user 1. First, calculate the cosine similarity of all the users and user number 1.
+      </p>
+
+      <table class="table" id="similarities">
+        <tr>
+          <th></th>
+          <th>Similarity to User 1</th>
+        </tr>
+        <tr>
+          <th>User 1</th>
+          <td>UNKNOWN</td>
+        </tr>
+        <tr>
+          <th>User 2</th>
+          <td>UNKNOWN</td>
+        </tr>
+        <tr>
+          <th>User 3</th>
+          <td>UNKNOWN</td>
+        </tr>
+        <tr>
+          <th>User 4</th>
+          <td>UNKNOWN</td>
+        </tr>
+        <tr>
+          <th>User 5</th>
+          <td>UNKNOWN</td>
+        </tr>
+        <tr>
+          <th>User 6</th>
+          <td>UNKNOWN</td>
+        </tr>
+        <tr>
+          <th>User 7</th>
+          <td>UNKNOWN</td>
+        </tr>
+        <tr>
+          <th>User 8</th>
+          <td>UNKNOWN</td>
+        </tr>
+        <tr>
+          <th>User 9</th>
+          <td>UNKNOWN</td>
+        </tr>
+        <tr>
+          <th>User 10</th>
+          <td>UNKNOWN</td>
+        </tr>
+
+      </table>
+
+      <br>
+      <br>
+
+      <div style="text-align: center; margin-right: 10%;">
+        <button class="button-calculate">Calculate</button>
+      </div>
+
+      <br><br>
+
+      <p class="content-text">
+        Here 1 represents complete similarity and 0 no similarity. How using this information, can we predict r<sub>u, i</sub>? One trendy function for doing so is:
+      </p>
+
+      <div class="cmath">`r_(u, i) = 1 / N sum_(u' ∈ U) r_(u', i)`</div>
+
+      <p class="content-text">
+        Where U denotes the set of top N similar users to u.
+      </p>
+
+      <br><br>
+
+      <div class="slider-container">
+        <label style="font-family: 'Merriweather', serif;" for="slider">Value of N:<label>
+        <input type="range" id="slider" min="1" max="10" step="1" value="1">
+        <div id="slider-values">
+          <span>1</span>
+          <span>2</span>
+          <span>3</span>
+          <span>4</span>
+          <span>5</span>
+          <span>6</span>
+          <span>7</span>
+          <span>8</span>
+          <span>9</span>
+          <span>10</span>
+        </div>
+      </div>
+
+      <br>
+      <br>
+      <br>
+
+      <table class="table" id="predictions">
+        <tr>
+          <th></th>
+          <th>Predictions for User 1</th>
+        </tr>
+        <tr>
+          <th>Item 1</th>
+          <td>UNKNOWN</td>
+        </tr>
+        <tr>
+          <th>Item 2</th>
+          <td>UNKNOWN</td>
+        </tr>
+        <tr>
+          <th>Item 3</th>
+          <td>UNKNOWN</td>
+        </tr>
+        <tr>
+          <th>Item 4</th>
+          <td>UNKNOWN</td>
+        </tr>
+        <tr>
+          <th>Item 5</th>
+          <td>UNKNOWN</td>
+        </tr>
+        <tr>
+          <th>Item 6</th>
+          <td>UNKNOWN</td>
+        </tr>
+        <tr>
+          <th>Item 7</th>
+          <td>UNKNOWN</td>
+        </tr>
+        <tr>
+          <th>Item 8</th>
+          <td>UNKNOWN</td>
+        </tr>
+        <tr>
+          <th>Item 9</th>
+          <td>UNKNOWN</td>
+        </tr>
+        <tr>
+          <th>Item 10</th>
+          <td>UNKNOWN</td>
+        </tr>
+        <tr>
+          <th>Item 11</th>
+          <td>UNKNOWN</td>
+        </tr>
+        <tr>
+          <th>Item 12</th>
+          <td>UNKNOWN</td>
+        </tr>
+      </table>
+
+      <br>
+      <br>
+
+      <div style="text-align: center; margin-right: 10%;">
+        <button class="button-predict">Predict</button>
+      </div>
+
+      <br>
+      <br>
+
+      <p class="content-text">
+        Now to recommend items, just look at the items with the most significant predictions that aren't viewed.
+      </p>
+
+      <br><br>
 
       <div class="section-name" style="text-align: center;">
         <h2 style="display: inline;" class="symbol-change">§</h2><h2 style="display: inline;"> Links</h2>
       </div>
+
+      <br>
+
       <button class="button-link">
         GitHub
       </button>
       &nbsp;
-      <a rel="noopener noreferrer" target="_blank" class="link" href="https://github.com/MrMineev/GravitySimulator">https://github.com/MrMineev/GravitySimulator</a>
+      <a rel="noopener noreferrer" target="_blank" class="link" href="https://github.com/MrMineev/Different-Recommendation-Systems">https://github.com/MrMineev/Different-Recommendation-Systems</a>
+
+      <br>
+      <br>
+
+      <button class="button-link">
+        Cosine Similarity
+      </button>
+      &nbsp;
+      <a rel="noopener noreferrer" target="_blank" class="link" href="https://en.wikipedia.org/wiki/Cosine_similarity">https://en.wikipedia.org/wiki/Cosine_similarity</a>
+
+      <br>
+      <br>
+
+      <button class="button-link">
+        Pearson correlation
+      </button>
+      &nbsp;
+      <a rel="noopener noreferrer" target="_blank" class="link" href="https://en.wikipedia.org/wiki/Pearson_correlation_coefficient">https://en.wikipedia.org/wiki/Pearson_correlation_coefficient</a>
+
     </div>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <script src="recommendation-script.js"></script>
+    <script src="linenumber.js"></script>
+
+    <script async="true" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=AM_CHTML"> </script>
+    <script async="true" src="https://cdn.jsdelivr.net/npm/mathjax@2.7.6/MathJax.js?config=AM_CHTML"> </script>
+
   </body>
 </html>
 
