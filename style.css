@@ -66,7 +66,7 @@
 .article-description {
   display: -webkit-box;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
+  -webkit-line-clamp: 3;
   overflow: hidden;
   font-family: 'Courier New', monospace;
 }
@@ -84,6 +84,7 @@
   }
 
   .post-container {
+    height: 220px;
     width: 90%;
     margin-left: 5%;
     margin-top: 20px;
