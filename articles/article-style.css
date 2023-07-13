@@ -46,6 +46,7 @@
 }
 
 code {
+  word-break: break-all;
   white-space: pre-wrap;
   font-family: 'Fira Code', monospace;
   background-color: rgb(240, 240, 240);
@@ -99,8 +100,8 @@ h2 {
 }
 
 a {
-  text-decoration: none;
   border-bottom: 2px dotted #000;
+  text-decoration: none;
   color: #000;
 }
 
@@ -197,6 +198,7 @@ tr:nth-child(even) {
 }
 
 .button-table-name {
+  margin-top: 20px;
   width: auto;
   background-color: #ffeaea;
   margin-left: 10%;
@@ -215,6 +217,7 @@ tr:nth-child(even) {
 }
 
 .button-calculate {
+  margin-top: 20px;
   width: auto;
   background-color: #ffeaea;
   margin-left: 10%;
@@ -233,6 +236,7 @@ tr:nth-child(even) {
 }
 
 .button-predict {
+  margin-top: 20px;
   width: auto;
   background-color: #ffeaea;
   margin-left: 10%;
@@ -316,3 +320,81 @@ tr:nth-child(even) {
 #slider-values span:nth-child(10) {
   left: 100%;
 }
+
+
+
+@media only screen and (max-width: 768px) {
+  .button-calculate {
+    font-size: 10px;
+  }
+
+  .button-predict {
+    font-size: 10px;
+  }
+
+  .button-table-name {
+    font-size: 10px;
+  }
+
+  table {
+    width: 96%;
+    font-size: 7px;
+    margin-left: 2%;
+  }
+
+  td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 0px;
+    width: 5px;
+  }
+
+  .cmath {
+    max-width: 95%;
+    font-size: 10px;
+  }
+
+  .button-link {
+    margin-left: 2px;
+    font-size: 10px;
+  }
+
+  .link {
+    white-space: normal;
+    font-size: 10px;
+    word-break: break-all;
+    hyphens: auto;
+  }
+
+  .back-to-top {
+    right: 10px;
+    bottom: 10px;
+    width: 10px;
+    height: 10px;
+  }
+
+  .back-to-top span {
+    color: #000000;
+    font-size: 20px;
+  }
+
+  .content-text {
+    margin-left: 5%;
+    width: 90%;
+  }
+
+  a {
+    line-height: 1.6em;
+  }
+
+  code {
+    margin-inline-start: auto;
+    margin-inline-end: 10%;
+    width: calc(100% - 10px);
+    font-size: 10px;
+  }
+
+  .line-number {
+    font-size: 10px;
+  }
+} 
