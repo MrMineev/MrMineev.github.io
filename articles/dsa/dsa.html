@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Article | MrMineev </title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"rel="stylesheet">
+    <link rel="stylesheet" href="../article-style.css">
+    <link rel="stylesheet" href="dsa.css">
+
+    <link rel="icon" href="../../assets/closed_lock_with_key.png">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+    <!-- BACK TO TOP BUTTON -->
+    <a href="#" class="back-to-top">
+      <span class="material-icons">arrow_upward</span>
+    </a>
+
+    <h1 id="global-name" onclick="window.location.href='../'">MrMineev</h1>
+    <div id="global-name-line"></div>
+
+    <h2 id="article-name">🔐 Digital Signature</h2>
+
+    <div id="article-content">
+      <div class="section-name" style="text-align: center;">
+        <h2 style="display: inline;" class="symbol-change">§</h2><h2 style="display: inline;"> General Concept<h2>
+      </div>
+
+      <p class="content-text">
+        First of all, what is DSA? DSA, which stands for Digital Signature Algorithm, is a widely used cryptographic algorithm for generating and verifying digital signatures. It provides a way to ensure the authenticity, integrity, and non-repudiation of digital messages or documents.<br><br>
+        Digital signatures are used in various applications to prove the sender's identity and guarantee that the content of a message has not been altered during transmission. DSA achieves this by using a pair of mathematically related keys: private and public keys.<br><br>
+        The private key is kept secret and used by the sender to generate a digital signature for a specific message. The digital signature is a unique mathematical representation of the message created by applying complex mathematical operations to the private key and the message itself.<br><br>
+        On the other hand, the public key is openly available and can be used by anyone to verify the digital signature. By performing a series of calculations involving the public key, the original message, and the digital signature, it can be determined whether the signature is valid.<br><br>
+        DSA is widely adopted in various cryptographic protocols and systems, including secure email, document authentication, and digital certificates. DSA plays a crucial role in ensuring the integrity and authenticity of digital information, allowing users to verify the source and integrity of digital messages or documents securely.
+      </p>
+
+      <div class="section-name" style="text-align: center;">
+        <h2 style="display: inline;" class="symbol-change">§</h2><h2 style="display: inline;"> The Algorithm<h2>
+      </div>
+
+      <p class="content-text">
+        In the DSA, there are 3 elements:
+      </p>
+
+      <div class="steps">
+        <div class="big-box">
+          <p class="step">Key Generation</p>
+          <div class="small-box">
+            <p class="step">Parameter Generation</p>
+          </div>
+          <div class="small-box">
+            <p class="step">Per-User Key</p>
+          </div>
+        </div>
+        <div class="big-box">
+          <p class="step">Signing</p>
+        </div>
+        <div class="big-box">
+          <p class="step">Signature Verification</p>
+        </div>
+      </div>
+
+      <p class="content-text">
+        The first operation is Key Generation. Here we generate private and public keys for a person.
+        The second operation is Signing. Here we generate a signature for a document using the private key.
+        The third operation is Signature Verification. Here we check whether the signature is real or not using the public key.
+        Let’s take a closer look at all the operations.
+      </p>
+
+      <div class="section-name" style="text-align: center;">
+        <h2 style="display: inline;" class="symbol-change">§</h2><h2 style="display: inline;"> Key Generation<h2>
+      </div> 
+
+      <div class="section-name" style="text-align: center;">
+        <h2 style="display: inline;" class="symbol-change">§§</h2><h2 style="display: inline;"> Parameter Generation<h2>
+      </div> 
+
+      <p class="content-text">
+        • 1. First step is to pick a "Cryptographic Hash Function" H. Let's represent |H| as the output length of bits the hash function returns.
+        • 2. Choose a key L<br>
+        • 3. Choose a modulus N such that:
+      </p>
+      <div class="cmath">`N < L ^^ N < |H|`</div>
+      <p class="content-text">
+        • 4. Choose a N-bit prime number q, so a prime number from 2<sup>N</sup> to 2<sup>N + 1</sup>.<br>
+        • 5. Choose an L-bit number p such that:
+      </p>
+      <div class="cmath">`p - 1 vdots q`</div>
+      <p class="content-text">
+        • 6. Choose an integer h randomly from 
+      </p>
+      <div class="cmath">`{2 ... p - 2}`</div>
+      <p class="content-text">
+        • 7. Calculate g using the following formula
+      </p>
+      <div class="cmath">`g = h ^ ((p - 1) / q) mod p`</div>
+      <p class="content-text">
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If g = 1, try again with another h.<br><br>
+        From the result of these steps, we generated p, q, and g, which are the algorithm's parameters. These values can be shared between different users of the system.
+      </p>
+
+      <div class="section-name" style="text-align: center;">
+        <h2 style="display: inline;" class="symbol-change">§§</h2><h2 style="display: inline;"> Per-User Key<h2>
+      </div> 
+
+      <p class="content-text">
+        Now how to calculate the private and public keys? Simple let x be a random number from 1 to q - 1 inclusive, and y:
+      </p>
+      <div class="cmath">`y = g^x mod p`</div>
+      <p class="content-text">
+        And done! x is your private key, and y is your public key. (You can share the public key, but you don't want to share the private key)
+      </p>
+
+      <div class="section-name" style="text-align: center;">
+        <h2 style="display: inline;" class="symbol-change">§</h2><h2 style="display: inline;"> Signing</h2>
+      </div>
+
+      <p class="content-text">
+        You are given a message M how to sign it?<br><br>
+        1. Choose a random number k from 1 to q - 1<br>
+        2. Then (r, s) is the signature of the message M<br>
+      </p>
+      <div class="cmath">`r = (g^k mod p) mod q`</div>
+      <div class="cmath">`s = (k^-1 * (H(M) + xr)) mod q`</div>
+      <p class="content-text">
+        If r or s is 0, pick another value of k and try again.
+      </p>
+
+      <div class="section-name" style="text-align: center;">
+        <h2 style="display: inline;" class="symbol-change">§</h2><h2 style="display: inline;"> Signature Verification</h2>
+      </div>
+
+      <p class="content-text">
+        Given a message M, a signature (r, s), and a user U how to verify that U sent the message M?<br><br>
+
+        1. Check that 0 < r < U<sub>q</sub> and that 0 < s < U<sub>q</sub>. If this isn't true, then the signature is fake.<br>
+        2. Calculate the following values:
+      </p>
+      <div class="cmath">`w = s^-1 mod q`</div>
+      <div class="cmath">`u_(1) = H(M) * w mod U_(q)`</div>
+      <div class="cmath">`u_(2) = r * w mod U_(q)`</div>
+      <div class="cmath">`v = (g^(u_(1)) U_(y)^(u_(2)) mod U_(p)) mod U_(q)`</div>
+      <p class="content-text">
+        3. Check if v = r. In such case, the sender indeed sent the message, else not.
+      </p>
+
+      <div class="section-name" style="text-align: center;">
+        <h2 style="display: inline;" class="symbol-change">§</h2><h2 style="display: inline;"> Details<h2>
+      </div>
+
+      <p class="content-text">
+        Generating P, Q, and G takes time because you want the numbers to be big to increase security. All the other operations can be processed relatively quickly.
+      </p>
+
+      <br>
+
+      <div class="section-name" style="text-align: center;">
+        <h2 style="display: inline;" class="symbol-change">§</h2><h2 style="display: inline;"> Links</h2>
+      </div>
+
+      <br>
+
+      <button class="button-link">
+        GitHub
+      </button>
+      &nbsp;
+      <a rel="noopener noreferrer" target="_blank" class="link" href="https://github.com/MrMineev/DSA">https://github.com/MrMineev/DSA</a>
+
+      <br>
+      <br>
+
+      <button class="button-link">
+        Wikipedia
+      </button>
+      &nbsp;
+      <a rel="noopener noreferrer" target="_blank" class="link" href="https://en.wikipedia.org/wiki/Digital_Signature_Algorithm">https://en.wikipedia.org/wiki/Digital_Signature_Algorithm</a>
+    </div>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <script async="true" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=AM_CHTML"> </script>
+    <script async="true" src="https://cdn.jsdelivr.net/npm/mathjax@2.7.6/MathJax.js?config=AM_CHTML"> </script>
+
+  </body>
+</html>
+

@@ -4,11 +4,15 @@
     <changefreq>daily</changefreq>
   </url>
   <url>
-    <loc>https://mrmineev.github.io/articles/gravity-simulator</loc>
+    <loc>https://mrmineev.github.io/articles/gravity-simulator/gravity-simulator</loc>
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>https://mrmineev.github.io/articles/recommendation-system</loc>
+    <loc>https://mrmineev.github.io/articles/recommendation-system/recommendation-system</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://mrmineev.github.io/articles/dsa/dsa</loc>
     <changefreq>weekly</changefreq>
   </url>
 </urlset>
