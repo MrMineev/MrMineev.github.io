@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Article | MrMineev </title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"rel="stylesheet">
+    <link rel="stylesheet" href="../article-style.css">
+    <link rel="stylesheet" href="jpeg.css">
+
+    <link rel="icon" href="../../assets/frame_with_picture.png">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+    <!-- BACK TO TOP BUTTON -->
+    <a href="#" class="back-to-top">
+      <span class="material-icons">arrow_upward</span>
+    </a>
+
+    <h1 id="global-name" onclick="window.location.href='https://mrmineev.github.io/'">MrMineev</h1>
+    <div id="global-name-line"></div>
+    
+    <h2 id="article-name">🖼 Image Compression</h2>
+    
+    <div id="article-content">
+      <div class="section-name" style="text-align: center;">
+        <h2 style="display: inline;" class="symbol-change">§</h2><h2 style="display: inline;"> Intruduction</h2>
+      </div>
+
+      <p class="content-text">
+      JPEG, an acronym for Joint Photographic Experts Group, is a popular technique for compressing digital images, especially those taken by digital cameras. It allows users to adjust the level of compression, striking a balance between storage size and image quality. Generally, JPEG achieves a compression ratio of 10:1 without significantly compromising the visual appearance of the image. Since its inception in 1992, JPEG has become the most widely adopted image compression standard globally. It is also the most commonly used digital image format, with billions of JPEG images being generated daily since 2015. The term "JPEG" originates from the Joint Photographic Experts Group, the organization that established the standard in 1992. JPEG played a significant role in the widespread use of digital images and their distribution over the Internet and social media platforms.
+      </p>
+
+      <div class="section-name" style="text-align: center;">
+        <h2 style="display: inline;" class="symbol-change">§</h2><h2 style="display: inline;"> The JPEG Algorithm</h2>
+      </div>
+
+      <br>
+
+      <div class="section-name" style="text-align: center;">
+        <h2 style="display: inline;" class="symbol-change">§§</h2><h2 style="display: inline;"> Color Space</h2>
+      </div>
+
+      <p class="content-text">
+      In contrast to specific alternative algorithms, JPEG employs Y'CbCr for image interpretation. Y' represents the luma component within this color space, while CB and CR represent the chroma components for blue-difference and red-difference, respectively. The following formulas describe the conversion process from RGB (Red, Green, Blue) to Y'CbCr:
+      </p>
+
+      <div class="cmath">
+        `
+        {
+          (Y^' = 16.0 + 65.738 * R / 256.0 + 129.057 * G / 256.0 + 25.064 * B / 256.0),
+          (C_b = 128.0 - 37.945 * R / 256.0 - 74.494 * G / 256.0 + 112.439 * B / 256.0),
+          (C_r = 128.0 + 112.439 * R / 256.0 - 94.154 * G / 256.0 - 18.285 * B / 256.0)
+        :}
+        `
+      </div>
+
+      <p class="content-text">
+      And to convert from Y'CbCr to RGB:
+      </p>
+
+      <div class="cmath">
+        `
+        {
+          (R = (298.082 * Y^') / 256.0 + (408.583 * C_(r)) / 256.0 - 222.921),
+          (G = (298.082 * Y^') / 256.0 - (100.291 * C_(b)) / 256.0 - (208.120 * C_(r)) / 256.0 + 135.576),
+          (B = (298.082 * Y^') / 256.0 + (516.412 * C_(b)) / 256.0 - 276.836)
+        :}
+        `
+      </div>
+
+      <br>
+
+      <div class="section-name" style="text-align: center;">
+        <h2 style="display: inline;" class="symbol-change">§§</h2><h2 style="display: inline;"> Discrete Cosine Transform</h2>
+      </div>
+
+      <p class="content-text">
+      Let’s split the image into 8x8 pixel blocks. We will perform a two-dimensional DCT (Discrete Cosine Transform) for each block. You can look at the links at the bottom if you don’t know what a DCT is. Here are the formulas for calculating a new 8x8 block where each cell represents the Cosine Coefficient:
+      </p>
+      <div class="cmath">`G_(u,v)= 1/4α(u)α(v)sum_(x=0)^7 sum_(y=0)^7 g_(x,y) cos(((2x + 1)upi)/16) cos(((2y + 1)vpi) / 16)`</div>
+
+      <p class="content-text">
+      Where G<sub>u,v</sub> is the DCT coefficient at coordinates (u, v). g<sub>x,y</sub> is the pixel value at coordinates (x, y). By the way the cosine here has radians as input. And α(n):
+      </p>
+
+      <div class="cmath">
+        `
+        α(n) = {
+          (1/sqrt(2), n = 0),
+          (1, n != 0)
+        :}
+        `
+      </div>
+
+      <br>
+
+      <div class="section-name" style="text-align: center;">
+        <h2 style="display: inline;" class="symbol-change">§§</h2><h2 style="display: inline;"> Quantization</h2>
+      </div>
+
+      <p class="content-text">
+      Small terms in the DCT don’t change the value much, so why store them? The Quantization step is basically made for storing as less as possible of these small terms. JPEG has a “Quantization Matrix” Q, then we replace each DCT block value with:
+      </p>
+      <div class="cmath">
+        `
+        B_(i, j) = round(G_(i, j) / Q_(i, j))
+        `
+      </div>
+
+      <div class="section-name" style="text-align: center;">
+        <h2 style="display: inline;" class="symbol-change">§§</h2><h2 style="display: inline;"> Entropy Coding</h2>
+      </div>
+
+      <p class="content-text">
+      We have a collection of blocks 8x8. Notice those blocks. How can we exploit this and save memory? Notice that the value in the block at (0, 0) will have a significant coefficient. The farther the index from 0, the less meaning. Let’s zigzag the block and create a new array.
+      </p>
+
+      <div style="text-align: center;">
+        <img src="../../assets/8x8-zigzag.png"></img>
+      </div>
+
+      <p class="content-text">
+        This way, all the zeros will be in a row suitable for the RLE (Run-Lenght Encoding). What is RLE? Simple, RLE is the most obvious way of compressing information. Let’s consider a string. 
+      </p>
+
+      <div style="text-align: center;">
+        <p style="letter-spacing: .2rem; font-family: font-family: 'Courier New', monospace;">
+          AAAABBBBBAAAA
+        </p>
+      </div>
+
+      <p class="content-text">
+      How can we compress the text most simply? Let's just write 4A5B4A. Simple and effective! If the text contains a number, like in our case, we can use a separator symbol. For example, consider a text:
+      </p>
+
+       <div style="text-align: center;">
+        <p style="letter-spacing: .2rem; font-family: font-family: 'Courier New', monospace;">
+        111111AAAAAAA222222
+        </p>
+      </div>
+
+      <p class="content-text">
+        Let’s say the separator symbols are ‘;’ and ‘:’ Then we can compress this string to:
+      </p>
+
+       <div style="text-align: center;">
+        <p style="letter-spacing: .2rem; font-family: font-family: 'Courier New', monospace;">
+        6:1;7:A;6:2;
+        </p>
+      </div>
+
+      <p class="content-text">
+      Notice this compression method only works for strings with long sequences of repeating characters. For other sequences like:
+      </p>
+
+      <div style="text-align: center;">
+        <p style="letter-spacing: .2rem; font-family: font-family: 'Courier New', monospace;">
+        ABC
+        </p>
+      </div>
+
+      <p class="content-text">
+        The compressed version of the string is bigger than the original:
+      </p>
+
+       <div style="text-align: center;">
+        <p style="letter-spacing: .2rem; font-family: font-family: 'Courier New', monospace;">
+        1A1B1C
+        </p>
+      </div>
+
+      <p class="content-text">
+      In our case with the DCT blocks, after doing the zigzag algorithm, there are long sequences of zeros which is good. Now that we performed the RLE, we use the Huffman Coding. Huffman Coding is something I will not discuss here; however, if you would like to know about it, I provided links in the “Links” section.
+      </p>
+
+      <br>
+
+      <div class="section-name" style="text-align: center;">
+        <h2 style="display: inline;" class="symbol-change">§§</h2><h2 style="display: inline;"> Decoding</h2>
+      </div>
+
+      <p class="content-text">
+      After decoding the entropy coding, we get the quantized DCT block. First, we need to take the entry-for-entry product with the quantization matrix. Here is the formula:
+      </p>
+
+      <div class="cmath">
+        `F_(i, j) = B_(i, j) * Q_(i, j), text( for ) i in {0..7}, j in {0..7}`
+      </div>
+
+      <p class="content-text">
+        Now we need to perform a inverse two-dimentional DCT on F. Here is the formula:
+      </p>
+
+      <div class="cmath">
+        `
+        f_(x,y) = 1/4 sum_(u=0)^7 sum_(v=0)^7 alpha(u) alpha(v) F_(u,v) cos(((2x + 1)upi) / 16) cos(((2y + 1)vpi) / 16)
+        `
+      </div>
+
+      <p class="content-text">
+      Thats it! This is how JPEG works! Apply everything I described for all the signals Y’, Cb, and Cr, and you get yourself JPEG.
+      </p>
+      
+      <div class="section-name" style="text-align: center;">
+        <h2 style="display: inline;" class="symbol-change">§</h2><h2 style="display: inline;"> Links</h2>
+      </div>
+      
+      <button class="button-link">
+        GitHub
+      </button>
+      &nbsp;
+      <a rel="noopener noreferrer" target="_blank" class="link" href="https://github.com/MrMineev/Data-Compression">https://github.com/MrMineev/Data-Compression</a>
+
+      <br>
+      <br>
+
+      <button class="button-link">
+        Huffman Coding
+      </button>
+      &nbsp;
+      <a rel="noopener noreferrer" target="_blank" class="link" href="https://en.wikipedia.org/wiki/Huffman_coding">https://en.wikipedia.org/wiki/Huffman_coding</a>
+
+      <br>
+      <br>
+
+      <button class="button-link">
+        Discrete Cosine Transform
+      </button>
+      &nbsp;
+      <a rel="noopener noreferrer" target="_blank" class="link" href="https://tutorial.math.lamar.edu/classes/de/fouriercosineseries.aspx">https://tutorial.math.lamar.edu/classes/de/fouriercosineseries.aspx</a>
+
+
+
+    </div>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    
+    <script src="../linenumber.js"></script>
+
+    <script async="true" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=AM_CHTML"> </script>
+    <script async="true" src="https://cdn.jsdelivr.net/npm/mathjax@2.7.6/MathJax.js?config=AM_CHTML"> </script>
+  </body>
+</html>
+
