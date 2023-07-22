@@ -19,4 +19,8 @@
     <loc>https://mrmineev.github.io/articles/jpeg/jpeg</loc>
     <changefreq>weekly</changefreq>
   </url>
+  <url>
+    <loc>https://mrmineev.github.io/articles/lambda-calculus/lambda-calculus</loc>
+    <changefreq>weekly</changefreq>
+  </url>
 </urlset>

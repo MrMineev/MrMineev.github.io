@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Article | MrMineev </title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"rel="stylesheet">
+    <link rel="stylesheet" href="../article-style.css">
+    <link rel="stylesheet" href="lambda-calculus.css">
+
+    <link rel="icon" href="../../assets/lambda-icon.png">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+    <!-- BACK TO TOP BUTTON -->
+    <a href="#" class="back-to-top">
+      <span class="material-icons">arrow_upward</span>
+    </a>
+
+    <h1 id="global-name" onclick="window.location.href='https://mrmineev.github.io/'">MrMineev</h1>
+    <div id="global-name-line"></div>
+
+    <h2 id="article-name">λ Lambda Calculus</h2>
+
+    <div id="article-content">
+      <div class="section-name" style="text-align: center;">
+        <h2 style="display: inline;" class="symbol-change">§</h2><h2 style="display: inline;"> What is Lambda Calculus?<h2>
+      </div>
+
+      <p class="content-text">
+        Lambda calculus is an abstract and elegant way of performing mathematics and solving problems using functions as its fundamental building blocks. It was developed by Alonzo Church in the 1930s.
+        In lambda calculus, we work with special mathematical entities called "lambda functions." These functions take inputs and produce outputs based on rules defined within the functions. Think of them as magical boxes that you can put values into, and they will transform those values following specific instructions to give you a result.
+        What makes lambda calculus unique is that everything is represented using these functions. There are no separate notions of objects, numbers, or booleans. Instead, numbers and other data types are encoded using clever combinations of functions.
+        For example, instead of having a specific concept of a number, you can use functions to represent numbers. The number zero can be encoded as a function that takes two arguments and returns the first argument, while other numbers can be represented using different function compositions.
+        Lambda calculus may seem very different from traditional math, but it has proven to be a powerful and foundational concept in computer science and mathematical logic. By working with functions and their combinations, lambda calculus allows us to express complex computations and solve various mathematical problems in a concise and universal way.
+      </p>
+
+      <div class="section-name" style="text-align: center;">
+        <h2 style="display: inline;" class="symbol-change">§</h2><h2 style="display: inline;"> Notation</h2>
+      </div>
+
+      <p class="content-text">
+        To define a function, you need to use the special lambda notation. Let's consider the simple function that has a function x as an input and returns the same function x. To write this function with Lambda notation, you have to write the following expression.
+      </p>
+      <div class="cmath">
+        `lambdax. x`
+      </div>
+      <p class="content-text">
+        To have a function have multiple arguments, you can write the following.
+      </p>
+      <div class="cmath">
+        `lambdax. lambday. x`
+      </div>
+      <p class="content-text">
+        This function takes two arguments and returns the first argument. Nice! Now how can we apply functions? Simple to apply a function x to an argument y; you can simply write the following.
+      </p>
+      <div class="cmath">
+        `x" "y`
+      </div>
+
+      <br>
+
+      <div class="section-name" style="text-align: center;">
+        <h2 style="display: inline;" class="symbol-change">§</h2><h2 style="display: inline;"> Encoding Booleans</h2>
+      </div>
+
+      <p class="content-text">
+        As I said in the purest form of Lambda Calculus there is no such thing as numbers, booleans, etc. There are only functions. So to be able to work with booleans, we need to come up with an encoding for TRUE and FALSE. Let's encode TRUE and FALSE the following way.
+      </p>
+
+      <div class="cmath">
+        `"TRUE" = lambdax. lambday. x`
+      </div>
+      <div class="cmath">
+        `"FALSE" = lambdax. lambday. y`
+      </div>
+
+      <p class="content-text">
+        How can we use this? Here is how we can define the NOT function using these definitions.
+      </p>
+
+      <div class="cmath">
+        `"NOT" = lambdab. b " FALSE TRUE"`
+      </div>
+
+      <p class="content-text">
+        For example, if you plug in TRUE into the NOT function, you will get the following.
+      </p>
+
+      <div class="cmath">
+        `(lambdab. b " FALSE TRUE") " TRUE" rightarrow "TRUE FALSE TRUE" rightarrow "FALSE"`
+      </div>
+      <div class="cmath">
+        `(lambdab. b " FALSE TRUE") " FALSE" rightarrow "FALSE FALSE TRUE" rightarrow "TRUE"`
+      </div>
+
+      <p class="content-text">
+        You can also define AND, OR, and XOR using this notation the following way.
+      </p>
+
+      <div class="cmath">
+        `AND = lambdaa. lambdab. a` `b` `a`
+      </div>
+      <div class="cmath">
+        `OR = lambdaa. lambdab. a` `a` `b`
+      </div>
+      <div class="cmath">
+        `XOR = lambdaa. lambdab. a` `(NOT` `b)` `b`
+      </div>
+
+      <br>
+
+      <div class="section-name" style="text-align: center;">
+        <h2 style="display: inline;" class="symbol-change">§</h2><h2 style="display: inline;"> Encoding Numbers</h2>
+      </div>
+
+      <p class="content-text">
+        Now that we know how to encode booleans, the next question is how to encode numbers. Simple!
+      </p>
+
+      <div class="cmath">
+        `0 = lambdaf. lambdax. x`
+      </div>
+      <div class="cmath">
+        `1 = lambdaf. lambdax. f x`
+      </div>
+      <div class="cmath">
+        `2 = lambdaf. lambdax. f (f x)`
+      </div>
+      <div class="cmath">
+        `3 = lambdaf. lambdax. f (f (f x))`
+      </div>
+      <div class="cmath">
+        ...
+      </div>
+
+      <p class="content-text">
+        Using these encodings, you can define PLUS.
+      </p>
+
+      <div class="cmath">
+        `PLUS = lambdam. lambdan. lambdaf. lambda x. m` `f` `(n` `f` `x)`
+      </div>
+
+      <br>
+
+      <div class="section-name" style="text-align: center;">
+        <h2 style="display: inline;" class="symbol-change">§</h2><h2 style="display: inline;"> Recursion</h2>
+      </div>
+
+      <p class="content-text">
+        Consider the factorial function.
+      </p>
+      <div class="cmath">
+        `n! = {(1, n=0),(n * (n-1)!, n!=0):}`
+      </div>
+      <p class="content-text">
+        Once you start thinking about this, you realize this isn't a trivial question. So let's break this down. We have a G-step function.
+      </p>
+      <div class="cmath">
+        `G = lambdar. lambdan. (1, if n = 0; else` `n * (r` `(n - 1)))`
+      </div>
+      <p class="content-text">
+        And then, we want some sort of FIX function that would do the following.
+      </p>
+      <div class="cmath">
+        `F = FIX` `G`, where `FIX` `g = g * (FIX` `g)`
+      </div>
+      <p class="content-text">
+        The fixed-point combinator FIX will return a self-replicating lambda expression representing the recursive function. Here is one of the possible definitions of FIX, the Y combinator.
+      </p>
+      <div class="cmath">
+        `Y = lambdag. (lambdax. g` `(x` `x)) (lambdax. g` `(x` `x))`
+      </div>
+
+      <br>
+
+      <div class="section-name" style="text-align: center;">
+        <h2 style="display: inline;" class="symbol-change">§</h2><h2 style="display: inline;"> Links</h2>
+      </div>
+
+      <br>
+
+      <button class="button-link">
+        Wikipedia
+      </button>
+      &nbsp;
+      <a rel="noopener noreferrer" target="_blank" class="link" href="https://en.wikipedia.org/wiki/Lambda_calculus">https://en.wikipedia.org/wiki/Lambda_calculus</a>
+    </div>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <script async="true" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=AM_CHTML"> </script>
+    <script async="true" src="https://cdn.jsdelivr.net/npm/mathjax@2.7.6/MathJax.js?config=AM_CHTML"> </script>
+
+  </body>
+</html>
+
