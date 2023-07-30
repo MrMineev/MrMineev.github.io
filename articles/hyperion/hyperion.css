@@ -1,0 +1,48 @@
+.toc_wrapper {
+  margin-left: 10%;
+  width: 80%;
+  display: flex; /* Add display: flex */
+  justify-content: center; /* Center the content horizontally */
+}
+
+#toc_container {
+  background: #f9f9f9 none repeat scroll 0 0;
+  border: 1px solid #aaa;
+  border-radius: 10px;
+  box-shadow: 5px 5px #6f6f6f;
+  display: table;
+  font-size: 18px;
+  margin-bottom: 1em;
+  padding: 20px;
+  width: 80%;
+  line-height: 25px;
+
+  /* New styles for centering the container */
+  display: flex;
+  flex-direction: column;
+}
+
+.toc_title {
+  font-size: 23px;
+  font-weight: 700;
+  text-align: center;
+}
+
+#toc_container li, #toc_container ul, #toc_container ul li{
+  list-style: outside none none !important;
+}
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 60%;
+  margin-left: 20%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+  background-color: #ffffff;
+}
+
