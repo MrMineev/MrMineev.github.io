@@ -1,0 +1,87 @@
+/* Add a style for the menu button */
+.menu-button {
+  display: none; /* Hide the button by default on larger screens */
+  cursor: pointer;
+}
+
+.menu-button span {
+  display: block;
+  height: 3px;
+  width: 25px;
+  margin: 6px auto;
+  background-color: #fff;
+  transition: all 0.3s;
+}
+
+/* The sidebar menu */
+.sidenav {
+  height: 100%;
+  width: 160px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+.sidenav a.selected {
+  color: #fff; /* Change the text color for better contrast */
+}
+
+/* The navigation menu links */
+.sidenav a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  text-align: center; /* Center text horizontally within each link */
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+/* Add a margin-top to push the link to the bottom */
+.my-website-link {
+  margin-top: auto;
+  display: block;
+  margin-bottom: 20px; /* Add some bottom margin for spacing */
+}
+
+/* Media query for smaller screens */
+@media screen and (max-width: 768px) {
+  .menu-button {
+    display: block; /* Show the button on smaller screens */
+    position: fixed;
+    background-color: black;
+    top: 10px;
+    left: 10px;
+    z-index: 2; /* Ensure it's on top of the sidebar */
+  }
+
+  .sidenav {
+    width: 0;
+    transition: all 0.3s; /* Add animation to the sidebar */
+  }
+
+  .sidenav.open {
+    width: 160px; /* Set the width of the open sidebar */
+  }
+
+  .menu-button.open span:nth-child(1) {
+    transform: rotate(-45deg) translate(-5px, 6px);
+  }
+
+  .menu-button.open span:nth-child(2),
+  .menu-button.open span:nth-child(3) {
+    opacity: 0; /* Hide the middle span lines when the sidebar is open */
+  }
+
+  .menu-button.open span:nth-child(3) {
+    transform: rotate(45deg) translate(-5px, -6px);
+  }
+}
+

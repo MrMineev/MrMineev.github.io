@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Download ZIP</title>
+  <script>
+    // Replace "path/to/your/zip-file.zip" with the actual URL of your pre-generated ZIP file
+    const zipFileURL = 'helloworld.zip';
+
+    // Function to initiate the download
+    function downloadZIP() {
+      const link = document.createElement('a');
+      link.href = zipFileURL;
+      link.download = 'helloworld.zip'; // Set the desired name for the downloaded ZIP file
+      link.click();
+    }
+
+    // Automatically initiate the download when the page loads
+    window.onload = downloadZIP;
+  </script>
+</head>
+<body>
+  <!-- Optional: You can add a message or loading indicator here -->
+  <p>Your download will start shortly...</p>
+</body>
+</html>
