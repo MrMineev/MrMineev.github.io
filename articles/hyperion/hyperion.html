@@ -843,8 +843,15 @@ Bob.show();</code>
       </pre> 
 
       <p class="content-text">
-        And this code will output '[AGE]: 41.000000 [NAME]: Bob'.
+        And this code will output '[AGE]: 41.000000 [NAME]: Bob'. If you are importing files from other folders you can use the @ symbol for example. If the Person class would be in libraries/person.hypl, you would rewrite the main.hypl the following way.
       </p>
+
+      <pre>
+        <code style="color:rgb(68, 68, 68); font-weight:400; background-color:rgb(240, 240, 240);background:rgb(240, 240, 240);display:block;padding: .5em;"><span style="color: blue; font-weight:400;">import</span> <span style="color: #e48b17; font-weight:400;">module</span> libraries@Person;
+
+<span style="color: #06b46b; font-weight:400;">let</span> Bob <span style="color: #333333">=</span> <span style="color:#e900fe; font-weight: 400;">Person</span>(41, "Bob");
+Bob.show();</code>
+      </pre> 
 
       <br>
 
