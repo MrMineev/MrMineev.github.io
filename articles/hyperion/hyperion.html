@@ -52,6 +52,7 @@
               <li><a href="#file_io">8.1.6 File I/O</a></li>
               <li><a href="#list">8.1.7 List</a></li>
               <li><a href="#console">8.1.8 Console</a></li>
+              <li><a href="#random">8.1.9 Random</a></li>
             </ul>
             <li><a href="#module-stmt">8.2 Modules</a></li>
           </ul>
@@ -701,6 +702,13 @@ Bob.show();</code>
             <td>number</td>
             <td>returns n * pi / 180</td>
           </tr>
+          <tr>
+            <td>math:golden_ratio</td>
+            <td>0</td>
+            <td></td>
+            <td>number</td>
+            <td>returns the value of the golden ratio</td>
+          </tr>
         </tbody>
       </table>
 
@@ -776,6 +784,13 @@ Bob.show();</code>
             <td></td>
             <td>erases the i-th element from a list</td>
           </tr>
+          <tr>
+            <td>list:erase</td>
+            <td>1</td>
+            <td>(list)</td>
+            <td>number</td>
+            <td>returns the length of the list</td>
+          </tr>
         </tbody>
       </table>
 
@@ -802,6 +817,40 @@ Bob.show();</code>
             <td></td>
             <td>string</td>
             <td>returns the line read from the user</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <br>
+
+      <div id="random" class="section-name" style="text-align: center;">
+        <h2 style="display: inline;" class="symbol-change">§§§</h2><h2 style="display: inline;"> Random (random)</h2>
+      </div>
+
+      <br>
+
+      <table class="content-text">
+        <thead>
+          <th>Function</th>
+          <th>Argument Count</th>
+          <th>Arguments</th>
+          <th>Return Type</th>
+          <th>Description</th>
+        </thead>
+        <tbody>
+          <tr>
+            <td>random:rand</td>
+            <td>0</td>
+            <td></td>
+            <td>number</td>
+            <td>returns a random number</td>
+          </tr>
+          <tr>
+            <td>random:srand</td>
+            <td>1</td>
+            <td>(number)</td>
+            <td></td>
+            <td>sets the random seed to the first argument</td>
           </tr>
         </tbody>
       </table>
