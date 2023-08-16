@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Article | MrMineev </title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"rel="stylesheet">
+    <link rel="stylesheet" href="../article-style.css">
+    <link rel="stylesheet" href="cg.css">
+
+    <link rel="icon" href="../../assets/video_game.png">
+
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+    <!-- BACK TO TOP BUTTON -->
+    <a href="#" class="back-to-top">
+      <span class="material-icons">arrow_upward</span>
+    </a>
+
+    <h1 id="global-name" onclick="window.location.href='https://mrmineev.github.io/'">MrMineev</h1>
+    <div id="global-name-line"></div>
+
+    <h2 id="article-name">🎮 The Congestion Game</h2>
+
+    <div id="article-content">
+      <div class="section-name" style="text-align: center;">
+        <h2 style="display: inline;" class="symbol-change">§</h2><h2 style="display: inline;"> The Setting<h2>
+      </div>
+
+      <p class="content-text">
+      The Congestion Game is played on a network of interconnected routes or roads where individuals decide which paths to take to their destinations. These choices are driven by finding ways to navigate through the network efficiently. However, as more individuals opt for the same routes, congestion emerges, resulting in slower travel for everyone on those routes. This situation emphasizes the intricate interplay between individual decisions and their collective impact on overall traffic flow.
+      </p>
+
+      <div class="section-name" style="text-align: center;">
+        <h2 style="display: inline;" class="symbol-change">§</h2><h2 style="display: inline;"> Braess's Paradox<h2>
+      </div>
+
+      <p class="content-text">
+      Consider the following network. The roads from A to D and C to B are wide, so the travel time is constant no matter how many cars there are. However, the paths from A to C and D to B are narrow, so the more cars use it, the more time it takes to cross.
+      </p>
+
+      <div style="text-align: center;">
+        <img src="../../assets/example-congestion.png" width="30%">
+      </div>
+
+      <p class="content-text">
+      Let there be 100 drivers in this game. What is then the "Nash equilibrium"?
+      </p>
+
+      <div class="content-text definition-box">
+        <h2 style="text-align: center;">Nash Equilibrium</h2>
+        <p style="padding: 10px;">
+        A Nash equilibrium is a situation in which each participant in a game or decision-making scenario makes the best choice they can, given the choices of others, and no one has the incentive to change their decision unilaterally. In other words, players can only improve their outcome by changing their strategy if the other players' strategies remain the same. Strictly speaking, S_i is the set of all possible strategies for player i. And s* be the so-called strategy profile, the set of all the current strategies each player uses. And let s*_-i be the set of all current strategies each player uses except for player i. Then s* is a Nash equilibrium if and only if the following statement holds
+        </p>
+
+        <div class="cmath">
+          `\forall s_i \in S_i: u_i(s^\ast) \geq u_i(s_i, s_{-i}^{\ast})`
+        </div>
+
+        <p style="padding: 10px;">
+        The u function calculates each player's individual "score" with the current strategy profile.
+        </p>
+      </div>
+
+      <p class="content-text">
+      Well, it is simple, just 2000 drivers take the ACB path, and 2000 others take the ADB path. And if anyone takes the other path, their travel time will be greater. The travel time in this scenario is (2000 / 100) min + 45 min = 65 min. Now let's add a road from C to D, which will take to cross approximately 0 minutes.
+      </p>
+
+      <div style="text-align: center;">
+        <img src="../../assets/example-congestion-2.png" width="30%">
+      </div>
+
+      <p class="content-text">
+      Consider the previous Nash equilibrium. Now it is no longer a valid Nash equilibrium because switching and taking the ACDB path will take him longer.
+      </p>
+
+      <div class="cmath">
+        `\frac{2001}{100} min + 0 min + \frac{2000}{100} min = 20.01 min + 20 min = 40.01 min`
+      </div>
+
+      <p class="content-text">
+        Which is better than the previous result by about 25 minutes. After trying other possibilities, you will notice the only Nash equilibrium here is if all 4000 take the path ACDB. Now let's calculate the travel time here.
+      </p>
+
+      <div class="cmath">
+        `\frac{4000}{100} min + 0 min + \frac{4000}{100} min = 80 min`
+      </div>
+
+      <p class="content-text">
+        If anyone switches to another path, their travel time will be greater.
+      </p>
+
+      <div class="cmath">
+        `t(ACB) = \frac{4000}{100} min + 45 min = 85 min`
+      </div>
+      <div class="cmath">
+        `t(ADB) = 45 min + \frac{4000}{100} min = 85 min`
+      </div>
+
+      <p class="content-text">
+        So this is a Nash equilibrium. Adding a new road may sometimes lead to a greater overall travel time.
+      </p>
+
+      <div class="section-name" style="text-align: center;">
+        <h2 style="display: inline;" class="symbol-change">§</h2><h2 style="display: inline;"> Links<h2>
+      </div>
+
+      <button class="button-link">
+        Wikipedia
+      </button>
+      &nbsp;
+      <a rel="noopener noreferrer" target="_blank" class="link" href="https://en.wikipedia.org/wiki/Congestion_game#:~:text=Congestion%20games%20(CG)%20are%20a,oligopoly%20markets%20and%20natural%20habitats.">Congestion Game</a>
+
+      <p></p>
+
+      <button class="button-link">
+        Wikipedia
+      </button>
+      &nbsp;
+      <a rel="noopener noreferrer" target="_blank" class="link" href="https://en.wikipedia.org/wiki/Nash_equilibrium">Nash Equilibrium</a>
+    </div>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <script scr="cg.js"></script>
+
+    <script async="true" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=AM_CHTML"> </script>
+    <script async="true" src="https://cdn.jsdelivr.net/npm/mathjax@2.7.6/MathJax.js?config=AM_CHTML"> </script>
+
+  </body>
+</html>
+
