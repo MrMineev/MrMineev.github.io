@@ -47,8 +47,6 @@ document.getElementById("nash-calculate").onclick = function() {
         }
 
         if (is_nash) {
-          console.log("FOUND!");
-
           document.getElementById("acb-drivers").textContent = i.toString();
           document.getElementById("acb-time").textContent = first[0].toString() + " min";
 
