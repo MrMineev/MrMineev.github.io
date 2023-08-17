@@ -105,6 +105,95 @@
       </p>
 
       <div class="section-name" style="text-align: center;">
+        <h2 style="display: inline;" class="symbol-change">§</h2><h2 style="display: inline;"> Playground<h2>
+      </div>
+
+      <div style="text-align: center;">
+        <img src="../../assets/example-congestion-3.png" width="30%">
+      </div>
+
+      <table>
+        <tr>
+          <th>Road</th>
+          <th>Cost</th>
+        </tr>
+        <tr>
+          <th>AD</th>
+          <td><div id="ad" contenteditable>45</div></td>
+        </tr>
+        <tr>
+          <th>AC</th>
+          <td><div id="ac" contenteditable>x</div></td>
+        </tr>
+        <tr>
+          <th>CB</th>
+          <td><div id="cb" contenteditable>45</div></td>
+        </tr>
+        <tr>
+          <th>CD</th>
+          <td><div id="cd" contenteditable>0</div></td>
+        </tr>
+        <tr>
+          <th>DB</th>
+          <td><div id="db" contenteditable>x</div></td>
+        </tr>
+      </table>
+
+      <br>
+
+      <div style="text-align: center;" class="slider-container">
+        <label style="font-family: 'Merriweather', serif;" for="slider">Number of Drivers<label>
+        <input type="range" id="slider" min="10" max="100" step="10" value="40">
+        <div id="slider-values">
+          <span>10</span>
+          <span>20</span>
+          <span>30</span>
+          <span>40</span>
+          <span>50</span>
+          <span>60</span>
+          <span>70</span>
+          <span>80</span>
+          <span>90</span>
+          <span>100</span>
+        </div>
+      </div>
+
+      <br>
+
+      <div style="margin-right: 10%; text-align: center;">
+        <button id="nash-calculate" class="button-table-name">Calculate</button>
+      </div>
+
+      <br>
+
+      <table>
+        <tbody>
+          <tr>
+            <th>Path</th>
+            <th>Drivers</th>
+            <th>Time</th>
+          </tr>
+          <tr>
+            <th>ACB</th>
+            <td id="acb-drivers">UNKNOWN</td>
+            <td id="acb-time">UNKNOWN</td>
+          </tr>
+          <tr>
+            <th>ADB</th>
+            <td id="adb-drivers">UNKNOWN</td>
+            <td id="adb-time">UNKNOWN</td>
+          </tr>
+          <tr>
+            <th>ACDB</th>
+            <td id="acdb-drivers">UNKNOWN</td>
+            <td id="acdb-time">UNKNOWN</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <br>
+
+      <div class="section-name" style="text-align: center;">
         <h2 style="display: inline;" class="symbol-change">§</h2><h2 style="display: inline;"> Links<h2>
       </div>
 
@@ -140,7 +229,7 @@
     <br>
     <br>
 
-    <script scr="cg.js"></script>
+    <script src="cg.js"></script>
 
     <script async="true" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=AM_CHTML"> </script>
     <script async="true" src="https://cdn.jsdelivr.net/npm/mathjax@2.7.6/MathJax.js?config=AM_CHTML"> </script>
