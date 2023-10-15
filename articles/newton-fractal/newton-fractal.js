@@ -1,5 +1,3 @@
-console.log("Hello world!");
-
 // Define your function to be plotted
 function plotFunction(x) {
     return x ** 3 - 8 * x ** 2; // Replace this with your desired function
