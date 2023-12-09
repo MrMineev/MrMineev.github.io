@@ -1,7 +1,25 @@
+#search-input {
+  padding: 10px;
+  margin-top: 20px;
+  margin-left: 15%;
+  height: 40px;
+  border-radius: 10px 0px 0px 10px;
+  font-family: 'Open Sans', sans-serif;
+}
+
+#search-button {
+  padding: 10px;
+  background-color: #5863fc;
+  color: #fcfcfc;
+  border-radius: 0px 20px 20px 0px;
+  height: 40px;
+}
+
+
 #global-name {
 	text-align: center;
 	font-family: Tahoma, sans-serif;
-  font-size: larger;
+  font-size: 35px;
 }
 
 #global-name-line {

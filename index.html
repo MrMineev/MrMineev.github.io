@@ -8,12 +8,24 @@
 
     <link rel="icon" href="assets/black_nib.png">
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+
     <meta name="google-site-verification" content="4dvR_AeWXdmHvaVlSxRmbsdaTpIbvM0_TX3gEOyIiN4" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
   <body>
     <h1 id="global-name">MrMineev</h1>
     <div id="global-name-line"></div>
+
+    <div class="flex justify-center items-center">
+      <input  style="width: 60%;" type="text" placeholder="Search articles..." id="search-input"/>
+      <button style="width: 10%;" id="search-button">
+        <i class="fa fa-search"></i>
+      </button>
+    </div>
+
     <article class="post-container" onclick="window.location.href='articles/gravity-simulator/gravity-simulator'">
       <div class="image-column">
         <img src="assets/space-simulator.png" alt="Article Image">
@@ -170,6 +182,8 @@
           <span class="publication-date">🗓️ December 3, 2023</span>
         </div>
     </article>
+
+    <script src="main.js"></script>
   </body>
 </html>
 
