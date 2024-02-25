@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Article | MrMineev </title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"rel="stylesheet">
+    <link rel="stylesheet" href="../article-style.css">
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="icon" href="../../assets/mag.png">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script type="text/javascript" id="MathJax-script" async
+      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+    </script>
+  </head>
+  <body>
+    <!-- BACK TO TOP BUTTON -->
+    <a href="#" class="back-to-top">
+      <span class="material-icons">arrow_upward</span>
+    </a>
+
+    <h1 id="global-name" onclick="window.location.href='https://mrmineev.github.io/'">MrMineev</h1>
+    <div id="global-name-line"></div>
+
+    <h2 id="article-name">🤖 Intro to Reinforcement Learning</h2>
+
+    <div id="article-content">
+      <div class="section-name" style="text-align: center;">
+        <h2 style="display: inline;" class="symbol-change">§</h2><h2 style="display: inline;"> Introduction<h2>
+      </div>
+
+      <p class="content-text">
+      In Reinforcement Learning, there is an agent, and an environment with which the agent interacts.
+      The goal of the agent is to generate as much reward as possible.
+      Every time the agent plays with the environment, it will generate a <b>episode</b> (a sequence of actions, rewards, and states).
+      </p>
+
+      $$S_0, A_0, R_1, S_1, A_1, R_2, ..., S_{T-1}, A_{T-1}, R_T$$
+
+      <p class="content-text">
+      Every agent has a policy (denoted as \(\pi\)), which is responsible for the actions chosen by the agent. Formally speaking the policy contains a probability distribution for every single state.
+      The value function of the policy (denoted as \(v_\pi\)), tells the agent what is the expected return starting from a given state \(s\).
+      Reinforcement Learning is about how to learn the value function and the optimal policy. Almost all such algorithms fall under the term <b>GPI</b>(Generalized Policy Iteration). Which consists of two parts.
+      </p>
+
+      <p class="content-text">1) Policy Evaluation</p>
+      <p class="content-text">2) Policy Improvement</p>
+
+      <p class="content-text">
+      The policy evaluation calculated \(v_\pi\) given some initial policy, then based on the calculated values the agent improves the policy \(\pi\), then again he evaluates the new policy and again improves it, this continues indefinitely until the agent hits the optimal policy.
+      </p>
+
+      <div class="section-name" style="text-align: center;">
+        <h2 style="display: inline;" class="symbol-change">§</h2><h2 style="display: inline;"> Monte Carlo Methods<h2>
+      </div>
+
+      <p class="content-text">
+        There are many different versions of GPI, however here we will only consider the Monte Carlo Methods. First let us analyse the first part of this GPI, the policy evaluation, the Monte Carlo Prediction.
+      </p>
+
+      <p class="content-text">
+        Initially the agent selects an arbitrary value function \(v\), and an array \(R\). Then the agent plays an episode with the given policy.
+      </p>
+
+      $$S_0, A_0, R_1, S_1, A_1, R_2, ..., S_{T-1}, A_{T-1}, R_T$$
+
+      <p class="content-text">
+        Now what we want to do is use this information specifically the rewards, to update the value function. To do this, we go from the end reward to the start, and add the expected return to the array \(R\) at state \(S_i\).
+        An interesting thing to point out is that the expected return is not the current reward. For examle if you are playing chess you might sometimes favour sacrifices in order to gain an advantage in the future.
+        There are many ways to define this value the simplest of which is the following.
+      </p>
+
+      $$G_t = \sum_{i={t+1}}^{T} {R_i}$$
+
+      <p class="content-text">
+      However this leads to a problem, what about infinite tasks, meaning this sum will not be finite. We can simply fix this issue by adding a discounting factor \(\gamma\), as the following.
+      </p>
+
+      $$G_t = \sum_{i={0}}^{\infty} {\gamma^{k} R_{k+t+1}}$$
+
+      <p class="content-text">
+      Then notice a cool trick.
+      </p>
+
+      $$G_t = R_{t+1} + \gamma R_{t+2} + \gamma^2 R_{t_3} + ... = R_{t+1} + \gamma (R_{t+2} + \gamma R_{t+3} + ...) = R_{t+1} + \gamma G_{t+1}$$
+
+      <p class="content-text">
+      Now for policy improvement everything is very simple, we just greedly pick the best action.
+      </p>
+
+      $$\pi(s) = \text{argmax}_a {v_\pi(s, a)}$$
+
+      <p class="content-text">
+      Where \(v_\pi(s, a)\) is the expected return from state \(s\) given action \(a\) is performed.
+      However there is small problem, if we just greedly search we might sometimes focus on one strategy, while completely ingnoring another.
+      This problem is called <b>Exploration vs Exploitation</b>. A simple workaround would be to replace the greedy policy improvement with \(\epsilon\)-greedy. Meaning that with some probability \(\epsilon\), a random other action will be taken.
+      </p>
+
+      <p class="content-text">
+      With this method we can <b>solve</b> blackjack (the source code linked at the bottom). In this example, I set no discounting, and throughout the hole game 0 points is awarded, and only at the end depending win/lose the agent recieves +1/-1 points. The agent played one million games, bellow are the resulting value function and policy.
+      </p>
+
+      <div style="text-align: center;">
+        <img src="../../assets/qtable_blackjack.svg"></img>
+        <img src="../../assets/policy_blackjack.svg"></img>
+      </div>
+
+      <p class="content-text">
+      On the left is the value function, and on the right is the policy. The black squares in the policy represent keep and the white square represents hit. The x-y coordinates represent the players and dealer hands sum. The two policies represent if the play has an ace and if he doesn't respectively.
+      </p>
+
+      <p class="content-text">
+      The Monte Carlo approach described is a <b>on-policy</b>, because the evaluation is done on the current optimal policy. But there is another way of doing this, called <b>off-policy</b> Monte Carlo Methods.
+      The way off-policy methods work is by introducing two policies, a target and a behavoir policy. The behavoir policy is the one used in training, and then we use the results gathered from it to update the target policy.
+      But stop, how do we use the results from one policy and apply them to another? Importance-Sampling.
+      Given a state \(S_t\), we can claim that the probability of a trajectory \(A_t, S_{t+1}, A_{t+1}, S_{t+2},...\) is the following.
+      </p>
+
+      $$\mathbb{P} \{A_t, S_{t+1}, A_{t+1},... S_T | S_t, A_{t:T-1} \sim \pi\} = \prod_{k=t}^{T-1} {\pi(A_k |S_k)p(S_{k+1}|S_k, A_k)}$$
+
+      <p class="content-text">
+      Then the <b>importance-sampling ratio</b> is defined as following.
+      </p>
+
+      $$\rho_{t:T-1} = \frac{\prod_{k=t}^{T-1} {\pi(A_k |S_k)p(S_{k+1}|S_k, A_k)}}{\prod_{k=t}^{T-1} {b(A_k |S_k)p(S_{k+1}|S_k, A_k)}} = \prod_{k=t}^{T-1} \frac{\pi(A_k|S_k)}{b(A_k|S_k)}$$
+
+      <p class="content-text">
+        This can be used to calculate the value function for policy \(\pi\), given the information for the value function of \(b\) using the importance sampling ratio.
+        Let us define \(\tau(S)\) be the set of all timesteps where state \(S\) is visited. Then we can estimate
+      </p>
+
+      $$V(S)=\frac{\sum_{t=\tau(S)} {\rho_{t:T-1}G_t}}{|\tau(S)|}$$
+
+      <p class="content-text">
+      This is called Ordinary Importance Sampling. Another approach is called Weighted Importance Sampling, which uses weighted averaging.
+      </p>
+
+      $$V(S)=\frac{\sum_{t=\tau(S)} {\rho_{t:T-1}G_t}}{\sum_{t=\tau(S)} {\rho_{t:T-1}}}$$
+
+      <p class="content-text">
+      The two methods will converge to the same value, however in practice using Weighted Imporance Sampling is better.
+      Using this new method, we can build an agent to the play a more interesting problem.
+      </p>
+
+      <div class="content-text definition-box">
+        <p style="padding: 10px;">
+        An agent is placed on a racetrack, the agent can drive around, but it can't go outside the borders, if it does it is placed randomly at the start line. The agent has a velocity, which he can increase, decrease by one or keep it the same in both directions. Each episodes begins at a random point on the start line, and the reward is always -1 with no discounting. Meaning that the longer the agent plays the less points it recieves.
+        </p>
+      </div>
+
+      <p class="content-text">
+      Bellow you can see a trained agent after playing a 1000 games, it is not perfect, but you can already see that a lot of progress was made (source code linked at the bottom).
+      </p>
+
+      <div style="text-align: center;">
+          <video preload="auto" width="50%" title="Shallow red." loop="" autoplay="" playsinline="" muted="true" class="note-video"><source src="./../../assets/racetrack-result.mp4" type="video/webm"></video>
+      </div>
+
+      <br>
+
+      <div class="section-name" style="text-align: center;">
+        <h2 style="display: inline;" class="symbol-change">§</h2><h2 style="display: inline;"> References</h2>
+      </div>
+
+      <p class="content-text">
+      [1] Sutton, R. S., & Barto, A. G. (2018). <i>Reinforcement learning: An introduction</i>. MIT press.
+      <p class="content-text">
+
+      <div class="section-name" style="text-align: center;">
+        <h2 style="display: inline;" class="symbol-change">§</h2><h2 style="display: inline;"> Links</h2>
+      </div>
+
+      <br>
+
+      <button class="button-link">
+        GitHub
+      </button>
+      &nbsp;
+      <a rel="noopener noreferrer" target="_blank" class="link" href="https://github.com/MrMineev/Learning-RL">https://github.com/MrMineev/Learning-RL</a>
+
+    </div>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <script src="../linenumber.js"></script>
+  </body>
+</html>
+

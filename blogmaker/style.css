@@ -1,0 +1,14 @@
+#large-text-field {
+    width: 80%;
+    font-size: 16px;
+}
+
+.list-group .list-group-item {
+  border-radius: 0;
+  cursor: move;
+}
+
+.list-group .list-group-item:hover {
+  background-color: #f7f7f7;
+}
+
