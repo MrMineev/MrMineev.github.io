@@ -1,0 +1,259 @@
+htfcss: cmmi font-style: italic;
+htfcss: cmmib font-style: italic; font-weight: bold;
+File: symmetric_polynomials.html
+File: symmetric_polynomials.css
+File: symmetric_polynomials.tmp
+Css: p{margin-top:0;margin-bottom:0}
+Css: p.indent{text-indent:0;}
+Css: p + p{margin-top:1em;}
+Css: p + div, p + pre {margin-top:1em;}
+Css: div + p, pre + p {margin-top:1em;}
+Css: a { overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto; }
+Css: @media print {div.crosslinks {visibility:hidden;}}
+Css: table.tabular{border-collapse: collapse; border-spacing: 0;}
+Css: a img { border-top: 0; border-left: 0; border-right: 0; }
+Font_Css("4"): .small-caps{font-variant: small-caps; }
+Font_Css("10"): .htf-cmbx {font-weight: bold; font-style:normal;}
+Font_Css("12"): .htf-calligraphy {font-family:cursive}
+Font_Css("14"): .htf-italic {font-style: italic;}
+Font_Css("16"): .htf-bold {font-weight: bold;}
+Font_Css("12"): .htf-calligraphy-bold {font-family:cursive ; font-weight: bold; }
+Css: center { margin-top:1em; margin-bottom:1em; }
+Css: td center { margin-top:0em; margin-bottom:0em; }
+Css: .Canvas { position:relative; }
+Css: img.math{vertical-align:middle;}
+Css: div.par-math-display, div.math-display{text-align:center;}
+Css: li p.indent { text-indent: 0em }
+Css: li p:first-child{ margin-top:0em; }
+Css: li p:last-child, li div:last-child { margin-bottom:0.5em; }
+Css: li p:first-child{ margin-bottom:0; }
+Css: li p~ul:last-child, li p~ol:last-child{ margin-bottom:0.5em; }
+Css: .enumerate1 {list-style-type:decimal;}
+Css: .enumerate2 {list-style-type:lower-alpha;}
+Css: .enumerate3 {list-style-type:lower-roman;}
+Css: .enumerate4 {list-style-type:upper-alpha;}
+Css: div.newtheorem { margin-bottom: 2em; margin-top: 2em;}
+Css: div.newtheorem .head{font-weight: bold;}
+Css: .obeylines-h,.obeylines-v {white-space: nowrap; }
+Css: div.obeylines-v p { margin-top:0; margin-bottom:0; }
+Css: .overline{ text-decoration:overline; }
+Css: .overline img{ border-top: 1px solid black; }
+Css: td.displaylines {text-align:center; white-space:nowrap;}
+Css: .centerline {text-align:center;}
+Css: .rightline {text-align:right;}
+Css: pre.verbatim {font-family: monospace,monospace; text-align:left; clear:both; }
+Css: .fbox {padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+Css: div.fbox {display:table}
+Css: div.center div.fbox {text-align:center; clear:both; padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+Css: div.minipage{width:100%;}
+Css: div.center, div.center div.center {text-align: center; margin-left:1em; margin-right:1em;}
+Css: div.center div {text-align: left;}
+Css: div.flushright, div.flushright div.flushright {text-align: right;}
+Css: div.flushright div {text-align: left;}
+Css: div.flushleft {text-align: left;}
+Css: .underline{ text-decoration:underline; }
+Css: .underline img{ border-bottom: 1px solid black; margin-bottom:1pt; }
+Css: .framebox-c, .framebox-l, .framebox-r { padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+Css: .framebox-c {text-align:center;}
+Css: .framebox-l {text-align:left;}
+Css: .framebox-r {text-align:right;}
+Css: span.thank-mark{ vertical-align: super }
+Css: span.footnote-mark sup.textsuperscript, span.footnote-mark a sup.textsuperscript{ font-size:80%; }
+Css: div.tabular, div.center div.tabular {text-align: center; margin-top:0.5em; margin-bottom:0.5em; }
+Css: table.tabular td p{margin-top:0em;}
+Css: table.tabular {margin-left: auto; margin-right: auto;}
+Css: td p:first-child{ margin-top:0em; }
+Css: td p:last-child{ margin-bottom:0em; }
+Css: div.td00{ margin-left:0pt; margin-right:0pt; }
+Css: div.td01{ margin-left:0pt; margin-right:5pt; }
+Css: div.td10{ margin-left:5pt; margin-right:0pt; }
+Css: div.td11{ margin-left:5pt; margin-right:5pt; }
+Css: table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+Css: td.td00{ padding-left:0pt; padding-right:0pt; }
+Css: td.td01{ padding-left:0pt; padding-right:5pt; }
+Css: td.td10{ padding-left:5pt; padding-right:0pt; }
+Css: td.td11{ padding-left:5pt; padding-right:5pt; }
+Css: table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+Css: .hline hr, .cline hr{ height : 0px; margin:0px; }
+Css: .hline td, .cline td{ padding: 0; }
+Css: .hline hr, .cline hr{border:none;border-top:1px solid black;}
+Css: .hline {border-top: 1px solid black;}
+Css: .hline + .vspace:last-child{display:none;}
+Css: .hline:first-child{border-bottom:1px solid black;border-top:none;}
+Css: .tabbing-right {text-align:right;}
+Css: div.float, div.figure {margin-left: auto; margin-right: auto;}
+Css: div.float img {text-align:center;}
+Css: div.figure img {text-align:center;}
+Css: .marginpar,.reversemarginpar {width:20%; float:right; text-align:left; margin-left:auto; margin-top:0.5em; font-size:85%; text-decoration:underline;}
+Css: .marginpar p,.reversemarginpar p{margin-top:0.4em; margin-bottom:0.4em;}
+Css: .reversemarginpar{float:left;}
+Css: table.equation {width:100%;}
+Css: .equation td{text-align:center; }
+Css: td.equation { margin-top:1em; margin-bottom:1em; } 
+Css: td.equation-label { width:5%; text-align:center; }
+Css: td.eqnarray4 { width:5%; white-space: normal; }
+Css: td.eqnarray2 { width:5%; }
+Css: table.eqnarray-star, table.eqnarray {width:100%;}
+Css: div.eqnarray{text-align:center;}
+Css: div.array {text-align:center;}
+Css: div.pmatrix {text-align:center;}
+Css: table.pmatrix {width:100%;}
+Css: span.pmatrix img{vertical-align:middle;}
+Css: div.pmatrix {text-align:center;}
+Css: table.pmatrix {width:100%;}
+Css: span.bar-css {text-decoration:overline;}
+Css: img.cdots{vertical-align:middle;}
+Css: .partToc a, .partToc, .likepartToc a, .likepartToc {line-height: 200%; font-weight:bold; font-size:110%;}
+Css: .index-item, .index-subitem, .index-subsubitem {display:block}
+Css: div.caption {text-indent:-2em; margin-left:3em; margin-right:1em; text-align:left;}
+Css: div.caption span.id{font-weight: bold; white-space: nowrap; }
+Css: h1.partHead{text-align: center}
+Css: p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+Css: p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+Css: .subsubsectionHead, .likesubsubsectionHead { font-size: 1em; }
+Css: .paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
+Css: .subparagraphHead, .likesubparagraphHead { font-weight: bold;}
+Css: .verse{white-space:nowrap; margin-left:2em}
+Css: div.maketitle {text-align:center;}
+Css: h2.titleHead{text-align:center;}
+Css: div.maketitle{ margin-bottom: 2em; }
+Css: div.author, div.date {text-align:center;}
+Css: div.thanks{text-align:left; margin-left:10%; font-size:85%; font-style:italic; }
+Css: div.author{white-space: nowrap;}
+Css: div.abstract p {margin-left:5%; margin-right:5%;}
+Css: div.abstract {width:100%;}
+Css: .abstracttitle{text-align:center;margin-bottom:1em;}
+Css: .rotatebox{display: inline-block;}
+Css: .equation td{text-align:center; }
+Css: .equation-star td{text-align:center; }
+Css: table.equation-star { width:100%; }
+Css: table.equation { width:100%; }
+Css: table.align, table.alignat, table.xalignat, table.xxalignat, table.flalign {width:95%; margin-left:5%; white-space: nowrap;}
+Css: table.align-star, table.alignat-star, table.xalignat-star, table.flalign-star {margin-left:auto; margin-right:auto; white-space: nowrap;}
+Css: td.align-label { width:5%; text-align:center; }
+Css: td.align-odd { text-align:right; padding-right:0.3em;}
+Css: td.align-even { text-align:left; padding-right:0.6em;}
+Css: table.multline, table.multline-star {width:100%;}
+Css: td.gather {text-align:center; }
+Css: table.gather {width:100%;}
+Css: div.gather-star {text-align:center;}
+Css: dt.printshorthands{float:left; clear:left; margin-right:1em;}
+Css: dd.thebibliography {margin-left: 2.5em;}
+Css: dt.thebibliography {float:left; clear:left; margin-right:1em;}
+Css: img[src="symmetric_polynomials0x.png"]{vertical-align:-21.87498927115985%}
+--- needs --- symmetric_polynomials.idv[2] ==> symmetric_polynomials0x.png ---
+Css: img[src="symmetric_polynomials1x.png"]{vertical-align:-0%}
+--- needs --- symmetric_polynomials.idv[3] ==> symmetric_polynomials1x.png ---
+--- needs --- symmetric_polynomials.idv[4] ==> symmetric_polynomials2x.png ---
+Css: img[src="symmetric_polynomials3x.png"]{vertical-align:-25%}
+--- needs --- symmetric_polynomials.idv[5] ==> symmetric_polynomials3x.png ---
+--- needs --- symmetric_polynomials.idv[6] ==> symmetric_polynomials4x.png ---
+Css: img[src="symmetric_polynomials5x.png"]{vertical-align:-0%}
+--- needs --- symmetric_polynomials.idv[7] ==> symmetric_polynomials5x.png ---
+Css: img[src="symmetric_polynomials6x.png"]{vertical-align:-25.83718601417717%}
+--- needs --- symmetric_polynomials.idv[8] ==> symmetric_polynomials6x.png ---
+Css: img[src="symmetric_polynomials7x.png"]{vertical-align:-25.83718601417717%}
+--- needs --- symmetric_polynomials.idv[9] ==> symmetric_polynomials7x.png ---
+--- needs --- symmetric_polynomials.idv[10] ==> symmetric_polynomials8x.png ---
+Css: img[src="symmetric_polynomials9x.png"]{vertical-align:-31.11115993935533%}
+--- needs --- symmetric_polynomials.idv[11] ==> symmetric_polynomials9x.png ---
+Css: img[src="symmetric_polynomials10x.png"]{vertical-align:-25.83718601417717%}
+--- needs --- symmetric_polynomials.idv[12] ==> symmetric_polynomials10x.png ---
+Css: img[src="symmetric_polynomials11x.png"]{vertical-align:-8.938078443246074%}
+--- needs --- symmetric_polynomials.idv[13] ==> symmetric_polynomials11x.png ---
+Css: img[src="symmetric_polynomials12x.png"]{vertical-align:-25%}
+--- needs --- symmetric_polynomials.idv[14] ==> symmetric_polynomials12x.png ---
+--- needs --- symmetric_polynomials.idv[15] ==> symmetric_polynomials13x.png ---
+Css: img[src="symmetric_polynomials14x.png"]{vertical-align:-17.99989379837439%}
+--- needs --- symmetric_polynomials.idv[16] ==> symmetric_polynomials14x.png ---
+--- needs --- symmetric_polynomials.idv[17] ==> symmetric_polynomials15x.png ---
+--- needs --- symmetric_polynomials.idv[18] ==> symmetric_polynomials16x.png ---
+--- needs --- symmetric_polynomials.idv[19] ==> symmetric_polynomials17x.png ---
+--- needs --- symmetric_polynomials.idv[20] ==> symmetric_polynomials18x.png ---
+--- needs --- symmetric_polynomials.idv[21] ==> symmetric_polynomials19x.png ---
+--- needs --- symmetric_polynomials.idv[22] ==> symmetric_polynomials20x.png ---
+Css: img[src="symmetric_polynomials21x.png"]{vertical-align:-23.36726367987681%}
+--- needs --- symmetric_polynomials.idv[23] ==> symmetric_polynomials21x.png ---
+Css: img[src="symmetric_polynomials22x.png"]{vertical-align:-31.11115993935533%}
+--- needs --- symmetric_polynomials.idv[24] ==> symmetric_polynomials22x.png ---
+Css: img[src="symmetric_polynomials23x.png"]{vertical-align:-25.83718601417717%}
+--- needs --- symmetric_polynomials.idv[25] ==> symmetric_polynomials23x.png ---
+--- needs --- symmetric_polynomials.idv[26] ==> symmetric_polynomials24x.png ---
+Css: img[src="symmetric_polynomials25x.png"]{vertical-align:-25%}
+--- needs --- symmetric_polynomials.idv[27] ==> symmetric_polynomials25x.png ---
+Css: img[src="symmetric_polynomials26x.png"]{vertical-align:-25%}
+--- needs --- symmetric_polynomials.idv[28] ==> symmetric_polynomials26x.png ---
+Css: img[src="symmetric_polynomials27x.png"]{vertical-align:-16.37386282411006%}
+--- needs --- symmetric_polynomials.idv[29] ==> symmetric_polynomials27x.png ---
+--- needs --- symmetric_polynomials.idv[30] ==> symmetric_polynomials28x.png ---
+Css: img[src="symmetric_polynomials29x.png"]{vertical-align:-23.36726367987681%}
+--- needs --- symmetric_polynomials.idv[31] ==> symmetric_polynomials29x.png ---
+Css: img[src="symmetric_polynomials30x.png"]{vertical-align:-23.36726367987681%}
+--- needs --- symmetric_polynomials.idv[32] ==> symmetric_polynomials30x.png ---
+--- needs --- symmetric_polynomials.idv[33] ==> symmetric_polynomials31x.png ---
+Css: img[src="symmetric_polynomials32x.png"]{vertical-align:-19.2815511063768%}
+--- needs --- symmetric_polynomials.idv[34] ==> symmetric_polynomials32x.png ---
+--- needs --- symmetric_polynomials.idv[35] ==> symmetric_polynomials33x.png ---
+Css: img[src="symmetric_polynomials34x.png"]{vertical-align:-18.88096710624878%}
+--- needs --- symmetric_polynomials.idv[36] ==> symmetric_polynomials34x.png ---
+Css: img[src="symmetric_polynomials35x.png"]{vertical-align:-28.98594407128135%}
+--- needs --- symmetric_polynomials.idv[37] ==> symmetric_polynomials35x.png ---
+Css: img[src="symmetric_polynomials36x.png"]{vertical-align:-25.83718601417717%}
+--- needs --- symmetric_polynomials.idv[38] ==> symmetric_polynomials36x.png ---
+--- needs --- symmetric_polynomials.idv[39] ==> symmetric_polynomials37x.png ---
+Css: img[src="symmetric_polynomials38x.png"]{vertical-align:-19.2815511063768%}
+--- needs --- symmetric_polynomials.idv[40] ==> symmetric_polynomials38x.png ---
+--- needs --- symmetric_polynomials.idv[41] ==> symmetric_polynomials39x.png ---
+--- needs --- symmetric_polynomials.idv[42] ==> symmetric_polynomials40x.png ---
+Css: img[src="symmetric_polynomials41x.png"]{vertical-align:-19.2815511063768%}
+--- needs --- symmetric_polynomials.idv[43] ==> symmetric_polynomials41x.png ---
+--- needs --- symmetric_polynomials.idv[44] ==> symmetric_polynomials42x.png ---
+Css: img[src="symmetric_polynomials43x.png"]{vertical-align:-31.11115993935533%}
+--- needs --- symmetric_polynomials.idv[45] ==> symmetric_polynomials43x.png ---
+Css: img[src="symmetric_polynomials44x.png"]{vertical-align:-25.83718601417717%}
+--- needs --- symmetric_polynomials.idv[46] ==> symmetric_polynomials44x.png ---
+--- needs --- symmetric_polynomials.idv[47] ==> symmetric_polynomials45x.png ---
+Css: img[src="symmetric_polynomials46x.png"]{vertical-align:-25%}
+--- needs --- symmetric_polynomials.idv[48] ==> symmetric_polynomials46x.png ---
+Css: img[src="symmetric_polynomials47x.png"]{vertical-align:-31.11115993935533%}
+--- needs --- symmetric_polynomials.idv[49] ==> symmetric_polynomials47x.png ---
+--- needs --- symmetric_polynomials.idv[50] ==> symmetric_polynomials48x.png ---
+Css: img[src="symmetric_polynomials49x.png"]{vertical-align:-31.11115993935533%}
+--- needs --- symmetric_polynomials.idv[51] ==> symmetric_polynomials49x.png ---
+Css: img[src="symmetric_polynomials50x.png"]{vertical-align:-25%}
+--- needs --- symmetric_polynomials.idv[52] ==> symmetric_polynomials50x.png ---
+Css: img[src="symmetric_polynomials51x.png"]{vertical-align:-25%}
+--- needs --- symmetric_polynomials.idv[53] ==> symmetric_polynomials51x.png ---
+--- needs --- symmetric_polynomials.idv[54] ==> symmetric_polynomials52x.png ---
+--- needs --- symmetric_polynomials.idv[55] ==> symmetric_polynomials53x.png ---
+Css: img[src="symmetric_polynomials54x.png"]{vertical-align:-25%}
+--- needs --- symmetric_polynomials.idv[56] ==> symmetric_polynomials54x.png ---
+--- needs --- symmetric_polynomials.idv[57] ==> symmetric_polynomials55x.png ---
+Css: img[src="symmetric_polynomials56x.png"]{vertical-align:-17.99989379837439%}
+--- needs --- symmetric_polynomials.idv[58] ==> symmetric_polynomials56x.png ---
+Css: img[src="symmetric_polynomials57x.png"]{vertical-align:-22.15193504143352%}
+--- needs --- symmetric_polynomials.idv[59] ==> symmetric_polynomials57x.png ---
+Css: img[src="symmetric_polynomials58x.png"]{vertical-align:-17.99989379837439%}
+--- needs --- symmetric_polynomials.idv[60] ==> symmetric_polynomials58x.png ---
+--- needs --- symmetric_polynomials.idv[61] ==> symmetric_polynomials59x.png ---
+Css: img[src="symmetric_polynomials60x.png"]{vertical-align:-17.99989379837439%}
+--- needs --- symmetric_polynomials.idv[62] ==> symmetric_polynomials60x.png ---
+--- needs --- symmetric_polynomials.idv[63] ==> symmetric_polynomials61x.png ---
+Css: img[src="symmetric_polynomials62x.png"]{vertical-align:-31.11115993935533%}
+--- needs --- symmetric_polynomials.idv[64] ==> symmetric_polynomials62x.png ---
+Css: img[src="symmetric_polynomials63x.png"]{vertical-align:-17.99989379837439%}
+--- needs --- symmetric_polynomials.idv[65] ==> symmetric_polynomials63x.png ---
+Css: img[src="symmetric_polynomials64x.png"]{vertical-align:-22.15193504143352%}
+--- needs --- symmetric_polynomials.idv[66] ==> symmetric_polynomials64x.png ---
+Css: img[src="symmetric_polynomials65x.png"]{vertical-align:-31.11115993935533%}
+--- needs --- symmetric_polynomials.idv[67] ==> symmetric_polynomials65x.png ---
+--- characters ---
+Font("cmex","10","10","100")
+Font("cmr","7","7","100")
+Font("cmr","10","10","100")
+Font("cmmi","7","7","100")
+Font("cmmi","10","10","100")
+Font("cmsy","7","7","100")
+Font("cmsy","10","10","100")
+Font("cmr","17","17","100")
+Font("cmr","12","12","100")

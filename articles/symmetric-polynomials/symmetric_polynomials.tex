@@ -1,0 +1,198 @@
+\documentclass{article}
+
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{biblatex}
+\usepackage{url}
+
+\bibliography{references}
+
+\title{Symmetric Polynomials}
+\author{Daniel Mineev}
+
+\begin{document}
+
+\date{}
+\maketitle
+
+\section{Elementary Symmetric Polynomials}
+
+When dealing with polynomials, it is sometimes useful to introduce the idea of Symmetric Polynomials. A Symmetric Polynomial is simply a polynomial that has the same result no matter the order in which the input variables are given. The simplest example would be the product of three variables \(a, b\) and \(c\).
+\begin{gather*}
+	f(a, b, c) = abc
+\end{gather*}
+This polynomial is indeed symmetric as \(f(a, b, c) = f(b, c, a) = f(c, a, b) = ...\). Swapping the values of some of the variables with each other does not change the outcome. If one tries to generate all symmetric polynomials with three variables, which sort of satisfy a "simplicity" rule (which for now is not well defined), then they might end with such a result.
+\begin{gather*}
+	e_1(a, b, c) = a + b + c \\
+	e_2(a, b, c) = ab + bc + ac \\
+	e_3(a, b, c) = abc
+\end{gather*}
+Looking at these polynomials, one can start developing the idea of an Elementary Symmetric Polynomial. The sum of all possible subsets of the input variables of the size \(n\), is often denoted as \(e_n\) or sometimes \(\sigma_n\). From this definition, you can try to complete the listed elementary symmetric polynomials with a new one.
+\begin{gather*}
+	e_o = 1
+\end{gather*}
+However, throughout this chapter, the knowledge about Elementary Symmetric Polynomials with more than three variables will be unnecessary, it is still useful to keep in mind the definition of everything we describe for a greater number of variables. For now, consider what we have and try to prove some properties about \(e_1, e_2\) and \(e_3\). It is often useful to represent symmetric equations using elementary symmetric polynomials (more about this later).
+
+\section{Newton-Girard Formula for Symmetric Polynomials in three variables}
+Something that holds a specific point of interest is the expressions of the form \(a^k + b^k + c^k\).  For this specific problem there exists the Newton-Girard Formula for Symmetric Polynomials. Define a function \(S_k(x_1, ..., x_n)\) in the following way.
+\begin{gather*}
+	S_k(x_1, ..., x_n) = \sum_{i=1}^n {x_i^k}
+\end{gather*}
+Then, the theorem claims that there exists a recursive formula for calculating \(S_k\).
+\begin{gather*}
+	S_1 = e_1 \\
+	S_2 = S_1 e_1 - 2 e_2 \\
+	S_3 = S_2 e_1 - s_1 e_2 + 3 e_3 \\
+	... \\
+	S_k = - \left ( \sum_{i=1}^{k - 1} {(-1)^j S_{k - j} e_j} \right ) - (-1)^k k e_k
+\end{gather*}
+The proof of the statement will not be provided here. Here, I will not be considering the formula for more than three variables, as mentioned earlier. The Newton-Girard Formula for three variables looks way simpler.
+\begin{gather*}
+	S_k = e_1 S_{k - 1} - e_2 S_{k - 2} + e_3 S_{k - 3}
+\end{gather*}
+Proving this statement is way much simpler than the general form of the Newton-Girard Formula.
+\begin{multline*}
+	e_1 S_{k - 1} - e_2 S_{k - 2} + e_3 S_{k - 3} = (a + b + c)(a^{k - 1} + b^{k - 1} + c^{k - 1}) - \\
+	(ab + bc + ac)(a^{k - 2} + b^{k - 2} + c^{k - 2}) + abc(a^{k - 3} + b^{k - 3} + c^{k - 3}) = \\
+	a^k + b^k + c^k + ab^{k -1} + ac^{k - 1} + ba^{k - 1} + bc^{k - 1} + ca^{k - 1} + cb^{k - 1} \\
+	- b c a^{k - 2} - b a^{k - 1} - c a^{k - 1} - a c b^{k - 2} - a b^{k - 1} - a b c^{k - 2} - a c^{k - 1} - c b^{k - 1} - b c^{k - 1} \\
+	+ b c a^{k - 2} + a c b^{k - 2} + a b c^{k - 2} = a^k + b^k + c^k
+\end{multline*}
+
+\section{Symmetric Inequality}
+
+Consider a simple inequality.
+\begin{gather*}
+	a^2 + b^2 + c^2 \geq ab + bc + ca
+\end{gather*}
+Notice, that this is a simple consequence of the Rearrangement Inequality. However, there exists another elegant solution that requires no knowledge of any inequalities.
+\begin{multline*}
+	a^2 + b^2 + c^2 - ab - bc - ca = \frac{1}{2}(a^2 - 2ab + b^2 + a^2 - 2ac + c^2 + b^2 - 2bc + c^2)
+	\\ = \frac{1}{2}(a - b)^2 (a - c)^2 (b - c)^2 \geq 0
+\end{multline*}
+Now that we have proven this inequality, let us transform it into an elementary symmetric polynomial form.
+\begin{gather*}
+	S_2(a, b, c) \geq e_2 \\
+	e_1^2 - 2e^2 \geq e_2 \\
+	e_1^2 \geq 3 e_2
+\end{gather*}
+Another simple equation that we can prove is that \(e_2^2 \geq 3 e_1 e_3\). We can prove this by just substituting the definitions of \(e_1, e_2\) and \(e_3\).
+\begin{gather*}
+	(ab + bc + ac)^2 \geq 3abc(a + b + c) \\
+	a^2 b^2 + 2 a^2 b c + a^2 c^2 + 2 a b^2 c + 2 a b c^2 + b^2 c^2 \geq 3a^2 bc + 3ab^2 c + 3ab c^2 \\
+	a^2 b^2 + a^2 c^2 + b^2 c^2 \geq a^2 bc + a b^2 c + ab c^2
+\end{gather*}
+The last inequality is simply proven using the Rearrangement inequality by taking \(x =[ab, bc, ac]\) and the same \(y = [ab, bc, ac]\), we assume \(ab \leq bc \leq ac\) and get the following.
+\begin{multline*}
+	a^2 b^2 + b^2 c^2 + a^2 c^ 2 = x_1y_1 + x_2 y_2 + x_3 y_3 \\
+	\geq x_1 y_3 + x_2 y_1 + x_1 y_2 = a^2 bc + a b^2 c + ab c^2
+\end{multline*}
+These two inequalities (\(e_1^2 \geq 3e_2\) and \(e_2^2 \geq 3 e_1 e_3\)) are the most useful ones. Using these inequalities along with basic usage of other common inequalities can help solve a variety of different problems. One might notice that most of the techniques somehow transform an equation or inequality into a form involving purely elementary symmetric polynomials and can ask the question: what if such a form does not exist? Happily, for us, there is a theorem called the Fundamental Theorem of Symmetric Polynomials, which claims that any symmetric polynomial can, in fact, be expressed as an expression using elementary symmetric polynomials (the theorem applies to any number of variables). The proof of this statement will also not be provided here due to its complexity.
+
+\section{Systems of Symmetric Equations}
+
+Say we have three systems of symmetric equations as the following.
+\begin{gather*}
+	\begin{cases}
+		x + y + z = 1 \\
+		x^2 + y^2 + z^2 = 2 \\
+		x^3 + y^3 + z^3 = 3 \\
+    	\end{cases}
+\end{gather*}
+We want to find the value of \(x^4 + y^4 + z^4\), for example. First of all, transform the equations using elementary symmetric polynomials.
+\begin{gather*}
+	\begin{cases}
+		e_1 = 1 \\
+		e_1^2 - 2e_2 = 2 \\
+		S_3 = e_1 S_2 - e_2 S_1 + e_3 S_0 = e_1^3 - 2 e_1 e_2 - e_2 e_1 + 3 e_3 = e_1^3 - 3 e_1 e_2 + 3 e_3 = 5
+	\end{cases}
+\end{gather*}
+Now from this we get that \(e_1 = 1\), \(e_2 =  -\frac{1}{2}\) and from the third equation we can find \(e_3\).
+\begin{gather*}
+	3e_3 = 3 - e_1^3 + 3 e_1 e_2 = 3 - 1 - 3 \cdot 1 \cdot \frac{1}{2} = \frac{1}{2} \\
+	e_3 = \frac{1}{6}
+\end{gather*}
+From here, it is simple to extend our knowledge to calculate \(x^4 + y^4 + z^4\) using the Newton-Girard Formula.
+\begin{gather*}
+	S_4 = e_1 S_3 - e_2 S_2 + e_3 S_1 = 3 + \frac{1}{2} \cdot 2 + \frac{1}{6} = \frac{25}{6}
+\end{gather*}
+However, this wasn't really solving a system of symmetric equations; all that happened really was just applying the Newton-Girard Formula multiple times. Now, let us consider something harder.
+\begin{gather*}
+	\begin{cases}
+		xy + yz + xz + xyz = 17 \\
+		x^2 yz + x y^2z + xyz^2 = 36 \\
+		x^2 y + x^2 z + x y^2 + 3 x y z + x z^2 + y^2 z + y z^2 = 66
+	\end{cases}
+\end{gather*}
+And again find \(x^4 + y^4 + z^4\). Do the same as last time: express the system using elementary symmetric polynomials.
+\begin{gather*}
+	\begin{cases}
+		e_2 + e_3 = 17 \\
+		e_1 e_3 = 36 \\
+		e_1 e_2 = 66 \\
+	\end{cases}
+\end{gather*}
+The problem of expressing symmetric polynomials through elementary symmetric polynomials has a solution; however, almost always, it is just simpler to notice patterns and try to factor and transform the equation on your own. Now all that is left is to solve for \(e_1, e_2\) and \(e_3\).
+\begin{gather*}
+	e_1 e_3 + e_1 e_2 = e_1(e_2 + e_3) = 17e_1 = 102 \Longleftrightarrow e_1 = 6 \\
+	e_2 = \frac{66}{6} = 11 \\
+	e_3 = \frac{36}{6} = 6
+\end{gather*}
+Now, a cool trick to keep in mind is that sometimes we are interested in finding such a cubic polynomial \(P(t)\) such that \(x, y, z\) are all roots of that polynomial. This would be useful as from there we can immediately find the solution in the following way.
+\begin{gather*}
+	\begin{cases}
+		ax^3 + bx^2 + cx + d = 0 \\
+		ay^3 + by^2 + cy + d = 0 \\
+		az^3 + bz^2 + bz + d = 0
+	\end{cases} \\
+	\begin{cases}
+		ax^4 + bx^3 + cx^2 + dx = 0 \\
+		ay^4 + by^3 + cy^2 + dy = 0 \\
+		az^4 + bz^3 + bz^2 + dz = 0
+	\end{cases} \\
+	a(x^4 + y^4 + z^4) + b(x^3 + y^3 + z^3) + c(x^2 + y^2 + z^2) + d(x + y + z) = 0 \\
+	aS_4 + bS_3 + cS_2 + dS_1 = 0 \\
+	S_4 = \frac{-dS_1 - cS_2 - bS_3}{a}
+\end{gather*}
+Making such a polynomial is surprisingly simple. If you want \(x, y, z\) to be roots of a polynomial \(P(t)\), simply let \(P(t) = (t - x)(t - y)(t - z)\). Expanding out the expression, we get the following.
+\begin{multline*}
+	P(t) = t^3 - t^2 x - t^2 y - t^2 z + t x y + t x z + t y z - x y z \\
+	= t^3 - t^2(x + y + z) + t(xy + xz + yz) - xyz
+\end{multline*}
+As you can see, all the coefficients are known; they are just the elementary symmetric polynomials! This trick applies to an even greater number of variables.
+\begin{gather*}
+	\prod_{i = 1}^{n} (t - a_i) = t^n - e_1 t^{n - 1} + e_2 t^{n - 2} - ... 
+\end{gather*}
+However, again, here, we will not be looking at more than three variables. Going back to our result, we can now provide such \(P(t)\).
+\begin{gather*}
+	P(t) = t^3 - 6t^2 + 11t - 6
+\end{gather*}
+Now, everything left to apply our solution to find \(S_4\) is to calculate \(S_1, S_2\) and \(S_3\).
+\begin{gather*}
+	S_1 = e_1 = 6 \\
+	S_2 = e_1^2 - 2e_2 = 36 - 2 \cdot 11  = 14 \\
+	S_3 = e_1^3 - 3e_1e_2 + 3e_3 = 216 - 3 \cdot 6 \cdot 11 + 3 \cdot 6 = 36
+\end{gather*}
+Substitution all the gathered information we can find \(S_4\).
+\begin{gather*}
+	S_4 = \frac{6 S_1 - 11 S_2 + 6 S_3}{1} = 98
+\end{gather*}
+This concludes the solution. What I want you to notice is that the whole idea of finding a polynomial with roots \(x, y, z\) is unnecessary; one could replace all the calculations by simply calculating \(S_4\) through \(S_1, S_2, S_3\) and \(e_1, e_2, e_3\). In fact, what was just described is yet another proof or perspective on the Newton-Girard Formula. Obviously, in such cases, using the Newton-Girard Formula directly is best. However, if you forgot, you could always remember it using this trick.
+
+\newpage
+\tableofcontents
+
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,321 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Symmetric Polynomials</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (https://tug.org/tex4ht/)"> 
+<meta name="originator" content="TeX4ht (https://tug.org/tex4ht/)"> 
+<!-- html --> 
+<meta name="src" content="symmetric_polynomials.tex"> 
+<link rel="stylesheet" type="text/css" href="symmetric_polynomials.css"> 
+</head><body 
+>
+   <div class="maketitle">
+
+
+<h1 style="text-align: center;font-family: Tahoma, sans-serif;font-size: 35px;" onclick="window.location.href='https://mrmineev.github.io/'">MrMineev</h1>
+
+<div style="align: center;">
+  <a href="Symmetric Polynomials.pdf">Open PDF version of article</a>
+</div>
+
+
+<h2 class="titleHead">Symmetric Polynomials</h2>
+<div class="date" ></div>
+   </div>
+   <h3 class="sectionHead"><span class="titlemark">1   </span> <a 
+ id="x1-10001"></a>Elementary Symmetric Polynomials</h3>
+<!--l. 21--><p class="noindent" >When dealing with polynomials, it is sometimes useful to introduce the idea of
+Symmetric Polynomials. A Symmetric Polynomial is simply a polynomial that has
+the same result no matter the order in which the input variables are given. The
+simplest example would be the product of three variables <img 
+src="symmetric_polynomials0x.png" alt="a,b  " class="math"> and <img 
+src="symmetric_polynomials1x.png" alt="c  " class="math">.
+<div 
+class="gather-star"><img 
+src="symmetric_polynomials2x.png" alt="f(a,b,c) = abc  " ></div>This
+polynomial is indeed symmetric as <img 
+src="symmetric_polynomials3x.png" alt="f(a,b,c) = f(b,c,a) = f(c,a,b) = ...  " class="math">. Swapping
+the values of some of the variables with each other does not change the outcome. If
+one tries to generate all symmetric polynomials with three variables, which sort of
+satisfy a &#8221;simplicity&#8221; rule (which for now is not well defined), then they might end
+with such a result. <div 
+class="gather-star"><img 
+src="symmetric_polynomials4x.png" alt=" e1(a,b,c) = a+ b + c
+
+e2(a,b,c) = ab+ bc+ ac
+   e3(a,b,c) = abc
+" ></div>Looking at these polynomials, one can start developing the idea of an Elementary
+Symmetric Polynomial. The sum of all possible subsets of the input variables of the
+size <img 
+src="symmetric_polynomials5x.png" alt="n  " class="math">, is often denoted as <img 
+src="symmetric_polynomials6x.png" alt="en  " class="math"> or sometimes <img 
+src="symmetric_polynomials7x.png" alt="&#x03C3;n  " class="math">. From this definition, you can
+try to complete the listed elementary symmetric polynomials with a new one.
+<div 
+class="gather-star"><img 
+src="symmetric_polynomials8x.png" alt="e = 1
+ o
+
+" ></div>However, throughout this chapter, the knowledge about Elementary Symmetric
+Polynomials with more than three variables will be unnecessary, it is still useful to
+keep in mind the definition of everything we describe for a greater number of
+variables. For now, consider what we have and try to prove some properties about
+<img 
+src="symmetric_polynomials9x.png" alt="e1,e2  " class="math"> and <img 
+src="symmetric_polynomials10x.png" alt="e3  " class="math">. It is often useful to represent symmetric equations using
+elementary symmetric polynomials (more about this later).
+<!--l. 37--><p class="noindent" >
+   <h3 class="sectionHead"><span class="titlemark">2   </span> <a 
+ id="x1-20002"></a>Newton-Girard Formula for Symmetric Polynomials in three variables</h3>
+<!--l. 38--><p class="noindent" >Something that holds a specific point of interest is the expressions of the form
+<img 
+src="symmetric_polynomials11x.png" alt="ak + bk + ck  " class="math">. For this specific problem there exists the Newton-Girard Formula for
+Symmetric Polynomials. Define a function <img 
+src="symmetric_polynomials12x.png" alt="Sk(x1,...,xn)  " class="math"> in the following way.
+<div 
+class="gather-star"><img 
+src="symmetric_polynomials13x.png" alt="               n
+Sk(x1,...,xn ) = &#x2211; xk
+              i=1 i
+" ></div>Then, the theorem claims that there exists a recursive formula for calculating <img 
+src="symmetric_polynomials14x.png" alt="Sk  " class="math">.
+<div 
+class="gather-star"><img 
+src="symmetric_polynomials15x.png" alt="             S1 = e1
+          S2 = S1e1 - 2e2
+       S3 = S2e1 - s1e2 + 3e3
+                ...
+       (              )
+        k&#x2211;-1    j             k
+Sk = -     (- 1) Sk-jej - (- 1)kek
+        i=1  " ></div>The
+proof of the statement will not be provided here. Here, I will not be considering the
+formula for more than three variables, as mentioned earlier. The Newton-Girard
+Formula for three variables looks way simpler. <div 
+class="gather-star"><img 
+src="symmetric_polynomials16x.png" alt="Sk = e1Sk-1 - e2Sk-2 + e3Sk-3
+" ></div>Proving this statement is way much simpler than the general form of the
+Newton-Girard Formula. <table 
+class="multline-star"><tr><td><img 
+src="symmetric_polynomials17x.png" alt="  e1Sk- 1 - e2Sk-2 + e3Sk-3 = (a+ b +c)(ak-1 + bk-1 + ck-1)-
+                   k-2   k-2   k-2        k- 3   k- 3   k- 3
+      (ab+ bc+ ac)(a   + b    +c   )+ abc(a   + b   + c   ) =
+       ak + bk + ck + abk-1 + ack-1 + bak-1 + bck-1 + cak-1 + cbk-1
+- bcak-2 - bak-1 - cak-1 - acbk-2 - abk-1 - abck-2 - ack-1 - cbk- 1 - bck- 1
+
+                            + bcak-2 + acbk-2 + abck-2 = ak + bk + ck
+" ></td></tr></table>
+<!--l. 63--><p class="noindent" >
+   <h3 class="sectionHead"><span class="titlemark">3   </span> <a 
+ id="x1-30003"></a>Symmetric Inequality</h3>
+<!--l. 65--><p class="noindent" >Consider a simple inequality. <div 
+class="gather-star"><img 
+src="symmetric_polynomials18x.png" alt=" 2   2   2
+a  + b + c &#x2265; ab+ bc+ ca
+" ></div>Notice, that this is a simple consequence of the Rearrangement Inequality. However,
+there exists another elegant solution that requires no knowledge of any inequalities.
+<table 
+class="multline-star"><tr><td><img 
+src="symmetric_polynomials19x.png" alt=" 2   2   2              1  2        2   2        2   2        2
+a + b + c - ab- bc- ca = 2(a - 2ab+ b + a - 2ac +c + b - 2bc+ c )
+                                      1     2      2     2
+                                   =  2(a- b)(a- c) (b- c) &#x2265; 0  " ></td></tr></table>Now
+that we have proven this inequality, let us transform it into an elementary symmetric
+polynomial form. <div 
+class="gather-star"><img 
+src="symmetric_polynomials20x.png" alt="S2(a,b,c) &#x2265; e2
+e21 - 2e2 &#x2265; e2
+  e2&#x2265; 3e2
+   1
+" ></div>Another simple equation that we can prove is that <img 
+src="symmetric_polynomials21x.png" alt="e22 &#x2265; 3e1e3  " class="math">. We can prove this
+by just substituting the definitions of <img 
+src="symmetric_polynomials22x.png" alt="e1,e2  " class="math"> and <img 
+src="symmetric_polynomials23x.png" alt="e3  " class="math">. <div 
+class="gather-star"><img 
+src="symmetric_polynomials24x.png" alt="              (ab+ bc+ ac)2 &#x2265; 3abc(a + b+ c)
+a2b2 + 2a2bc+ a2c2 + 2ab2c+ 2abc2 + b2c2 &#x2265; 3a2bc+ 3ab2c+ 3abc2
+            2 2   2 2   22    2      2     2
+           a b + a c + b c &#x2265; a bc+ abc + abc  " ></div>The
+
+last inequality is simply proven using the Rearrangement inequality by taking
+<img 
+src="symmetric_polynomials25x.png" alt="x = [ab,bc,ac]  " class="math"> and the same <img 
+src="symmetric_polynomials26x.png" alt="y = [ab,bc,ac]  " class="math">, we assume <img 
+src="symmetric_polynomials27x.png" alt="ab &#x2264; bc &#x2264; ac  " class="math"> and get
+the following. <table 
+class="multline-star"><tr><td><img 
+src="symmetric_polynomials28x.png" alt="a2b2 + b2c2 + a2c2 = x1y1 + x2y2 +x3y3
+                                               2      2      2
+                          &#x2265; x1y3 + x2y1 + x1y2 = a bc+ ab c+ abc
+" ></td></tr></table>These two inequalities (<img 
+src="symmetric_polynomials29x.png" alt=" 2
+e1 &#x2265; 3e2  " class="math"> and <img 
+src="symmetric_polynomials30x.png" alt=" 2
+e2 &#x2265; 3e1e3  " class="math">) are the most useful ones. Using
+these inequalities along with basic usage of other common inequalities can
+help solve a variety of different problems. One might notice that most of
+the techniques somehow transform an equation or inequality into a form
+involving purely elementary symmetric polynomials and can ask the question:
+what if such a form does not exist? Happily, for us, there is a theorem called
+the Fundamental Theorem of Symmetric Polynomials, which claims that
+any symmetric polynomial can, in fact, be expressed as an expression using
+elementary symmetric polynomials (the theorem applies to any number of
+variables). The proof of this statement will also not be provided here due to its
+complexity.
+<!--l. 93--><p class="noindent" >
+   <h3 class="sectionHead"><span class="titlemark">4   </span> <a 
+ id="x1-40004"></a>Systems of Symmetric Equations</h3>
+<!--l. 95--><p class="noindent" >Say we have three systems of symmetric equations as the following. <div 
+class="gather-star"><img 
+src="symmetric_polynomials31x.png" alt="(
+|| x+ y+ z = 1
+|{ x2 + y2 + z2 = 2
+| x3 + y3 + z3 = 3
+||(  " ></div>We
+want to find the value of <img 
+src="symmetric_polynomials32x.png" alt=" 4    4   4
+x  + y + z  " class="math">, for example. First of all, transform the
+equations using elementary symmetric polynomials. <div 
+class="gather-star"><img 
+src="symmetric_polynomials33x.png" alt="(|e  = 1
+{ 12
+|(e1 - 2e2 = 2
+ S3 = e1S2 - e2S1 + e3S0 = e31 - 2e1e2 - e2e1 + 3e3 = e31 - 3e1e2 + 3e3 = 5  " ></div>Now
+from this we get that <img 
+src="symmetric_polynomials34x.png" alt="e1 = 1  " class="math">, <img 
+src="symmetric_polynomials35x.png" alt="      1
+e2 = - 2  " class="math"> and from the third equation we can find
+<img 
+src="symmetric_polynomials36x.png" alt="e3  " class="math">. <div 
+class="gather-star"><img 
+src="symmetric_polynomials37x.png" alt="3e3 = 3- e31 + 3e1e2 = 3 - 1 - 3&#x22C5;1&#x22C5; 1= 1
+                               2   2
+               e3 = 1
+                   6
+" ></div>From here, it is simple to extend our knowledge to calculate <img 
+src="symmetric_polynomials38x.png" alt="x4 + y4 + z4  " class="math"> using the
+Newton-Girard Formula. <div 
+class="gather-star"><img 
+src="symmetric_polynomials39x.png" alt="S  = e S - e S + e S = 3 + 1&#x22C5;2 + 1 = 25
+ 4    1 3   2 2   3 1      2     6   6
+" ></div>However, this wasn&#8217;t really solving a system of symmetric equations; all that
+happened really was just applying the Newton-Girard Formula multiple times. Now,
+let us consider something harder. <div 
+class="gather-star"><img 
+src="symmetric_polynomials40x.png" alt="(
+|{ xy+ yz + xz + xyz = 17
+  x2yz + xy2z + xyz2 = 36
+|(  2    2     2           2   2     2
+  xy + x z + xy + 3xyz + xz + y z + yz = 66  " ></div>And
+again find <img 
+src="symmetric_polynomials41x.png" alt=" 4   4    4
+x  +y  + z  " class="math">. Do the same as last time: express the system using
+elementary symmetric polynomials. <div 
+class="gather-star"><img 
+src="symmetric_polynomials42x.png" alt="(|e + e  = 17
+||{ 2   3
+ e1e3 = 36
+|||(e1e2 = 66  " ></div>The
+problem of expressing symmetric polynomials through elementary symmetric
+polynomials has a solution; however, almost always, it is just simpler to notice
+patterns and try to factor and transform the equation on your own. Now all that is
+left is to solve for <img 
+src="symmetric_polynomials43x.png" alt="e1,e2  " class="math"> and <img 
+src="symmetric_polynomials44x.png" alt="e3  " class="math">. <div 
+class="gather-star"><img 
+src="symmetric_polynomials45x.png" alt="e1e3 + e1e2 = e1(e2 + e3) = 17e1 = 102 &#x21D0; &#x21D2; e1 = 6
+               e =  66= 11
+                2   6
+                e = 36 = 6
+                3    6
+" ></div>Now, a cool trick to keep in mind is that sometimes we are interested in finding such
+a cubic polynomial <img 
+src="symmetric_polynomials46x.png" alt="P(t)  " class="math"> such that <img 
+src="symmetric_polynomials47x.png" alt="x,y,z  " class="math"> are all roots of that polynomial. This
+would be useful as from there we can immediately find the solution in the following
+
+way. <div 
+class="gather-star"><img 
+src="symmetric_polynomials48x.png" alt="                  (
+                  |{ ax3 + bx2 + cx +d = 0
+                    ay3 + by2 + cy+ d = 0
+                  |( az3 + bz2 + bz + d = 0
+                 (
+                 |{ ax4 + bx3 + cx2 + dx = 0
+                   ay4 + by3 + cy2 + dy = 0
+                 |( az4 + bz3 + bz2 + dz = 0
+   4   4    4     3   3   3      2   2   2
+a(x + y  + z) +b(x + y  +z )+ c(x + y + z )+ d(x+ y + z) = 0
+                   aS4 + bS3 + cS2 + dS1 = 0
+                        - dS1 - cS2 - bS3
+                    S4 =-------a-------
+" ></div>Making such a polynomial is surprisingly simple. If you want <img 
+src="symmetric_polynomials49x.png" alt="x,y,z  " class="math"> to be roots of a
+polynomial <img 
+src="symmetric_polynomials50x.png" alt="P (t)  " class="math">, simply let <img 
+src="symmetric_polynomials51x.png" alt="P(t) = (t- x)(t- y)(t- z)  " class="math">. Expanding out the
+expression, we get the following. <table 
+class="multline-star"><tr><td><img 
+src="symmetric_polynomials52x.png" alt="P(t) = t3 - t2x - t2y - t2z +txy + txz + tyz - xyz
+                        = t3 - t2(x + y+ z)+ t(xy+ xz +yz) - xyz  " ></td></tr></table>As
+you can see, all the coefficients are known; they are just the elementary
+symmetric polynomials! This trick applies to an even greater number of variables.
+<div 
+class="gather-star"><img 
+src="symmetric_polynomials53x.png" alt=" n
+ &#x220F; (t- ai) = tn - e1tn-1 +e2tn-2 - ...
+i=1
+" ></div>However, again, here, we will not be looking at more than three variables. Going back
+to our result, we can now provide such <img 
+src="symmetric_polynomials54x.png" alt="P (t)  " class="math">. <div 
+class="gather-star"><img 
+src="symmetric_polynomials55x.png" alt="       3    2
+P (t) = t - 6t + 11t- 6
+" ></div>Now, everything left to apply our solution to find <img 
+src="symmetric_polynomials56x.png" alt="S4  " class="math"> is to calculate <img 
+src="symmetric_polynomials57x.png" alt="S1,S2  " class="math"> and
+<img 
+src="symmetric_polynomials58x.png" alt="S3  " class="math">. <div 
+class="gather-star"><img 
+src="symmetric_polynomials59x.png" alt="                 S = e  = 6
+              2   1   1
+        S2 = e1 - 2e2 = 36- 2 &#x22C5;11 = 14
+S3 = e31 - 3e1e2 + 3e3 = 216- 3 &#x22C5;6&#x22C5;11+ 3 &#x22C5;6 = 36
+
+" ></div>Substitution all the gathered information we can find <img 
+src="symmetric_polynomials60x.png" alt="S4  " class="math">. <div 
+class="gather-star"><img 
+src="symmetric_polynomials61x.png" alt="S4 = 6S1---11S2 +-6S3 = 98
+           1  " ></div>This
+concludes the solution. What I want you to notice is that the whole idea of finding a
+polynomial with roots <img 
+src="symmetric_polynomials62x.png" alt="x,y,z  " class="math"> is unnecessary; one could replace all the calculations
+by simply calculating <img 
+src="symmetric_polynomials63x.png" alt="S4  " class="math"> through <img 
+src="symmetric_polynomials64x.png" alt="S1,S2,S3  " class="math"> and <img 
+src="symmetric_polynomials65x.png" alt="e1,e2,e3  " class="math">. In fact, what was
+just described is yet another proof or perspective on the Newton-Girard
+Formula. Obviously, in such cases, using the Newton-Girard Formula directly
+is best. However, if you forgot, you could always remember it using this
+trick.
+<!--l. 183--><p class="indent" >
+
+   <h3 class="likesectionHead"><a 
+ id="x1-5000"></a>Contents</h3>
+   <div class="tableofcontents">
+   <span class="sectionToc" >1 <a 
+href="#x1-10001" id="QQ2-1-1">Elementary Symmetric Polynomials</a></span>
+<br />   <span class="sectionToc" >2 <a 
+href="#x1-20002" id="QQ2-1-2">Newton-Girard Formula for Symmetric Polynomials in three variables</a></span>
+<br />   <span class="sectionToc" >3 <a 
+href="#x1-30003" id="QQ2-1-3">Symmetric Inequality</a></span>
+<br />   <span class="sectionToc" >4 <a 
+href="#x1-40004" id="QQ2-1-4">Systems of Symmetric Equations</a></span>
+   </div>
+    
+</body></html> 
+
+
+
