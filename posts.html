@@ -19,6 +19,24 @@
 
     <meta name="google-site-verification" content="4dvR_AeWXdmHvaVlSxRmbsdaTpIbvM0_TX3gEOyIiN4" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+      .container {
+        display: flex;
+        align-items: center;
+      }
+      
+      .line {
+        border-left: 5px solid black;
+        height: 100px; /* Adjust as needed */
+        margin-right: 10px; /* Adjust spacing between text and line */
+      }
+      
+      .text {
+        font-size: 16px; /* Adjust font size as needed */
+        /* Add any other styles you want */
+      }
+    </style>
   </head>
   <body>
     <h1 id="global-name">MrMineev</h1>
@@ -50,6 +68,37 @@
         F_n \cr} \right)$$
       </p>
       <br>
+      <span class="publication-date">🗓️ March 10, 2024</span>
+    </div>
+
+    <br>
+
+    <div class="content-text definition-box">
+      <p style="padding: 10px;">
+      Fun problem from <i>IMO - 2008.2</i>, which can be solved using Symmetric Polynomials and then methods mentioned in my <a href="articles/symmetric-polynomials/symmetric_polynomials.html">article</a>.
+      <br>
+      <br>
+      <i>Problem Statement (<a href="https://www.imo-official.org/problems/IMO2008SL.pdf">IMO Shortlist 2008 with this solution)</a>: </i>
+      <div class="definition-box">
+        Prove that for any for any
+        $$x, y, z \neq 1$$
+        satisfying the condition
+        $$xyz = 1$$
+        the following inequality holds.
+        $$\frac{x^2}{(x - 1)^2} + \frac{y^2}{(y - 1)^2} + \frac{z^2}{(z - 1)^2} \geq 1$$
+      </div>
+      <br>
+      First let us substitue \(a = \frac{x}{x - 1}, b = \frac{y}{y - 1}, c = \frac{z}{z - 1}\). Then the condition \(xyz = 1\) provided can be written down as the following.
+      $$abc = \frac{x}{x - 1} \cdot \frac{y}{y - 1} \cdot \frac{z}{z - 1}$$
+      $$ = \frac{1}{x - 1} \cdot \frac{1}{y - 1} \cdot \frac{1}{z - 1}$$
+      $$ = (a - 1)(b - 1)(c - 1)$$
+      <br>
+      Opening up the brackets you get the following.
+      $$abc = abc - ab - ac - bc + a + b + c - 1$$
+      $$e_1 = e_2 + 1$$
+      Now let us play around with the inequality we need to prove.
+      $$a^2 + b^2 + c^2 = e_1^2 - 2e_2 = e_1^2 - 2e_1 + 2 = (e_1 - 1)^2 + 1$$
+      Which obviously is greater than 1. Thus concluding the proof.
       <span class="publication-date">🗓️ March 10, 2024</span>
     </div>
 
