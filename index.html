@@ -34,6 +34,11 @@
       </button>
     </div>
 
+    <br>
+
+    <div id='articleList' style='text-align: center;'>
+    </div>
+
     <article class="post-container" onclick="window.location.href='articles/gravity-simulator/gravity-simulator'">
       <div class="image-column">
         <img src="assets/space-simulator.png" alt="Article Image">
@@ -52,7 +57,7 @@
           <img src="assets/recommendation-system.png" alt="Article Image">
         </div>
         <div class="content-column">
-          <h1 class="article-name">🔍 Recommendation Systems </h1>
+          <h1 class="article-name">🔍 Recommendation Systems</h1>
           <p class="article-description">
             What does a person like? How to predict how much a person would like something?
             The answer to these questions lies in Recommendations Systems.
@@ -236,8 +241,39 @@
     <br>
     <br>
 
+    <script>
+      // Get all articles
+      const articles = document.querySelectorAll('.post-container');
+
+      // Create a div element to hold the links
+      const linksDiv = document.createElement('div');
+
+      // Iterate over each article to extract the name and href
+      articles.forEach(article => {
+        const name = article.querySelector('.article-name').textContent.trim();
+        const href = article.getAttribute('onclick').match(/'(.*?)'/)[1]; // Extract href from onclick attribute
+        const link = document.createElement('a');
+        link.href = href;
+        link.textContent = name;
+        link.style.display = 'inline-block';
+        // link.style.display = 'block'; // Make each link appear on a new line
+        linksDiv.appendChild(link);
+
+        const space = document.createElement('span');
+        space.innerHTML = '&nbsp;';
+        linksDiv.appendChild(space);
+      });
+
+      // Append the links div to the articleList div
+      document.getElementById('articleList').appendChild(linksDiv);
+    </script>
 
     <script src="main.js"></script>
   </body>
 </html>
+
+
+
+
+
 
