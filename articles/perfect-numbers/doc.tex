@@ -1,0 +1,138 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+
+\title{On the topic of Perfect Numbers}
+\author{Daniel Mineev}
+
+\begin{document}
+
+\maketitle
+
+\section{Sigma Function}
+
+An important function directly related to the topic of Perfect Numbers is the Sigma function, denoted as \(\sigma(n)\), which returns the sum of all the divisors of the number \(n\). An interesting formula that has been proven to hold is the following.
+
+\begin{equation}
+	\sigma(n) = \prod_{i = 1}^k \left (1 + p_i + p_i^2 + ... + p_i^{\alpha_i} \right ) = \prod_{i = 1}^k \frac{p_i^{\alpha_i + 1} - 1}{p_i - 1}
+\end{equation}
+
+Consequently, the condition given to perfect numbers can be directly rewritten regarding the sigma function.
+
+\begin{equation}
+	\sigma(n) = 2n
+\end{equation}
+
+Which can be rewritten given the previous formula.
+
+\begin{equation}
+	\prod_{i = 1}^k \frac{p_i^{\alpha_i + 1} - 1}{p_i - 1} = 2\prod_{i = 1}^k p_i^{\alpha_i}
+\end{equation}
+
+\section{Prime Factoring Forms of Perfect Numbers}
+
+\subsection{\(3^x p\) form}
+
+The interesting part about the formula given above is that it is now possible to search for perfect numbers given some prime factoring. For example, consider we want to find all perfect numbers of the form \(3^x p\), where \(p\) is prime. Simply substituting this into our equation gives us quite a simple equation.
+
+\begin{equation}
+	(p + 1) \frac{3^{x + 1} - 1}{2} = 2 \cdot 3^x p
+\end{equation}
+
+Simplifying everything will give the following.
+
+\begin{align*}
+	2 \cdot 3^x p - \frac{3^{x + 1} p}{2} = \frac{-p + 3^{x + 1} - 1}{2} \\
+	4 \cdot 3^x p - 3^{x + 1} p = -p + 3^{x + 1} - 1 \\
+	3^x p = -p + 3^{x + 1} - 1
+\end{align*}
+
+In the end, we get the final equation representing this situation.
+
+\begin{equation}
+	3^x(p - 3) = -p - 1
+\end{equation}
+
+The right-hand side is always negative, thus for equality to hold, the left-hand side, term \(p - 3\) must also be negative, in other words \(p < 3\) or \(p = 2\). For \(p = 2\) the result is \(x = 1\), thus the only perfect number of the form \(3^x p\) is 6.
+
+\subsection{\(7^x p\) form}
+
+Another example to test the method on a simple yet harder prime factoring form is \(7^x p\). Thus, one is required to solve the following equation.
+\begin{equation}
+    (p + 1) \frac{7^{x + 1} - 1}{6} = 2 \cdot 7^x p
+\end{equation}
+\begin{align*}
+    7^{x + 1}p - p + 7^{x + 1} - 1 = 12 \cdot 7^x p \\
+    -p - 1 = 5 \cdot 7^x p -  7^{x + 1}
+\end{align*}
+In conclusion, we are left with the following equation.
+\begin{equation}
+    7^x \left ( 5p - 7 \right ) = -p - 1
+\end{equation}
+It is trivial to notice that the right-hand side is always negative, and the right-hand side is negative only for \(p < 2\), yet there is no prime number less than two, thus is no perfect number of the form \(7^x p\). From here, I believe it should be intuitive to guess that the form \(p^x q\) must be approachable similarly by noticing that the right-hand side of some developed equation is negative and, from there, developing an algorithm for finding perfect numbers of that form. That is what I am going to do in the following section.
+
+\subsection{General \(p^x q\) form}
+
+An interesting prime factoring form is \(p^x q\), which describes the first several perfect numbers.
+
+\begin{align*}
+    6 = 2 \cdot 3 \\
+    28 = 2^2 \cdot 7 \\
+    496 = 2^3 \cdot 31 \\
+    8128 = 2^6 \cdot 127 \\
+    33550336 = 2^{12} \cdot 8191 \\
+    8589869056 = 2^{16} \cdot 131071
+\end{align*}
+
+It seems most perfect numbers are represented in their prime factorization by two factors. Substituting this into the formula at the start gives the following.
+
+\begin{equation}
+    (q + 1)\frac{p^{x + 1} - 1}{p - 1} = 2 p^x q
+\end{equation}
+\begin{align*}
+    \frac{(q + 1)(p^{x + 1} - 1)}{p - 1} = \frac{qp^{x+1} + p^{x+1} - q - 1}{p - 1} = 2 p^x q \\
+    qp^{x + 1} + p^{x + 1} - q - 1 = 2 p^x q (p - 1) \\
+    -q - 1 = 2p^x q (p - 1) - qp^{x + 1} - p^{x + 1} = p^x \left ( 2q(p - 1) - pq - p\right )
+\end{align*}
+
+Thus, the general equation governing the behavior of perfect numbers of the form \(p^x q\) is quite simple.
+
+\begin{equation}
+    -q - 1 = p^x \left ( pq - 2q - p \right )
+\end{equation}
+
+Notice that the left-hand side is always negative (this is the exact same argument used when analyzing the previous prime factoring form). Thus, the value \(pq - 2q - p\) must be negative. Obviously the value is negative when \(p < \frac{2q + p}{q} = 2 + \frac{p}{q}\). From this, we can conclude the following interesting relationship.
+
+\begin{equation}
+    p < 2 + \frac{p}{q}
+\end{equation}
+
+One would think this relationship is useful because given \(p\) or \(q\), you can limit the search for the second variable and simply brute force all the combinations for the second variable. However, if you take a close look at the inequality it tells us that for big enough \(p\), \(q\) must equal 1, however 1 is not a prime number, thus there exist no perfect numbers of such form for big enough \(p\). In this case, it is simple to see that by big enough, I mean \(p \geq 4\). The only two prime numbers less than four are 2 and 3. Perfect numbers of the form \(3^x p\) have been analyzed in the section before this, and I have shown that the only perfect number of this form is 6. Thus, the only perfect numbers of the form \(p^x q\) are of the form \(2^x q\) (note an interesting property is that all perfect numbers of the form \(p^x q\) are even).
+
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

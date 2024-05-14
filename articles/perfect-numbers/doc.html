@@ -1,0 +1,398 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>On the topic of Perfect Numbers</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (https://tug.org/tex4ht/)"> 
+<meta name="originator" content="TeX4ht (https://tug.org/tex4ht/)"> 
+<!-- html --> 
+<meta name="src" content="doc.tex"> 
+<link rel="stylesheet" type="text/css" href="doc.css"> 
+</head><body 
+>
+   <div class="maketitle">
+
+
+<h1 style="text-align: center;font-family: Tahoma, sans-serif;font-size: 35px;" onclick="window.location.href='https://mrmineev.github.io/'">MrMineev</h1>
+
+<div style="align: center;">
+  <a href="On the topic of Perfect Numbers.pdf">Open PDF version of article</a>
+</div>
+
+<h2 class="titleHead">On the topic of Perfect Numbers</h2>
+</div>
+   <h3 class="sectionHead"><span class="titlemark">1   </span> <a 
+ id="x1-10001"></a>Sigma Function</h3>
+<!--l. 16--><p class="noindent" >An important function directly related to the topic of Perfect Numbers is the Sigma
+function, denoted as <img 
+src="doc0x.png" alt="&#x03C3;(n)  " class="math">, which returns the sum of all the divisors of the
+number <img 
+src="doc1x.png" alt="n  " class="math">. An interesting formula that has been proven to hold is the
+following.
+   <table 
+class="equation"><tr><td>
+   <div class="math-display" >
+<img 
+src="doc2x.png" alt="       &#x220F;k (                 )   &#x220F;k p&#x03B1;i+1 - 1
+&#x03C3; (n) =    1 + pi + p2i + ...+ p&#x03B1;ii =  -i------
+       i=1                       i=1  pi - 1
+" class="math-display" ><a 
+ id="x1-1001r1"></a></div>
+   </td><td class="equation-label">(1)</td></tr></table>
+<!--l. 20--><p class="nopar" >
+<!--l. 22--><p class="indent" >   Consequently, the condition given to perfect numbers can be directly rewritten
+regarding the sigma function.
+   <table 
+class="equation"><tr><td>
+   <div class="math-display" >
+
+<img 
+src="doc3x.png" alt="&#x03C3; (n) = 2n
+" class="math-display" ><a 
+ id="x1-1002r2"></a></div>
+   </td><td class="equation-label">(2)</td></tr></table>
+<!--l. 26--><p class="nopar" >
+<!--l. 28--><p class="indent" >   Which can be rewritten given the previous formula.
+   <table 
+class="equation"><tr><td>
+   <div class="math-display" >
+<img 
+src="doc4x.png" alt="&#x220F;k p&#x03B1;i+1- 1    &#x220F;k
+   -i------ = 2   p&#x03B1;ii
+i=1  pi - 1    i=1
+" class="math-display" ><a 
+ id="x1-1003r3"></a></div>
+   </td><td class="equation-label">(3)</td></tr></table>
+<!--l. 32--><p class="nopar" >
+<!--l. 34--><p class="noindent" >
+   <h3 class="sectionHead"><span class="titlemark">2   </span> <a 
+ id="x1-20002"></a>Prime Factoring Forms of Perfect Numbers</h3>
+<!--l. 36--><p class="noindent" >
+   <h4 class="subsectionHead"><span class="titlemark">2.1   </span> <a 
+ id="x1-30002.1"></a><img 
+src="doc5x.png" alt="3xp  " class="math"> form</h4>
+<!--l. 38--><p class="noindent" >The interesting part about the formula given above is that it is now possible to
+search for perfect numbers given some prime factoring. For example, consider we
+want to find all perfect numbers of the form <img 
+src="doc6x.png" alt="3xp  " class="math">, where <img 
+src="doc7x.png" alt="p  " class="math"> is prime. Simply
+substituting this into our equation gives us quite a simple equation.
+   <table 
+class="equation"><tr><td>
+   <div class="math-display" >
+<img 
+src="doc8x.png" alt="      3x+1 --1     x
+(p+ 1)   2    = 2&#x22C5;3 p
+" class="math-display" ><a 
+ id="x1-3001r4"></a></div>
+   </td><td class="equation-label">(4)</td></tr></table>
+<!--l. 42--><p class="nopar" >
+<!--l. 44--><p class="indent" >   Simplifying everything will give the following.
+<!--l. 46--><p class="indent" >
+<table 
+class="align-star">
+                   <tr><td 
+class="align-odd">2 <span 
+class="cmsy-10">&#x22C5; </span>3<sup><span 
+class="cmmi-7">x</span></sup><span 
+class="cmmi-10">p </span><span 
+class="cmsy-10">-</span><img 
+src="doc9x.png" alt=" x+1
+3---p
+  2"  class="frac" align="middle"> = <img 
+src="doc10x.png" alt="      x+1
+- p-+-3----1
+     2"  class="frac" align="middle"></td>                   <td 
+class="align-even"></td>                   <td 
+class="align-label">
+                   </td></tr><tr><td 
+class="align-odd">4 <span 
+class="cmsy-10">&#x22C5; </span>3<sup><span 
+class="cmmi-7">x</span></sup><span 
+class="cmmi-10">p </span><span 
+class="cmsy-10">- </span>3<sup><span 
+class="cmmi-7">x</span><span 
+class="cmr-7">+1</span></sup><span 
+class="cmmi-10">p </span>= <span 
+class="cmsy-10">-</span><span 
+class="cmmi-10">p </span>+ 3<sup><span 
+class="cmmi-7">x</span><span 
+class="cmr-7">+1</span></sup> <span 
+class="cmsy-10">- </span>1</td>                    <td 
+class="align-even"></td>                   <td 
+class="align-label">
+                   </td></tr><tr><td 
+class="align-odd">3<sup><span 
+class="cmmi-7">x</span></sup><span 
+class="cmmi-10">p </span>= <span 
+class="cmsy-10">-</span><span 
+class="cmmi-10">p </span>+ 3<sup><span 
+class="cmmi-7">x</span><span 
+class="cmr-7">+1</span></sup> <span 
+class="cmsy-10">- </span>1</td>                             <td 
+class="align-even"></td>                   <td 
+class="align-label"></td></tr></table>
+<!--l. 52--><p class="indent" >   In the end, we get the final equation representing this situation.
+   <table 
+class="equation"><tr><td>
+   <div class="math-display" >
+<img 
+src="doc11x.png" alt="3x(p - 3) = - p - 1
+" class="math-display" ><a 
+ id="x1-3002r5"></a></div>
+   </td><td class="equation-label">(5)</td></tr></table>
+<!--l. 56--><p class="nopar" >
+
+<!--l. 58--><p class="indent" >   The right-hand side is always negative, thus for equality to hold, the left-hand
+side, term <img 
+src="doc12x.png" alt="p - 3  " class="math"> must also be negative, in other words <img 
+src="doc13x.png" alt="p &#x003C; 3  " class="math"> or <img 
+src="doc14x.png" alt="p = 2  " class="math">. For
+<img 
+src="doc15x.png" alt="p = 2  " class="math"> the result is <img 
+src="doc16x.png" alt="x = 1  " class="math">, thus the only perfect number of the form <img 
+src="doc17x.png" alt="3xp  " class="math"> is
+6.
+<!--l. 60--><p class="noindent" >
+   <h4 class="subsectionHead"><span class="titlemark">2.2   </span> <a 
+ id="x1-40002.2"></a><img 
+src="doc18x.png" alt=" x
+7 p  " class="math"> form</h4>
+<!--l. 62--><p class="noindent" >Another example to test the method on a simple yet harder prime factoring form is
+<img 
+src="doc19x.png" alt=" x
+7 p  " class="math">. Thus, one is required to solve the following equation.
+   <table 
+class="equation"><tr><td>
+   <div class="math-display" >
+<img 
+src="doc20x.png" alt="      7x+1 - 1
+(p+ 1)---6----= 2&#x22C5;7xp
+" class="math-display" ><a 
+ id="x1-4001r6"></a></div>
+   </td><td class="equation-label">(6)</td></tr></table>
+<!--l. 65--><p class="nopar" >
+<table 
+class="align-star">
+                    <tr><td 
+class="align-odd">7<sup><span 
+class="cmmi-7">x</span><span 
+class="cmr-7">+1</span></sup><span 
+class="cmmi-10">p </span><span 
+class="cmsy-10">- </span><span 
+class="cmmi-10">p </span>+ 7<sup><span 
+class="cmmi-7">x</span><span 
+class="cmr-7">+1</span></sup> <span 
+class="cmsy-10">- </span>1 = 12 <span 
+class="cmsy-10">&#x22C5; </span>7<sup><span 
+class="cmmi-7">x</span></sup><span 
+class="cmmi-10">p</span></td>                    <td 
+class="align-even"></td>                    <td 
+class="align-label">
+                    </td></tr><tr><td 
+class="align-odd"> <span 
+class="cmsy-10">- </span><span 
+class="cmmi-10">p </span><span 
+class="cmsy-10">- </span>1 = 5 <span 
+class="cmsy-10">&#x22C5; </span>7<sup><span 
+class="cmmi-7">x</span></sup><span 
+class="cmmi-10">p </span><span 
+class="cmsy-10">- </span>7<sup><span 
+class="cmmi-7">x</span><span 
+class="cmr-7">+1</span></sup></td>                         <td 
+class="align-even"></td>                    <td 
+class="align-label"></td></tr></table>
+<!--l. 70--><p class="indent" >   In conclusion, we are left with the following equation.
+
+   <table 
+class="equation"><tr><td>
+   <div class="math-display" >
+<img 
+src="doc21x.png" alt="7x(5p- 7) = - p- 1
+" class="math-display" ><a 
+ id="x1-4002r7"></a></div>
+   </td><td class="equation-label">(7)</td></tr></table>
+<!--l. 73--><p class="nopar" >It is trivial to notice that the right-hand side is always negative, and the right-hand
+side is negative only for <img 
+src="doc22x.png" alt="p &#x003C; 2  " class="math">, yet there is no prime number less than two, thus is
+no perfect number of the form <img 
+src="doc23x.png" alt="7xp  " class="math">. From here, I believe it should be intuitive to
+guess that the form <img 
+src="doc24x.png" alt="pxq  " class="math"> must be approachable similarly by noticing that the
+right-hand side of some developed equation is negative and, from there, developing an
+algorithm for finding perfect numbers of that form. That is what I am going to do in
+the following section.
+<!--l. 76--><p class="noindent" >
+   <h4 class="subsectionHead"><span class="titlemark">2.3   </span> <a 
+ id="x1-50002.3"></a>General <img 
+src="doc25x.png" alt=" x
+p q  " class="math"> form</h4>
+<!--l. 78--><p class="noindent" >An interesting prime factoring form is <img 
+src="doc26x.png" alt=" x
+p q  " class="math">, which describes the first several perfect
+numbers.
+<!--l. 80--><p class="indent" >
+
+<table 
+class="align-star">
+                      <tr><td 
+class="align-odd">6 = 2 <span 
+class="cmsy-10">&#x22C5; </span>3</td>                                     <td 
+class="align-even"></td>                      <td 
+class="align-label">
+                      </td></tr><tr><td 
+class="align-odd">28 = 2<sup><span 
+class="cmr-7">2</span></sup> <span 
+class="cmsy-10">&#x22C5; </span>7</td>                                   <td 
+class="align-even"></td>                      <td 
+class="align-label">
+                      </td></tr><tr><td 
+class="align-odd">496 = 2<sup><span 
+class="cmr-7">3</span></sup> <span 
+class="cmsy-10">&#x22C5; </span>31</td>                                 <td 
+class="align-even"></td>                      <td 
+class="align-label">
+                      </td></tr><tr><td 
+class="align-odd">8128 = 2<sup><span 
+class="cmr-7">6</span></sup> <span 
+class="cmsy-10">&#x22C5; </span>127</td>                               <td 
+class="align-even"></td>                      <td 
+class="align-label">
+                      </td></tr><tr><td 
+class="align-odd">33550336 = 2<sup><span 
+class="cmr-7">12</span></sup> <span 
+class="cmsy-10">&#x22C5; </span>8191</td>                          <td 
+class="align-even"></td>                      <td 
+class="align-label">
+                      </td></tr><tr><td 
+class="align-odd">8589869056 = 2<sup><span 
+class="cmr-7">16</span></sup> <span 
+class="cmsy-10">&#x22C5; </span>131071</td>                      <td 
+class="align-even"></td>                      <td 
+class="align-label"></td></tr></table>
+<!--l. 89--><p class="indent" >   It seems most perfect numbers are represented in their prime factorization by two
+factors. Substituting this into the formula at the start gives the following.
+   <table 
+class="equation"><tr><td>
+   <div class="math-display" >
+<img 
+src="doc27x.png" alt="      px+1 - 1
+(q+ 1)--------= 2pxq
+       p - 1
+" class="math-display" ><a 
+ id="x1-5001r8"></a></div>
+   </td><td class="equation-label">(8)</td></tr></table>
+<!--l. 93--><p class="nopar" >
+
+<table 
+class="align-star">
+       <tr><td 
+class="align-odd"><img 
+src="doc28x.png" alt="        x+1
+(q+-1)(p-----1)
+     p - 1"  class="frac" align="middle"> = <img 
+src="doc29x.png" alt="  x+1    x+1
+qp----+-p-----q--1
+       p- 1"  class="frac" align="middle"> = 2<span 
+class="cmmi-10">p</span><sup><span 
+class="cmmi-7">x</span></sup><span 
+class="cmmi-10">q</span></td>                  <td 
+class="align-even"></td>       <td 
+class="align-label">
+       </td></tr><tr><td 
+class="align-odd"><span 
+class="cmmi-10">qp</span><sup><span 
+class="cmmi-7">x</span><span 
+class="cmr-7">+1</span></sup> + <span 
+class="cmmi-10">p</span><sup><span 
+class="cmmi-7">x</span><span 
+class="cmr-7">+1</span></sup> <span 
+class="cmsy-10">- </span><span 
+class="cmmi-10">q </span><span 
+class="cmsy-10">- </span>1 = 2<span 
+class="cmmi-10">p</span><sup><span 
+class="cmmi-7">x</span></sup><span 
+class="cmmi-10">q</span>(<span 
+class="cmmi-10">p </span><span 
+class="cmsy-10">- </span>1)</td>                              <td 
+class="align-even"></td>       <td 
+class="align-label">
+       </td></tr><tr><td 
+class="align-odd"> <span 
+class="cmsy-10">- </span><span 
+class="cmmi-10">q </span><span 
+class="cmsy-10">- </span>1 = 2<span 
+class="cmmi-10">p</span><sup><span 
+class="cmmi-7">x</span></sup><span 
+class="cmmi-10">q</span>(<span 
+class="cmmi-10">p </span><span 
+class="cmsy-10">- </span>1) <span 
+class="cmsy-10">- </span><span 
+class="cmmi-10">qp</span><sup><span 
+class="cmmi-7">x</span><span 
+class="cmr-7">+1</span></sup> <span 
+class="cmsy-10">- </span><span 
+class="cmmi-10">p</span><sup><span 
+class="cmmi-7">x</span><span 
+class="cmr-7">+1</span></sup> = <span 
+class="cmmi-10">p</span><sup><span 
+class="cmmi-7">x</span></sup><img 
+src="doc30x.png" alt="(2q(p- 1)- pq - p)"  class="left" align="middle"></td>       <td 
+class="align-even"></td>       <td 
+class="align-label"></td></tr></table>
+<!--l. 100--><p class="indent" >   Thus, the general equation governing the behavior of perfect numbers of the form
+<img 
+src="doc31x.png" alt="pxq  " class="math"> is quite simple.
+   <table 
+class="equation"><tr><td>
+   <div class="math-display" >
+<img 
+src="doc32x.png" alt="- q - 1 = px(pq- 2q - p)
+" class="math-display" ><a 
+ id="x1-5002r9"></a></div>
+   </td><td class="equation-label">(9)</td></tr></table>
+<!--l. 104--><p class="nopar" >
+<!--l. 106--><p class="indent" >   Notice that the left-hand side is always negative (this is the exact same
+argument used when analyzing the previous prime factoring form). Thus, the
+value <img 
+src="doc33x.png" alt="pq- 2q - p  " class="math"> must be negative. Obviously the value is negative when
+<img 
+src="doc34x.png" alt="p &#x003C; 2q+qp-= 2 + pq  " class="math">. From this, we can conclude the following interesting
+relationship.
+   <table 
+class="equation"><tr><td>
+   <div class="math-display" >
+<img 
+src="doc35x.png" alt="p &#x003C; 2+ p
+       q
+" class="math-display" ><a 
+ id="x1-5003r10"></a></div>
+
+   </td><td class="equation-label">(10)</td></tr></table>
+<!--l. 110--><p class="nopar" >
+<!--l. 112--><p class="indent" >   One would think this relationship is useful because given <img 
+src="doc36x.png" alt="p  " class="math"> or <img 
+src="doc37x.png" alt="q  " class="math">, you can limit
+the search for the second variable and simply brute force all the combinations for the
+second variable. However, if you take a close look at the inequality it tells us that for
+big enough <img 
+src="doc38x.png" alt="p  " class="math">, <img 
+src="doc39x.png" alt="q  " class="math"> must equal 1, however 1 is not a prime number, thus there exist
+no perfect numbers of such form for big enough <img 
+src="doc40x.png" alt="p  " class="math">. In this case, it is simple to see
+that by big enough, I mean <img 
+src="doc41x.png" alt="p &#x2265; 4  " class="math">. The only two prime numbers less than four are 2
+and 3. Perfect numbers of the form <img 
+src="doc42x.png" alt="3xp  " class="math"> have been analyzed in the section before
+this, and I have shown that the only perfect number of this form is 6. Thus,
+the only perfect numbers of the form <img 
+src="doc43x.png" alt="pxq  " class="math"> are of the form <img 
+src="doc44x.png" alt="2xq  " class="math"> (note
+an interesting property is that all perfect numbers of the form <img 
+src="doc45x.png" alt="pxq  " class="math"> are
+even).
+    
+</body></html> 
+
+
+
