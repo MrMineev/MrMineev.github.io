@@ -55,6 +55,26 @@
     <br>
 
     <div class="content-text definition-box">
+      <div class="definition-box">
+        Consider a set of \(n\) states, along with two terminal states \(n + 1\) and \(n + 2\). A machine starts at state \(1\), and then every second switches states based on some probability distribution \(p_{ij}\), which represents the probability of switching from state \(i\) to state \(j\). The machine stops the process when it has reached a terminal state. Calculate the probability it will reach state \(n + 1\).
+      </div>
+      A cool method I have found, is instead of trying to find a direct way to calculate the probability, write down \(n\) equations involving \(n\) unknowns and there values.
+      Let us denote by \(P(s)\) the probability of getting to state \(n + 1\) in the end, then it is trivial to understand the following equation.
+      $$P(1) = p_{11}P(1) + p_{12}P(2) + p_{13}P(3) + ... + p_{1n}P(n)$$
+      Writing down the same equation for \(P(2), P(3), ..., P(n)\) gives the following.
+      $$0 = (p_{11} - 1)P(1) + p_{12}P(2) + p_{13}P(3) + ... + p_{1n}P(n)$$
+      $$0 = p_{21}P(1) + (p_{22} - 1)P(2) + p_{23}P(3) + ... + p_{2n}P(n)$$
+      $$...$$
+      $$0 = p_{n1}P(1) + p_{n2}P(2) + p_{n3}P(3) + ... + (p_{nn} - 1)P(n)$$
+      Solving this system of linear equations will give the precise formula for \(P(s)\), obviously the answer will be \(P(1)\).
+      <br>
+      <br>
+      <span class="publication-date">🗓️ May 17, 2024</span>
+    </div>
+
+    <br>
+
+    <div class="content-text definition-box">
       <p style="padding: 10px;">
       Discovered an engaging puzzle! Extend the line \(AB\) beyond the red area using only a ruler, ensuring that you never intersect the red zone throughout the construction process.
       </p>
