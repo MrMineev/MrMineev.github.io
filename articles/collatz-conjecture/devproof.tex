@@ -1,0 +1,371 @@
+\documentclass{article}
+% \documentclass[twocolumn]{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{pgfplots}
+\usepackage{listings}
+\usepackage{color}
+\usepackage{amsfonts}
+\usepackage{mdframed}
+\usepackage{lipsum}
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\newmdtheoremenv[
+  backgroundcolor=gray!10, % Background color
+  linecolor=black, % Frame color
+  linewidth=2pt, % Frame width
+  topline=false, % Display top line
+  bottomline=false, % Hide bottom line
+  rightline=false, % Hide right line
+  leftline=true, % Hide left line
+]{theo}{Theorem}
+\newmdtheoremenv[
+  backgroundcolor=gray!10, % Background color
+  linecolor=black, % Frame color
+  linewidth=2pt, % Frame width
+  topline=false, % Display top line
+  bottomline=false, % Hide bottom line
+  rightline=false, % Hide right line
+  leftline=true, % Hide left line
+]{lemma}{Lemma}
+\newmdtheoremenv[
+  backgroundcolor=gray!10, % Background color
+  linecolor=black, % Frame color
+  linewidth=2pt, % Frame width
+  topline=false, % Display top line
+  bottomline=false, % Hide bottom line
+  rightline=false, % Hide right line
+  leftline=true, % Hide left line
+]{defin}{Def}
+
+\lstset{frame=tb,
+  language=Python,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=3
+}
+
+\title{On the topic of the \(3n+1\) Conjecture}
+\author{Daniel Mineev}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\section{The Collatz Conjecture}
+
+The Collatz Conjecture, also known as the \(3n+1\) Conjecture, is one of the unsolved problems in number theory.
+The setting of the problem is simple. Let's define \(\Delta f\) as 
+
+\begin{equation}	
+  \Delta f(n) =
+  \begin{cases}
+    \frac{3n + 1}{2} & \text{if } n \text{ is odd}, \\
+    \frac{n}{2} & \text{if } n \text{ is even}.
+  \end{cases}
+\end{equation}
+
+The conjecture states that for any n, if you apply this function enough times, it will hit 1. In this paper, I will be calling this function the step function.
+
+\section{Redefining the Step Function}
+
+The previous definition of the step function is good.
+However, it is expressed partially mathematically.
+A person might use this function to fix such an issue.
+
+\begin{equation}
+  h(x) = \frac{1 - (-1)^x}{2}
+\end{equation}
+
+This function is equal to 1 when x is odd and equal to 0 when the number is even.
+We can use such a function to define the step function. 
+
+\begin{gather}
+  \Delta f(x) = x(2.5h(x) + 0.5) + h(x) \nonumber \\
+  \Delta f(x) = x(2.5\frac{1 - (-1)^x}{2} + 0.5) + \frac{1 - (-1)^x}{2}
+\end{gather}
+
+This is a better formula. However, this isn't defined for real numbers x because of \((-1)^x\). 
+We will devise a different formula to make one that works with real numbers. 
+The formula should oscillate back and forth between two lines, the \(y = 3x + 1\) and the \(y = \frac{x}{2}\).
+We know that a function that oscillates between \(a\) and \(b\) is defined as
+
+\begin{equation}
+  f(x) = \frac{a(x) + b(x)}{2} + \frac{a(x) - b(x)}{2}\phi(x)
+\end{equation}
+
+Where \(\phi\) is any function oscillating between -1 and 1. Now, again, let's redefine the step function.
+
+\begin{gather}
+  f(x) = \frac{3x + 1 + \frac{x}{2}}{2} + \frac{3x + 1 - \frac{x}{2}}{2} \cos(ax + b) \nonumber \\
+  f(x) = \frac{3.5x + 1}{2} + \frac{2.5x + 1}{2} \cos(ax + b) \nonumber
+\end{gather}
+
+Let's pick a to be \(\pi\) so that the frequency of the cos wave would be 1. Then
+
+\begin{gather}
+  f(2) = 1 \nonumber \\
+  4 + 3 \cos(ax + b) = 1 \nonumber \\
+  \cos(ax + b) = -1 \nonumber \\
+  \cos(2\pi + b) = -1 \nonumber \\
+  b = \cos^{-1}(-1) = \pi \nonumber
+\end{gather}
+
+The final function looks like this.
+
+\begin{gather}
+  \Delta f(x) = \frac{3.5x + 1}{2} + \frac{2.5x + 1}{2} \cos(\pi x + \pi) \\
+  \Delta f(x) = \frac{3.5x + 1}{2} - \frac{2.5x + 1}{1} \cos(\pi x) \\
+  \Delta f(x) = \frac{3.5x + 1 - (2.5x + 1)\cos(\pi x)}{2}
+\end{gather}
+
+Such a function is defined for all real numbers, not only for integers. A graph of such a function looks like the following.
+
+\vspace{12pt}
+
+\begin{center}
+\begin{tikzpicture}
+  \begin{axis}[xmin=-20, xmax=20, samples=500]
+    \addplot[domain=-20:20, color=red, dashed, mark=*]{(3.5 * x + 1)/2 + (2.5 * x + 1)/2 * cos(deg(pi  * x + pi))};
+    \addplot[domain=-20:20, color=blue]{3 * x + 1};
+    \addplot[domain=-20:20, color=violet]{x / 2};
+  \end{axis}
+\end{tikzpicture}
+\end{center}
+
+\vspace{12pt}
+
+The two lines here are blue and violet. They are the \(y=3x+1\) and the \(y = \frac{x}{2}\).
+The red curve is the step function using the formula (5).
+This formula will be used for the step function throughout the paper.
+What about defining the function using \(\sin\)?
+
+\begin{gather}
+  \Delta f(x) = \frac{3.5x+1}{2} + \frac{2.5x+1}{2} \sin(ax + b) \nonumber
+\end{gather}
+
+As with \(\cos\) let us set the a to \(\pi\). Then let us calculate b.
+
+\begin{gather}
+  f(2) = 1 \nonumber \\
+  \frac{3.5x+1}{2} + \frac{2.5x+1}{2} \sin(ax + b) = 1 \nonumber \\
+  4 + 3 \sin(\pi x + b) = 1 \nonumber \\
+  \sin(2 \pi + b) = -1 \nonumber \\
+  b = \sin^{-1}(-1) = -\pi / 2 \nonumber
+\end{gather}
+
+Then the final equation using \(\sin\) looks like the following.
+
+\begin{equation}
+  \Delta f(x) = \frac{3.5x+1}{2} + \frac{2.5x+1}{2} \sin(\pi x - \frac{\pi}{2})
+\end{equation}
+
+Another way to write the step function is the following.
+
+\begin{equation}
+  \Delta f(x) = 1.75x + (-1.25x - 0.5)\cos(\pi x) + 0.5
+\end{equation}
+
+\section{Developing Theorems}
+
+First let's define some basic lemmmas.
+
+\begin{lemma}
+  \(\forall x \in \mathbb{N}: \Delta f(x) \in \mathbb{N}\)
+\end{lemma}
+
+This follows right from the initial definition of the Collatz Conjecture.
+
+\begin{lemma}
+  \(\exists x \in \mathbb{R} \setminus \mathbb{Z}: \Delta f(x) \in \mathbb{N}\)
+\end{lemma}
+
+This is also quite obvivous, such lemma comes from the function's graph. 
+An example of a number that saticfies the statement is \(\approx 3.619\).
+Consider the section of the step function graph from 0 to 0.2.
+
+
+\vspace{12pt}
+
+\begin{center}
+\begin{tikzpicture}
+  \begin{axis}[xmin=-0, xmax=0.2, samples=100]
+    \addplot[domain=0:0.2, color=red, dashed, mark=*]{(3.5 * x + 1)/2 + (2.5 * x + 1)/2 * cos(deg(pi  * x + pi))};
+    \addplot[domain=0:0.2, color=violet]{x};
+  \end{axis}
+\end{tikzpicture}
+\end{center}
+
+\vspace{12pt}
+
+Looking at this graph, notice the section where \(\Delta f(x) < x\). Let's define H as the following.
+
+\begin{defin}
+  \(
+    \forall x \in \mathbb{R} \land x \geq 0 \land x \leq H: \Delta f(x) < x
+  \)
+\end{defin}
+
+Then we can state the following.
+
+\begin{lemma}
+  \(
+  \forall x \in \mathbb{R} \land x \geq 0 \land x \leq H : \Delta f(\Delta f(\ldots (x) \ldots)) = 0
+  \)
+\end{lemma}
+
+We can even state something stronger than this.
+
+\begin{theo}
+  \(
+    \forall x \in \mathbb{R} \land x \geq H : \Delta f(\Delta f(\ldots (x) \ldots)) \neq 0
+  \)
+\end{theo}
+
+\section{Similar Numbers}
+
+When dealing with paths developed by iteratively applying the step function, a simple idea comes to mind when considering the similarities: Call two numbers alike if the path until 1 of one number is contained within the second number's path as a prefix. A related definition I will introduce is similarity; two numbers are considered similar if one number's path is until a number less than itself is contained within the same kind of path of the second number as a prefix. I will denote the set of all similar numbers to \(x\) as \(SIM_\#(x)\), and the set of all alike numbers to \(x\) as \(SIM(x)\). Let us look at how to compute similar numbers; as an example, pick \(x = 5\) then one must first calculate the path til a number less than 5 (denoted as \(PA_\#(5)\) )
+
+\begin{equation}
+  PA_\#(5) = 
+\begin{pmatrix}
+  1 &  2 & 3 & 4 \\
+  5 & 16 & 8 & 4
+\end{pmatrix}
+\end{equation}
+
+Let us now write down this path as a function by applying the exact same operations done to the numbers \(5\), but now with \(x\).
+
+\begin{equation}
+  PA_{\#5}(x) = \frac{3x + 1}{4}
+\end{equation}
+
+Then, the claim of the fundamental theorem is as follows:
+
+\begin{equation}
+  SIM_{\#}(5) = \{ x \in \mathbb{Z} \mid 3x + 1 \equiv 0 \pmod{4} \}
+\end{equation}
+\begin{equation}
+  SIM_{\#}(5) = \{ x \in \mathbb{Z} \mid 3x \equiv 3 \pmod{4} \}
+\end{equation}
+\begin{equation}
+  SIM_{\#}(5) = \{ x \in \mathbb{Z} \mid x \equiv 1 \pmod{4} \}
+\end{equation}
+
+In other words, any \(x\) for which \(PA_{\#5}(x) \in \mathbb{N}\) is similar to \(x\). The only way for this statement to be untrue is that we have broken the rules somewhere.
+
+\begin{itemize}
+  \item Case 1) We somewhere divide by two an odd number.
+  \item Case 2) We 3x + 1 a even number.
+  \end{itemize}
+
+In the first case, whatever comes next will never hit a hole number, so it won't be registered as similar. In the second case, an even number when dividing by two, we will return to case 1. This empowers one to calculate similar numbers and their properties efficiently.
+
+For any \(x \in \mathbb{N}\) the set \(SIM_\#(x)\) has the following form.
+
+\begin{equation}
+	SIM_\#(x) = \{x \in \mathbb{Z} \mid 3^a x + c \equiv 0 \pmod{2^b}\}
+\end{equation}
+
+Thus, similar numbers are distributed in a very particular way throughout the natural numbers; the difference between any two consecutive similar numbers is a power of two. This allows us to introduce a concept such as the coefficient of similarity of two natural numbers (denoted as \(CSIM_\#(x)\), which is defined to be the logarithm base 2 of the constant difference between two consecutive similar numbers. Using the previous example, one can conclude that \(CSIM_\#(5) = 2\), because \(4 = 2^2\).
+
+We can also make theorems about the \(CSIM(x)\). For example, it is trivial to realize that if \(x \nsim y\) (meaning \(x\) and \(y\) are not similar), then.
+
+\begin{equation}
+	\forall n \in SIM(x): \forall m \in SIM(y): n \neq m
+\end{equation}
+
+Consider \(I\) and \(J\) then there must be no \(a\) and \(b\) that the following is true.
+
+\begin{gather}
+	I + a \cdot 2^{CSIM(I)} = J + b \cdot 2^{CSIM(J)} \nonumber \\
+	J - I = a \cdot 2^{CSIM(I)} - b \cdot 2^{CSIM(J)} \nonumber \\
+	(2^{CSIM(I)}, 2^{CSIM(J)}) \mid J - I \nonumber \\
+	2^{min(CSIM(I), CSIM(J))} \mid J - I
+\end{gather}
+
+Meaning
+
+\begin{equation}
+	\forall I, J \in \mathbb{N}: 2^{min(CSIM(I), CSIM(J))} \nmid J - I
+\end{equation}
+
+For example, let us take numbers 3 and 5. Because \(3 \nsim 5\) we know that \(min(CSIM(3), CSIM(5)) \geq 2\).
+
+\section{Analyzing Infinite Paths}
+
+Consider Collatz Conjecture false, then a number \(M\) must exist such that the path is infinite. This is a bit hard to work with; we can replace this with an analogous statement that \(M\) has an infinite path until a number less than itself; in other words, \(M\) never goes lower. This can be easily achieved by introducing induction over the natural numbers or simply selecting the smallest counterexample. Here, I will try to consider some examples of infinite paths and prove their non-existence to understand better the nature of the paths of the counterexample numbers.
+
+Let us consider an infinite path, where the operations applied to the number would interchange one after another. The goal here is to consider the value of \(SIM_\#(x)\) as we add more and more operations; in a sense, I will analyze the behavior of \(SIM_\#(X)\) in the limit of interactions of the step-function. I will denote by \(I^n(x)\) the generated path after \(n\) iterations.
+
+\begin{align*}
+	SIM_\#(I^2(x)) = \{ x \in \mathbb{N} \mid 3x + 1 \equiv 0 \pmod{2} \} \\
+	SIM_\#(I^4(x)) = \left \{ \frac{3 \cdot \frac{3x + 1}{2} + 1}{2} \right \} =  \{ x \in \mathbb{N} \mid 9x + 5 \equiv 0 \pmod{4} \} \\
+	SIM_\#(I^6(x)) =  ... =  \{ x \in \mathbb{N} \mid 27x + 19 \equiv 0 \pmod{8} \} \\
+	SIM_\#(I^8(x)) =  ... =  \{ x \in \mathbb{N} \mid 81x + 65 \equiv 0 \pmod{16} \}
+\end{align*}
+
+It is quite simple to prove and observe the general formula for such an equation.
+
+\begin{equation}
+	SIM_\#(I^{2n}(x)) =  \{ x \in \mathbb{N} \mid 3^n x + 3^n - 2^n \equiv 0 \pmod{2^n} \}
+\end{equation}
+
+Due to \(2^n \equiv 0 \pmod{2^n}\), one can simplify the equation even further.
+
+\begin{equation}
+	SIM_\#(I^{2n}(x)) =  \{ x \in \mathbb{N} \mid 3^n (x + 1) \equiv 0 \pmod{2^n} \}
+\end{equation}
+
+And then again, noticing the factor of \(x + 1\), we can substitute in \(x := x + 1\), thus the needed modular equality needed to be solved is the following.
+
+\begin{equation}
+	3^n x \equiv 0 \pmod{2^n}
+\end{equation}
+
+Such equality can be easily solved; one must find multiples of \(2^n\), such that they are divisible by \(3^n\); in other words,
+
+\begin{equation}
+	x = k \frac{2^n}{3^n}
+\end{equation}
+
+One can see that due to the fundamental theorem of arithmetic, \(k = 3^{n} y\), thus \(x = 2^n y\), where \(y\) is any natural number. Going backward from here, back to the original equation, we are left with an exact equation describing \(SIM_\#(I^n(x))\).
+
+\begin{equation}
+	SIM_\#(I^{2n}(x)) =  \{ 2^nx - 1 \mid x \in \mathbb{N} \}
+\end{equation}
+
+Let \(X\) be the minimal value of the set \(SIM_\#(I^{2n}(x))\), then as \(n \rightarrow \infty\), we have \(X \rightarrow \infty\), thus there exists no natural number, such that it has such infinite path.
+
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
