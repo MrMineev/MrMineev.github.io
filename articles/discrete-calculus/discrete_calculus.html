@@ -1,0 +1,515 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Discrete Calculus</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (https://tug.org/tex4ht/)"> 
+<meta name="originator" content="TeX4ht (https://tug.org/tex4ht/)"> 
+<!-- html --> 
+<meta name="src" content="discrete_calculus.tex"> 
+<link rel="stylesheet" type="text/css" href="discrete_calculus.css"> 
+</head><body 
+>
+   <div class="maketitle">
+                                                                  
+
+<h1 style="text-align: center;font-family: Tahoma, sans-serif;font-size: 35px;" onclick="window.location.href='https://mrmineev.github.io/'">MrMineev</h1>
+
+<div style="align: center;">
+  <a href="discrete_calculus.pdf">Open PDF version of article</a>
+</div>
+
+
+
+<h2 class="titleHead">Discrete Calculus</h2>
+ <div class="author" ><span 
+class="cmr-12">Daniel Mineev</span></div><br />
+<div class="date" ></div>
+   </div>
+   <h3 class="sectionHead"><span class="titlemark">1   </span> <a 
+ id="x1-10001"></a>Introduction</h3>
+<!--l. 35--><p class="noindent" >As you might have already guessed, we deal with discrete functions rather
+than continuous ones in discrete calculus. A rather peculiar idea comes to
+mind here: integrating such a function. Let us consider a simple function
+<img 
+src="discrete_calculus0x.png" alt="f(x) = x  " class="math">; then, in classical calculus, we can easily integrate it from <img 
+src="discrete_calculus1x.png" alt="A  " class="math"> to
+<img 
+src="discrete_calculus2x.png" alt="B  " class="math">.
+   <table 
+class="equation"><tr><td>
+   <div class="math-display" >
+<img 
+src="discrete_calculus3x.png" alt="&#x222B; b      [ 2]b    2   2
+   xdx =  x-   = b---a-
+ a         2 a      2
+" class="math-display" ><a 
+ id="x1-1001r1"></a></div>
+   </td><td class="equation-label">(1)</td></tr></table>
+<!--l. 38--><p class="nopar" >However, what if we limit the function and accept only integer <img 
+src="discrete_calculus4x.png" alt="x  " class="math">? Then, the
+integration becomes a summation, which is more complicated.
+   <table 
+class="equation"><tr><td>
+   <div class="math-display" >
+                                                                  
+
+                                                                  
+<img 
+src="discrete_calculus5x.png" alt="&#x2211;b     b(b +1)   a(a- 1)
+   i = ---2---- ---2---
+i=a
+" class="math-display" ><a 
+ id="x1-1002r2"></a></div>
+   </td><td class="equation-label">(2)</td></tr></table>
+<!--l. 42--><p class="nopar" >While some might find the latter simpler to understand, when we consider a more
+complicated equation, it becomes way harder than anticipated. Consider the function
+<img 
+src="discrete_calculus6x.png" alt="f(x) = x2  " class="math">.
+   <table 
+class="equation"><tr><td>
+   <div class="math-display" >
+<img 
+src="discrete_calculus7x.png" alt="&#x222B;        [   ]
+  b 2      x3 b   b3---a3
+ a x dx =  3  a =   3
+" class="math-display" ><a 
+ id="x1-1003r3"></a></div>
+   </td><td class="equation-label">(3)</td></tr></table>
+<!--l. 46--><p class="nopar" >
+   <table 
+class="equation"><tr><td>
+   <div class="math-display" >
+<img 
+src="discrete_calculus8x.png" alt=" b
+&#x2211;  x2dx = b(b+-1)(2b+-1) - (a---1)a(2a---1)-
+ a              6               6
+" class="math-display" ><a 
+ id="x1-1004r4"></a></div>
+   </td><td class="equation-label">(4)</td></tr></table>
+<!--l. 49--><p class="nopar" >The equations look similar. However, the discrete version needs to adjust for all the
+non-integer values, which makes the equation more complicated. Ironically, it is
+simpler to calculate an infinite sum of infinitely small segments of a function than to
+sum a discrete number of values.
+<!--l. 52--><p class="indent" >   Sometimes, it is simpler to prove that a given equation works using induction
+than to find it. Consider, for example, the following equation.
+   <table 
+class="equation"><tr><td>
+                                                                  
+
+                                                                  
+   <div class="math-display" >
+<img 
+src="discrete_calculus9x.png" alt="&#x2211;n
+   i = n(n-+-1)
+i=1       2
+" class="math-display" ><a 
+ id="x1-1005r5"></a></div>
+   </td><td class="equation-label">(5)</td></tr></table>
+<!--l. 55--><p class="nopar" >It is quite simple to prove using induction. Let <img 
+src="discrete_calculus10x.png" alt="S
+ n  " class="math"> be defined as the sum of the first
+<img 
+src="discrete_calculus11x.png" alt="n  " class="math"> natural numbers; then we can say the following.
+   <table 
+class="equation"><tr><td>
+   <div class="math-display" >
+<img 
+src="discrete_calculus12x.png" alt="                   n(n--1)-  2n-+-n(n---1)   n(n-+-1)-
+Sn = n + Sn-1 = n +   2    =      2      =     2
+" class="math-display" ><a 
+ id="x1-1006r6"></a></div>
+   </td><td class="equation-label">(6)</td></tr></table>
+<!--l. 59--><p class="nopar" >With a similar method, it is simple to prove that,
+   <table 
+class="equation"><tr><td>
+   <div class="math-display" >
+<img 
+src="discrete_calculus13x.png" alt="&#x2211;n
+   i = n(n+-1)(2n+-1)
+i=1          6
+" class="math-display" ><a 
+ id="x1-1007r7"></a></div>
+   </td><td class="equation-label">(7)</td></tr></table>
+<!--l. 63--><p class="nopar" >Again, let <img 
+src="discrete_calculus14x.png" alt="S
+ n  " class="math"> be the sum of the first <img 
+src="discrete_calculus15x.png" alt="n  " class="math"> squares, then we can use induction,
+assuming <img 
+src="discrete_calculus16x.png" alt="S
+ n-1  " class="math"> is bound by the equation above. <table 
+class="multline"><tr><td><img 
+src="discrete_calculus17x.png" alt="      2         6n2 +-n(n--1)(2n--1)  2n3 +-3n2-+n
+Sn = n + Sn-1 =          6          =      6      =
+                                               n (n + 1)(2n + 1)
+                                             = -------6------
+" ></td><td class="equation-label"><br />(8)<br /></td></tr></table>On this note, I will end the light introduction to the topic and start discussing
+different methods and techniques of discrete integration.
+<!--l. 71--><p class="noindent" >
+   <h3 class="sectionHead"><span class="titlemark">2   </span> <a 
+ id="x1-20002"></a>Discrete Derivatives</h3>
+<!--l. 73--><p class="noindent" >Just like in classical calculus, one must first understand the concept of a derivative
+before understanding integration. In classical calculus, one would define a derivative
+in the following way.
+   <table 
+class="equation"><tr><td>
+   <div class="math-display" >
+<img 
+src="discrete_calculus18x.png" alt="          f(x +h )- f(x)
+f&#x2032;(x) = hli&#x2192;m0------h-------
+" class="math-display" ><a 
+ id="x1-2001r9"></a></div>
+   </td><td class="equation-label">(9)</td></tr></table>
+<!--l. 76--><p class="nopar" >However, in discrete calculus, the smallest step one can make is <img 
+src="discrete_calculus19x.png" alt="h = 1  " class="math">. Thus, a
+discrete version of a derivative will look as follows.
+   <table 
+class="equation"><tr><td>
+   <div class="math-display" >
+<img 
+src="discrete_calculus20x.png" alt="&#x0394;f (x) = f(x+ 1)- f(x)
+" class="math-display" ><a 
+ id="x1-2002r10"></a></div>
+   </td><td class="equation-label">(10)</td></tr></table>
+                                                                  
+
+                                                                  
+<!--l. 80--><p class="nopar" >Usually, instead of saying discrete derivative, it is called the forward difference
+operator. Consider that; what about higher-order derivates? Then, notice that a
+second-order derivative would look as follows. <table 
+class="multline"><tr><td><img 
+src="discrete_calculus21x.png" alt="&#x0394;2f(x) = &#x0394; (f(x+ 1)- f(x)) = f(x+ 2)- f(x + 1)- f(x+ 1)+ f(x) =
+
+                                    = f(x + 2)- 2f(x + 1)+ f(x)
+" ></td><td class="equation-label"><br />(11)<br /></td></tr></table>A natural question can arise: how, in general, can one express a <img 
+src="discrete_calculus22x.png" alt="n  " class="math">-th
+order discrete derivative? As we will come to see, a formula does indeed
+exist.
+   <table 
+class="equation"><tr><td>
+   <div class="math-display" >
+<img 
+src="discrete_calculus23x.png" alt="         &#x2211;n       (n )
+&#x0394;nf (x) =   (- 1)n-i i f (x + i)
+         i=0
+" class="math-display" ><a 
+ id="x1-2004r12"></a></div>
+   </td><td class="equation-label">(12)</td></tr></table>
+<!--l. 89--><p class="nopar" >It is quite simple to see if we employ induction. Obviously, the statement is true for
+<img 
+src="discrete_calculus24x.png" alt="n = 1  " class="math">. Let this serve as the base of the induction; now, assume the statement
+is true for <img 
+src="discrete_calculus25x.png" alt="n  " class="math">, then one can prove that it works for <img 
+src="discrete_calculus26x.png" alt="n+ 1  " class="math"> as follows.
+<table 
+class="multline"><tr><td><img 
+src="discrete_calculus27x.png" alt="                        [                        ]
+   n+1          n         n&#x2211;     n-i(n )
+  &#x0394;   f(x) = &#x0394; (&#x0394; f (x)) =   (- 1)     i f(x+ 1 +i) -
+[          ( )       ]    i=0   (  )                 (    )
+ &#x2211;n     n-i n                 n  n       n&#x2211;     n-i+1   n
+    (- 1)   i  f(x + i) = - (- 1) 0 f(x)+   (- 1)     i- 1  f(x+i )-
+ i=0                   n       (  )      i=1      (  )
+                      &#x2211;  (- 1)n-i n f (x + i) +(- 1)0 n f(x +n + 1)
+                      i=1        i                 n
+" ></td><td class="equation-label"><br />(13)<br /></td></tr></table>All that is left to simplify the resulting equation is to make use of Pascal&#8217;s
+Identity, <img 
+src="discrete_calculus28x.png" alt="( )  (  )   (  )
+ ni +  ni+1  = n+i+11 " class="math">, and get the following. <table 
+class="multline"><tr><td><img 
+src="discrete_calculus29x.png" alt="                    [                                   ]
+          (n )       &#x2211;n          ((  n  )  (n ))
+...= - (- 1)n 0 f(x)+     (- 1)n+1-i  i- 1  +  i   f(x +i) +
+                     i=1
+                      0(n)             n+&#x2211;1    n+1-i(n)
+                  (- 1)  n f (x + n+ 1) =   (- 1)      i f(x+ i)
+                                        i=0
+" ></td><td class="equation-label"><br />(14)<br /></td></tr></table>This proves the induction step, and as a result, combined with the base, proves
+for all <img 
+src="discrete_calculus30x.png" alt="n &#x2208; &#x2115;  " class="math">.
+<!--l. 103--><p class="indent" >   Seeing the analog of <img 
+src="discrete_calculus31x.png" alt="e  " class="math"> in Discrete Calculus is interesting. Does there exist
+such a constant <img 
+src="discrete_calculus32x.png" alt="c  " class="math">, such that <img 
+src="discrete_calculus33x.png" alt="&#x0394;cx = cx  " class="math">? As it turns out, there does,
+2.
+   <table 
+class="equation"><tr><td>
+   <div class="math-display" >
+<img 
+src="discrete_calculus34x.png" alt="&#x0394;2x = 2x+1 - 2x = 2x
+" class="math-display" ><a 
+ id="x1-2007r15"></a></div>
+   </td><td class="equation-label">(15)</td></tr></table>
+<!--l. 106--><p class="nopar" >Many properties of classical calculus about derivatives, such as the Product/Quotient
+Rule, have analogs in discrete calculus. First, the obvious ones, <table 
+class="gather"><tr><td class="gather1"><img 
+src="discrete_calculus35x.png" alt="&#x0394;n (f + g)(x) = &#x0394;nf (x)+ &#x0394;ng(x)
+
+      &#x0394;n (cf(x)) = c&#x0394;f (x )
+" ><a 
+ id="x1-2010r16"></a><a 
+ id="x1-2011r17"></a></td><td class="equation-label"><br />(16)<br /><br />(17)<br /></td></tr></table>Let us now discuss the more interesting one, the Product Rule.
+   <table 
+class="equation"><tr><td>
+   <div class="math-display" >
+<img 
+src="discrete_calculus36x.png" alt="  [       ]
+
+&#x0394;  f(x)g(x)  = f(x+ 1)&#x0394;g(x)+ g(x)&#x0394;f(x)
+" class="math-display" ><a 
+ id="x1-2012r18"></a></div>
+   </td><td class="equation-label">(18)</td></tr></table>
+<!--l. 115--><p class="nopar" >The understanding is the same as that of classical calculus; we only got an extra term
+because terms are not infinitely small, as in classical calculus. Similarly, we have the
+Discrete Quotient Rule.
+   <table 
+class="equation"><tr><td>
+   <div class="math-display" >
+<img 
+src="discrete_calculus37x.png" alt="  [f(x)]   g(x )&#x0394;f (x)- f(x)&#x0394;g(x)
+&#x0394;  g(x)  = -----g(x)g(x+-1)------
+" class="math-display" ><a 
+ id="x1-2013r19"></a></div>
+   </td><td class="equation-label">(19)</td></tr></table>
+<!--l. 119--><p class="nopar" >And again, this can be proven the exact same way it is proven in classical calculus,
+with only some minor changes.
+<!--l. 122--><p class="noindent" >
+   <h3 class="sectionHead"><span class="titlemark">3   </span> <a 
+ id="x1-30003"></a>Fundamental Theorem of Discrete Calculus</h3>
+<!--l. 123--><p class="noindent" >Just as in normal calculus, such a thing as a discrete antiderivative exists. As in
+classical calculus, it is defined similarly.
+   <table 
+class="equation"><tr><td>
+   <div class="math-display" >
+<img 
+src="discrete_calculus38x.png" alt="&#x2211;
+   F (x)dx = f (x) &#x21D4; &#x0394;f (x) = F(x)
+" class="math-display" ><a 
+ id="x1-3001r20"></a></div>
+   </td><td class="equation-label">(20)</td></tr></table>
+<!--l. 126--><p class="nopar" >Just as in classical calculus, it is tightly related to discrete integrals through the
+Fundamental Theorem of Discrete Calculus.
+   <table 
+class="equation"><tr><td>
+                                                                  
+
+                                                                  
+   <div class="math-display" >
+<img 
+src="discrete_calculus39x.png" alt=" b       [          ]
+&#x2211;  f(x) = &#x2211;  f (x)dx b+1
+ a                  a
+" class="math-display" ><a 
+ id="x1-3002r21"></a></div>
+   </td><td class="equation-label">(21)</td></tr></table>
+<!--l. 130--><p class="nopar" >This can be proven in the exact same way the fundamental theorem of calculus is
+proven; I will leave this as an exercise for the reader.
+<!--l. 134--><p class="noindent" >
+   <h3 class="sectionHead"><span class="titlemark">4   </span> <a 
+ id="x1-40004"></a>Falling Factorial</h3>
+<!--l. 136--><p class="noindent" >In classical calculus, there is a very simple formula for calculating an antiderivative of
+a polynomial, as follows.
+   <table 
+class="equation"><tr><td>
+   <div class="math-display" >
+<img 
+src="discrete_calculus40x.png" alt="&#x222B;
+  (a xn + a   xn-1+ ...+ a x+ a )dx = -an-xn+1 + an-1xn+ ...+ a x+ C
+   n      n-1           1    0      n+ 1        n           0
+" class="math-display" ><a 
+ id="x1-4001r22"></a></div>
+   </td><td class="equation-label">(22)</td></tr></table>
+<!--l. 139--><p class="nopar" >It would be useful to compute the discrete antiderivatives for polynomials as well.
+However, first, let us introduce some useful terminology. A falling factorial of <img 
+src="discrete_calculus41x.png" alt="n  " class="math"> is
+called the following.
+   <table 
+class="equation"><tr><td>
+   <div class="math-display" >
+<img 
+src="discrete_calculus42x.png" alt="(x) = x(x- 1)(x- 2)...(x - n+ 1) = --x!---
+   n                             (x - n)!
+" class="math-display" ><a 
+ id="x1-4002r23"></a></div>
+   </td><td class="equation-label">(23)</td></tr></table>
+<!--l. 143--><p class="nopar" >Sometimes, it might be called the <img 
+src="discrete_calculus43x.png" alt="n  " class="math">-th Pochhammer Polynomial. This function is
+wonderful because it satisfies the following requirements.
+   <table 
+class="equation"><tr><td>
+   <div class="math-display" >
+<img 
+src="discrete_calculus44x.png" alt="&#x0394;(x)n = n &#x22C5;(x)n- 1
+" class="math-display" ><a 
+ id="x1-4003r24"></a></div>
+   </td><td class="equation-label">(24)</td></tr></table>
+<!--l. 147--><p class="nopar" >This can be seen through some trivial calculations. <table 
+class="multline"><tr><td><img 
+src="discrete_calculus45x.png" alt="&#x0394;(x)n = (x + 1)x(x - 1)...(x- n +2) - x (x - 1)(x - 2)...(x- n +1) =
+              (x +1 - (x - n+ 1))&#x22C5;x(x- 1)...(x - n+ 2) = n&#x22C5;(x)n-1  " ></td></tr></table>This
+function serves as an analog of exponentiation in Discrete Calculus. Thus, we can
+easily calculate the derivative/antiderivative of the following polynomial.
+<table 
+class="gather"><tr><td class="gather1"><img 
+src="discrete_calculus46x.png" alt="    P(x) = an (x)n +an- 1(x)n-1 + ...+ a1x + a0
+ &#x0394;P (x) = nan (x)n-1 +(n - 1)an- 1(x)n-2 + ...+ a1
+&#x2211;  P(x)dx = -an--(x)    + an-1(x) + ...+ a x+ C
+            n +1   n+1    n     n       0
+" ><a 
+ id="x1-4007r25"></a><a 
+ id="x1-4008r26"></a><a 
+ id="x1-4009r27"></a></td><td class="equation-label"><br />(25)<br /><br />(26)<br /><br />(27)<br /></td></tr></table>This is almost identical to classical calculus. The only difference is that
+in usual calculus, one uses exponents, and in discrete calculus, one uses falling
+factorials. However, it would still be useful to convert a normal polynomial to a
+falling factorial polynomial, and as luck would have it, indeed, a formula exists. The
+simplest of which is the following.
+     <ol  class="enumerate1" >
+<li 
+  class="enumerate" id="x1-4011x1">
+     <!--l. 161--><p class="noindent" >Find the dominant coefficient <img 
+src="discrete_calculus47x.png" alt="q  " class="math"> of the polynomial <img 
+src="discrete_calculus48x.png" alt="S  " class="math">.
+                                                                  
+
+                                                                  
+     </li>
+<li 
+  class="enumerate" id="x1-4013x2">
+     <!--l. 162--><p class="noindent" >Subtract from <img 
+src="discrete_calculus49x.png" alt="S  " class="math"> the value <img 
+src="discrete_calculus50x.png" alt="q(x)n  " class="math">, where <img 
+src="discrete_calculus51x.png" alt="n  " class="math"> is the degree of <img 
+src="discrete_calculus52x.png" alt="S  " class="math">.
+     </li>
+<li 
+  class="enumerate" id="x1-4015x3">
+     <!--l. 163--><p class="noindent" >Go to step one with the updated polynomial <img 
+src="discrete_calculus53x.png" alt="S  " class="math">.</li></ol>
+<!--l. 165--><p class="noindent" >In the end, one will get the following system of equations. <div 
+class="gather-star"><img 
+src="discrete_calculus54x.png" alt="(
+|| P(x)- qn(x)n = Pn-1(x)
+|{ Pn-1(x )- qn- 1(x)n-1 = Pn-2(x )
+| ...
+||(
+  P0(x) - q0(x)0 = 0
+" ></div>From which, ones sees that <img 
+src="discrete_calculus55x.png" alt="P (x) = qn(x)n + qn-1(x)n-1 +...+ q0  " class="math">. For example,
+convert <img 
+src="discrete_calculus56x.png" alt=" 2
+x  " class="math"> into the falling factorial polynomial form. <div 
+class="gather-star"><img 
+src="discrete_calculus57x.png" alt="{
+  x2 - (x)2 = x2 - x(x - 1) = x
+
+  x- (x)1 = 0
+" ></div>From here we see that <img 
+src="discrete_calculus58x.png" alt=" 2
+x  = (x )1 +(x)2  " class="math">. As an example, this knowledge is already
+enough to compute the sum of the first cubes <img 
+src="discrete_calculus59x.png" alt="&#x2211;n   3
+  i=1i  " class="math">. One must first change the
+expression into the falling factorial polynomial form from the equation (<a 
+href="#x1-4007r25">25<!--tex4ht:ref: eq:FPP --></a>).
+<div 
+class="gather-star"><img 
+src="discrete_calculus60x.png" alt="(| x3 - (x)3 = 3x2 - 2x
+||{ 3x2 - 2x- 3(x) = x
+               2
+|||( x- (x)1 = 0
+" ></div>Thus, we see that <img 
+src="discrete_calculus61x.png" alt="x3 = (x)3 + 3(x)2 + (x)1  " class="math">. From here, all that is left is to
+integrate the expression. <table 
+class="multline"><tr><td><img 
+src="discrete_calculus62x.png" alt="  &#x2211;n  3   [&#x2211;    3  ]n+1  [&#x2211;  (                )  ]n+1
+     x  =     x dx 1  =      (x)3 + 3(x)2 + (x)1 dx
+  x[=1                ]                           1
+    (x)4-      (x)2    n+1   (n+-1)n(n--1)(n---2)
+=    4 + (x)3+  2  +C  1   =          4         + (n+1 )n(n- 1)(n- 2)
+                                                    (        )2
+                                        +  (n-+-1)n=   n(n-+1)-
+                                              2          2
+" ></td><td class="equation-label"><br />(28)<br /></td></tr></table>Thus, now one can see that,
+   <table 
+class="equation"><tr><td>
+   <div class="math-display" >
+<img 
+src="discrete_calculus63x.png" alt="&#x2211;n      (n (n + 1))2
+   x3 =  ----2---
+x=1
+" class="math-display" ><a 
+ id="x1-4017r29"></a></div>
+   </td><td class="equation-label">(29)</td></tr></table>
+<!--l. 198--><p class="nopar" >With the same technique, discrete integrals of any polynomial can be found, even
+more than we originally hoped.
+<!--l. 201--><p class="noindent" >
+   <h3 class="sectionHead"><span class="titlemark">5   </span> <a 
+ id="x1-50005"></a>Conclusion</h3>
+<!--l. 203--><p class="noindent" >Generally speaking, the topic of discrete calculus has a lot of connections with
+stirring numbers; for example, the following holds true:
+   <table 
+class="equation"><tr><td>
+   <div class="math-display" >
+<img 
+src="discrete_calculus64x.png" alt="     m  {  }
+xm = &#x2211;   m  (x)k
+     k=0  k
+                                                                  
+
+                                                                  
+" class="math-display" ><a 
+ id="x1-5001r30"></a></div>
+   </td><td class="equation-label">(30)</td></tr></table>
+<!--l. 206--><p class="nopar" >
+<!--l. 208--><p class="indent" >   This can be used to prove various identities with falling factorials. Specifically,
+this relation shows us that instead of the tedious method described earlier for
+expressing a polynomial using a Pochhammer polynomial, it is important to note
+that in practice if one does not have access to machine calculations, the method
+described before is better. I will not explain this in this article; I will leave this for
+another time.
+<!--l. 211--><p class="indent" >   I hope that you have found the given material interesting and useful. Discrete
+Calculus is quite an exotic and fascinating topic in mathematics.
+<!--l. 213--><p class="noindent" >
+   <h3 class="likesectionHead"><a 
+ id="x1-6000"></a>Contents</h3>
+   <div class="tableofcontents">
+   <span class="sectionToc" >1 <a 
+href="#x1-10001" id="QQ2-1-1">Introduction</a></span>
+<br />   <span class="sectionToc" >2 <a 
+href="#x1-20002" id="QQ2-1-2">Discrete Derivatives</a></span>
+<br />   <span class="sectionToc" >3 <a 
+href="#x1-30003" id="QQ2-1-3">Fundamental Theorem of Discrete Calculus</a></span>
+<br />   <span class="sectionToc" >4 <a 
+href="#x1-40004" id="QQ2-1-4">Falling Factorial</a></span>
+<br />   <span class="sectionToc" >5 <a 
+href="#x1-50005" id="QQ2-1-5">Conclusion</a></span>
+   </div>
+
+   <br>
+    <br>
+
+    <div class="section-name" style="text-align: center;">
+      <h2 style="display: inline;" class="symbol-change">§</h2><h2 style="display: inline;"> 💬 Comments</h2>
+    </div>
+
+    <br>
+
+    <script src="https://utteranc.es/client.js"
+        repo="MrMineev/MrMineev.github.io"
+        issue-term="pathname"
+        label="WEBSITE_COMMENT"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+    </script>
+
+    <br>
+    <br>
+
+    
+</body></html> 
+
+                                                                  
+
+

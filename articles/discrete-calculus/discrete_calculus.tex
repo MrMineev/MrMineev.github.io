@@ -1,0 +1,220 @@
+\documentclass{article}
+
+\usepackage{graphicx} % Required for inserting images
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{tcolorbox}
+\usepackage{tikz}
+\usetikzlibrary{calc, intersections, through, backgrounds}
+\usepackage{tkz-euclide}
+\usetikzlibrary{graphs}
+\usepackage{multicol}
+\usepackage{pgfplots}
+\usepackage{tabularx}
+\usepackage{import}
+\usepackage{lipsum}
+\usepackage{fancyhdr} 
+\usepackage{wrapfig}
+\usepackage{mwe}
+\usepackage[export]{adjustbox}
+\usepackage{subcaption}
+
+\newcommand{\arc}[1]{\stackrel{\tarc}{#1}}
+
+\title{Discrete Calculus}
+\author{Daniel Mineev}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+
+As you might have already guessed, we deal with discrete functions rather than continuous ones in discrete calculus. A rather peculiar idea comes to mind here: integrating such a function. Let us consider a simple function \(f(x) = x\); then, in classical calculus, we can easily integrate it from \(A\) to \(B\).
+\begin{equation}
+	\int_{a}^{b} x \,dx = \left[ \frac{x^2}{2} \right] ^{b}_{a} = \frac{b^2 - a^2}{2}
+\end{equation}
+However, what if we limit the function and accept only integer \(x\)? Then, the integration becomes a summation, which is more complicated.
+\begin{equation}
+	\sum_{i = a}^b i = \frac{b(b + 1)}{2} - \frac{a(a - 1)}{2}
+\end{equation}
+While some might find the latter simpler to understand, when we consider a more complicated equation, it becomes way harder than anticipated. Consider the function \(f(x) = x^2\).
+\begin{equation}
+	\int_{a}^{b} x^2 \,dx = \left[ \frac{x^3}{3} \right] ^{b}_{a} = \frac{b^3 - a^3}{3}
+\end{equation}
+\begin{equation}
+	\sum_{a}^{b} x^2 \,dx = \frac{b(b + 1)(2b + 1)}{6} - \frac{(a - 1)a(2a - 1)}{6}
+\end{equation}
+The equations look similar. However, the discrete version needs to adjust for all the non-integer values, which makes the equation more complicated. Ironically, it is simpler to calculate an infinite sum of infinitely small segments of a function than to sum a discrete number of values.
+
+Sometimes, it is simpler to prove that a given equation works using induction than to find it. Consider, for example, the following equation.
+\begin{equation}
+	\sum_{i = 1}^n i = \frac{n(n + 1)}{2}
+\end{equation}
+It is quite simple to prove using induction. Let \(S_n\) be defined as the sum of the first \(n\) natural numbers; then we can say the following.
+\begin{equation}
+	S_n = n + S_{n - 1} = n + \frac{n(n - 1)}{2} = \frac{2n + n(n - 1)}{2} = \frac{n(n + 1)}{2}
+\end{equation}
+With a similar method, it is simple to prove that,
+\begin{equation}
+	\sum_{i = 1}^n i = \frac{n(n + 1)(2n + 1)}{6}
+\end{equation}
+Again, let \(S_n\) be the sum of the first \(n\) squares, then we can use induction, assuming \(S_{n - 1}\) is bound by the equation above.
+\begin{multline}
+	S_n = n^2 + S_{n - 1} = \frac{6n^2 + n(n - 1)(2n - 1)}{6} = \frac{2n^3 + 3n^2 + n}{6} = \\
+	= \frac{n(n + 1)(2n + 1)}{6}
+\end{multline}
+On this note, I will end the light introduction to the topic and start discussing different methods and techniques of discrete integration.
+
+\section{Discrete Derivatives}
+
+Just like in classical calculus, one must first understand the concept of a derivative before understanding integration. In classical calculus, one would define a derivative in the following way.
+\begin{equation}
+	f'(x) = \lim_{h \rightarrow 0} \frac{f(x + h) - f(x)}{h}
+\end{equation}
+However, in discrete calculus, the smallest step one can make is \(h = 1\). Thus, a discrete version of a derivative will look as follows.
+\begin{equation}
+	\Delta f(x) = f(x + 1) - f(x)
+\end{equation}
+Usually, instead of saying discrete derivative, it is called the forward difference operator. Consider that; what about higher-order derivates? Then, notice that a second-order derivative would look as follows.
+\begin{multline}
+	\Delta^2 f(x) = \Delta (f(x + 1) - f(x)) = f(x + 2) - f(x + 1) - f(x + 1) + f(x) =
+	\\ = f(x + 2) - 2f(x + 1) + f(x)
+\end{multline}
+A natural question can arise: how, in general, can one express a \(n\)-th order discrete derivative? As we will come to see, a formula does indeed exist.
+\begin{equation}
+	\Delta^n f(x) = \sum_{i = 0}^n (-1)^{n - i} \binom{n}{i} f(x + i)
+\end{equation}
+It is quite simple to see if we employ induction. Obviously, the statement is true for \(n = 1\). Let this serve as the base of the induction; now, assume the statement is true for \(n\), then one can prove that it works for \(n + 1\) as follows.
+\begin{multline}
+	\Delta^{n + 1} f(x) = \Delta(\Delta^n f(x)) = \left[ \sum_{i = 0}^n (-1)^{n - i} \binom{n}{i} f(x + 1 + i) \right] - \\
+	\left[ \sum_{i = 0}^n (-1)^{n - i} \binom{n}{i} f(x + i) \right] =  - (-1)^{n} \binom{n}{0} f(x) + \sum_{i = 1}^{n}  (-1)^{n - i + 1} \binom{n}{i - 1} f(x + i) - \\
+	\sum_{i = 1}^{n} (-1)^{n - i} \binom{n}{i} f(x + i) + (-1)^{0} \binom{n}{n} f(x + n + 1)
+\end{multline}
+All that is left to simplify the resulting equation is to make use of Pascal's Identity, \(\binom{n}{i} + \binom{n}{i + 1} = \binom{n +1}{i + 1}\), and get the following.
+\begin{multline}
+	... = - (-1)^{n} \binom{n}{0} f(x) + \left[ \sum_{i = 1}^n (-1)^{n + 1 - i} \left( \binom{n}{i - 1} + \binom{n}{i} \right) f(x + i) \right] + \\
+	(-1)^{0} \binom{n}{n} f(x + n + 1) = \sum_{i = 0}^{n + 1} (-1)^{n + 1 - i} \binom{n}{i} f(x + i)
+\end{multline}
+This proves the induction step, and as a result, combined with the base, proves for all \(n \in \mathbb{N}\).
+
+Seeing the analog of \(e\) in Discrete Calculus is interesting. Does there exist such a constant \(c\), such that \(\Delta c^x = c^x\)? As it turns out, there does, 2.
+\begin{equation}
+	\Delta 2^x = 2^{x + 1} - 2^x = 2^x
+\end{equation}
+Many properties of classical calculus about derivatives, such as the Product/Quotient Rule, have analogs in discrete calculus. First, the obvious ones,
+\begin{gather}
+	\Delta_n (f + g) (x) = \Delta_n f(x) + \Delta_n g(x) \\
+	\Delta_n (cf(x)) = c \Delta f(x)
+\end{gather}
+Let us now discuss the more interesting one, the Product Rule.
+\begin{equation}
+	\Delta \biggl[ f(x)g(x) \biggr] = f(x + 1) \Delta g(x) + g(x) \Delta f(x)
+\end{equation}
+The understanding is the same as that of classical calculus; we only got an extra term because terms are not infinitely small, as in classical calculus. Similarly, we have the Discrete Quotient Rule.
+\begin{equation}
+	\Delta \biggl[ \frac{f(x)}{g(x)} \biggr] = \frac{g(x) \Delta f(x) - f(x) \Delta g(x)}{g(x) g(x + 1)}
+\end{equation}
+And again, this can be proven the exact same way it is proven in classical calculus, with only some minor changes.
+
+\section{Fundamental Theorem of Discrete Calculus}
+Just as in normal calculus, such a thing as a discrete antiderivative exists. As in classical calculus, it is defined similarly.
+\begin{equation}
+	\sum F(x) \,dx = f(x) \Leftrightarrow  \Delta f(x) = F(x)
+\end{equation}
+Just as in classical calculus, it is tightly related to discrete integrals through the Fundamental Theorem of Discrete Calculus.
+\begin{equation}
+	\sum_{a}^{b} f(x) = \left[ \sum f(x) \,dx \right]^{b + 1}_a
+\end{equation}
+This can be proven in the exact same way the fundamental theorem of calculus is proven; I will leave this as an exercise for the reader.
+
+
+\section{Falling Factorial}
+
+In classical calculus, there is a very simple formula for calculating an antiderivative of a polynomial, as follows.
+\begin{equation}
+	\int (a_n x^n + a_{n - 1} x^{n - 1} + ... + a_1 x + a_0) \,dx = \frac{a_n}{n + 1} x^{n + 1} + \frac{a_{n - 1}}{n} x^{n} + ... + a_0 x + C
+\end{equation}
+It would be useful to compute the discrete antiderivatives for polynomials as well. However, first, let us introduce some useful terminology. A falling factorial of \(n\) is called the following.
+\begin{equation}
+	(x)_n = x(x - 1)(x - 2)...(x - n + 1) = \frac{x!}{(x - n)!}
+\end{equation}
+Sometimes, it might be called the \(n\)-th Pochhammer Polynomial. This function is wonderful because it satisfies the following requirements.
+\begin{equation}
+	\Delta (x)_n = n \cdot (x)_{n - 1}
+\end{equation}
+This can be seen through some trivial calculations.
+\begin{multline}
+	\Delta (x)_n = (x + 1)x(x - 1)...(x - n + 2) - x(x - 1)(x - 2)...(x - n + 1) = \\
+	 (x + 1 - (x - n + 1)) \cdot x(x - 1)...(x - n + 2) = n \cdot (x)_{n - 1} \nonumber
+\end{multline}
+This function serves as an analog of exponentiation in Discrete Calculus. Thus, we can easily calculate the derivative/antiderivative of the following polynomial.
+\begin{gather}
+	\label{eq:FPP} P(x) = a_n (x)_n + a_{n - 1} (x)_{n - 1} + ... + a_1 x + a_0 \\
+	\Delta P(x) = n a_n (x)_{n - 1} + (n - 1) a_{n - 1} (x)_{n - 2} + ... + a_1 \\
+	\sum P(x) \,dx = \frac{a_n}{n + 1} (x)_{n + 1} + \frac{a_{n - 1}}{n} (x)_{n} + ... + a_0 x + C
+\end{gather}
+This is almost identical to classical calculus. The only difference is that in usual calculus, one uses exponents, and in discrete calculus, one uses falling factorials. However, it would still be useful to convert a normal polynomial to a falling factorial polynomial, and as luck would have it, indeed, a formula exists. The simplest of which is the following.
+\begin{enumerate}
+	\item Find the dominant coefficient \(q\) of the polynomial \(S\).
+	\item Subtract from \(S\) the value \(q (x)_n\), where \(n\) is the degree of \(S\).
+	\item Go to step one with the updated polynomial \(S\).
+\end{enumerate}
+In the end, one will get the following system of equations.
+\begin{gather*}
+\begin{cases}
+	P(x) - q_n (x)_n = P_{n - 1}(x) \\
+	P_{n - 1}(x) - q_{n - 1} (x)_{n - 1} = P_{n - 2}(x) \\
+	... \\
+	P_0(x) - q_0 (x)_0 = 0
+\end{cases}
+\end{gather*}
+From which, ones sees that \(P(x) = q_n (x)_n + q_{n - 1} (x)_{n - 1} + ... + q_0\). For example, convert \(x^2\) into the falling factorial polynomial form.
+\begin{gather*}
+\begin{cases}
+	x^2 - (x)_2 = x^2 - x(x - 1) = x \\
+	x - (x)_1 = 0
+\end{cases}
+\end{gather*}
+From here we see that \(x^2 = (x)_1 + (x)_2\). As an example, this knowledge is already enough to compute the sum of the first cubes \(\sum_{i = 1}^n i^3\). One must first change the expression into the falling factorial polynomial form from the equation (\ref{eq:FPP}).
+\begin{gather*}
+\begin{cases}
+	x^3 - (x)_3 = 3x^2 - 2x \\
+	3x^2 - 2x - 3(x)_2 = x \\
+	x - (x)_1 = 0 \\
+\end{cases}
+\end{gather*}
+Thus, we see that \(x^3 = (x)_3 + 3(x)_2 + (x)_1\). From here, all that is left is to integrate the expression.
+\begin{multline}
+	\sum_{x = 1}^n x^3 = \left[ \sum x^3 \,dx \right]^{n + 1}_1 = \biggl[ \sum \bigl( (x)_3 + 3(x)_2 + (x)_1 \bigr) \,dx \biggr]^{n + 1}_1 \\
+	= \biggl[ \frac{(x)_4}{4} + (x)_3 + \frac{(x)_2}{2} + C \biggr]^{n + 1}_1 = \frac{(n + 1)n(n - 1)(n - 2)}{4} + (n + 1)n(n - 1)(n  - 2) \\
+	 + \frac{(n + 1)n}{2} = \left( \frac{n(n + 1)}{2} \right)^2
+\end{multline}
+Thus, now one can see that,
+\begin{equation}
+	\sum_{x = 1}^n x^3 = \left( \frac{n(n + 1)}{2} \right)^2
+\end{equation}
+With the same technique, discrete integrals of any polynomial can be found, even more than we originally hoped.
+
+\section{Conclusion}
+
+Generally speaking, the topic of discrete calculus has a lot of connections with stirring numbers; for example, the following holds true:
+\begin{equation}
+	x_m = \sum_{k = 0}^m { m \brace k } (x)^k
+\end{equation}
+
+This can be used to prove various identities with falling factorials. Specifically, this relation shows us that instead of the tedious method described earlier for expressing a polynomial using a Pochhammer polynomial, it is important to note that in practice if one does not have access to machine calculations, the method described before is better.
+I will not explain this in this article; I will leave this for another time.
+
+I hope that you have found the given material interesting and useful. Discrete Calculus is quite an exotic and fascinating topic in mathematics.
+
+\tableofcontents
+
+\end{document}
+
+
+
+
+

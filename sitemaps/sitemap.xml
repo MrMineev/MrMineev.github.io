@@ -67,6 +67,10 @@
     <loc>https://mrmineev.com/articles/collatz-conjecture/devproof.html</loc>
     <changefreq>weekly</changefreq>
   </url>
+  <url>
+    <loc>https://mrmineev.com/articles/discrete-calculus/discrete_calculus.html</loc>
+    <changefreq>weekly</changefreq>
+  </url>
 </urlset>
 
 
