@@ -1,74 +1,74 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
   <url>
-    <loc>https://mrmineev.com</loc>
+    <loc>https://mrmineev.github.io</loc>
     <changefreq>daily</changefreq>
   </url>
   <url>
-    <loc>https://mrmineev.com/posts.html</loc>
+    <loc>https://mrmineev.github.io/posts.html</loc>
     <changefreq>daily</changefreq>
   </url>
   <url>
-    <loc>https://mrmineev.com/articles/gravity-simulator/gravity-simulator</loc>
+    <loc>https://mrmineev.github.io/articles/gravity-simulator/gravity-simulator</loc>
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>https://mrmineev.com/articles/recommendation-system/recommendation-system</loc>
+    <loc>https://mrmineev.github.io/articles/recommendation-system/recommendation-system</loc>
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>https://mrmineev.com/articles/dsa/dsa</loc>
+    <loc>https://mrmineev.github.io/articles/dsa/dsa</loc>
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>https://mrmineev.com/articles/jpeg/jpeg</loc>
+    <loc>https://mrmineev.github.io/articles/jpeg/jpeg</loc>
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>https://mrmineev.com/articles/lambda-calculus/lambda-calculus</loc>
+    <loc>https://mrmineev.github.io/articles/lambda-calculus/lambda-calculus</loc>
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>https://mrmineev.com/articles/hyperion/hyperion</loc>
+    <loc>https://mrmineev.github.io/articles/hyperion/hyperion</loc>
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>https://mrmineev.com/articles/congestion-game/congestion-game</loc>
+    <loc>https://mrmineev.github.io/articles/congestion-game/congestion-game</loc>
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>https://mrmineev.com/articles/newton-fractal/newton-fractal</loc>
+    <loc>https://mrmineev.github.io/articles/newton-fractal/newton-fractal</loc>
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>https://mrmineev.com/articles/coffee-cup/coffee-cup</loc>
+    <loc>https://mrmineev.github.io/articles/coffee-cup/coffee-cup</loc>
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>https://mrmineev.com/articles/harmonic-series/harmonic-series</loc>
+    <loc>https://mrmineev.github.io/articles/harmonic-series/harmonic-series</loc>
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>https://mrmineev.com/articles/ramsey-numbers/ramsey-numbers</loc>
+    <loc>https://mrmineev.github.io/articles/ramsey-numbers/ramsey-numbers</loc>
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>https://mrmineev.com/articles/intro-rl/intro-rl</loc>
+    <loc>https://mrmineev.github.io/articles/intro-rl/intro-rl</loc>
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>https://mrmineev.com/articles/symmetric-polynomials/symmetric_polynomials.html</loc>
+    <loc>https://mrmineev.github.io/articles/symmetric-polynomials/symmetric_polynomials.html</loc>
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>https://mrmineev.com/articles/perfect-numbers/doc.html</loc>
+    <loc>https://mrmineev.github.io/articles/perfect-numbers/doc.html</loc>
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>https://mrmineev.com/articles/collatz-conjecture/devproof.html</loc>
+    <loc>https://mrmineev.github.io/articles/collatz-conjecture/devproof.html</loc>
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>https://mrmineev.com/articles/discrete-calculus/discrete_calculus.html</loc>
+    <loc>https://mrmineev.github.io/articles/discrete-calculus/discrete_calculus.html</loc>
     <changefreq>weekly</changefreq>
   </url>
 </urlset>
