@@ -1,3 +1,11 @@
+document.addEventListener('DOMContentLoaded', function() {
+    const container = document.getElementById('articles');
+    const articles = Array.from(container.querySelectorAll('article'));
+    articles.reverse().forEach(article => {
+        container.appendChild(article);
+    });
+});
+
 document.addEventListener('DOMContentLoaded', function () {
   const searchInput = document.querySelector('#search-input');
   const articles = document.querySelectorAll('.post-container');
