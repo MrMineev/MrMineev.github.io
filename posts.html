@@ -55,6 +55,19 @@
     <br>
 
     <div class="content-text definition-box">
+      Let us define \(s(n)\) to be the sum of all numbers on the interval \([1, n]\) relatively prime with \(n\), then,
+      $$2s(n) = \sum_{gcd(k, n) = 1} k + \sum_{gcd(k, n) = 1} n - k = \sum_{gcd(k, n) = 1} n = n \phi(n)$$
+      Consequently, we get a funny equation for the value of \(s(n)\),
+      $$s(n) = \frac{n \phi(n)}{2}$$
+      <br>
+      <br>
+
+      <span class="publication-date">🗓️ July 17, 2024</span>
+    </div>
+
+    <br>
+
+    <div class="content-text definition-box">
       I came across an interesting topic: <a href="https://oeis.org/A006521">Novak numbers</a>. A Novak number is a number \(n\) which satisfies the following property:
 $$n | 2^n + 1$$
 This sequence has many intriguing properties, one of the most remarkable being its infiniteness. This is quite peculiar considering the fact that there are no natural numbers, greater than 1, such that \( n | 2^n - 1 \), which is a straightforward consequence of Fermat's Little Theorem. I plan to discuss these properties in more detail in a future article.
