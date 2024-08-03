@@ -55,6 +55,32 @@
     <br>
 
     <div class="content-text definition-box">
+      Let us define $f(n)$ to be the mathematical expectation of the smallest prime divisor (or similarly just, smallest divisor greater than 1) of a uniformly chosen random number from 2 to \(n\). Then, let \(\pi_n\) represent the probability of \(p_n\) being the smallest prime divisor. Then,
+      <br>
+
+$$\pi_n = \frac{1}{p_n}\left( 1 - \sum_{i=1}^{n-1} \pi_i \right)$$
+
+And we can express the expectation as follows,
+
+$$f(n) = \left[ \sum_{i=1}^{k} n \pi_i p_i \right] / n = \sum_{i=1}^{k} \pi_i p_i$$
+$$\pi_3 = \frac{1}{p_3}\left( 1- \frac{1}{p_2} \left( 1 - \frac{1}{p_1} \right) \right)$$
+
+It is not hard to see that, indeed, the following holds,
+
+$$\pi_n = \frac{\phi(P_{n-1})}{P_n}$$
+
+where \(P_n\) represents the \(n\)-th primorial number (\(p_1 p_2 \ldots p_n\)). Thus,
+
+$$f(n) = \sum_{i=1}^\infty \frac{\phi(P_n)}{P_n}$$
+      <br><br>
+
+      <span class="publication-date">🗓️ August 3, 2024</span>
+
+    </div>
+
+    <br>
+
+    <div class="content-text definition-box">
       Let us define \(s(n)\) to be the sum of all numbers on the interval \([1, n]\) relatively prime with \(n\), then,
       $$2s(n) = \sum_{gcd(k, n) = 1} k + \sum_{gcd(k, n) = 1} n - k = \sum_{gcd(k, n) = 1} n = n \phi(n)$$
       Consequently, we get a funny equation for the value of \(s(n)\),
