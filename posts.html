@@ -54,6 +54,11 @@
 
     <br>
 
+    <div id='articleList' style='text-align: center;'>
+    </div>
+
+    <br>
+
     <div class="content-text definition-box">
       Cool radical axis problem, from Sharygin Geometry Olympiad 2014, 9.2, quite simple, however shows a lot of important ideas.
       <br>
@@ -314,6 +319,42 @@ Simply knowing about the existence of Novak numbers provides an intuitive answer
     <br>
     <br>
     <br>
+
+    <script>
+      const articles = document.querySelectorAll('.content-text.definition-box');
+      const linksDiv = document.createElement('div');
+
+      articles.forEach((article, index) => {
+        const publicationDate = article.querySelector('.publication-date').textContent.trim();
+
+        let articleId = article.id;
+        if (!articleId) {
+          articleId = `article-${index + 1}`; // Create a unique ID
+          article.id = articleId; // Assign the ID to the article div
+        }
+
+        const onclickAttr = article.getAttribute('onclick');
+        let href = '#'; // Default to '#' if no href is found
+        if (onclickAttr) {
+          const match = onclickAttr.match(/'(.*?)'/);
+          if (match && match[1]) {
+            href = match[1];
+          }
+        }
+
+        const link = document.createElement('a');
+        link.href = `#${articleId}`; // Set href to refer to the specific div by its ID
+        link.textContent = publicationDate;
+        link.style.display = 'inline-block'; // Inline-block style for the links
+        linksDiv.appendChild(link);
+
+        const space = document.createElement('span');
+        space.innerHTML = '&nbsp;';
+        linksDiv.appendChild(space);
+      });
+
+      document.getElementById('articleList').appendChild(linksDiv);
+    </script>
   </body>
 </html>
 
