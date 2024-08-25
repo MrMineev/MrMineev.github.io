@@ -36,6 +36,16 @@
         font-size: 16px; /* Adjust font size as needed */
         /* Add any other styles you want */
       }
+
+      /* CSS styles for the solution box */
+      #solutionBox {
+          display: none; /* Initially hidden */
+          margin-top: 10px;
+          padding: 15px;
+          border: 1px solid #ccc;
+          background-color: #f9f9f9;
+          width: fit-content;
+      }
     </style>
   </head>
   <body>
@@ -55,6 +65,34 @@
     <br>
 
     <div id='articleList' style='text-align: center;'>
+    </div>
+
+    <br>
+
+    <div class="content-text definition-box">
+      Even more beautiful? (Prove that for any \(\triangle ABC\) the points \(A',B'\) and \(C'\) lie on a line)
+      <br>
+      <div style="text-align: center;">
+        <img width="60%" src="assets/radical axis full-beauty.jpg"/>
+      </div>
+      <br>
+      <br>
+
+      <button onclick="showSolution('solutionBox')">WARNING! BIG SPOILER!</button>
+
+      <!-- The solution box with some text -->
+      <div id="solutionBox">
+          <p>Try considering the two circumcircles of \(\triangle ABC\) and \(\triangle H_a H_b H_c\), along with their radical axis.
+          Also, another big hint, euler's line for \(\triangle ABC\) is perpendicular the \(A'B'C'\) line.
+          </p>
+          <div style="text-align: center;">
+            <img width="60%" src="assets/radical axis problem hint.jpg"/>
+          </div>
+      </div>
+      <br>
+
+      <br>
+      <span class="publication-date">🗓️ August 25, 2024</span>
     </div>
 
     <br>
@@ -354,6 +392,15 @@ Simply knowing about the existence of Novak numbers provides an intuitive answer
     <br>
 
     <script>
+      function showSolution(id_text) {
+        var solutionBox = document.getElementById(id_text);
+        if (solutionBox.style.display === 'none' || solutionBox.style.display === '') {
+          solutionBox.style.display = 'block'; // Show the box
+        } else {
+          solutionBox.style.display = 'none'; // Hide the box
+        }
+      }
+
       const articles = document.querySelectorAll('.content-text.definition-box');
       const linksDiv = document.createElement('div');
 
