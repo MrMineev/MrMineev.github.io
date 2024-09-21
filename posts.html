@@ -38,7 +38,7 @@
       }
 
       /* CSS styles for the solution box */
-      #solutionBox {
+      .solutionBox {
           display: none; /* Initially hidden */
           margin-top: 10px;
           padding: 15px;
@@ -69,7 +69,35 @@
 
     <br>
 
-  <div class="content-text definition-box">
+    <div class="content-text definition-box">
+      Extremely cool problem, nothing else that I can say... <br><br>
+      <i>Initially on the board there is the number \(N > 1\). In one operation, you are allowed to erase one number \(a\) of the board
+        and replace it with list of all divisors of \(a\), except for \(a\) itself (as a result there can be repetition of values amongs the numbers).
+        Over a certain period of time, the sum of all the numbers was \(N^2\). What values could \(N\) have been?
+      </i>
+
+      <br>
+      <br>
+
+      <button onclick="showSolution('solutionBox2')">WARNING! BIG SPOILER!</button>
+
+      <!-- The solution box with some text -->
+      <div id="solutionBox2" class="solutionBox">
+        <p>Consider the sum of squares of all the numbers initially writen on the board after the first operation, meaning if 
+          \(d_1 < d_2 < \ldots < d_s\) are the divisors of \(N\), what can we say about \(\sum_{k = 1}^s d^k = \mathord{?}\)
+        </p>
+      </div>
+
+      <br>
+      <br>
+      <span class="publication-date">🗓️ September 21, 2024</span>
+    </div>
+
+    <br>
+
+
+
+    <div class="content-text definition-box">
       I realized, that the geometry problem I have suggest on September 7, could be solved much simpler, without finding similar triangles or calculating angles. Here I will give a rough outline of the new proof.<br>
       Let \(N\) and \(K\) move linearly, \(N(t) = \vec{C} + t\vec{CB}\) and \(K(t) = \vec{B} + t\vec{BC}\). Notice, when \(t = 0\), \(N = C\) and \(B = K\), consequently \(M = H\). When, \(t = 1\), \(C = K\) and \(B = N\), consequently \(M = A\). Due to \(M\) moving linearly as well, we see, that \(M\) moves on \(AH\), then one must simply prove the statement backwards and done!
       <br>
@@ -156,10 +184,10 @@
       <br>
       <br>
 
-      <button onclick="showSolution('solutionBox')">WARNING! BIG SPOILER!</button>
+      <button onclick="showSolution('solutionBox1')">WARNING! BIG SPOILER!</button>
 
       <!-- The solution box with some text -->
-      <div id="solutionBox">
+      <div id="solutionBox1" class="solutionBox">
           <p>Try considering the two circumcircles of \(\triangle ABC\) and \(\triangle H_a H_b H_c\), along with their radical axis.
           Also, another big hint, euler's line for \(\triangle ABC\) is perpendicular the \(A'B'C'\) line.
           </p>
