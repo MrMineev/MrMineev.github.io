@@ -1,0 +1,455 @@
+htfcss: cmti  font-style: italic;
+htfcss: cmbx  font-weight: bold;
+htfcss: cmbxsl  font-weight: bold; font-style: oblique;
+htfcss: cmmi font-style: italic;
+htfcss: cmmib font-style: italic; font-weight: bold;
+File: doc.html
+File: doc.css
+File: doc.tmp
+Css: p{margin-top:0;margin-bottom:0}
+Css: p.indent{text-indent:0;}
+Css: p + p{margin-top:1em;}
+Css: p + div, p + pre {margin-top:1em;}
+Css: div + p, pre + p {margin-top:1em;}
+Css: a { overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto; }
+Css: @media print {div.crosslinks {visibility:hidden;}}
+Css: table.tabular{border-collapse: collapse; border-spacing: 0;}
+Css: a img { border-top: 0; border-left: 0; border-right: 0; }
+Font_Css("4"): .small-caps{font-variant: small-caps; }
+Font_Css("10"): .htf-cmbx {font-weight: bold; font-style:normal;}
+Font_Css("12"): .htf-calligraphy {font-family:cursive}
+Font_Css("14"): .htf-italic {font-style: italic;}
+Font_Css("16"): .htf-bold {font-weight: bold;}
+Font_Css("12"): .htf-calligraphy-bold {font-family:cursive ; font-weight: bold; }
+Css: center { margin-top:1em; margin-bottom:1em; }
+Css: td center { margin-top:0em; margin-bottom:0em; }
+Css: .Canvas { position:relative; }
+Css: img.math{vertical-align:middle;}
+Css: div.par-math-display, div.math-display{text-align:center;}
+Css: li p.indent { text-indent: 0em }
+Css: li p:first-child{ margin-top:0em; }
+Css: li p:last-child, li div:last-child { margin-bottom:0.5em; }
+Css: li p:first-child{ margin-bottom:0; }
+Css: li p~ul:last-child, li p~ol:last-child{ margin-bottom:0.5em; }
+Css: .enumerate1 {list-style-type:decimal;}
+Css: .enumerate2 {list-style-type:lower-alpha;}
+Css: .enumerate3 {list-style-type:lower-roman;}
+Css: .enumerate4 {list-style-type:upper-alpha;}
+Css: div.newtheorem { margin-bottom: 2em; margin-top: 2em;}
+Css: div.newtheorem .head{font-weight: bold;}
+Css: .obeylines-h,.obeylines-v {white-space: nowrap; }
+Css: div.obeylines-v p { margin-top:0; margin-bottom:0; }
+Css: .overline{ text-decoration:overline; }
+Css: .overline img{ border-top: 1px solid black; }
+Css: td.displaylines {text-align:center; white-space:nowrap;}
+Css: .centerline {text-align:center;}
+Css: .rightline {text-align:right;}
+Css: pre.verbatim {font-family: monospace,monospace; text-align:left; clear:both; }
+Css: .fbox {padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+Css: div.fbox {display:table}
+Css: div.center div.fbox {text-align:center; clear:both; padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+Css: div.minipage{width:100%;}
+Css: div.center, div.center div.center {text-align: center; margin-left:1em; margin-right:1em;}
+Css: div.center div {text-align: left;}
+Css: div.flushright, div.flushright div.flushright {text-align: right;}
+Css: div.flushright div {text-align: left;}
+Css: div.flushleft {text-align: left;}
+Css: .underline{ text-decoration:underline; }
+Css: .underline img{ border-bottom: 1px solid black; margin-bottom:1pt; }
+Css: .framebox-c, .framebox-l, .framebox-r { padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+Css: .framebox-c {text-align:center;}
+Css: .framebox-l {text-align:left;}
+Css: .framebox-r {text-align:right;}
+Css: span.thank-mark{ vertical-align: super }
+Css: span.footnote-mark sup.textsuperscript, span.footnote-mark a sup.textsuperscript{ font-size:80%; }
+Css: div.tabular, div.center div.tabular {text-align: center; margin-top:0.5em; margin-bottom:0.5em; }
+Css: table.tabular td p{margin-top:0em;}
+Css: table.tabular {margin-left: auto; margin-right: auto;}
+Css: td p:first-child{ margin-top:0em; }
+Css: td p:last-child{ margin-bottom:0em; }
+Css: div.td00{ margin-left:0pt; margin-right:0pt; }
+Css: div.td01{ margin-left:0pt; margin-right:5pt; }
+Css: div.td10{ margin-left:5pt; margin-right:0pt; }
+Css: div.td11{ margin-left:5pt; margin-right:5pt; }
+Css: table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+Css: td.td00{ padding-left:0pt; padding-right:0pt; }
+Css: td.td01{ padding-left:0pt; padding-right:5pt; }
+Css: td.td10{ padding-left:5pt; padding-right:0pt; }
+Css: td.td11{ padding-left:5pt; padding-right:5pt; }
+Css: table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+Css: .hline hr, .cline hr{ height : 0px; margin:0px; }
+Css: .hline td, .cline td{ padding: 0; }
+Css: .hline hr, .cline hr{border:none;border-top:1px solid black;}
+Css: .hline {border-top: 1px solid black;}
+Css: .hline + .vspace:last-child{display:none;}
+Css: .hline:first-child{border-bottom:1px solid black;border-top:none;}
+Css: .tabbing-right {text-align:right;}
+Css: div.float, div.figure {margin-left: auto; margin-right: auto;}
+Css: div.float img {text-align:center;}
+Css: div.figure img {text-align:center;}
+Css: .marginpar,.reversemarginpar {width:20%; float:right; text-align:left; margin-left:auto; margin-top:0.5em; font-size:85%; text-decoration:underline;}
+Css: .marginpar p,.reversemarginpar p{margin-top:0.4em; margin-bottom:0.4em;}
+Css: .reversemarginpar{float:left;}
+Css: table.equation {width:100%;}
+Css: .equation td{text-align:center; }
+Css: td.equation { margin-top:1em; margin-bottom:1em; } 
+Css: td.equation-label { width:5%; text-align:center; }
+Css: td.eqnarray4 { width:5%; white-space: normal; }
+Css: td.eqnarray2 { width:5%; }
+Css: table.eqnarray-star, table.eqnarray {width:100%;}
+Css: div.eqnarray{text-align:center;}
+Css: div.array {text-align:center;}
+Css: div.pmatrix {text-align:center;}
+Css: table.pmatrix {width:100%;}
+Css: span.pmatrix img{vertical-align:middle;}
+Css: div.pmatrix {text-align:center;}
+Css: table.pmatrix {width:100%;}
+Css: span.bar-css {text-decoration:overline;}
+Css: img.cdots{vertical-align:middle;}
+Css: .partToc a, .partToc, .likepartToc a, .likepartToc {line-height: 200%; font-weight:bold; font-size:110%;}
+Css: .index-item, .index-subitem, .index-subsubitem {display:block}
+Css: div.caption {text-indent:-2em; margin-left:3em; margin-right:1em; text-align:left;}
+Css: div.caption span.id{font-weight: bold; white-space: nowrap; }
+Css: h1.partHead{text-align: center}
+Css: p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+Css: p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+Css: .subsubsectionHead, .likesubsubsectionHead { font-size: 1em; }
+Css: .paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
+Css: .subparagraphHead, .likesubparagraphHead { font-weight: bold;}
+Css: .verse{white-space:nowrap; margin-left:2em}
+Css: div.maketitle {text-align:center;}
+Css: h2.titleHead{text-align:center;}
+Css: div.maketitle{ margin-bottom: 2em; }
+Css: div.author, div.date {text-align:center;}
+Css: div.thanks{text-align:left; margin-left:10%; font-size:85%; font-style:italic; }
+Css: div.author{white-space: nowrap;}
+Css: div.abstract p {margin-left:5%; margin-right:5%;}
+Css: div.abstract {width:100%;}
+Css: .abstracttitle{text-align:center;margin-bottom:1em;}
+Css: .rotatebox{display: inline-block;}
+Css: .equation td{text-align:center; }
+Css: .equation-star td{text-align:center; }
+Css: table.equation-star { width:100%; }
+Css: table.equation { width:100%; }
+Css: table.align, table.alignat, table.xalignat, table.xxalignat, table.flalign {width:95%; margin-left:5%; white-space: nowrap;}
+Css: table.align-star, table.alignat-star, table.xalignat-star, table.flalign-star {margin-left:auto; margin-right:auto; white-space: nowrap;}
+Css: td.align-label { width:5%; text-align:center; }
+Css: td.align-odd { text-align:right; padding-right:0.3em;}
+Css: td.align-even { text-align:left; padding-right:0.6em;}
+Css: table.multline, table.multline-star {width:100%;}
+Css: td.gather {text-align:center; }
+Css: table.gather {width:100%;}
+Css: div.gather-star {text-align:center;}
+Css: .subfigcaption {margin-top:1em; margin-left:1em; text-align:center;}
+Css: div.subfigure {text-align:center;display:inline-block;}
+Css: div.subfigure {text-align:center;display:inline-block; max-width:45%;}
+Css: img[src="doc0x.png"]{vertical-align:-0%}
+--- needs --- doc.idv[2] ==> doc0x.png ---
+Css: img[src="doc1x.png"]{vertical-align:-0%}
+--- needs --- doc.idv[3] ==> doc1x.png ---
+Css: img[src="doc2x.png"]{vertical-align:-25%}
+--- needs --- doc.idv[4] ==> doc2x.png ---
+Css: img[src="doc3x.png"]{vertical-align:-21.87498927115985%}
+--- needs --- doc.idv[5] ==> doc3x.png ---
+Css: img[src="doc4x.png"]{vertical-align:-29.1669156794106%}
+--- needs --- doc.idv[6] ==> doc4x.png ---
+Css: img[src="doc5x.png"]{vertical-align:-25%}
+--- needs --- doc.idv[7] ==> doc5x.png ---
+Css: img[src="doc6x.png"]{vertical-align:-25%}
+--- needs --- doc.idv[8] ==> doc6x.png ---
+Css: img[src="doc7x.png"]{vertical-align:-29.1669156794106%}
+--- needs --- doc.idv[9] ==> doc7x.png ---
+Css: img[src="doc8x.png"]{vertical-align:-29.1669156794106%}
+--- needs --- doc.idv[10] ==> doc8x.png ---
+Css: img[src="doc9x.png"]{vertical-align:-29.1669156794106%}
+--- needs --- doc.idv[11] ==> doc9x.png ---
+Css: img[src="doc10x.png"]{vertical-align:-25%}
+--- needs --- doc.idv[12] ==> doc10x.png ---
+Css: img[src="doc11x.png"]{vertical-align:-0%}
+--- needs --- doc.idv[13] ==> doc11x.png ---
+Css: img[src="doc12x.png"]{vertical-align:-25%}
+--- needs --- doc.idv[14] ==> doc12x.png ---
+Css: img[src="doc13x.png"]{vertical-align:-0%}
+--- needs --- doc.idv[15] ==> doc13x.png ---
+Css: img[src="doc14x.png"]{vertical-align:-0%}
+--- needs --- doc.idv[16] ==> doc14x.png ---
+--- needs --- doc.idv[17] ==> doc15x.png ---
+Css: img[src="doc16x.png"]{vertical-align:-34.80120393965229%}
+--- needs --- doc.idv[18] ==> doc16x.png ---
+Css: img[src="doc17x.png"]{vertical-align:-0%}
+--- needs --- doc.idv[19] ==> doc17x.png ---
+Css: img[src="doc18x.png"]{vertical-align:-25%}
+--- needs --- doc.idv[20] ==> doc18x.png ---
+--- needs --- doc.idv[21] ==> doc19x.png ---
+Css: img[src="doc20x.png"]{vertical-align:-22.01257209781984%}
+--- needs --- doc.idv[22] ==> doc20x.png ---
+Css: img[src="doc21x.png"]{vertical-align:-39.92232877412322%}
+--- needs --- doc.idv[23] ==> doc21x.png ---
+Css: img[src="doc22x.png"]{vertical-align:-39.92232877412322%}
+--- needs --- doc.idv[24] ==> doc22x.png ---
+Css: img[src="doc23x.png"]{vertical-align:-21.87485516040931%}
+--- needs --- doc.idv[25] ==> doc23x.png ---
+--- needs --- doc.idv[26] ==> doc24x.png ---
+Css: img[src="doc25x.png"]{vertical-align:-25%}
+--- needs --- doc.idv[27] ==> doc25x.png ---
+Css: img[src="doc26x.png"]{vertical-align:-28.98594407128135%}
+--- needs --- doc.idv[28] ==> doc26x.png ---
+Css: img[src="doc27x.png"]{vertical-align:-25%}
+--- needs --- doc.idv[29] ==> doc27x.png ---
+Css: img[src="doc28x.png"]{vertical-align:-25%}
+--- needs --- doc.idv[30] ==> doc28x.png ---
+Css: img[src="doc29x.png"]{vertical-align:-5.37065100514994%}
+--- needs --- doc.idv[31] ==> doc29x.png ---
+Css: img[src="doc30x.png"]{vertical-align:-17.42291080509841%}
+--- needs --- doc.idv[32] ==> doc30x.png ---
+Css: img[src="doc31x.png"]{vertical-align:-25%}
+--- needs --- doc.idv[33] ==> doc31x.png ---
+Css: img[src="doc32x.png"]{vertical-align:-25%}
+--- needs --- doc.idv[34] ==> doc32x.png ---
+Css: img[src="doc33x.png"]{vertical-align:-31.11115993935533%}
+--- needs --- doc.idv[35] ==> doc33x.png ---
+Css: img[src="doc34x.png"]{vertical-align:-0%}
+--- needs --- doc.idv[36] ==> doc34x.png ---
+Css: img[src="doc35x.png"]{vertical-align:-0%}
+--- needs --- doc.idv[37] ==> doc35x.png ---
+Css: img[src="doc36x.png"]{vertical-align:-40.89471294193965%}
+--- needs --- doc.idv[38] ==> doc36x.png ---
+Css: img[src="doc37x.png"]{vertical-align:-0%}
+--- needs --- doc.idv[39] ==> doc37x.png ---
+Css: img[src="doc38x.png"]{vertical-align:-0%}
+--- needs --- doc.idv[40] ==> doc38x.png ---
+Css: img[src="doc39x.png"]{vertical-align:-21.87498927115985%}
+--- needs --- doc.idv[41] ==> doc39x.png ---
+Css: img[src="doc40x.png"]{vertical-align:-23.17879710571981%}
+--- needs --- doc.idv[42] ==> doc40x.png ---
+Css: img[src="doc41x.png"]{vertical-align:-0%}
+--- needs --- doc.idv[43] ==> doc41x.png ---
+Css: img[src="doc42x.png"]{vertical-align:-25%}
+--- needs --- doc.idv[44] ==> doc42x.png ---
+Css: img[src="doc43x.png"]{vertical-align:-25%}
+--- needs --- doc.idv[45] ==> doc43x.png ---
+Css: img[src="doc44x.png"]{vertical-align:-25%}
+--- needs --- doc.idv[46] ==> doc44x.png ---
+Css: img[src="doc45x.png"]{vertical-align:-25%}
+--- needs --- doc.idv[47] ==> doc45x.png ---
+Css: img[src="doc46x.png"]{vertical-align:-25%}
+--- needs --- doc.idv[48] ==> doc46x.png ---
+Css: img[src="doc47x.png"]{vertical-align:-31.11115993935533%}
+--- needs --- doc.idv[49] ==> doc47x.png ---
+Css: img[src="doc48x.png"]{vertical-align:-0%}
+--- needs --- doc.idv[50] ==> doc48x.png ---
+Css: img[src="doc49x.png"]{vertical-align:-33.15902451621235%}
+--- needs --- doc.idv[51] ==> doc49x.png ---
+--- needs --- doc.idv[52] ==> doc50x.png ---
+Css: img[src="doc51x.png"]{vertical-align:-0%}
+--- needs --- doc.idv[53] ==> doc51x.png ---
+Css: img[src="doc52x.png"]{vertical-align:-33.15902451621235%}
+--- needs --- doc.idv[54] ==> doc52x.png ---
+--- needs --- doc.idv[55] ==> doc53x.png ---
+Css: img[src="doc54x.png"]{vertical-align:-25%}
+--- needs --- doc.idv[56] ==> doc54x.png ---
+Css: img[src="doc55x.png"]{vertical-align:-21.87498927115985%}
+--- needs --- doc.idv[57] ==> doc55x.png ---
+Css: img[src="doc56x.png"]{vertical-align:-0%}
+--- needs --- doc.idv[58] ==> doc56x.png ---
+Css: img[src="doc57x.png"]{vertical-align:-33.15902451621235%}
+--- needs --- doc.idv[59] ==> doc57x.png ---
+Css: img[src="doc58x.png"]{vertical-align:-0%}
+--- needs --- doc.idv[60] ==> doc58x.png ---
+Css: img[src="doc59x.png"]{vertical-align:-0%}
+--- needs --- doc.idv[61] ==> doc59x.png ---
+Css: img[src="doc60x.png"]{vertical-align:-0%}
+--- needs --- doc.idv[62] ==> doc60x.png ---
+Css: img[src="doc61x.png"]{vertical-align:-0%}
+--- needs --- doc.idv[63] ==> doc61x.png ---
+Css: img[src="doc62x.png"]{vertical-align:-33.15902451621235%}
+--- needs --- doc.idv[64] ==> doc62x.png ---
+Css: img[src="doc63x.png"]{vertical-align:-33.15902451621235%}
+--- needs --- doc.idv[65] ==> doc63x.png ---
+Css: img[src="doc64x.png"]{vertical-align:-31.11115993935533%}
+--- needs --- doc.idv[66] ==> doc64x.png ---
+Css: img[src="doc65x.png"]{vertical-align:-23.17879710571981%}
+--- needs --- doc.idv[67] ==> doc65x.png ---
+Css: img[src="doc66x.png"]{vertical-align:-25%}
+--- needs --- doc.idv[68] ==> doc66x.png ---
+Css: img[src="doc67x.png"]{vertical-align:-25%}
+--- needs --- doc.idv[69] ==> doc67x.png ---
+Css: img[src="doc68x.png"]{vertical-align:-23.17879710571981%}
+--- needs --- doc.idv[70] ==> doc68x.png ---
+Css: img[src="doc69x.png"]{vertical-align:-25%}
+--- needs --- doc.idv[71] ==> doc69x.png ---
+Css: img[src="doc70x.png"]{vertical-align:-10.86953493046945%}
+--- needs --- doc.idv[72] ==> doc70x.png ---
+Css: img[src="doc71x.png"]{vertical-align:-0%}
+--- needs --- doc.idv[73] ==> doc71x.png ---
+Css: img[src="doc72x.png"]{vertical-align:-10.86953493046945%}
+--- needs --- doc.idv[74] ==> doc72x.png ---
+Css: img[src="doc73x.png"]{vertical-align:-25%}
+--- needs --- doc.idv[75] ==> doc73x.png ---
+Css: img[src="doc74x.png"]{vertical-align:-20.40816326530612%}
+--- needs --- doc.idv[76] ==> doc74x.png ---
+--- needs --- doc.idv[77] ==> doc75x.png ---
+Css: img[src="doc76x.png"]{vertical-align:-25%}
+--- needs --- doc.idv[78] ==> doc76x.png ---
+Css: img[src="doc77x.png"]{vertical-align:-20.40816326530612%}
+--- needs --- doc.idv[79] ==> doc77x.png ---
+Css: img[src="doc78x.png"]{vertical-align:-25%}
+--- needs --- doc.idv[80] ==> doc78x.png ---
+--- needs --- doc.idv[81] ==> doc79x.png ---
+Css: img[src="doc80x.png"]{vertical-align:-25%}
+--- needs --- doc.idv[82] ==> doc80x.png ---
+Css: img[src="doc81x.png"]{vertical-align:-25%}
+--- needs --- doc.idv[83] ==> doc81x.png ---
+--- needs --- doc.idv[84] ==> doc82x.png ---
+--- needs --- doc.idv[85] ==> doc83x.png ---
+--- needs --- doc.idv[86] ==> doc84x.png ---
+--- needs --- doc.idv[87] ==> doc85x.png ---
+--- needs --- doc.idv[88] ==> doc86x.png ---
+Css: img[src="doc87x.png"]{vertical-align:-25%}
+--- needs --- doc.idv[89] ==> doc87x.png ---
+Css: img[src="doc88x.png"]{vertical-align:-25%}
+--- needs --- doc.idv[90] ==> doc88x.png ---
+Css: img[src="doc89x.png"]{vertical-align:-0%}
+--- needs --- doc.idv[91] ==> doc89x.png ---
+--- needs --- doc.idv[92] ==> doc90x.png ---
+Css: img[src="doc91x.png"]{vertical-align:-0%}
+--- needs --- doc.idv[93] ==> doc91x.png ---
+Css: img[src="doc92x.png"]{vertical-align:-0%}
+--- needs --- doc.idv[94] ==> doc92x.png ---
+Css: img[src="doc93x.png"]{vertical-align:-0%}
+--- needs --- doc.idv[95] ==> doc93x.png ---
+--- needs --- doc.idv[96] ==> doc94x.png ---
+--- needs --- doc.idv[97] ==> doc95x.png ---
+--- needs --- doc.idv[98] ==> doc96x.png ---
+Css: img[src="doc97x.png"]{vertical-align:-25.83718601417717%}
+--- needs --- doc.idv[99] ==> doc97x.png ---
+--- needs --- doc.idv[100] ==> doc98x.png ---
+--- needs --- doc.idv[101] ==> doc99x.png ---
+--- needs --- doc.idv[102] ==> doc100x.png ---
+Css: img[src="doc101x.png"]{vertical-align:-25%}
+--- needs --- doc.idv[103] ==> doc101x.png ---
+Css: img[src="doc102x.png"]{vertical-align:-25%}
+--- needs --- doc.idv[104] ==> doc102x.png ---
+Css: img[src="doc103x.png"]{vertical-align:-0%}
+--- needs --- doc.idv[105] ==> doc103x.png ---
+--- needs --- doc.idv[106] ==> doc104x.png ---
+Css: img[src="doc105x.png"]{vertical-align:-25%}
+--- needs --- doc.idv[107] ==> doc105x.png ---
+Css: img[src="doc106x.png"]{vertical-align:-0%}
+--- needs --- doc.idv[108] ==> doc106x.png ---
+Css: img[src="doc107x.png"]{vertical-align:-0%}
+--- needs --- doc.idv[109] ==> doc107x.png ---
+File: images/L_2_complete_analysis.png
+Css: img[src="doc108x.png"]{vertical-align:-25%}
+--- needs --- doc.idv[110] ==> doc108x.png ---
+Css: img[src="doc109x.png"]{vertical-align:-0%}
+--- needs --- doc.idv[111] ==> doc109x.png ---
+Css: img[src="doc110x.png"]{vertical-align:-0%}
+--- needs --- doc.idv[112] ==> doc110x.png ---
+Css: img[src="doc111x.png"]{vertical-align:-25%}
+--- needs --- doc.idv[113] ==> doc111x.png ---
+Css: img[src="doc112x.png"]{vertical-align:-21.87498927115985%}
+--- needs --- doc.idv[114] ==> doc112x.png ---
+Css: img[src="doc113x.png"]{vertical-align:-0%}
+--- needs --- doc.idv[115] ==> doc113x.png ---
+Css: img[src="doc114x.png"]{vertical-align:-0%}
+--- needs --- doc.idv[116] ==> doc114x.png ---
+Css: img[src="doc115x.png"]{vertical-align:-10.71422966154232%}
+--- needs --- doc.idv[117] ==> doc115x.png ---
+Css: img[src="doc116x.png"]{vertical-align:-25%}
+--- needs --- doc.idv[118] ==> doc116x.png ---
+Css: img[src="doc117x.png"]{vertical-align:-25.45255302638677%}
+--- needs --- doc.idv[119] ==> doc117x.png ---
+Css: img[src="doc118x.png"]{vertical-align:-25%}
+--- needs --- doc.idv[120] ==> doc118x.png ---
+Css: img[src="doc119x.png"]{vertical-align:-21.87498927115985%}
+--- needs --- doc.idv[121] ==> doc119x.png ---
+Css: img[src="doc120x.png"]{vertical-align:-10.71422966154232%}
+--- needs --- doc.idv[122] ==> doc120x.png ---
+Css: img[src="doc121x.png"]{vertical-align:-0%}
+--- needs --- doc.idv[123] ==> doc121x.png ---
+Css: img[src="doc122x.png"]{vertical-align:-25.45255302638677%}
+--- needs --- doc.idv[124] ==> doc122x.png ---
+Css: img[src="doc123x.png"]{vertical-align:-25%}
+--- needs --- doc.idv[125] ==> doc123x.png ---
+Css: img[src="doc124x.png"]{vertical-align:-0%}
+--- needs --- doc.idv[126] ==> doc124x.png ---
+Css: img[src="doc125x.png"]{vertical-align:-0%}
+--- needs --- doc.idv[127] ==> doc125x.png ---
+Css: img[src="doc126x.png"]{vertical-align:-0%}
+--- needs --- doc.idv[128] ==> doc126x.png ---
+Css: img[src="doc127x.png"]{vertical-align:-25%}
+--- needs --- doc.idv[129] ==> doc127x.png ---
+Css: img[src="doc128x.png"]{vertical-align:-0%}
+--- needs --- doc.idv[130] ==> doc128x.png ---
+Css: img[src="doc129x.png"]{vertical-align:-23.17879710571981%}
+--- needs --- doc.idv[131] ==> doc129x.png ---
+Css: img[src="doc130x.png"]{vertical-align:-28.98594407128135%}
+--- needs --- doc.idv[132] ==> doc130x.png ---
+Css: img[src="doc131x.png"]{vertical-align:-25%}
+--- needs --- doc.idv[133] ==> doc131x.png ---
+Css: img[src="doc132x.png"]{vertical-align:-21.87498927115985%}
+--- needs --- doc.idv[134] ==> doc132x.png ---
+Css: img[src="doc133x.png"]{vertical-align:-25%}
+--- needs --- doc.idv[135] ==> doc133x.png ---
+Css: img[src="doc134x.png"]{vertical-align:-25%}
+--- needs --- doc.idv[136] ==> doc134x.png ---
+Css: img[src="doc135x.png"]{vertical-align:-21.87498927115985%}
+--- needs --- doc.idv[137] ==> doc135x.png ---
+Css: img[src="doc136x.png"]{vertical-align:-25%}
+--- needs --- doc.idv[138] ==> doc136x.png ---
+Css: img[src="doc137x.png"]{vertical-align:-25%}
+--- needs --- doc.idv[139] ==> doc137x.png ---
+Css: img[src="doc138x.png"]{vertical-align:-25%}
+--- needs --- doc.idv[140] ==> doc138x.png ---
+Css: img[src="doc139x.png"]{vertical-align:-28.33750463942863%}
+--- needs --- doc.idv[141] ==> doc139x.png ---
+Css: img[src="doc140x.png"]{vertical-align:-0%}
+--- needs --- doc.idv[142] ==> doc140x.png ---
+Css: img[src="doc141x.png"]{vertical-align:-25%}
+--- needs --- doc.idv[143] ==> doc141x.png ---
+File: images/L_3_plot.png
+Css: img[src="doc142x.png"]{vertical-align:-0%}
+--- needs --- doc.idv[144] ==> doc142x.png ---
+Css: img[src="doc143x.png"]{vertical-align:-25%}
+--- needs --- doc.idv[145] ==> doc143x.png ---
+Css: img[src="doc144x.png"]{vertical-align:-0%}
+--- needs --- doc.idv[146] ==> doc144x.png ---
+Css: img[src="doc145x.png"]{vertical-align:-25%}
+--- needs --- doc.idv[147] ==> doc145x.png ---
+Css: img[src="doc146x.png"]{vertical-align:-25%}
+--- needs --- doc.idv[148] ==> doc146x.png ---
+Css: img[src="doc147x.png"]{vertical-align:-25%}
+--- needs --- doc.idv[149] ==> doc147x.png ---
+Css: img[src="doc148x.png"]{vertical-align:-28.33750463942863%}
+--- needs --- doc.idv[150] ==> doc148x.png ---
+Css: img[src="doc149x.png"]{vertical-align:-25%}
+--- needs --- doc.idv[151] ==> doc149x.png ---
+Css: img[src="doc150x.png"]{vertical-align:-25%}
+--- needs --- doc.idv[152] ==> doc150x.png ---
+Css: img[src="doc151x.png"]{vertical-align:-0%}
+--- needs --- doc.idv[153] ==> doc151x.png ---
+Css: img[src="doc152x.png"]{vertical-align:-22.15193504143352%}
+--- needs --- doc.idv[154] ==> doc152x.png ---
+Css: img[src="doc153x.png"]{vertical-align:-25%}
+--- needs --- doc.idv[155] ==> doc153x.png ---
+Css: img[src="doc154x.png"]{vertical-align:-22.15193504143352%}
+--- needs --- doc.idv[156] ==> doc154x.png ---
+Css: img[src="doc155x.png"]{vertical-align:-25%}
+--- needs --- doc.idv[157] ==> doc155x.png ---
+--- characters ---
+Font("cmex","10","10","100")
+Font("cmr","5","5","100")
+Font("cmr","7","7","100")
+Font("cmr","10","10","100")
+Font("cmmi","5","5","100")
+Font("cmmi","7","7","100")
+Font("cmmi","10","10","100")
+Font("cmsy","7","7","100")
+Font("cmsy","10","10","100")
+Font("cmr","17","17","100")
+Font("cmr","12","12","100")
+Font("msam","10","10","100")
+Font("msbm","10","10","100")
+Font("cmbx","10","10","100")
+Font("cmti","10","10","100")

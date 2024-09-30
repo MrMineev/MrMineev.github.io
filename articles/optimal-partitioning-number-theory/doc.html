@@ -1,0 +1,672 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>The Minimum LCM of a sequence</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (https://tug.org/tex4ht/)"> 
+<meta name="originator" content="TeX4ht (https://tug.org/tex4ht/)"> 
+<!-- html --> 
+<meta name="src" content="doc.tex"> 
+<link rel="stylesheet" type="text/css" href="doc.css"> 
+</head><body 
+>
+   <div class="maketitle">
+
+<h1 style="text-align: center;font-family: Tahoma, sans-serif;font-size: 35px;" onclick="window.location.href='https://mrmineev.github.io/'">MrMineev</h1>
+
+<div style="align: center;">
+  <a href="OPTIMAL PARTITIONING (NUMBER THEORY).pdf">Open PDF version of article</a>
+</div>
+
+
+<h2 class="titleHead">The Minimum LCM of a sequence</h2>
+<div class="author" ><span 
+class="cmr-12">Daniel Mineev</span></div><br />
+   </div>
+   <h3 class="sectionHead"><span class="titlemark">1   </span> <a 
+ id="x1-10001"></a>Introduction</h3>
+<!--l. 25--><p class="noindent" >Here, I would like to discuss the problem of minimizing the LCM of a sequence of
+<img 
+src="doc0x.png" alt="k  " class="math"> <span 
+class="cmbx-10">distinct </span>integers given their exact sum to be <img 
+src="doc1x.png" alt="n  " class="math">. This value I will
+denote as <img 
+src="doc2x.png" alt="LK (N )  " class="math">. I will establish a lower and an upper bound on this
+value for any <img 
+src="doc3x.png" alt="n,k &#x2208; &#x2115;  " class="math">. The lower bound, as you will see, is extremely
+simple to establish; a far more complex problem is establishing an upper
+bound.
+   <div class="newtheorem">
+<!--l. 26--><p class="noindent" ><span class="head">
+<a 
+ id="x1-1001r1"></a>
+<span 
+class="cmbx-10">Theorem 1.</span>  </span><img 
+src="doc4x.png" alt="          (             )
+Lk(n) &#x2265; n&#x2215; 11 + 12 + ...+ 1k " class="math">
+   </div>
+<!--l. 28--><p class="indent" >   Consider the following problem, listed in the shortlist for IMO 2022, as an
+example of where this function has been used.
+   <div class="newtheorem">
+<!--l. 30--><p class="noindent" ><span class="head">
+<a 
+ id="x1-1002r1"></a>
+<span 
+class="cmbx-10">Question 1.</span>  </span><span 
+class="cmti-10">A  number  is  called  Norwegian  if  it  has  three  distinct  positive</span>
+<span 
+class="cmti-10">divisors whose sum is equal to 2022. Determine the smallest Norwegian number.</span>
+<br 
+class="newline" /><span 
+class="cmti-10">(Note: The total number of positive divisors of a Norwegian number is allowed</span>
+<span 
+class="cmti-10">to be larger than 3.)</span>
+   </div>
+<!--l. 33--><p class="indent" >   This problem is equivalent to calculating the exact value of <img 
+src="doc5x.png" alt="L3(2022)  " class="math">, it is
+specifically this problem, which convinced me to generalize the concept.
+
+<!--l. 36--><p class="noindent" >
+   <h3 class="sectionHead"><span class="titlemark">2   </span> <a 
+ id="x1-20002"></a>Lower Bound</h3>
+<!--l. 38--><p class="noindent" >Here, I will prove that the lower bound on the value of <img 
+src="doc6x.png" alt="Lk(n)  " class="math"> is <img 
+src="doc7x.png" alt="n&#x2215; (1+ 1 + ...+ 1)
+    1  2       k " class="math">,
+along with the fact that this bound is tight.
+   <div class="newtheorem">
+<!--l. 40--><p class="noindent" ><span class="head">
+<a 
+ id="x1-2001r2"></a>
+<span 
+class="cmbx-10">Theorem 2.</span>  </span><img 
+src="doc8x.png" alt="Lk(n) &#x2265; n&#x2215;(1 + 1+ ...+ 1)
+           1   2       k " class="math">
+   </div>
+<!--l. 42--><p class="indent" >
+   <div class="proof">
+<!--l. 47--><p class="indent" >   <span class="head">
+<span 
+class="cmti-10">Proof.</span> </span>Let us assume the opposite, that indeed, <img 
+src="doc9x.png" alt="L (n) &#x003C; n&#x2215;(1-+ 1 +...+ 1)
+ k         1  2       k " class="math">,
+then let <img 
+src="doc10x.png" alt="L  (n)&#x2215;a  &#x003C; L (n )&#x2215;a  &#x003C; ...&#x003C; L  (n )&#x2215;a
+  k    1    k    2         k    k  " class="math"> be the <img 
+src="doc11x.png" alt="k  " class="math"> divisors of <img 
+src="doc12x.png" alt="L  (n)
+  k  " class="math">
+(meaning, the <img 
+src="doc13x.png" alt="k  " class="math"> divisors, which sum to <img 
+src="doc14x.png" alt="n  " class="math">, from the definition), then we conclude,
+that, <table 
+class="multline"><tr><td><img 
+src="doc15x.png" alt="   &#x2211;k              (                 )
+n =    Lk(n)= Lk (n)  -1 + 1-+ ...+ 1-
+    i=1  ai           a1   a2       ak
+                             ------n------ (-1   1-       -1)
+                           &#x003C; 1 + 1+ ...+ 1  a1 + a2 + ...+ ak
+                             1   2       k
+" ></td><td class="equation-label"><br />(1)<br /></td></tr></table>However, as one can probably already see, <img 
+src="doc16x.png" alt="-1 + 1-+ ...+  1-&#x2264; 1 + 1+ 1 + ...+ -1
+a1   a2       ak   1   2  3       k  " class="math">,
+however even if this sum equals its maximum possible value the last expression will
+only be <img 
+src="doc17x.png" alt="n  " class="math">, thus it is impossible for there to be a strict less sign in the inequality,
+contradiction. Thus, the inequality is indeed true.                                    <span 
+class="msam-10">&#x25A0;</span>
+   </div>
+<!--l. 55--><p class="indent" >   Notice that the lower bound on <img 
+src="doc18x.png" alt="Lk(n)  " class="math"> gives something more interesting.
+Obviously one can see that from this, one can conclude that,
+   <table 
+class="equation"><tr><td>
+   <div class="math-display" >
+<img 
+src="doc19x.png" alt="                     1      &#x2211;k
+[a1,a2,...,ak] &#x2265; 1+-1+-...+-1   ai
+               1   2       ki=1
+" class="math-display" ><a 
+ id="x1-2003r2"></a></div>
+   </td><td class="equation-label">(2)</td></tr></table>
+<!--l. 58--><p class="nopar" >is true for any <img 
+src="doc20x.png" alt="a1,...,ak &#x2208; &#x2115;  " class="math">, assuming that for no two <img 
+src="doc21x.png" alt="ai,aj  " class="math"> we have <img 
+src="doc22x.png" alt="ai = aj  " class="math">.
+As a small example of the two equations, we get the following nice simple tricks,
+(given, that <img 
+src="doc23x.png" alt="a &#x2044;= b  " class="math">) <table 
+class="gather"><tr><td class="gather1"><img 
+src="doc24x.png" alt="    [a,b] &#x2265; 2 (a + b)
+          3
+(a,b) =-ab- &#x2264; --2ab--
+       [a,b]  3(a+ b)
+" ><a 
+ id="x1-2006r3"></a><a 
+ id="x1-2007r4"></a></td><td class="equation-label"><br />(3)<br /><br />(4)<br /></td></tr></table>This is a direct consequence, of the lower bound of <img 
+src="doc25x.png" alt="L  (N )
+  2  " class="math">, which is
+<img 
+src="doc26x.png" alt="L (N ) &#x2264; 2N
+  2     3  " class="math">.
+<!--l. 66--><p class="noindent" >
+   <h3 class="sectionHead"><span class="titlemark">3   </span> <a 
+ id="x1-30003"></a>Upper Bound</h3>
+<!--l. 68--><p class="noindent" >
+   <h4 class="subsectionHead"><span class="titlemark">3.1   </span> <a 
+ id="x1-40003.1"></a><img 
+src="doc27x.png" alt="L2(N )  " class="math"> Analysis</h4>
+<!--l. 70--><p class="noindent" >Let us try to calculate the precise value of <img 
+src="doc28x.png" alt="L2(N )  " class="math">.
+   <div class="newtheorem">
+<!--l. 72--><p class="noindent" ><span class="head">
+<a 
+ id="x1-4001r3"></a>
+<span 
+class="cmbx-10">Theorem 3.</span>  </span><span 
+class="cmti-10">Given </span><img 
+src="doc29x.png" alt="n &#x2208; &#x2115;  " class="math"><span 
+class="cmti-10">, that </span><img 
+src="doc30x.png" alt="n &#x2265; 3  " class="math"><span 
+class="cmti-10">, the value of </span><img 
+src="doc31x.png" alt="L2(N )  " class="math"> <span 
+class="cmti-10">is </span><img 
+src="doc32x.png" alt="(q - 1)r  " class="math"><span 
+class="cmti-10">,</span>
+<span 
+class="cmti-10">where </span><img 
+src="doc33x.png" alt="q  " class="math"> <span 
+class="cmti-10">is the smallest divisor of </span><img 
+src="doc34x.png" alt="N  " class="math"> <span 
+class="cmti-10">greater than </span><img 
+src="doc35x.png" alt="2  " class="math"> <span 
+class="cmti-10">(this is achieved by</span>
+<span 
+class="cmti-10">the partitioning, </span><img 
+src="doc36x.png" alt="n    n
+q,n- q  " class="math"><span 
+class="cmti-10">).</span>
+   </div>
+<!--l. 74--><p class="indent" >
+   <div class="proof">
+<!--l. 77--><p class="indent" >   <span class="head">
+<span 
+class="cmti-10">Proof.</span> </span>Let us assume this is not the case, then it must hold, that, the partition
+of <img 
+src="doc37x.png" alt="n  " class="math"> was into two parts <img 
+src="doc38x.png" alt="xd  " class="math"> and <img 
+src="doc39x.png" alt="yd  " class="math">, where <img 
+src="doc40x.png" alt="x,y &#x003E; 1  " class="math">, and <img 
+src="doc41x.png" alt="d  " class="math"> is the
+greatest common denominator of the two numbers in the partition (consequently
+<img 
+src="doc42x.png" alt="(x,y) = 1  " class="math">). Notice, that <img 
+src="doc43x.png" alt="[xd,yd] = d[x,y]  " class="math">, however, due to <img 
+src="doc44x.png" alt="(x,y) = 1  " class="math">, one
+
+can conclude that <img 
+src="doc45x.png" alt="[x,y] = xy  " class="math">, thus <img 
+src="doc46x.png" alt="[xd,yd] = xyd  " class="math">. However, notice, that
+<img 
+src="doc47x.png" alt="xy  " class="math"> is minimized, when <img 
+src="doc48x.png" alt="x = 2  " class="math"> and <img 
+src="doc49x.png" alt="y = n - 2
+    d  " class="math">, but notice that even then,
+   <table 
+class="equation"><tr><td>
+   <div class="math-display" >
+<img 
+src="doc50x.png" alt="        (     )
+         n-
+dxy = 2d  d - 2 = 2(n- d)
+" class="math-display" ><a 
+ id="x1-4002r5"></a></div>
+   </td><td class="equation-label">(5)</td></tr></table>
+<!--l. 81--><p class="nopar" >
+<!--l. 83--><p class="indent" >   However, notice, that, if one considers the partition where <img 
+src="doc51x.png" alt="x = 1  " class="math"> and
+<img 
+src="doc52x.png" alt="    n
+y = d - 1  " class="math">, then the least common multiple will be the following,
+   <table 
+class="equation"><tr><td>
+   <div class="math-display" >
+<img 
+src="doc53x.png" alt="       (n    )
+dxy = d d-- 1  = n- d
+" class="math-display" ><a 
+ id="x1-4003r6"></a></div>
+   </td><td class="equation-label">(6)</td></tr></table>
+<!--l. 86--><p class="nopar" >Which is better, than than <img 
+src="doc54x.png" alt="2(n - d)  " class="math">, consequently, it is always benificial to
+make the partition of the form <img 
+src="doc55x.png" alt="d,dx  " class="math">, thus, to minimize the least common
+denominator, the value of <img 
+src="doc56x.png" alt="dx  " class="math">, must be minimized, in other words the
+value of <img 
+src="doc57x.png" alt="nd - 1  " class="math"> must be minimized, however this problem is equivelent to
+maximizing <img 
+src="doc58x.png" alt="d  " class="math"> (note, that the maximized value of <img 
+src="doc59x.png" alt="d  " class="math"> is represented as <img 
+src="doc60x.png" alt="r  " class="math"> in the
+statement). However, to simplify the statement, notice that maximizing <img 
+src="doc61x.png" alt="d  " class="math">
+means minimizing <img 
+src="doc62x.png" alt="nd  " class="math">, however <img 
+src="doc63x.png" alt="nd &#x2265; 3  " class="math"> must hold, for the partitioning to be
+legal (e.i. the numbers would be distinct), consequently, one sees, that if <img 
+src="doc64x.png" alt="q  " class="math">
+is the smallest divisor, such that <img 
+src="doc65x.png" alt="q &#x2265; 3  " class="math">, the value of <img 
+src="doc66x.png" alt="L2(N )  " class="math"> is exactly
+<img 
+src="doc67x.png" alt="(q- 1)r  " class="math">.                                                                                       <span 
+class="msam-10">&#x25A0;</span>
+   </div>
+
+<!--l. 90--><p class="indent" >   Notice, that trivially (through simply considering the partitioning <img 
+src="doc68x.png" alt="1,n - 1  " class="math">),
+<img 
+src="doc69x.png" alt="L2(N )  " class="math"> is at least bounded by <img 
+src="doc70x.png" alt="N  - 1  " class="math">, however through this theorem, we
+understand that this bound is tight for prime values of <img 
+src="doc71x.png" alt="N  " class="math">, thus proving, that
+indeed, the upper bound <img 
+src="doc72x.png" alt="N  - 1  " class="math"> is tight.
+<!--l. 92--><p class="indent" >   While this does indeed already tell us a lot, the function is bounded by two linear
+functions, consequently <img 
+src="doc73x.png" alt="L2(N ) = O (N )  " class="math">, however this does not tell the full story,
+the question that I will raise in this section, will be to find a function <img 
+src="doc74x.png" alt="L^2 (N )  " class="math">, such
+that,
+   <table 
+class="equation"><tr><td>
+   <div class="math-display" >
+<img 
+src="doc75x.png" alt="[&#x2211;N      ]     [&#x2211;N      ]
+    L2(k) &#x2215;N =     ^L2(k) &#x2215;N
+ k=1            k=1
+" class="math-display" ><a 
+ id="x1-4004r7"></a></div>
+   </td><td class="equation-label">(7)</td></tr></table>
+<!--l. 95--><p class="nopar" >In simple terms, a nice approximation of <img 
+src="doc76x.png" alt="L2(N)  " class="math"> in the form of a linear function,
+<img 
+src="doc77x.png" alt="^L2(N )  " class="math">. To start the analysis, I will perform a common trick, notice, that <img 
+src="doc78x.png" alt="L2(N )  " class="math">
+from the previous theorem is a very hard function to work with, consequently to
+eliminate any drastic changes in the value of the function, I propose analysing the
+value of the following,
+   <table 
+class="equation"><tr><td>
+   <div class="math-display" >
+<img 
+src="doc79x.png" alt="         [&#x2211;N      ]
+AL2(N ) =    L2(k) &#x2215;N
+          k=1
+" class="math-display" ><a 
+ id="x1-4005r8"></a></div>
+   </td><td class="equation-label">(8)</td></tr></table>
+<!--l. 99--><p class="nopar" >
+<!--l. 101--><p class="indent" >   Notice, that the problem of identifing the smallest divisor greater than 2, is not
+extremely different from identifying the smallest prime divisor, this is due to the fact,
+that the smallest divisor greater than 2, must be part of the set <img 
+src="doc80x.png" alt="{4,3,5,7,...} " class="math"> (in
+other words, the union of <img 
+src="doc81x.png" alt="{4} " class="math"> and the set of primes, greater than 2) let <span 
+class="cmmi-10">&#x03C0;</span><sub><span 
+class="cmmi-7">n</span></sub>
+
+represent the probability that the <span 
+class="cmmi-10">n</span>-th special number is the minimal divisor greater
+than 2, then, indeed, a recursive relationship holds (where <span 
+class="cmmi-10">s</span><sub><span 
+class="cmmi-7">n</span></sub> is the <span 
+class="cmmi-10">n</span>-th special
+number),
+   <table 
+class="equation"><tr><td>
+   <div class="math-display" >
+<img 
+src="doc82x.png" alt="        (         )
+      1      n&#x2211;-1      &#x03C0;n-1(sn- 1 - 1)
+&#x03C0;n = s-  1 -    &#x03C0;i  = -----s-------
+      n      i=1             n
+" class="math-display" ><a 
+ id="x1-4006r9"></a></div>
+   </td><td class="equation-label">(9)</td></tr></table>
+<!--l. 106--><p class="nopar" >
+<!--l. 108--><p class="indent" >   The last transition comes from,
+<!--l. 110--><p class="indent" >   <table 
+class="multline"><tr><td><img 
+src="doc83x.png" alt="   n&#x2211;-2
+1-    &#x03C0;i = &#x03C0;n- 1sn- 1
+   i=1
+                         n-&#x2211; 1
+                 =&#x21D2;  1 -    &#x03C0;i = &#x03C0;n-1sn-1 - &#x03C0;n-1 = &#x03C0;n-1(sn-1 - 1)
+                         i=1
+" ></td><td class="equation-label"><br />(10)<br /></td></tr></table>
+<!--l. 115--><p class="indent" >   Now, all that is left, to reiterate the recursive relationship to obtain,
+   <table 
+class="equation"><tr><td>
+   <div class="math-display" >
+<img 
+src="doc84x.png" alt="     (s1 - 1)&#x22C5;(s2 - 1)...(sn-1 - 1) 1n-&#x220F; 1si - 1
+&#x03C0;n = ----------s-...s---------- = s-    --s--
+                1   n              1 i=1   i
+" class="math-display" ><a 
+ id="x1-4008r11"></a></div>
+   </td><td class="equation-label">(11)</td></tr></table>
+<!--l. 119--><p class="nopar" >
+
+<!--l. 121--><p class="indent" >   First of all, quick note, from this, one can conclude, that, <span 
+class="cmmi-10">&#x03C0;</span><sub><span 
+class="cmmi-7">n</span></sub> <span 
+class="cmsy-10">&#x2264;</span><img 
+src="doc85x.png" alt="-1
+sn"  class="frac" align="middle">, which has as a
+direct biproduct,
+   <table 
+class="equation"><tr><td>
+   <div class="math-display" >
+<img 
+src="doc86x.png" alt="lim  &#x03C0;n = 0
+n&#x2192;&#x221E;
+" class="math-display" ><a 
+ id="x1-4009r12"></a></div>
+   </td><td class="equation-label">(12)</td></tr></table>
+<!--l. 124--><p class="nopar" >
+<!--l. 126--><p class="indent" >   Now, I shall return to the definition of <img 
+src="doc87x.png" alt="AL2 (N )  " class="math">, to get, (where, <img 
+src="doc88x.png" alt="d(k)  " class="math">
+represents the smallest divisor, which is greater than 2 of <img 
+src="doc89x.png" alt="k  " class="math">)
+<!--l. 128--><p class="indent" >   <table 
+class="multline"><tr><td><img 
+src="doc90x.png" alt="         [&#x2211;N      ]     [&#x2211;N      k ]
+AL2(N ) =    L2(k) &#x2215;N =     k-  ----&#x2215;N
+          k=1            k=1    d(k)
+                    [N (N + 1)]     &#x2211;N    k     N + 1    [ k  ]
+                  =  ---------&#x2215;N -    ------ = ------ E  ----
+                        2          k=1N d(k)     2       d(k)
+" ></td><td class="equation-label"><br />(13)<br /></td></tr></table>
+<!--l. 133--><p class="indent" >   The expectation is just a convienient way to rephrase the previous, assuming that
+the random variable <img 
+src="doc91x.png" alt="k  " class="math"> is uniformly selected from <img 
+src="doc92x.png" alt="1  " class="math"> to <img 
+src="doc93x.png" alt="N  " class="math">. Thus, I propose
+analysing that value,
+   <table 
+class="equation"><tr><td>
+   <div class="math-display" >
+<img 
+src="doc94x.png" alt="  [ k  ]  &#x2211;&#x221E; &#x03C0; N      &#x2211;&#x221E;  1   1      &#x221E;&#x2211;   1
+E  ---- =    --k- &#x2264; N    -- &#x22C5;--- = N    --2
+   d(k)   k=1 2sk     k=1sk  2sk     k=1 2sk
+" class="math-display" ><a 
+ id="x1-4011r14"></a></div>
+   </td><td class="equation-label">(14)</td></tr></table>
+
+<!--l. 137--><p class="nopar" >
+<!--l. 139--><p class="indent" >   One of the methods here, is to immediately write the last expression using the
+prime zeta function,
+   <table 
+class="equation"><tr><td>
+   <div class="math-display" >
+<img 
+src="doc95x.png" alt="             [        ]         [          ]
+&#x221E;&#x2211;  -1-   1-          1      1-            1
+   2s2k = 32 + P (2)- 4 &#x2215;2 &#x2248; 32 + 0.45224- 4  &#x2215;2 &#x2248; 0.13237
+k=1
+" class="math-display" ><a 
+ id="x1-4012r15"></a></div>
+   </td><td class="equation-label">(15)</td></tr></table>
+<!--l. 143--><p class="nopar" >
+<!--l. 145--><p class="indent" >   Thus, in the end, we have, that,
+<!--l. 147--><p class="indent" >   <table 
+class="multline"><tr><td><img 
+src="doc96x.png" alt="                     [    ]
+AL2(N ) =   N-+-1-- E  -k--  &#x2248;  N-+-1--  0.13237N  &#x2248;   0.36763N
+              2        d(k)        2
+" ></td><td class="equation-label"><br />(16)<br /></td></tr></table>
+<!--l. 151--><p class="indent" >   However, I have found this result to not be precise enough, this is due to the
+rough approximation we make, for the value of <img 
+src="doc97x.png" alt="&#x03C0;k  " class="math">, it far from accurate, I am
+referencing this specific moment in logic,
+   <table 
+class="equation"><tr><td>
+   <div class="math-display" >
+<img 
+src="doc98x.png" alt="  n-&#x220F;1
+1-    si --1&#x2264; 1-
+sn i=1  si     sn
+" class="math-display" ><a 
+ id="x1-4014r17"></a></div>
+   </td><td class="equation-label">(17)</td></tr></table>
+<!--l. 155--><p class="nopar" >
+
+<!--l. 157--><p class="indent" >   If one accounts for this error (I have not figured out a way here, to get a
+nice formula to simplify the last, thus I have simply calculated this with a
+computer),
+   <table 
+class="equation"><tr><td>
+   <div class="math-display" >
+<img 
+src="doc99x.png" alt="&#x2211;&#x221E;  &#x03C0;k  &#x2211;&#x221E; [ 1 n&#x220F;-1si - 1 1 ]
+    s-=     s-    --s-- &#x22C5;s-  &#x2248; 0.18959 = C
+k=1  k  k=1  n i=1   i    k
+" class="math-display" ><a 
+ id="x1-4015r18"></a></div>
+   </td><td class="equation-label">(18)</td></tr></table>
+<!--l. 161--><p class="nopar" >From, one concludes, that,
+<!--l. 164--><p class="indent" >   <table 
+class="multline"><tr><td><img 
+src="doc100x.png" alt="                  [    ]
+         N-+-1-    --k-    N-+-1-   &#x2211;&#x221E;  -1-
+AL2(N ) =  2   - E d(k)  =   2   - N    2s2k
+                                    k=1 (      )
+                       &#x2248; N-+-1-- N-&#x22C5;C &#x2248;   1--C- N  &#x2248; 0.405205N
+                           2     2          2
+" ></td><td class="equation-label"><br />(19)<br /></td></tr></table>
+<!--l. 169--><p class="indent" >   Thus, we have come to quite an accurate formula for <img 
+src="doc101x.png" alt="AL2 (N )  " class="math">, which is
+<img 
+src="doc102x.png" alt="AL2 (N) &#x2248; 0.405N  " class="math">, let the constant be <img 
+src="doc103x.png" alt="c  " class="math">, then, one can conclude, the
+following,
+<!--l. 171--><p class="indent" >   <table 
+class="gather"><tr><td class="gather1"><img 
+src="doc104x.png" alt="               [ N&#x2211;     ]              &#x2211;N
+         cN  =     L2(k)&#x2215;N  =&#x21D2;  cN 2 =   L2(k)
+                k=1                    k=1
+            [N&#x2211;-1     ]                       N&#x2211;-1
+  c(N - 1) =     L2(k) &#x2215;(N - 1) = &#x21D2; c(N - 1)2 =    L2(k)
+             k=1                              k=1
+    &#x2211;N        N&#x2211;- 1
+=&#x21D2;     L2(k)-     L2(k) = L2(N ) = cN2 - c(N - 1)2 = 2cN - c
+    k=1       k=1
+" ><a 
+ id="x1-4020r20"></a><a 
+ id="x1-4021r21"></a><a 
+ id="x1-4022r22"></a></td><td class="equation-label"><br />(20)<br /><br />(21)<br /><br />(22)<br /></td></tr></table>Thus, we get, that <img 
+src="doc105x.png" alt="L2(N ) &#x2248; 0.81041N - 0.405205  " class="math">, in other words, with
+large values of <img 
+src="doc106x.png" alt="N  " class="math">, the approximate value is around <img 
+src="doc107x.png" alt="0.81041N  " class="math">
+<!--l. 178--><p class="indent" >   <hr class="figure"><div class="figure" 
+>
+
+
+<!--l. 180--><p class="noindent" ><img 
+src="images/L_2_complete_analysis.png" alt="PIC"  
+width="500" height="500" >
+
+<!--l. 182--><p class="indent" >   </div><hr class="endfigure">
+   <h4 class="subsectionHead"><span class="titlemark">3.2   </span> <a 
+ id="x1-50003.2"></a><img 
+src="doc108x.png" alt="L3(N )  " class="math"> Case-wise Analysis</h4>
+<!--l. 186--><p class="noindent" >Consider the simplest and most elementary situation where <img 
+src="doc109x.png" alt="k = 3  " class="math">. Now let one
+consider three situation for different possible congruences <img 
+src="doc110x.png" alt="mod 3  " class="math">.
+<!--l. 188--><p class="indent" >
+     <ol  class="enumerate1" >
+<li 
+  class="enumerate" id="x1-5002x1">
+     <!--l. 189--><p class="noindent" >If <img 
+src="doc111x.png" alt="n &#x2261; 1 (mod 3)  " class="math">, then an example of a 3-partition could be <img 
+src="doc112x.png" alt="1,k,2k  " class="math">
+     (with the sum exactly <img 
+src="doc113x.png" alt="n  " class="math">) with a LCM of <img 
+src="doc114x.png" alt="2k  " class="math">, where <img 
+src="doc115x.png" alt="n = 3k + 1  " class="math">,
+     consequently we achieve an upper bound on the value for <img 
+src="doc116x.png" alt="L3(n)  " class="math"> to be
+     <img 
+src="doc117x.png" alt="2(n-1)
+  3  " class="math">.
+     </li>
+<li 
+  class="enumerate" id="x1-5004x2">
+     <!--l. 190--><p class="noindent" >If <img 
+src="doc118x.png" alt="n &#x2261; 2 (mod  3)  " class="math">, analogously consider the example <img 
+src="doc119x.png" alt="2,k,2k  " class="math">, again
+     where <img 
+src="doc120x.png" alt="n = 3k + 2  " class="math">. As one can see, indeed the LCM is again <img 
+src="doc121x.png" alt="2k  " class="math">, thus
+     again an upper bound is achieved of <img 
+src="doc122x.png" alt="2(n- 2)
+--3--  " class="math">.
+     </li>
+<li 
+  class="enumerate" id="x1-5006x3">
+     <!--l. 191--><p class="noindent" >Finally, if <img 
+src="doc123x.png" alt="n &#x2261; 0 (mod 3)  " class="math">, then <img 
+src="doc124x.png" alt="n = 3k  " class="math">, let us again consider the possible
+     congruences modulo <img 
+src="doc125x.png" alt="3  " class="math"> of <img 
+src="doc126x.png" alt="k  " class="math">. (As you can see the work for now is quite
+     technical)
+         <ul class="itemize1">
+         <li class="itemize">
+         <!--l. 193--><p class="noindent" >If <img 
+src="doc127x.png" alt="k &#x2261; 0 (mod  3)  " class="math">, then <img 
+src="doc128x.png" alt="n = 9t  " class="math"> and an example of <img 
+src="doc129x.png" alt="t,2t,6t  " class="math"> sets
+         the upper bound of <img 
+src="doc130x.png" alt="2n
+ 3  " class="math">
+         </li>
+         <li class="itemize">
+         <!--l. 194--><p class="noindent" >If   <img 
+src="doc131x.png" alt="k &#x2261; 1 (mod 3)  " class="math">,   then   <img 
+src="doc132x.png" alt="3,k - 1,2k - 2  " class="math">   works,   due   to
+         <img 
+src="doc133x.png" alt="2k - 2 &#x2261; 0 (mod 3)  " class="math">
+         </li>
+         <li class="itemize">
+         <!--l. 195--><p class="noindent" >If   <img 
+src="doc134x.png" alt="k &#x2261; 2 (mod 3)  " class="math">,   then   <img 
+src="doc135x.png" alt="6,k - 2,2k - 4  " class="math">   works,   due   to
+         <img 
+src="doc136x.png" alt="2k - 4 &#x2261; 0 (mod 6)  " class="math"> if <img 
+src="doc137x.png" alt="k &#x2261; 2 (mod 3)  " class="math"></li></ul>
+     </li></ol>
+
+<!--l. 198--><p class="noindent" >Thus, indeed, one has established an upper bound on the value of <img 
+src="doc138x.png" alt="L3(N )  " class="math"> to be <img 
+src="doc139x.png" alt="2N--
+3  " class="math">.
+It is important to note this bound is strict only for <img 
+src="doc140x.png" alt="N  " class="math"> large enough so that the
+above examples work (the exact number after which the bound starts working will be
+discussed a bit later). One can see the established lower and upper bound for the
+values of <img 
+src="doc141x.png" alt="L3(N )  " class="math">,
+<!--l. 200--><p class="indent" >   <hr class="figure"><div class="figure" 
+>
+
+
+<!--l. 202--><p class="noindent" ><img 
+src="images/L_3_plot.png" alt="PIC"  
+width="500" height="500" > <a 
+ id="x1-5007r1"></a>
+<br />                                                                  <div class="caption" 
+><span class="id">
+Figure&#x00A0;1: </span><span  
+class="content">                                                         </span></div><!--tex4ht:label?: x1-5007r1 -->
+
+<!--l. 204--><p class="indent" >   </div><hr class="endfigure">
+<!--l. 206--><p class="indent" >   However, this somewhat brute-force approach does not work for larger
+values of <img 
+src="doc142x.png" alt="N  " class="math">, in fact already just to find an upper bound for <img 
+src="doc143x.png" alt="L4(N )  " class="math">
+posses a harder problem than before. Thus, calculating an upper bound for
+higher values of <img 
+src="doc144x.png" alt="K  " class="math"> requires a different perspective. In fact it seems the
+linear upper bound for <img 
+src="doc145x.png" alt="L4(N )  " class="math"> while close, is not as tight as it was for
+<img 
+src="doc146x.png" alt="L3(N )  " class="math">.
+<!--l. 208--><p class="indent" >   I want to note, that the value of <img 
+src="doc147x.png" alt="L3 (N )  " class="math"> is already to a large extend analysed,
+one already knows from the previous theorems, that <img 
+src="doc148x.png" alt="6N-&#x2264; L3(N ) &#x2264; 2N
+ 11           3  " class="math"> (whilst,
+the upper bound is proven is a non-insightful fashion, it does not deminish the fact,
+that the bound is proven).
+   <h4 class="subsectionHead"><span class="titlemark">3.3   </span> <a 
+ id="x1-60003.3"></a>Remarks on <img 
+src="doc149x.png" alt="LK(N )  " class="math"></h4>
+<!--l. 212--><p class="noindent" >I cannot say much, about the completely generalized concept, except for the fact,
+that this problem is quite fundamental, if one thinks about it closer. Again, let us
+take a closer look at how can one interpret the value of <img 
+src="doc150x.png" alt="L2(N )  " class="math">. Let us interpret all
+partitions of 2-partitions of <img 
+src="doc151x.png" alt="N  " class="math">, then one can easily come to see, that this is nothing
+more, than all the lattice points of a line <img 
+src="doc152x.png" alt="y = - x+ N  " class="math">, thus if <img 
+src="doc153x.png" alt="F2(N) &#x2265; L2(N )  " class="math">,
+this means, that for any line <img 
+src="doc154x.png" alt="y = - x + N  " class="math">, there exists a lattice point, which is less
+or equal to <img 
+src="doc155x.png" alt="F2(N )  " class="math">, this interpretation can be easily generalized for larger
+dimensions.
+
+<br>
+    <br>
+
+    <div class="section-name" style="text-align: center;">
+      <h2 style="display: inline;" class="symbol-change">§</h2><h2 style="display: inline;"> 💬 Comments</h2>
+    </div>
+
+    <br>
+
+    <script src="https://utteranc.es/client.js"
+        repo="MrMineev/MrMineev.github.io"
+        issue-term="pathname"
+        label="WEBSITE_COMMENT"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+    </script>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+    
+</body></html> 
+
+
+
