@@ -70,6 +70,30 @@
     <br>
 
     <div class="content-text definition-box">
+      Recently saw a proof of the AM-GM inequality using integrals, and I have no words...<br>
+      Let \(G\) be the geometric mean of \(a_1, a_2, \ldots, a_n\) and \(A\) be the arithmetic mean. Obvisouly we can select \(a_k \leq G \leq a_{k + 1}\), then the claim is the following,
+      $$\frac{A}{G} - 1 = \frac{1}{n} \sum_{i = 1}^k \int_{a_i}^G \left( \frac{1}{t} - \frac{1}{G} \right) dt + \frac{1}{n} \sum_{i = k + 1}^n \int_{G}^{a_i} \left( \frac{1}{G} - \frac{1}{t} \right) dt$$
+      <br>
+      <br>
+      <button onclick="showSolution('solutionBox3')">PRESS TO SEE BORING CALCULATIONS</button>
+
+      <!-- The solution box with some text -->
+      <div id="solutionBox3" class="solutionBox">
+        $$\frac{1}{n} \sum_{i = 1}^k \int_{a_i}^G \left( \frac{1}{t} - \frac{1}{G} \right) dt = \frac{1}{n} \sum_{i = 1}^k \left[ \ln t - \frac{t}{G} \right]_{a_i}^G = \frac{1}{n} \left( k \ln G - k - \sum \ln a_i + \left[ \sum a_i \right] / G \right)$$
+        $$\frac{1}{n} \sum_{i = k + 1}^n \int_{G}^{a_i} \left( \frac{1}{G} - \frac{1}{t} \right) dt = \frac{1}{n} \sum_{i = k + 1}^n \left[ \ln t - \frac{t}{G} \right]_{G}^{a_i} = \frac{1}{n} \left( (n - k) \cdot \sum \frac{a_i}{G} - \sum \ln a_i - (n - k) + (n - k) \cdot \ln G \right)$$
+        $$\frac{1}{n} \sum_{i = 1}^k \int_{a_i}^G \left( \frac{1}{t} - \frac{1}{G} \right) dt + \frac{1}{n} \sum_{i = k + 1}^n \int_{G}^{a_i} \left( \frac{1}{G} - \frac{1}{t} \right) dt = \frac{1}{n} \left( k \ln G - k - \sum \ln a_i + \left[ \sum a_i \right] / G  + (n - k) \cdot \sum \frac{a_i}{G} - \sum \ln a_i - (n - k) + (n - k) \cdot \ln G \right)$$
+        $$ = \frac{1}{n} \left( n \ln G - n - \sum \ln a_i + \left[ \sum a_i \right] / G \right) = \ln G - 1 - \frac{\sum \ln a_i}{n} + \frac{\sum a_i}{nG} = \ln G - \ln \sqrt[n]{\prod a_i} - 1 + \frac{A}{G} = \ln G - \ln G - 1 + \frac{A}{G} = \frac{A}{G} - 1$$
+      </div>
+      <br>
+      <br>
+      All that is left to notice, is that due to the choice of \(k\) the value of the expression above is obvisouly greater or equal than zero. Thus, \(\frac{A}{G} - 1 \geq 0 \implies A \geq G\).
+      <br>
+      <span class="publication-date">🗓️ November 24, 2024</span>
+    </div>
+
+    <br>
+
+    <div class="content-text definition-box">
       Quite an elegant theorem, especially the proof which consists of simply repeatidly applying Pascal's theorem... This statement can further be used to prove Poncelet's theorem for a triangle.
       <p></p>
       <img width="40%" src="assets/wierd_poncelet_2.jpg"/>
