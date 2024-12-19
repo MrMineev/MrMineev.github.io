@@ -70,6 +70,48 @@
     <br>
 
     <div class="content-text definition-box">
+      Came across a simple problem which yeilds a beautiful result.
+
+      <br>
+      <br>
+
+      <i>A robot is randomly walks \(K\) steps in a square grid, what is the expected distance from the origin?</i>
+
+      <br>
+      <br>
+
+      We can first solve the one dimentional case, let \(\gamma\) be a random variable representing the distance from the robot at the end til the origin, then,
+
+      $$\mathbb{E} \gamma = \mathbb{E} | \sum_{i = 1}^K a_i |$$
+      
+      where \(a_i\) is the random variable representing the \(i\)-th step. However, working with the module is difficult thus, we can take a simpler approach by calculating the following value,
+
+      $$\mathbb{E} \gamma^2 = \mathbb{E} \left[ \sum_{i = 1}^K (\text{one step}) \right] ^ 2 = \mathbb{E} \left[ \sum_{i = 1}^K a_i^2 + \sum_{i \neq j} a_i a_j \right] = \mathbb{E} \left[ \sum_{i = 1}^K a_i^2 \right] + \mathbb{E} \left[ \sum_{i \neq j} a_i a_j \right]$$
+
+      Notice, that,
+
+      $$\mathbb{E} \left[ \sum_{i \neq j} a_i a_j \right] = \sum_{i \neq j} \mathbb{E} \left[ a_i a_j \right] = 0$$
+
+      Thus,
+      
+      $$\mathbb{E} \gamma^2 = \mathbb{E} \left[ \sum_{i = 1}^K a_i^2 \right] = K$$ 
+
+      Thus, $$\mathbb{E} \gamma = \sqrt{K}$$
+
+      Perfect! One can do the exact same in two dimentions, let \(K_1\) and \(K_2\) the number of steps used for the X and Y axis respectively, then,
+
+      $$\mathbb{E} \gamma^2 = \mathbb{E} \left[ (\sqrt{K_1})^2 + (\sqrt{K_2})^2 \right] = \mathbb{E} \left[ K_1 + K_2 \right] = K$$
+
+      Thus, \(\mathbb{E} \gamma = \sqrt{K}\).
+
+      <br>
+      <br>
+      <span class="publication-date">🗓️ December 19, 2024</span>
+    </div>
+
+    <br>
+
+    <div class="content-text definition-box">
       The following problem is very dear to me as I have a very fun story assosiated with it, but I leave it for another time. I highly recommend attempting to solve the problem,
       
       <br>
