@@ -1,0 +1,1928 @@
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=latex 2023.10.12)  21 DEC 2024 22:33
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**\makeatletter\def\HCode{\futurelet\HCode\HChar}\def\HChar{\ifx"\HCode\def\HCo
+de"##1"{\Link##1}\expandafter\HCode\else\expandafter\Link\fi}\def\Link#1.a.b.c.
+{\g@addto@macro\@documentclasshook{\RequirePackage[#1,html]{tex4ht}}\let\HCode\
+documentstyle\def\documentstyle{\let\documentstyle\HCode\expandafter\def\csname
+ tex4ht\endcsname{#1,html}\def\HCode####1{\documentstyle[tex4ht,}\@ifnextchar[{
+\HCode}{\documentstyle[tex4ht]}}}\makeatother\HCode .a.b.c.\input  doc.tex
+ (./doc.tex
+(/usr/local/texlive/2023/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2022/07/02 v1.4n Standard LaTeX document class
+(/usr/local/texlive/2023/texmf-dist/tex/latex/base/size10.clo
+File: size10.clo 2022/07/02 v1.4n Standard LaTeX file (size option)
+)
+\c@part=\count185
+\c@section=\count186
+\c@subsection=\count187
+\c@subsubsection=\count188
+\c@paragraph=\count189
+\c@subparagraph=\count190
+\c@figure=\count191
+\c@table=\count192
+\abovecaptionskip=\skip48
+\belowcaptionskip=\skip49
+\bibindent=\dimen140
+)
+(/usr/local/texlive/2023/texmf-dist/tex/generic/tex4ht/tex4ht.sty
+version 2023-02-03-14:48
+Package: tex4ht 
+--------------------------------------
+--- Note --- for _ at preamble, use the command line option `early_'
+--------------------------------------
+--------------------------------------
+--- Note --- for ^ at preamble, use the command line option `early^'
+--------------------------------------
+\tmp:toks=\toks16
+)
+(/usr/local/texlive/2023/texmf-dist/tex/generic/tex4ht/usepackage.4ht
+version 2023-01-12-14:08
+)
+(/usr/local/texlive/2023/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/usr/local/texlive/2023/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
+\KV@toks@=\toks17
+)
+(/usr/local/texlive/2023/texmf-dist/tex/generic/tex4ht/graphics-hooks.4ht
+version 2022-08-17-14:25
+)
+(/usr/local/texlive/2023/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2022/03/10 v1.4e Standard LaTeX Graphics (DPC,SPQR)
+
+(/usr/local/texlive/2023/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 2021/08/11 v1.11 sin cos tan (DPC)
+)
+(/usr/local/texlive/2023/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: dvips.def on input line 107.
+
+(/usr/local/texlive/2023/texmf-dist/tex/latex/graphics-def/dvips.def
+File: dvips.def 2022/09/22 v3.1e Graphics/color driver for dvips
+))
+\Gin@req@height=\dimen141
+\Gin@req@width=\dimen142
+)
+(/usr/local/texlive/2023/texmf-dist/tex/latex/amsmath/amsmath.sty
+Package: amsmath 2022/04/08 v2.17n AMS math features
+\@mathmargin=\skip50
+
+For additional information on amsmath, use the `?' option.
+(/usr/local/texlive/2023/texmf-dist/tex/latex/amsmath/amstext.sty
+Package: amstext 2021/08/26 v2.01 AMS text
+
+(/usr/local/texlive/2023/texmf-dist/tex/latex/amsmath/amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0 generic functions
+\@emptytoks=\toks18
+\ex@=\dimen143
+))
+(/usr/local/texlive/2023/texmf-dist/tex/latex/amsmath/amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d Bold Symbols
+\pmbraise@=\dimen144
+)
+(/usr/local/texlive/2023/texmf-dist/tex/latex/amsmath/amsopn.sty
+Package: amsopn 2022/04/08 v2.04 operator names
+)
+\inf@bad=\count193
+LaTeX Info: Redefining \frac on input line 234.
+\uproot@=\count194
+\leftroot@=\count195
+LaTeX Info: Redefining \overline on input line 399.
+LaTeX Info: Redefining \colon on input line 410.
+\classnum@=\count196
+\DOTSCASE@=\count197
+LaTeX Info: Redefining \ldots on input line 496.
+LaTeX Info: Redefining \dots on input line 499.
+LaTeX Info: Redefining \cdots on input line 620.
+\Mathstrutbox@=\box51
+\strutbox@=\box52
+LaTeX Info: Redefining \big on input line 722.
+LaTeX Info: Redefining \Big on input line 723.
+LaTeX Info: Redefining \bigg on input line 724.
+LaTeX Info: Redefining \Bigg on input line 725.
+\big@size=\dimen145
+LaTeX Font Info:    Redeclaring font encoding OML on input line 743.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 744.
+\macc@depth=\count198
+LaTeX Info: Redefining \bmod on input line 905.
+LaTeX Info: Redefining \pmod on input line 910.
+LaTeX Info: Redefining \smash on input line 940.
+LaTeX Info: Redefining \relbar on input line 970.
+LaTeX Info: Redefining \Relbar on input line 971.
+\c@MaxMatrixCols=\count199
+\dotsspace@=\muskip16
+\c@parentequation=\count266
+\dspbrk@lvl=\count267
+\tag@help=\toks19
+\row@=\count268
+\column@=\count269
+\maxfields@=\count270
+\andhelp@=\toks20
+\eqnshift@=\dimen146
+\alignsep@=\dimen147
+\tagshift@=\dimen148
+\tagwidth@=\dimen149
+\totwidth@=\dimen150
+\lineht@=\dimen151
+\@envbody=\toks21
+\multlinegap=\skip51
+\multlinetaggap=\skip52
+\mathdisplay@stack=\toks22
+LaTeX Info: Redefining \[ on input line 2953.
+LaTeX Info: Redefining \] on input line 2954.
+)
+(/usr/local/texlive/2023/texmf-dist/tex/latex/amsfonts/amssymb.sty
+Package: amssymb 2013/01/14 v3.01 AMS font symbols
+
+(/usr/local/texlive/2023/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+))
+(/usr/local/texlive/2023/texmf-dist/tex/latex/amscls/amsthm.sty
+Package: amsthm 2020/05/29 v2.20.6
+\thm@style=\toks23
+\thm@bodyfont=\toks24
+\thm@headfont=\toks25
+\thm@notefont=\toks26
+\thm@headpunct=\toks27
+\thm@preskip=\skip53
+\thm@postskip=\skip54
+\thm@headsep=\skip55
+\dth@everypar=\toks28
+)
+(/usr/local/texlive/2023/texmf-dist/tex/latex/tcolorbox/tcolorbox.sty
+Package: tcolorbox 2023/02/12 version 6.0.1 text color boxes
+
+(/usr/local/texlive/2023/texmf-dist/tex/latex/pgf/basiclayer/pgf.sty
+(/usr/local/texlive/2023/texmf-dist/tex/latex/pgf/utilities/pgfrcs.sty
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/utilities/pgfutil-common.te
+x
+\pgfutil@everybye=\toks29
+\pgfutil@tempdima=\dimen152
+\pgfutil@tempdimb=\dimen153
+)
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/utilities/pgfutil-latex.def
+\pgfutil@abb=\box53
+) (/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/utilities/pgfrcs.code.tex
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/pgf.revision.tex)
+Package: pgfrcs 2023-01-15 v3.1.10 (3.1.10)
+))
+Package: pgf 2023-01-15 v3.1.10 (3.1.10)
+
+(/usr/local/texlive/2023/texmf-dist/tex/latex/pgf/basiclayer/pgfcore.sty
+(/usr/local/texlive/2023/texmf-dist/tex/latex/pgf/systemlayer/pgfsys.sty
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/systemlayer/pgfsys.code.tex
+Package: pgfsys 2023-01-15 v3.1.10 (3.1.10)
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex
+\pgfkeys@pathtoks=\toks30
+\pgfkeys@temptoks=\toks31
+
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/utilities/pgfkeyslibraryfil
+tered.code.tex
+\pgfkeys@tmptoks=\toks32
+))
+\pgf@x=\dimen154
+\pgf@y=\dimen155
+\pgf@xa=\dimen156
+\pgf@ya=\dimen157
+\pgf@xb=\dimen158
+\pgf@yb=\dimen159
+\pgf@xc=\dimen160
+\pgf@yc=\dimen161
+\pgf@xd=\dimen162
+\pgf@yd=\dimen163
+\w@pgf@writea=\write3
+\r@pgf@reada=\read2
+\c@pgf@counta=\count271
+\c@pgf@countb=\count272
+\c@pgf@countc=\count273
+\c@pgf@countd=\count274
+\t@pgf@toka=\toks33
+\t@pgf@tokb=\toks34
+\t@pgf@tokc=\toks35
+\pgf@sys@id@count=\count275
+
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/systemlayer/pgf.cfg
+File: pgf.cfg 2023-01-15 v3.1.10 (3.1.10)
+)
+Driver file for pgf: pgfsys-tex4ht.def
+
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-tex4ht.d
+ef
+File: pgfsys-tex4ht.def 2023-01-15 v3.1.10 (3.1.10)
+
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-common-s
+vg.def
+File: pgfsys-common-svg.def 2023-01-15 v3.1.10 (3.1.10)
+\pgf@sys@svg@objectcount=\count276
+\pgf@sys@svg@scopecount=\count277
+\pgf@sys@svg@type@count=\count278
+\pgf@sys@svg@canvascount=\count279
+)
+\pgf@sys@svg@picnum=\count280
+\pgf@sys@svg@nodenum=\count281
+\pgfsys@foreignobject@Box=\box54
+\pgf@s=\dimen164
+\pgf@t=\dimen165
+ (/usr/local/texlive/2023/texmf-dist/tex/generic/tex4ht/xcolor-hooks.4ht
+version 2020-10-17-13:53
+) (/usr/local/texlive/2023/texmf-dist/tex/latex/xcolor/xcolor.sty
+Package: xcolor 2022/06/12 v2.14 LaTeX color extensions (UK)
+
+(/usr/local/texlive/2023/texmf-dist/tex/latex/graphics-cfg/color.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package xcolor Info: Driver file: dvips.def on input line 227.
+
+(/usr/local/texlive/2023/texmf-dist/tex/latex/graphics/mathcolor.ltx)
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1353.
+Package xcolor Info: Model `RGB' extended on input line 1369.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1371.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1372.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1373.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1374.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1375.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1376.
+)))
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/systemlayer/pgfsyssoftpath.
+code.tex
+File: pgfsyssoftpath.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgfsyssoftpath@smallbuffer@items=\count282
+\pgfsyssoftpath@bigbuffer@items=\count283
+)
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/systemlayer/pgfsysprotocol.
+code.tex
+File: pgfsysprotocol.code.tex 2023-01-15 v3.1.10 (3.1.10)
+))
+(/usr/local/texlive/2023/texmf-dist/tex/generic/tex4ht/xcolor-hooks.4ht
+version 2020-10-17-13:53
+)
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/basiclayer/pgfcore.code.tex
+Package: pgfcore 2023-01-15 v3.1.10 (3.1.10)
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/math/pgfmathutil.code.tex)
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/math/pgfmathparser.code.tex
+\pgfmath@dimen=\dimen166
+\pgfmath@count=\count284
+\pgfmath@box=\box55
+\pgfmath@toks=\toks36
+\pgfmath@stack@operand=\toks37
+\pgfmath@stack@operation=\toks38
+)
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.code.
+tex)
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.basic
+.code.tex)
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.trigo
+nometric.code.tex)
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.rando
+m.code.tex)
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.compa
+rison.code.tex)
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.base.
+code.tex)
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.round
+.code.tex)
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.misc.
+code.tex)
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.integ
+erarithmetics.code.tex)
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/math/pgfmathcalc.code.tex)
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/math/pgfmathfloat.code.tex
+\c@pgfmathroundto@lastzeros=\count285
+)) (/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/math/pgfint.code.tex)
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepoints.co
+de.tex
+File: pgfcorepoints.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgf@picminx=\dimen167
+\pgf@picmaxx=\dimen168
+\pgf@picminy=\dimen169
+\pgf@picmaxy=\dimen170
+\pgf@pathminx=\dimen171
+\pgf@pathmaxx=\dimen172
+\pgf@pathminy=\dimen173
+\pgf@pathmaxy=\dimen174
+\pgf@xx=\dimen175
+\pgf@xy=\dimen176
+\pgf@yx=\dimen177
+\pgf@yy=\dimen178
+\pgf@zx=\dimen179
+\pgf@zy=\dimen180
+)
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathconst
+ruct.code.tex
+File: pgfcorepathconstruct.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgf@path@lastx=\dimen181
+\pgf@path@lasty=\dimen182
+)
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathusage
+.code.tex
+File: pgfcorepathusage.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgf@shorten@end@additional=\dimen183
+\pgf@shorten@start@additional=\dimen184
+)
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/basiclayer/pgfcorescopes.co
+de.tex
+File: pgfcorescopes.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgfpic=\box56
+\pgf@hbox=\box57
+\pgf@layerbox@main=\box58
+\pgf@picture@serial@count=\count286
+)
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/basiclayer/pgfcoregraphicst
+ate.code.tex
+File: pgfcoregraphicstate.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgflinewidth=\dimen185
+)
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransform
+ations.code.tex
+File: pgfcoretransformations.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgf@pt@x=\dimen186
+\pgf@pt@y=\dimen187
+\pgf@pt@temp=\dimen188
+)
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/basiclayer/pgfcorequick.cod
+e.tex
+File: pgfcorequick.code.tex 2023-01-15 v3.1.10 (3.1.10)
+)
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreobjects.c
+ode.tex
+File: pgfcoreobjects.code.tex 2023-01-15 v3.1.10 (3.1.10)
+)
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathproce
+ssing.code.tex
+File: pgfcorepathprocessing.code.tex 2023-01-15 v3.1.10 (3.1.10)
+)
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/basiclayer/pgfcorearrows.co
+de.tex
+File: pgfcorearrows.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgfarrowsep=\dimen189
+)
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreshade.cod
+e.tex
+File: pgfcoreshade.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgf@max=\dimen190
+\pgf@sys@shading@range@num=\count287
+\pgf@shadingcount=\count288
+)
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreimage.cod
+e.tex
+File: pgfcoreimage.code.tex 2023-01-15 v3.1.10 (3.1.10)
+)
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreexternal.
+code.tex
+File: pgfcoreexternal.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgfexternal@startupbox=\box59
+)
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/basiclayer/pgfcorelayers.co
+de.tex
+File: pgfcorelayers.code.tex 2023-01-15 v3.1.10 (3.1.10)
+)
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretranspare
+ncy.code.tex
+File: pgfcoretransparency.code.tex 2023-01-15 v3.1.10 (3.1.10)
+)
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepatterns.
+code.tex
+File: pgfcorepatterns.code.tex 2023-01-15 v3.1.10 (3.1.10)
+)
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/basiclayer/pgfcorerdf.code.
+tex
+File: pgfcorerdf.code.tex 2023-01-15 v3.1.10 (3.1.10)
+)))
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/modules/pgfmoduleshapes.cod
+e.tex
+File: pgfmoduleshapes.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgfnodeparttextbox=\box60
+)
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/modules/pgfmoduleplot.code.
+tex
+File: pgfmoduleplot.code.tex 2023-01-15 v3.1.10 (3.1.10)
+)
+(/usr/local/texlive/2023/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version
+-0-65.sty
+Package: pgfcomp-version-0-65 2023-01-15 v3.1.10 (3.1.10)
+\pgf@nodesepstart=\dimen191
+\pgf@nodesepend=\dimen192
+)
+(/usr/local/texlive/2023/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version
+-1-18.sty
+Package: pgfcomp-version-1-18 2023-01-15 v3.1.10 (3.1.10)
+)) (/usr/local/texlive/2023/texmf-dist/tex/latex/tools/verbatim.sty
+Package: verbatim 2022-07-02 v1.5u LaTeX2e package for verbatim enhancements
+\every@verbatim=\toks39
+\verbatim@line=\toks40
+\verbatim@in@stream=\read3
+)
+(/usr/local/texlive/2023/texmf-dist/tex/latex/environ/environ.sty
+Package: environ 2014/05/04 v0.3 A new way to define environments
+
+(/usr/local/texlive/2023/texmf-dist/tex/latex/trimspaces/trimspaces.sty
+Package: trimspaces 2009/09/17 v1.1 Trim spaces around a token list
+))
+(/usr/local/texlive/2023/texmf-dist/tex/latex/etoolbox/etoolbox.sty
+Package: etoolbox 2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
+\etb@tempcnta=\count289
+)
+\tcb@titlebox=\box61
+\tcb@upperbox=\box62
+\tcb@lowerbox=\box63
+\tcb@phantombox=\box64
+\c@tcbbreakpart=\count290
+\c@tcblayer=\count291
+\c@tcolorbox@number=\count292
+\tcb@temp=\box65
+\tcb@temp=\box66
+\tcb@temp=\box67
+\tcb@temp=\box68
+)
+(/usr/local/texlive/2023/texmf-dist/tex/generic/tex4ht/tikz-hooks.4ht
+version 2021-10-21-13:56
+)
+(/usr/local/texlive/2023/texmf-dist/tex/latex/pgf/frontendlayer/tikz.sty
+(/usr/local/texlive/2023/texmf-dist/tex/latex/pgf/utilities/pgffor.sty
+(/usr/local/texlive/2023/texmf-dist/tex/latex/pgf/utilities/pgfkeys.sty
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex)
+) (/usr/local/texlive/2023/texmf-dist/tex/latex/pgf/math/pgfmath.sty
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex))
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/utilities/pgffor.code.tex
+Package: pgffor 2023-01-15 v3.1.10 (3.1.10)
+\pgffor@iter=\dimen193
+\pgffor@skip=\dimen194
+\pgffor@stack=\toks41
+\pgffor@toks=\toks42
+))
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/frontendlayer/tikz/tikz.cod
+e.tex
+Package: tikz 2023-01-15 v3.1.10 (3.1.10)
+
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/libraries/pgflibraryplothan
+dlers.code.tex
+File: pgflibraryplothandlers.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgf@plot@mark@count=\count293
+\pgfplotmarksize=\dimen195
+)
+\tikz@lastx=\dimen196
+\tikz@lasty=\dimen197
+\tikz@lastxsaved=\dimen198
+\tikz@lastysaved=\dimen199
+\tikz@lastmovetox=\dimen256
+\tikz@lastmovetoy=\dimen257
+\tikzleveldistance=\dimen258
+\tikzsiblingdistance=\dimen259
+\tikz@figbox=\box69
+\tikz@figbox@bg=\box70
+\tikz@tempbox=\box71
+\tikz@tempbox@bg=\box72
+\tikztreelevel=\count294
+\tikznumberofchildren=\count295
+\tikznumberofcurrentchild=\count296
+\tikz@fig@count=\count297
+
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/modules/pgfmodulematrix.cod
+e.tex
+File: pgfmodulematrix.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgfmatrixcurrentrow=\count298
+\pgfmatrixcurrentcolumn=\count299
+\pgf@matrix@numberofcolumns=\count300
+)
+\tikz@expandcount=\count301
+
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibrarytopaths.code.tex
+File: tikzlibrarytopaths.code.tex 2023-01-15 v3.1.10 (3.1.10)
+)))
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibrarycalc.code.tex
+File: tikzlibrarycalc.code.tex 2023-01-15 v3.1.10 (3.1.10)
+)
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibraryintersections.code.tex
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/libraries/pgflibraryinterse
+ctions.code.tex
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/libraries/pgflibraryfpu.cod
+e.tex)
+\pgf@intersect@solutions=\count302
+))
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibrarythrough.code.tex
+File: tikzlibrarythrough.code.tex 2023-01-15 v3.1.10 (3.1.10)
+)
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibrarybackgrounds.code.tex
+File: tikzlibrarybackgrounds.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgf@layerbox@background=\box73
+\pgf@layerboxsaved@background=\box74
+)
+(/usr/local/texlive/2023/texmf-dist/tex/latex/tkz-euclide/tkz-euclide.sty
+2023/02/03 5.02c tkz-euclide.sty
+Package: tkz-euclide  2023/02/03 5.02c for pure Euclidean Geometry 
+(/usr/local/texlive/2023/texmf-dist/tex/generic/tex4ht/tikz-hooks.4ht
+version 2021-10-21-13:56
+)
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibraryangles.code.tex
+File: tikzlibraryangles.code.tex 2023-01-15 v3.1.10 (3.1.10)
+)
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibraryarrows.code.tex
+File: tikzlibraryarrows.code.tex 2023-01-15 v3.1.10 (3.1.10)
+
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/libraries/pgflibraryarrows.
+code.tex
+File: pgflibraryarrows.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\arrowsize=\dimen260
+))
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/libraries/pgflibraryarrows.
+meta.code.tex
+File: pgflibraryarrows.meta.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgfarrowinset=\dimen261
+\pgfarrowlength=\dimen262
+\pgfarrowwidth=\dimen263
+\pgfarrowlinewidth=\dimen264
+)
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibrarydecorations.code.tex
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/modules/pgfmoduledecoration
+s.code.tex
+\pgfdecoratedcompleteddistance=\dimen265
+\pgfdecoratedremainingdistance=\dimen266
+\pgfdecoratedinputsegmentcompleteddistance=\dimen267
+\pgfdecoratedinputsegmentremainingdistance=\dimen268
+\pgf@decorate@distancetomove=\dimen269
+\pgf@decorate@repeatstate=\count303
+\pgfdecorationsegmentamplitude=\dimen270
+\pgfdecorationsegmentlength=\dimen271
+)
+\tikz@lib@dec@box=\box75
+)
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibrarydecorations.markings.code.tex
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/libraries/decorations/pgfli
+brarydecorations.markings.code.tex))
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibrarydecorations.pathreplacing.code.tex
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/libraries/decorations/pgfli
+brarydecorations.pathreplacing.code.tex))
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibrarydecorations.shapes.code.tex
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/libraries/decorations/pgfli
+brarydecorations.shapes.code.tex))
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibrarydecorations.text.code.tex
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/libraries/decorations/pgfli
+brarydecorations.text.code.tex
+\pgf@lib@dec@text@box=\box76
+)
+\tikz@lib@dec@te@box=\box77
+)
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibrarydecorations.pathmorphing.code.tex
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/libraries/decorations/pgfli
+brarydecorations.pathmorphing.code.tex))
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibrarymath.code.tex
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibraryfpu.code.tex)
+\tikz@math@for@depth=\count304
+\tikz@math@dimen=\dimen272
+\tikz@math@toks=\toks43
+)
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibraryplotmarks.code.tex
+File: tikzlibraryplotmarks.code.tex 2023-01-15 v3.1.10 (3.1.10)
+
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/libraries/pgflibraryplotmar
+ks.code.tex
+File: pgflibraryplotmarks.code.tex 2023-01-15 v3.1.10 (3.1.10)
+))
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibrarypositioning.code.tex
+File: tikzlibrarypositioning.code.tex 2023-01-15 v3.1.10 (3.1.10)
+)
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibraryquotes.code.tex
+File: tikzlibraryquotes.code.tex 2023-01-15 v3.1.10 (3.1.10)
+)
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibraryshapes.misc.code.tex
+File: tikzlibraryshapes.misc.code.tex 2023-01-15 v3.1.10 (3.1.10)
+
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibrary
+shapes.misc.code.tex
+File: pgflibraryshapes.misc.code.tex 2023-01-15 v3.1.10 (3.1.10)
+))
+(/usr/local/texlive/2023/texmf-dist/tex/latex/l3packages/xfp/xfp.sty
+(/usr/local/texlive/2023/texmf-dist/tex/generic/tex4ht/expl3-hooks.4ht
+version 2020-10-17-13:53
+)
+(/usr/local/texlive/2023/texmf-dist/tex/latex/l3kernel/expl3.sty
+Package: expl3 2023-02-22 L3 programming layer (loader) 
+
+(/usr/local/texlive/2023/texmf-dist/tex/latex/l3backend/l3backend-dvips.def
+File: l3backend-dvips.def 2023-01-16 L3 backend support: dvips
+\l__pdf_internal_box=\box78
+\g__pdf_backend_object_int=\count305
+\l__pdf_backend_content_box=\box79
+\l__pdf_backend_model_box=\box80
+\g__pdf_backend_annotation_int=\count306
+\g__pdf_backend_link_int=\count307
+\g__pdf_backend_link_sf_int=\count308
+))
+Package: xfp 2023-02-02 L3 Floating point unit
+)
+(/usr/local/texlive/2023/texmf-dist/tex/latex/xpatch/xpatch.sty
+(/usr/local/texlive/2023/texmf-dist/tex/generic/tex4ht/expl3-hooks.4ht
+version 2020-10-17-13:53
+)
+Package: xpatch 2020/03/25 v0.3a Extending etoolbox patching commands
+
+(/usr/local/texlive/2023/texmf-dist/tex/latex/l3packages/xparse/xparse.sty
+(/usr/local/texlive/2023/texmf-dist/tex/generic/tex4ht/expl3-hooks.4ht
+version 2020-10-17-13:53
+)
+Package: xparse 2023-02-02 L3 Experimental document command parser
+))
+\tkzRadius=\dimen273
+\tkzLength=\dimen274
+\tkz@radi=\dimen275
+\tkz@ax=\dimen276
+\tkz@ay=\dimen277
+\tkz@bx=\dimen278
+\tkz@by=\dimen279
+\tkz@cx=\dimen280
+\tkz@cy=\dimen281
+\tkz@dx=\dimen282
+\tkz@dy=\dimen283
+\tkz@cntmk=\count309
+
+Local configuration file tkz-euclide.cfg found and used
+(/usr/local/texlive/2023/texmf-dist/tex/latex/tkz-euclide/tkz-euclide.cfg
+2023/02/03 5.02c tkz-euclide.cfg
+)
+(/usr/local/texlive/2023/texmf-dist/tex/latex/tkz-euclide/tkz-tools-eu-base.tex
+2023/02/03 5.02c tkz-tools-eu-base.tex
+)
+(/usr/local/texlive/2023/texmf-dist/tex/latex/tkz-euclide/tkz-tools-eu-utilitie
+s.tex
+2023/02/03 5.02c tkz-tools-eu-utilities.tex
+) (/usr/local/texlive/2023/texmf-dist/tex/latex/tkz-euclide/tkz-tools-eu-BB.tex
+2023/02/03 5.02c tkz-obj-eu-BB.tex
+)
+(/usr/local/texlive/2023/texmf-dist/tex/latex/tkz-euclide/tkz-obj-eu-grids.tex
+2023/02/03 5.02c tkz-obj-eu-grids.tex
+)
+(/usr/local/texlive/2023/texmf-dist/tex/latex/tkz-euclide/tkz-lib-eu-marks.tex
+2023/02/03 5.02c tkz-lib-eu-marks.tex
+)
+(/usr/local/texlive/2023/texmf-dist/tex/latex/tkz-euclide/tkz-tools-eu-text.tex
+2023/02/03 5.02c tkz-tools-eu-text.tex
+)
+(/usr/local/texlive/2023/texmf-dist/tex/latex/tkz-euclide/tkz-lib-eu-shape.tex
+2023/02/03 5.02c tkz-lib-eu-shape.tex
+)
+(/usr/local/texlive/2023/texmf-dist/tex/latex/tkz-euclide/tkz-obj-eu-axesmin.te
+x
+2023/02/03 5.02c tkz-obj-eu-axesmin
+)
+(/usr/local/texlive/2023/texmf-dist/tex/latex/tkz-euclide/tkz-tools-eu-colors.t
+ex
+2023/02/03 5.02c tkz-tools-eu-colors
+)
+(/usr/local/texlive/2023/texmf-dist/tex/latex/tkz-euclide/tkz-obj-eu-points.tex
+2023/02/03 5.02c tkz-obj-eu-points.tex
+)
+(/usr/local/texlive/2023/texmf-dist/tex/latex/tkz-euclide/tkz-draw-eu-points.te
+x
+2023/01/24 5.01c tkz-draw-points.tex
+)
+(/usr/local/texlive/2023/texmf-dist/tex/latex/tkz-euclide/tkz-obj-eu-points.tex
+2023/02/03 5.02c tkz-obj-eu-points.tex
+)
+(/usr/local/texlive/2023/texmf-dist/tex/latex/tkz-euclide/tkz-obj-eu-points-by.
+tex
+2023/02/03 5.02c tkz-tools-eu-points-by.tex
+)
+(/usr/local/texlive/2023/texmf-dist/tex/latex/tkz-euclide/tkz-tools-eu-math.tex
+2023/02/03 5.02c tkz-tools-eu-math.tex
+)
+(/usr/local/texlive/2023/texmf-dist/tex/latex/tkz-euclide/tkz-tools-eu-intersec
+tions.tex
+2023/02/03 5.02c tkz-tools-eu-intersections.tex
+)
+(/usr/local/texlive/2023/texmf-dist/tex/latex/tkz-euclide/tkz-obj-eu-points-wit
+h.tex
+2023/02/03 5.02c tkz-obj-eu-points-with.tex
+)
+(/usr/local/texlive/2023/texmf-dist/tex/latex/tkz-euclide/tkz-obj-eu-points-spc
+.tex
+2023/02/03 5.02c tkz-obj-el-points.tex
+)
+(/usr/local/texlive/2023/texmf-dist/tex/latex/tkz-euclide/tkz-tools-eu-angles.t
+ex
+2023/02/03 5.02c tkz-tools-eu-angles.tex
+)
+(/usr/local/texlive/2023/texmf-dist/tex/latex/tkz-euclide/tkz-obj-eu-points-rnd
+.tex
+2023/02/03 5.02c tkz-obj-eu-points-rnd.tex
+)
+(/usr/local/texlive/2023/texmf-dist/tex/latex/tkz-euclide/tkz-obj-eu-circles.te
+x
+2023/02/03 5.02c tkz-obj-eu-circles.tex
+)
+(/usr/local/texlive/2023/texmf-dist/tex/latex/tkz-euclide/tkz-obj-eu-circles-by
+.tex
+2023/02/03 5.02c tkz-obj-eu-circles.tex
+)
+(/usr/local/texlive/2023/texmf-dist/tex/latex/tkz-euclide/tkz-obj-eu-lines.tex
+2023/02/03 5.02c tkz-obj-eu-lines.tex
+)
+(/usr/local/texlive/2023/texmf-dist/tex/latex/tkz-euclide/tkz-obj-eu-polygons.t
+ex
+2023/02/03 5.02c tkz-obj-eu-polygons.tex
+)
+(/usr/local/texlive/2023/texmf-dist/tex/latex/tkz-euclide/tkz-obj-eu-triangles.
+tex
+2023/02/03 5.02c tkz-obj-eu-triangles.tex
+)
+(/usr/local/texlive/2023/texmf-dist/tex/latex/tkz-euclide/tkz-draw-eu-lines.tex
+2023/02/03 5.02c tkz-obj-eu-draw-lines.tex
+)
+(/usr/local/texlive/2023/texmf-dist/tex/latex/tkz-euclide/tkz-draw-eu-circles.t
+ex
+2023/02/03 5.02c tkz-obj-eu-draw-circles.tex
+)
+(/usr/local/texlive/2023/texmf-dist/tex/latex/tkz-euclide/tkz-draw-eu-polygons.
+tex
+2023/02/03 5.02c tkz-obj-eu-polygons.tex
+)
+(/usr/local/texlive/2023/texmf-dist/tex/latex/tkz-euclide/tkz-draw-eu-angles.te
+x
+2023/02/03 5.02c tkz-tool-eu-angles.tex
+)
+(/usr/local/texlive/2023/texmf-dist/tex/latex/tkz-euclide/tkz-draw-eu-sectors.t
+ex
+2023/02/03 5.02c tkz-obj-eu-sectors.tex
+)
+(/usr/local/texlive/2023/texmf-dist/tex/latex/tkz-euclide/tkz-draw-eu-compass.t
+ex
+2023/02/03 5.02c tkz-obj-eu-compass.tex
+)
+(/usr/local/texlive/2023/texmf-dist/tex/latex/tkz-euclide/tkz-draw-eu-show.tex
+2023/02/03 5.02c tkz-obj-eu-show.tex
+)
+(/usr/local/texlive/2023/texmf-dist/tex/latex/tkz-euclide/tkz-draw-eu-protracto
+r.tex
+2023/02/03 5.02c tkz-obj-eu-protractor.tex
+))
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/graphs/tikzlibrarygraphs.code.tex
+File: tikzlibrarygraphs.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\tikz@lib@auto@number=\count310
+\tikz@qnode@count=\count311
+)
+(/usr/local/texlive/2023/texmf-dist/tex/latex/tools/multicol.sty
+Package: multicol 2021/11/30 v1.9d multicolumn formatting (FMi)
+\c@tracingmulticols=\count312
+\mult@box=\box81
+\multicol@leftmargin=\dimen284
+\c@unbalance=\count313
+\c@collectmore=\count314
+\doublecol@number=\count315
+\multicoltolerance=\count316
+\multicolpretolerance=\count317
+\full@width=\dimen285
+\page@free=\dimen286
+\premulticols=\dimen287
+\postmulticols=\dimen288
+\multicolsep=\skip56
+\multicolbaselineskip=\skip57
+\partial@page=\box82
+\last@line=\box83
+\maxbalancingoverflow=\dimen289
+\mult@rightbox=\box84
+\mult@grightbox=\box85
+\mult@firstbox=\box86
+\mult@gfirstbox=\box87
+\@tempa=\box88
+\@tempa=\box89
+\@tempa=\box90
+\@tempa=\box91
+\@tempa=\box92
+\@tempa=\box93
+\@tempa=\box94
+\@tempa=\box95
+\@tempa=\box96
+\@tempa=\box97
+\@tempa=\box98
+\@tempa=\box99
+\@tempa=\box100
+\@tempa=\box101
+\@tempa=\box102
+\@tempa=\box103
+\@tempa=\box104
+\@tempa=\box105
+\@tempa=\box106
+\@tempa=\box107
+\@tempa=\box108
+\@tempa=\box109
+\@tempa=\box110
+\@tempa=\box111
+\@tempa=\box112
+\@tempa=\box113
+\@tempa=\box114
+\@tempa=\box115
+\@tempa=\box116
+\@tempa=\box117
+\@tempa=\box118
+\@tempa=\box119
+\@tempa=\box120
+\@tempa=\box121
+\@tempa=\box122
+\@tempa=\box123
+\c@minrows=\count318
+\c@columnbadness=\count319
+\c@finalcolumnbadness=\count320
+\last@try=\dimen290
+\multicolovershoot=\dimen291
+\multicolundershoot=\dimen292
+\mult@nat@firstbox=\box124
+\colbreak@box=\box125
+\mc@col@check@num=\count321
+)
+(/usr/local/texlive/2023/texmf-dist/tex/latex/pgfplots/pgfplots.sty
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgfplots/pgfplots.revision.tex)
+Package: pgfplots 2021/05/15 v1.18.1 Data Visualization (1.18.1)
+(/usr/local/texlive/2023/texmf-dist/tex/generic/tex4ht/tikz-hooks.4ht
+version 2021-10-21-13:56
+)
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgfplots/pgfplots.code.tex
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgfplots/pgfplotscore.code.tex
+\t@pgfplots@toka=\toks44
+\t@pgfplots@tokb=\toks45
+\t@pgfplots@tokc=\toks46
+\pgfplots@tmpa=\dimen293
+\c@pgfplots@coordindex=\count322
+\c@pgfplots@scanlineindex=\count323
+
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgfplots/sys/pgfplotssysgeneric
+.code.tex))
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgfplots/libs/pgfplotslibrary.c
+ode.tex)
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgfplots/oldpgfcompatib/pgfplot
+soldpgfsupp_loader.code.tex
+Package pgfplots: loading complementary utilities for your pgf version...
+\t@pgf@toka=\toks47
+\t@pgf@tokb=\toks48
+\t@pgf@tokc=\toks49
+
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgfplots/oldpgfcompatib/pgfplot
+soldpgfsupp_pgfutil-common-lists.tex))
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgfplots/util/pgfplotsutil.code
+.tex
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgfplots/liststructure/pgfplots
+liststructure.code.tex)
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgfplots/liststructure/pgfplots
+liststructureext.code.tex)
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgfplots/liststructure/pgfplots
+array.code.tex
+\c@pgfplotsarray@tmp=\count324
+)
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgfplots/liststructure/pgfplots
+matrix.code.tex)
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgfplots/numtable/pgfplotstable
+shared.code.tex
+\c@pgfplotstable@counta=\count325
+\t@pgfplotstable@a=\toks50
+)
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgfplots/liststructure/pgfplots
+deque.code.tex)
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgfplots/util/pgfplotsbinary.co
+de.tex
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgfplots/util/pgfplotsbinary.da
+ta.code.tex))
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgfplots/util/pgfplotsutil.verb
+.code.tex)
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgfplots/libs/pgflibrarypgfplot
+s.surfshading.code.tex
+\c@pgfplotslibrarysurf@no=\count326
+))
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgfplots/util/pgfplotscolormap.
+code.tex
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgfplots/util/pgfplotscolor.cod
+e.tex))
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgfplots/pgfplotsstackedplots.c
+ode.tex)
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgfplots/pgfplotsplothandlers.c
+ode.tex
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgfplots/pgfplotsmeshplothandle
+r.code.tex
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgfplots/pgfplotsmeshplotimage.
+code.tex)))
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgfplots/pgfplots.scaling.code.
+tex)
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgfplots/pgfplotscoordprocessin
+g.code.tex)
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgfplots/pgfplots.errorbars.cod
+e.tex)
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgfplots/pgfplots.markers.code.
+tex)
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgfplots/pgfplotsticks.code.tex
+)
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgfplots/pgfplots.paths.code.te
+x)
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgfplots/libs/tikzlibrarypgfplo
+ts.contourlua.code.tex)
+\pgfplots@numplots=\count327
+\pgfplots@xmin@reg=\dimen294
+\pgfplots@xmax@reg=\dimen295
+\pgfplots@ymin@reg=\dimen296
+\pgfplots@ymax@reg=\dimen297
+\pgfplots@zmin@reg=\dimen298
+\pgfplots@zmax@reg=\dimen299
+))
+(/usr/local/texlive/2023/texmf-dist/tex/latex/tools/tabularx.sty
+Package: tabularx 2020/01/15 v2.11c `tabularx' package (DPC)
+
+(/usr/local/texlive/2023/texmf-dist/tex/latex/tools/array.sty
+Package: array 2022/09/04 v2.5g Tabular extension package (FMi)
+\col@sep=\dimen300
+\ar@mcellbox=\box126
+\extrarowheight=\dimen301
+\NC@list=\toks51
+\extratabsurround=\skip58
+\backup@length=\skip59
+\ar@cellbox=\box127
+)
+\TX@col@width=\dimen302
+\TX@old@table=\dimen303
+\TX@old@col=\dimen304
+\TX@target=\dimen305
+\TX@delta=\dimen306
+\TX@cols=\count328
+\TX@ftn=\toks52
+)
+(/usr/local/texlive/2023/texmf-dist/tex/latex/import/import.sty
+Package: import 2020/04/01  v 6.2
+)
+(/usr/local/texlive/2023/texmf-dist/tex/latex/lipsum/lipsum.sty
+(/usr/local/texlive/2023/texmf-dist/tex/latex/l3packages/l3keys2e/l3keys2e.sty
+(/usr/local/texlive/2023/texmf-dist/tex/generic/tex4ht/expl3-hooks.4ht
+version 2020-10-17-13:53
+)
+Package: l3keys2e 2023-02-02 LaTeX2e option processing using LaTeX3 keys
+)
+Package: lipsum 2021-09-20 v2.7 150 paragraphs of Lorem Ipsum dummy text
+\g__lipsum_par_int=\count329
+\l__lipsum_a_int=\count330
+\l__lipsum_b_int=\count331
+
+(/usr/local/texlive/2023/texmf-dist/tex/latex/lipsum/lipsum.ltd.tex))
+(/usr/local/texlive/2023/texmf-dist/tex/generic/tex4ht/fancyhdr-hooks.4ht
+version 2020-10-17-13:53
+)
+(/usr/local/texlive/2023/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
+Package: fancyhdr 2022/11/09 v4.1 Extensive control of page headers and footers
+
+\f@nch@headwidth=\skip60
+\f@nch@O@elh=\skip61
+\f@nch@O@erh=\skip62
+\f@nch@O@olh=\skip63
+\f@nch@O@orh=\skip64
+\f@nch@O@elf=\skip65
+\f@nch@O@erf=\skip66
+\f@nch@O@olf=\skip67
+\f@nch@O@orf=\skip68
+)
+(/usr/local/texlive/2023/texmf-dist/tex/latex/wrapfig/wrapfig.sty
+\wrapoverhang=\dimen307
+\WF@size=\dimen308
+\c@WF@wrappedlines=\count332
+\WF@box=\box128
+\WF@everypar=\toks53
+Package: wrapfig 2003/01/31  v 3.6
+)
+(/usr/local/texlive/2023/texmf-dist/tex/latex/mwe/mwe.sty
+Package: mwe 2018/03/30 v0.5 Package to support minimal working examples (MWE)
+
+(/usr/local/texlive/2023/texmf-dist/tex/latex/blindtext/blindtext.sty
+Package: blindtext 2012/01/06 V2.0 blindtext-Package
+
+(/usr/local/texlive/2023/texmf-dist/tex/latex/tools/xspace.sty
+Package: xspace 2014/10/28 v1.13 Space after command names (DPC,MH)
+)
+\c@blindtext=\count333
+\c@Blindtext=\count334
+\c@blind@countparstart=\count335
+\blind@countxx=\count336
+\blindtext@numBlindtext=\count337
+\blind@countyy=\count338
+\c@blindlist=\count339
+\c@blindlistlevel=\count340
+\c@blindlist@level=\count341
+\blind@listitem=\count342
+\c@blind@listcount=\count343
+\c@blind@levelcount=\count344
+\blind@mathformula=\count345
+\blind@Mathformula=\count346
+\c@blind@randomcount=\count347
+\c@blind@randommax=\count348
+\c@blind@pangramcount=\count349
+\c@blind@pangrammax=\count350
+))
+(/usr/local/texlive/2023/texmf-dist/tex/latex/adjustbox/adjustbox.sty
+Package: adjustbox 2022/10/17 v1.3a Adjusting TeX boxes (trim, clip, ...)
+
+(/usr/local/texlive/2023/texmf-dist/tex/latex/xkeyval/xkeyval.sty
+Package: xkeyval 2022/06/16 v2.9 package option processing (HA)
+
+(/usr/local/texlive/2023/texmf-dist/tex/generic/xkeyval/xkeyval.tex
+(/usr/local/texlive/2023/texmf-dist/tex/generic/xkeyval/xkvutils.tex
+\XKV@toks=\toks54
+\XKV@tempa@toks=\toks55
+)
+\XKV@depth=\count351
+File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
+))
+(/usr/local/texlive/2023/texmf-dist/tex/latex/adjustbox/adjcalc.sty
+Package: adjcalc 2012/05/16 v1.1 Provides advanced setlength with multiple back
+-ends (calc, etex, pgfmath)
+)
+(/usr/local/texlive/2023/texmf-dist/tex/latex/adjustbox/trimclip.sty
+Package: trimclip 2020/08/19 v1.2 Trim and clip general TeX material
+
+(/usr/local/texlive/2023/texmf-dist/tex/latex/collectbox/collectbox.sty
+Package: collectbox 2022/10/17 v0.4c Collect macro arguments as boxes
+\collectedbox=\box129
+)
+\tc@llx=\dimen309
+\tc@lly=\dimen310
+\tc@urx=\dimen311
+\tc@ury=\dimen312
+Package trimclip Info: Using driver 'tc-dvips.def'.
+
+(/usr/local/texlive/2023/texmf-dist/tex/latex/adjustbox/tc-dvips.def
+File: tc-dvips.def 2019/01/04 v2.2 Clipping driver for dvips
+))
+\adjbox@Width=\dimen313
+\adjbox@Height=\dimen314
+\adjbox@Depth=\dimen315
+\adjbox@Totalheight=\dimen316
+\adjbox@pwidth=\dimen317
+\adjbox@pheight=\dimen318
+\adjbox@pdepth=\dimen319
+\adjbox@ptotalheight=\dimen320
+
+(/usr/local/texlive/2023/texmf-dist/tex/latex/ifoddpage/ifoddpage.sty
+Package: ifoddpage 2022/10/18 v1.2 Conditionals for odd/even page detection
+\c@checkoddpage=\count352
+)
+(/usr/local/texlive/2023/texmf-dist/tex/latex/varwidth/varwidth.sty
+Package: varwidth 2009/03/30 ver 0.92;  Variable-width minipages
+\@vwid@box=\box130
+\sift@deathcycles=\count353
+\@vwid@loff=\dimen321
+\@vwid@roff=\dimen322
+))
+(/usr/local/texlive/2023/texmf-dist/tex/latex/caption/subcaption.sty
+Package: subcaption 2023/02/19 v1.6 Sub-captions (AR)
+
+(/usr/local/texlive/2023/texmf-dist/tex/generic/tex4ht/caption-hooks.4ht
+version 2022-11-20-07:09
+)
+(/usr/local/texlive/2023/texmf-dist/tex/latex/caption/caption.sty
+Package: caption 2023/03/12 v3.6j Customizing captions (AR)
+
+(/usr/local/texlive/2023/texmf-dist/tex/latex/caption/caption3.sty
+Package: caption3 2023/03/12 v2.4 caption3 kernel (AR)
+\caption@tempdima=\dimen323
+\captionmargin=\dimen324
+\caption@leftmargin=\dimen325
+\caption@rightmargin=\dimen326
+\caption@width=\dimen327
+\caption@indent=\dimen328
+\caption@parindent=\dimen329
+\caption@hangindent=\dimen330
+Package caption Info: Standard document class detected.
+)
+\c@caption@flags=\count354
+\c@continuedfloat=\count355
+Package caption Info: wrapfig package is loaded.
+)
+Package caption Info: New subtype `subfigure' on input line 239.
+\c@subfigure=\count356
+Package caption Info: New subtype `subtable' on input line 239.
+\c@subtable=\count357
+)
+(/usr/local/texlive/2023/texmf-dist/tex/generic/tex4ht/caption-hooks.4ht
+version 2022-11-20-07:09
+)
+(/usr/local/texlive/2023/texmf-dist/tex/latex/gensymb/gensymb.sty
+Package: gensymb 2022/10/17 v1.0.2 (KJH)
+)
+\c@theorem=\count358
+\c@exercise=\count359
+\c@question=\count360
+\c@lemma=\count361
+\c@problem=\count362
+\c@definition=\count363
+
+(/usr/local/texlive/2023/texmf-dist/tex/generic/tex4ht/tex4ht.4ht
+version 2022-07-05-14:37
+--------------------------------------
+--- Note --- for additional information, use the command line option `info'
+--------------------------------------
+
+::::::::::::::::::::::::::::::::::::::::::
+ TeX4ht info is available in the log file 
+::::::::::::::::::::::::::::::::::::::::::
+) (/usr/local/texlive/2023/texmf-dist/tex/generic/tex4ht/tex4ht.sty
+version 2023-02-03-14:48
+
+l.864 --- TeX4ht warning --- nonprimitive \everypar ---
+--- needs --- tex4ht doc ---
+\tmp:cnt=\count364
+\openout15 = `doc.tmp'.
+
+(./doc.tmp)
+\tmp:dim=\skip69
+--------------------------------------
+--- Note --- for XML code, use the command line option `xml' or `xhtml'
+--------------------------------------
+ (./doc.xref)
+\:refout=\write4
+\openout4 = `doc.xref'.
+
+
+(/usr/local/texlive/2023/texmf-dist/tex/generic/tex4ht/html4.4ht
+version 2023-03-02-13:31
+--------------------------------------
+--- Note --- to remove the <?xml version=...?> processing instruction use the c
+ommand line option `no-VERSION'
+--------------------------------------
+--------------------------------------
+--- Note --- to remove the DOCTYPE declaration use the command line option `no-
+DOCTYPE'
+--------------------------------------
+)
+(/usr/local/texlive/2023/texmf-dist/tex/generic/tex4ht/html4-math.4ht
+version 2022-10-25-13:59
+)
+--------------------------------------
+--- Note --- for marking of the base font, use the command line option `fonts+'
+
+--------------------------------------
+--------------------------------------
+--- Note --- for non active _, use the command line option `no_'
+--------------------------------------
+--------------------------------------
+--- Note --- for _ of catcode 13, use the command line option `_13'
+--------------------------------------
+--------------------------------------
+--- Note --- for non active ^, use the command line option `no^'
+--------------------------------------
+--------------------------------------
+--- Note --- for ^ of catcode 13, use the command line option `^13'
+--------------------------------------
+
+(/usr/local/texlive/2023/texmf-dist/tex/generic/tex4ht/html4.4ht
+version 2023-03-02-13:31
+--------------------------------------
+--- Note --- for alternative charset, use the command line option `charset=...'
+
+--------------------------------------
+--------------------------------------
+--- Note --- to ignore CSS font decoration, use the `NoFonts' command line opti
+on
+--------------------------------------
+--------------------------------------
+--- Note --- for jpg bitmaps of pictures, use the `jpg' command line option. (C
+haracter bitmaps are controled only by `g' records of tex4ht.env and `-g' switc
+hes of tex4ht.c) 
+--------------------------------------
+--------------------------------------
+--- Note --- for gif bitmaps of pictures, use the `gif' command line option. (C
+haracter bitmaps are controled only by `g' records of tex4ht.env and `-g' switc
+hes of tex4ht.c) 
+--------------------------------------
+--------------------------------------
+--- Note --- for content and toc in 2 frames, use the command line option `fram
+es'
+--------------------------------------
+--------------------------------------
+--- Note --- for content, toc, and footnotes in 3 frames, use the command line 
+option `frames-fn'
+--------------------------------------
+--------------------------------------
+--- Note --- for file extension name xht, use the command line option `xht'
+--------------------------------------
+TeX4ht package options: html
+--------------------------------------
+--- Note --- To print a timestamp, use the command line option timestamp
+--------------------------------------
+--------------------------------------
+--- Note --- to ignore CSS code, use the command line option `-css
+--------------------------------------
+--------------------------------------
+--- Note --- for inline CSS code, use the command line option `css-in'
+--------------------------------------
+--------------------------------------
+--- Note --- for pop ups on mouse over, use the command line option `mouseover'
+
+--------------------------------------
+--------------------------------------
+--- Note --- for addressing images in a subdirectory, use the command line opti
+on `imgdir:.../'
+--------------------------------------
+)
+(/usr/local/texlive/2023/texmf-dist/tex/generic/tex4ht/html4-math.4ht
+version 2022-10-25-13:59
+)
+\:tokwrite=\toks56
+\:tokpage=\toks57
+--------------------------------------
+--- Note --- for back links to toc, use the command line option `sections+'
+--------------------------------------
+--------------------------------------
+--- Note --- for linear crosslinks of pages, use the command line option `next'
+
+--------------------------------------
+\openout15 = `doc.4ct'.
+
+\:tocout=\write5
+\openout5 = `doc.4tc'.
+
+
+(doc.4tc) (/usr/local/texlive/2023/texmf-dist/tex/generic/tex4ht/html4.4ht
+version 2023-03-02-13:31
+)
+(/usr/local/texlive/2023/texmf-dist/tex/generic/tex4ht/html4-math.4ht
+version 2022-10-25-13:59
+)
+(/usr/local/texlive/2023/texmf-dist/tex/generic/tex4ht/latex.4ht
+version 2022-12-26-13:00
+LaTeX Info: Redefining \_ on input line 177.
+LaTeX Info: Redefining \begin on input line 595.
+LaTeX Info: Redefining \end on input line 643.
+LaTeX Info: Redefining \, on input line 805.
+LaTeX Info: Redefining \; on input line 806.
+LaTeX Info: Redefining \! on input line 807.
+LaTeX Info: Redefining \: on input line 808.
+LaTeX Info: Redefining \> on input line 809.
+--------------------------------------
+--- Note --- for links into captions, instead of float heads, use the command l
+ine option `refcaption'
+--------------------------------------
+
+(/usr/local/texlive/2023/texmf-dist/tex/generic/tex4ht/html4.4ht
+version 2023-03-02-13:31
+)
+(/usr/local/texlive/2023/texmf-dist/tex/generic/tex4ht/html4-math.4ht
+version 2022-10-25-13:59
+)
+(/usr/local/texlive/2023/texmf-dist/tex/generic/tex4ht/html4.4ht
+version 2023-03-02-13:31
+--------------------------------------
+--- Note --- For mini tocs immediately aftter the header use the command line o
+ption `minitoc<'
+--------------------------------------
+--------------------------------------
+--- Note --- for enumerated list elements with valued data, use the command lin
+e option `enumerate+'
+--------------------------------------
+--------------------------------------
+--- Note --- for enumerated list elements li's with value attributes, use the c
+ommand line option `enumerate-'
+--------------------------------------
+--------------------------------------
+--- Note --- for CSS2 code, use the command line option `css2'
+--------------------------------------
+--------------------------------------
+--- Note --- for pictorial tabular, use the command line option `pic-tabular'
+--------------------------------------
+--------------------------------------
+--- Note --- for bitmap fbox'es, use the command line option `pic-fbox'
+--------------------------------------
+--------------------------------------
+--- Note --- for bitmap framebox'es, use the command line option `pic-framebox'
+
+--------------------------------------
+--------------------------------------
+--- Note --- for inline footnotes use command line option `fn-in'
+--------------------------------------
+--------------------------------------
+--- Note --- for tracing of latex font commands, use the command line option `f
+onts'
+--------------------------------------
+--------------------------------------
+--- Note --- for width specifications of tabular p entries, use the `p-width' c
+ommand line option or a configuration similar to \Configure{HColWidth}{\HCode{ 
+style="width:\HColWidth"}}
+--------------------------------------
+)
+(/usr/local/texlive/2023/texmf-dist/tex/generic/tex4ht/html4-math.4ht
+version 2022-10-25-13:59
+--------------------------------------
+--- Note --- for pictorial eqnarray, use the command line option `pic-eqnarray'
+
+--------------------------------------
+--------------------------------------
+--- Note --- for pictorial array, use the command line option `pic-array'
+--------------------------------------
+--------------------------------------
+--- Note --- for pictorial $...$ environments, use the command line option `pic
+-m' (not recommended!!)
+--------------------------------------
+--------------------------------------
+--- Note --- for pictorial $...$ and $$...$$ environments with latex alt, use t
+he command line option `pic-m+' (not safe!!)
+--------------------------------------
+--------------------------------------
+--- Note --- for pictorial array, use the command line option `pic-array'
+--------------------------------------
+))
+(/usr/local/texlive/2023/texmf-dist/tex/generic/tex4ht/fontmath.4ht
+version 2022-10-25-13:59
+
+(/usr/local/texlive/2023/texmf-dist/tex/generic/tex4ht/html4.4ht
+version 2023-03-02-13:31
+)
+(/usr/local/texlive/2023/texmf-dist/tex/generic/tex4ht/html4-math.4ht
+version 2022-10-25-13:59
+))
+(/usr/local/texlive/2023/texmf-dist/tex/generic/tex4ht/article.4ht
+version 2023-02-25-15:08
+
+(/usr/local/texlive/2023/texmf-dist/tex/generic/tex4ht/html4.4ht
+version 2023-03-02-13:31
+--------------------------------------
+--- Note --- for automatic sectioning pagination, use the command line option `
+1', `2', `3', '4', '5', '6', or '7'
+--------------------------------------
+--------------------------------------
+--- Note --- for files named derived from section titles, use the command line 
+option `sec-filename'
+--------------------------------------
+--------------------------------------
+--- Note --- for i-columns index, use the command line option `index=i' (e.g., 
+index=2)
+--------------------------------------
+)
+(/usr/local/texlive/2023/texmf-dist/tex/generic/tex4ht/html4-math.4ht
+version 2022-10-25-13:59
+))
+(/usr/local/texlive/2023/texmf-dist/tex/generic/tex4ht/graphicx.4ht
+version 2022-01-12-13:53
+
+(/usr/local/texlive/2023/texmf-dist/tex/generic/tex4ht/html4.4ht
+version 2023-03-02-13:31
+)
+(/usr/local/texlive/2023/texmf-dist/tex/generic/tex4ht/html4-math.4ht
+version 2022-10-25-13:59
+))
+(/usr/local/texlive/2023/texmf-dist/tex/generic/tex4ht/graphics.4ht
+version 2022-03-20-14:29
+
+(/usr/local/texlive/2023/texmf-dist/tex/generic/tex4ht/html4.4ht
+version 2023-03-02-13:31
+--------------------------------------
+--- Note --- if included graphics are of degraded quality, try the command line
+ options `graphics-num' or `graphics-'. The `num' should provide the density of
+ pixels in the bitmaps (e.g., 110). 
+--------------------------------------
+--------------------------------------
+--- Note --- for setting image dimensions, try the option `Gin-dim'; to use per
+cents instead of units, use `Gin-perecent'; for key dimensions when bounding bo
+x is unavailable try `Gin-dim+'; neither is recommended
+--------------------------------------
+)
+(/usr/local/texlive/2023/texmf-dist/tex/generic/tex4ht/html4-math.4ht
+version 2022-10-25-13:59
+))
+(/usr/local/texlive/2023/texmf-dist/tex/generic/tex4ht/dvips.4ht
+version 2009-05-21-09:32
+
+(/usr/local/texlive/2023/texmf-dist/tex/generic/tex4ht/html4.4ht
+version 2023-03-02-13:31
+)
+(/usr/local/texlive/2023/texmf-dist/tex/generic/tex4ht/html4-math.4ht
+version 2022-10-25-13:59
+))
+(/usr/local/texlive/2023/texmf-dist/tex/generic/tex4ht/amsmath.4ht
+version 2019-12-29-14:17
+\tmp:muskip=\muskip17
+
+(/usr/local/texlive/2023/texmf-dist/tex/generic/tex4ht/html4.4ht
+version 2023-03-02-13:31
+)
+(/usr/local/texlive/2023/texmf-dist/tex/generic/tex4ht/html4-math.4ht
+version 2022-10-25-13:59
+LaTeX Info: Redefining \[ on input line 507.
+LaTeX Info: Redefining \] on input line 507.
+))
+(/usr/local/texlive/2023/texmf-dist/tex/generic/tex4ht/amstext.4ht
+version 2009-05-21-09:32
+
+(/usr/local/texlive/2023/texmf-dist/tex/generic/tex4ht/html4.4ht
+version 2023-03-02-13:31
+)
+(/usr/local/texlive/2023/texmf-dist/tex/generic/tex4ht/html4-math.4ht
+version 2022-10-25-13:59
+))
+(/usr/local/texlive/2023/texmf-dist/tex/generic/tex4ht/amsbsy.4ht
+version 2009-05-21-09:32
+
+(/usr/local/texlive/2023/texmf-dist/tex/generic/tex4ht/html4.4ht
+version 2023-03-02-13:31
+)
+(/usr/local/texlive/2023/texmf-dist/tex/generic/tex4ht/html4-math.4ht
+version 2022-10-25-13:59
+))
+(/usr/local/texlive/2023/texmf-dist/tex/generic/tex4ht/amsopn.4ht
+version 2009-05-21-09:32
+
+(/usr/local/texlive/2023/texmf-dist/tex/generic/tex4ht/html4.4ht
+version 2023-03-02-13:31
+)
+(/usr/local/texlive/2023/texmf-dist/tex/generic/tex4ht/html4-math.4ht
+version 2022-10-25-13:59
+))
+(/usr/local/texlive/2023/texmf-dist/tex/generic/tex4ht/amssymb.4ht
+version 2009-05-21-09:32
+
+(/usr/local/texlive/2023/texmf-dist/tex/generic/tex4ht/html4.4ht
+version 2023-03-02-13:31
+)
+(/usr/local/texlive/2023/texmf-dist/tex/generic/tex4ht/html4-math.4ht
+version 2022-10-25-13:59
+))
+(/usr/local/texlive/2023/texmf-dist/tex/generic/tex4ht/amsfonts.4ht
+version 2009-05-21-09:32
+
+(/usr/local/texlive/2023/texmf-dist/tex/generic/tex4ht/html4.4ht
+version 2023-03-02-13:31
+)
+(/usr/local/texlive/2023/texmf-dist/tex/generic/tex4ht/html4-math.4ht
+version 2022-10-25-13:59
+))
+(/usr/local/texlive/2023/texmf-dist/tex/generic/tex4ht/amsthm.4ht
+version 2009-05-21-09:32
+
+(/usr/local/texlive/2023/texmf-dist/tex/generic/tex4ht/html4.4ht
+version 2023-03-02-13:31
+)
+(/usr/local/texlive/2023/texmf-dist/tex/generic/tex4ht/html4-math.4ht
+version 2022-10-25-13:59
+))
+(/usr/local/texlive/2023/texmf-dist/tex/generic/tex4ht/tcolorbox.4ht
+version 2023-02-12-14:24
+\c@:tcbcolcount=\count365
+
+(/usr/local/texlive/2023/texmf-dist/tex/generic/tex4ht/html4.4ht
+version 2023-03-02-13:31
+)
+(/usr/local/texlive/2023/texmf-dist/tex/generic/tex4ht/html4-math.4ht
+version 2022-10-25-13:59
+))
+(/usr/local/texlive/2023/texmf-dist/tex/generic/tex4ht/pgf.4ht
+version 2009-05-21-09:32
+
+(/usr/local/texlive/2023/texmf-dist/tex/generic/tex4ht/html4.4ht
+version 2023-03-02-13:31
+)
+(/usr/local/texlive/2023/texmf-dist/tex/generic/tex4ht/html4-math.4ht
+version 2022-10-25-13:59
+))
+(/usr/local/texlive/2023/texmf-dist/tex/generic/tex4ht/xcolor.4ht
+version 2022-04-17-09:34
+
+(/usr/local/texlive/2023/texmf-dist/tex/generic/tex4ht/color.4ht
+version 2022-02-01-14:27
+
+(/usr/local/texlive/2023/texmf-dist/tex/generic/tex4ht/html4.4ht
+version 2023-03-02-13:31
+)
+(/usr/local/texlive/2023/texmf-dist/tex/generic/tex4ht/html4-math.4ht
+version 2022-10-25-13:59
+))
+(/usr/local/texlive/2023/texmf-dist/tex/generic/tex4ht/html4.4ht
+version 2023-03-02-13:31
+)
+(/usr/local/texlive/2023/texmf-dist/tex/generic/tex4ht/html4-math.4ht
+version 2022-10-25-13:59
+))
+(/usr/local/texlive/2023/texmf-dist/tex/generic/tex4ht/color.4ht
+version 2022-02-01-14:27
+)
+(/usr/local/texlive/2023/texmf-dist/tex/generic/tex4ht/verbatim.4ht
+version 2021-07-04-09:13
+
+(/usr/local/texlive/2023/texmf-dist/tex/generic/tex4ht/html4.4ht
+version 2023-03-02-13:31
+)
+(/usr/local/texlive/2023/texmf-dist/tex/generic/tex4ht/html4-math.4ht
+version 2022-10-25-13:59
+))
+(/usr/local/texlive/2023/texmf-dist/tex/generic/tex4ht/multicol.4ht
+version 2022-04-29-14:33
+
+(/usr/local/texlive/2023/texmf-dist/tex/generic/tex4ht/html4.4ht
+version 2023-03-02-13:31
+)
+(/usr/local/texlive/2023/texmf-dist/tex/generic/tex4ht/html4-math.4ht
+version 2022-10-25-13:59
+))
+(/usr/local/texlive/2023/texmf-dist/tex/generic/tex4ht/tabularx.4ht
+version 2009-05-21-09:32
+
+(/usr/local/texlive/2023/texmf-dist/tex/generic/tex4ht/html4.4ht
+version 2023-03-02-13:31
+)
+(/usr/local/texlive/2023/texmf-dist/tex/generic/tex4ht/html4-math.4ht
+version 2022-10-25-13:59
+))
+(/usr/local/texlive/2023/texmf-dist/tex/generic/tex4ht/array.4ht
+version 2009-05-21-09:32
+
+(/usr/local/texlive/2023/texmf-dist/tex/generic/tex4ht/html4.4ht
+version 2023-03-02-13:31
+)
+(/usr/local/texlive/2023/texmf-dist/tex/generic/tex4ht/html4-math.4ht
+version 2022-10-25-13:59
+--------------------------------------
+--- Note --- for pictorial array, use the command line option `pic-array'
+--------------------------------------
+))
+(/usr/local/texlive/2023/texmf-dist/tex/generic/tex4ht/wrapfig.4ht
+version 2009-05-21-09:32
+
+(/usr/local/texlive/2023/texmf-dist/tex/generic/tex4ht/html4.4ht
+version 2023-03-02-13:31
+)
+(/usr/local/texlive/2023/texmf-dist/tex/generic/tex4ht/html4-math.4ht
+version 2022-10-25-13:59
+))
+(/usr/local/texlive/2023/texmf-dist/tex/generic/tex4ht/adjustbox.4ht
+version 2022-01-09-07:36
+\c@adjustbox@4ht=\count366
+
+(/usr/local/texlive/2023/texmf-dist/tex/generic/tex4ht/html4.4ht
+version 2023-03-02-13:31
+)
+(/usr/local/texlive/2023/texmf-dist/tex/generic/tex4ht/html4-math.4ht
+version 2022-10-25-13:59
+))
+(/usr/local/texlive/2023/texmf-dist/tex/generic/tex4ht/subcaption.4ht
+version 2021-07-04-09:13
+
+(/usr/local/texlive/2023/texmf-dist/tex/generic/tex4ht/html4.4ht
+version 2023-03-02-13:31
+)
+(/usr/local/texlive/2023/texmf-dist/tex/generic/tex4ht/html4-math.4ht
+version 2022-10-25-13:59
+))
+(/usr/local/texlive/2023/texmf-dist/tex/generic/tex4ht/caption.4ht
+version 2022-11-22-14:29
+
+(/usr/local/texlive/2023/texmf-dist/tex/generic/tex4ht/html4.4ht
+version 2023-03-02-13:31
+)
+(/usr/local/texlive/2023/texmf-dist/tex/generic/tex4ht/html4-math.4ht
+version 2022-10-25-13:59
+))
+(/usr/local/texlive/2023/texmf-dist/tex/generic/tex4ht/html4.4ht
+version 2023-03-02-13:31
+)
+(/usr/local/texlive/2023/texmf-dist/tex/generic/tex4ht/html4-math.4ht
+version 2022-10-25-13:59
+))
+(./doc.aux)
+\openout1 = `doc.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+
+Package pgfplots notification 'compat/show suggested version=true': document ha
+s been generated with the most recent feature set (\pgfplotsset{compat=1.18}).
+
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: End \AtBeginDocument code.
+LaTeX Info: Redefining \celsius on input line 43.
+Package gensymb Info: Faking symbols for \degree and \celsius on input line 43.
+
+
+Package gensymb Warning: Not defining \perthousand.
+
+LaTeX Info: Redefining \ohm on input line 43.
+Package gensymb Info: Using \Omega for \ohm on input line 43.
+
+Package gensymb Warning: Not defining \micro.
+
+--- file doc.css ---
+[1
+
+] [2]
+LaTeX Font Info:    Trying to load font information for U+msa on input line 45.
+
+ (/usr/local/texlive/2023/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 45.
+
+
+(/usr/local/texlive/2023/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+l. 52 Writing doc.idv[1] (doc0x.png)
+l. 52 Writing doc.idv[2] (doc1x.png)
+l. 52 Writing doc.idv[3] (doc2x.png)
+l. 52 Writing doc.idv[4] (doc3x.png)
+l. 52 Writing doc.idv[5] (doc4x.png)
+l. 52 Writing doc.idv[6] (doc5x.png)
+l. 52 Writing doc.idv[7] (doc6x.png)
+l. 52 Writing doc.idv[8] (doc7x.png)
+l. 52 Writing doc.idv[9] (doc8x.png)
+l. 52 Writing doc.idv[10] (doc9x.png)
+ [3]
+l. 94 Writing doc.idv[11] (doc10x.png)
+l. 94 Writing doc.idv[12] (doc11x.png)
+l. 94 Writing doc.idv[13] (doc12x.png)
+l. 94 Writing doc.idv[14] (doc13x.png)
+l. 94 Writing doc.idv[15] (doc14x.png)
+l. 94 Writing doc.idv[16] (doc15x.png)
+l. 94 Writing doc.idv[17] (doc16x.png)
+l. 94 Writing doc.idv[18] (doc17x.png)
+l. 94 Writing doc.idv[19] (doc18x.png)
+l. 94 Writing doc.idv[20] (doc19x.png)
+l. 94 Writing doc.idv[21] (doc20x.png)
+l. 94 Writing doc.idv[22] (doc21x.png)
+l. 94 Writing doc.idv[23] (doc22x.png)
+l. 155 Writing doc.idv[24] (doc23x.png)
+l. 155 Writing doc.idv[25] (doc24x.png)
+l. 155 Writing doc.idv[26] (doc25x.png)
+l. 155 Writing doc.idv[27] (doc26x.png)
+l. 155 Writing doc.idv[28] (doc27x.png)
+l. 155 Writing doc.idv[29] (doc28x.png)
+l. 155 Writing doc.idv[30] (doc29x.png)
+l. 155 Writing doc.idv[31] (doc30x.png)
+l. 155 Writing doc.idv[32] (doc31x.png)
+l. 155 Writing doc.idv[33] (doc32x.png)
+l. 155 Writing doc.idv[34] (doc33x.png)
+l. 155 Writing doc.idv[35] (doc34x.png)
+l. 155 Writing doc.idv[36] (doc35x.png)
+l. 155 Writing doc.idv[37] (doc36x.png)
+l. 155 Writing doc.idv[38] (doc37x.png)
+l. 155 Writing doc.idv[39] (doc38x.png)
+l. 159 Writing doc.idv[40] (doc39x.png)
+l. 159 Writing doc.idv[41] (doc40x.png)
+l. 159 Writing doc.idv[42] (doc41x.png)
+ [4]
+l. 161 Writing doc.idv[43] (doc42x.png)
+l. 165 Writing doc.idv[44] (doc43x.png)
+l. 165 Writing doc.idv[45] (doc44x.png)
+l. 165 Writing doc.idv[46] (doc45x.png)
+l. 165 Writing doc.idv[47] (doc46x.png)
+l. 166 Writing doc.idv[48] (doc47x.png)
+l. 170 Writing doc.idv[49] (doc48x.png)
+l. 170 Writing doc.idv[50] (doc49x.png)
+l. 170 Writing doc.idv[51] (doc50x.png)
+l. 170 Writing doc.idv[52] (doc51x.png)
+l. 170 Writing doc.idv[53] (doc52x.png)
+l. 170 Writing doc.idv[54] (doc53x.png)
+l. 170 Writing doc.idv[55] (doc54x.png)
+l. 170 Writing doc.idv[56] (doc55x.png)
+l. 170 Writing doc.idv[57] (doc56x.png)
+l. 170 Writing doc.idv[58] (doc57x.png)
+l. 170 Writing doc.idv[59] (doc58x.png)
+l. 170 Writing doc.idv[60] (doc59x.png)
+l. 170 Writing doc.idv[61] (doc60x.png)
+l. 170 Writing doc.idv[62] (doc61x.png)
+l. 170 Writing doc.idv[63] (doc62x.png)
+l. 170 Writing doc.idv[64] (doc63x.png)
+l. 175 Writing doc.idv[65] (doc64x.png)
+l. 175 Writing doc.idv[66] (doc65x.png)
+l. 175 Writing doc.idv[67] (doc66x.png)
+l. 175 Writing doc.idv[68] (doc67x.png)
+l. 175 Writing doc.idv[69] (doc68x.png)
+l. 175 Writing doc.idv[70] (doc69x.png)
+l. 175 Writing doc.idv[71] (doc70x.png)
+l. 175 Writing doc.idv[72] (doc71x.png)
+
+[5]
+l. 235 Writing doc.idv[73] (doc72x.png)
+l. 235 Writing doc.idv[74] (doc73x.png)
+l. 235 Writing doc.idv[75] (doc74x.png)
+l. 235 Writing doc.idv[76] (doc75x.png)
+l. 235 Writing doc.idv[77] (doc76x.png)
+l. 235 Writing doc.idv[78] (doc77x.png)
+l. 235 Writing doc.idv[79] (doc78x.png)
+l. 235 Writing doc.idv[80] (doc79x.png)
+l. 235 Writing doc.idv[81] (doc80x.png)
+l. 235 Writing doc.idv[82] (doc81x.png)
+l. 235 Writing doc.idv[83] (doc82x.png)
+l. 235 Writing doc.idv[84] (doc83x.png)
+l. 239 Writing doc.idv[85] (doc84x.png)
+l. 239 Writing doc.idv[86] (doc85x.png)
+l. 239 Writing doc.idv[87] (doc86x.png)
+l. 239 Writing doc.idv[88] (doc87x.png)
+l. 239 Writing doc.idv[89] (doc88x.png)
+l. 239 Writing doc.idv[90] (doc89x.png)
+l. 239 Writing doc.idv[91] (doc90x.png)
+l. 239 Writing doc.idv[92] (doc91x.png)
+l. 239 Writing doc.idv[93] (doc92x.png)
+ [6]
+l. 242 Writing doc.idv[94] (doc93x.png)
+l. 242 Writing doc.idv[95] (doc94x.png)
+l. 242 Writing doc.idv[96] (doc95x.png)
+l. 245 Writing doc.idv[97] (doc96x.png)
+l. 245 Writing doc.idv[98] (doc97x.png)
+l. 245 Writing doc.idv[99] (doc98x.png)
+l. 247 Writing doc.idv[100] (doc99x.png)
+l. 251 Writing doc.idv[101] (doc100x.png)
+l. 251 Writing doc.idv[102] (doc101x.png)
+l. 251 Writing doc.idv[103] (doc102x.png)
+l. 257 Writing doc.idv[104] (doc103x.png)
+l. 257 Writing doc.idv[105] (doc104x.png)
+l. 257 Writing doc.idv[106] (doc105x.png)
+l. 257 Writing doc.idv[107] (doc106x.png)
+l. 257 Writing doc.idv[108] (doc107x.png)
+l. 257 Writing doc.idv[109] (doc108x.png)
+l. 257 Writing doc.idv[110] (doc109x.png)
+l. 257 Writing doc.idv[111] (doc110x.png)
+l. 257 Writing doc.idv[112] (doc111x.png)
+l. 257 Writing doc.idv[113] (doc112x.png)
+l. 257 Writing doc.idv[114] (doc113x.png)
+l. 257 Writing doc.idv[115] (doc114x.png)
+l. 257 Writing doc.idv[116] (doc115x.png)
+l. 257 Writing doc.idv[117] (doc116x.png)
+l. 257 Writing doc.idv[118] (doc117x.png)
+l. 257 Writing doc.idv[119] (doc118x.png)
+l. 257 Writing doc.idv[120] (doc119x.png)
+ [7]
+l. 303 Writing doc.idv[121] (doc120x.png)
+l. 303 Writing doc.idv[122] (doc121x.png)
+l. 303 Writing doc.idv[123] (doc122x.png)
+l. 303 Writing doc.idv[124] (doc123x.png)
+l. 303 Writing doc.idv[125] (doc124x.png)
+l. 303 Writing doc.idv[126] (doc125x.png)
+l. 303 Writing doc.idv[127] (doc126x.png)
+l. 303 Writing doc.idv[128] (doc127x.png)
+l. 303 Writing doc.idv[129] (doc128x.png)
+l. 303 Writing doc.idv[130] (doc129x.png)
+l. 303 Writing doc.idv[131] (doc130x.png)
+ [8]
+l. 352 Writing doc.idv[132] (doc131x.png)
+l. 352 Writing doc.idv[133] (doc132x.png)
+l. 352 Writing doc.idv[134] (doc133x.png)
+l. 352 Writing doc.idv[135] (doc134x.png)
+l. 352 Writing doc.idv[136] (doc135x.png)
+l. 356 Writing doc.idv[137] (doc136x.png)
+l. 356 Writing doc.idv[138] (doc137x.png)
+l. 356 Writing doc.idv[139] (doc138x.png)
+l. 359 Writing doc.idv[140] (doc139x.png)
+l. 359 Writing doc.idv[141] (doc140x.png)
+l. 359 Writing doc.idv[142] (doc141x.png)
+l. 359 Writing doc.idv[143] (doc142x.png)
+l. 359 Writing doc.idv[144] (doc143x.png)
+l. 359 Writing doc.idv[145] (doc144x.png)
+l. 359 Writing doc.idv[146] (doc145x.png)
+l. 359 Writing doc.idv[147] (doc146x.png)
+l. 359 Writing doc.idv[148] (doc147x.png)
+l. 359 Writing doc.idv[149] (doc148x.png)
+l. 359 Writing doc.idv[150] (doc149x.png)
+l. 359 Writing doc.idv[151] (doc150x.png)
+l. 359 Writing doc.idv[152] (doc151x.png)
+ [9]
+l. 405 Writing doc.idv[153] (doc152x.png)
+l. 405 Writing doc.idv[154] (doc153x.png)
+l. 405 Writing doc.idv[155] (doc154x.png)
+l. 405 Writing doc.idv[156] (doc155x.png)
+l. 405 Writing doc.idv[157] (doc156x.png)
+l. 405 Writing doc.idv[158] (doc157x.png)
+l. 405 Writing doc.idv[159] (doc158x.png)
+l. 405 Writing doc.idv[160] (doc159x.png)
+l. 405 Writing doc.idv[161] (doc160x.png)
+l. 405 Writing doc.idv[162] (doc161x.png)
+l. 405 Writing doc.idv[163] (doc162x.png)
+l. 454 Writing doc.idv[164] (doc163x.png)
+l. 454 Writing doc.idv[165] (doc164x.png)
+l. 454 Writing doc.idv[166] (doc165x.png)
+l. 454 Writing doc.idv[167] (doc166x.png)
+l. 458 Writing doc.idv[168] (doc167x.png)
+ [10]
+l. 461 Writing doc.idv[169] (doc168x.png)
+l. 461 Writing doc.idv[170] (doc169x.png)
+l. 461 Writing doc.idv[171] (doc170x.png)
+l. 461 Writing doc.idv[172] (doc171x.png)
+l. 465 Writing doc.idv[173] (doc172x.png)
+l. 465 Writing doc.idv[174] (doc173x.png)
+l. 466 Writing doc.idv[175] (doc174x.png)
+l. 469 Writing doc.idv[176] (doc175x.png)
+l. 472 Writing doc.idv[177] (doc176x.png)
+l. 472 Writing doc.idv[178] (doc177x.png)
+l. 472 Writing doc.idv[179] (doc178x.png)
+l. 472 Writing doc.idv[180] (doc179x.png)
+l. 472 Writing doc.idv[181] (doc180x.png)
+l. 472 Writing doc.idv[182] (doc181x.png)
+l. 472 Writing doc.idv[183] (doc182x.png)
+ [11]
+l. 479 Writing doc.idv[184] (doc183x.png)
+l. 479 Writing doc.idv[185] (doc184x.png)
+l. 479 Writing doc.idv[186] (doc185x.png)
+l. 479 Writing doc.idv[187] (doc186x.png)
+l. 479 Writing doc.idv[188] (doc187x.png)
+l. 479 Writing doc.idv[189] (doc188x.png)
+l. 479 Writing doc.idv[190] (doc189x.png)
+l. 479 Writing doc.idv[191] (doc190x.png)
+l. 479 Writing doc.idv[192] (doc191x.png)
+l. 479 Writing doc.idv[193] (doc192x.png)
+l. 479 Writing doc.idv[194] (doc193x.png)
+l. 479 Writing doc.idv[195] (doc194x.png)
+l. 479 Writing doc.idv[196] (doc195x.png)
+l. 479 Writing doc.idv[197] (doc196x.png)
+l. 479 Writing doc.idv[198] (doc197x.png)
+l. 479 Writing doc.idv[199] (doc198x.png)
+l. 479 Writing doc.idv[200] (doc199x.png)
+l. 479 Writing doc.idv[201] (doc200x.png)
+l. 536 Writing doc.idv[202] (doc201x.png)
+l. 536 Writing doc.idv[203] (doc202x.png)
+l. 536 Writing doc.idv[204] (doc203x.png)
+l. 536 Writing doc.idv[205] (doc204x.png)
+l. 536 Writing doc.idv[206] (doc205x.png)
+l. 536 Writing doc.idv[207] (doc206x.png)
+l. 536 Writing doc.idv[208] (doc207x.png)
+l. 536 Writing doc.idv[209] (doc208x.png)
+l. 536 Writing doc.idv[210] (doc209x.png)
+l. 536 Writing doc.idv[211] (doc210x.png)
+l. 536 Writing doc.idv[212] (doc211x.png)
+l. 536 Writing doc.idv[213] (doc212x.png)
+l. 536 Writing doc.idv[214] (doc213x.png)
+l. 536 Writing doc.idv[215] (doc214x.png)
+l. 536 Writing doc.idv[216] (doc215x.png)
+l. 536 Writing doc.idv[217] (doc216x.png)
+ [12]
+l. 595 Writing doc.idv[218] (doc217x.png)
+l. 595 Writing doc.idv[219] (doc218x.png)
+l. 598 Writing doc.idv[220] (doc219x.png)
+l. 598 Writing doc.idv[221] (doc220x.png)
+l. 598 Writing doc.idv[222] (doc221x.png)
+l. 598 Writing doc.idv[223] (doc222x.png)
+l. 598 Writing doc.idv[224] (doc223x.png)
+l. 601 Writing doc.idv[225] (doc224x.png)
+l. 601 Writing doc.idv[226] (doc225x.png)
+l. 601 Writing doc.idv[227] (doc226x.png)
+l. 601 Writing doc.idv[228] (doc227x.png)
+l. 601 Writing doc.idv[229] (doc228x.png)
+l. 601 Writing doc.idv[230] (doc229x.png)
+l. 601 Writing doc.idv[231] (doc230x.png)
+l. 601 Writing doc.idv[232] (doc231x.png)
+l. 601 Writing doc.idv[233] (doc232x.png)
+l. 601 Writing doc.idv[234] (doc233x.png)
+l. 601 Writing doc.idv[235] (doc234x.png)
+l. 601 Writing doc.idv[236] (doc235x.png)
+l. 601 Writing doc.idv[237] (doc236x.png)
+l. 601 Writing doc.idv[238] (doc237x.png)
+l. 601 Writing doc.idv[239] (doc238x.png)
+l. 601 Writing doc.idv[240] (doc239x.png)
+l. 601 Writing doc.idv[241] (doc240x.png)
+l. 601 Writing doc.idv[242] (doc241x.png)
+l. 601 Writing doc.idv[243] (doc242x.png)
+ [13]
+l. 669 Writing doc.idv[244] (doc243x.png)
+l. 669 Writing doc.idv[245] (doc244x.png)
+l. 669 Writing doc.idv[246] (doc245x.png)
+l. 669 Writing doc.idv[247] (doc246x.png)
+l. 669 Writing doc.idv[248] (doc247x.png)
+l. 669 Writing doc.idv[249] (doc248x.png)
+l. 669 Writing doc.idv[250] (doc249x.png)
+ [14] (./doc.aux) ) 
+Here is how much of TeX's memory you used:
+ 39608 strings out of 476026
+ 949168 string characters out of 5790042
+ 1884385 words of memory out of 5000000
+ 59166 multiletter control sequences out of 15000+600000
+ 520716 words of font info for 65 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 106i,6n,143p,1633b,1464s stack positions out of 10000i,1000n,20000p,200000b,200000s
+
+Output written on doc.dvi (14 pages, 260092 bytes).

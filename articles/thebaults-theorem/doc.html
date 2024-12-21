@@ -1,0 +1,659 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Sawayama&#8217;s Lemma and Thebault&#8217;s circles</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (https://tug.org/tex4ht/)"> 
+<meta name="originator" content="TeX4ht (https://tug.org/tex4ht/)"> 
+<!-- html --> 
+<meta name="src" content="doc.tex"> 
+<link rel="stylesheet" type="text/css" href="doc.css"> 
+</head><body 
+>
+   <div class="maketitle">
+                                                                  
+
+<h1 style="text-align: center;font-family: Tahoma, sans-serif;font-size: 35px;" onclick="window.location.href='https://mrmineev.github.io/'">MrMineev</h1>
+
+<div style="align: center;">
+  <a href="doc.pdf">Open PDF version of article</a>
+</div>
+
+<h2 class="titleHead">Sawayama&#8217;s Lemma and Thebault&#8217;s circles</h2>
+ <div class="author" ><span 
+class="cmr-12">Daniel Mineev</span></div><br />
+<div class="date" ></div>
+   </div>
+<!--l. 47--><p class="indent" >   This paper compiles a collection of geometric proofs and related constructions
+that center around Sawayama&#8217;s Lemma and Thebault&#8217;s theorem. The document
+begins with the presentation and proof of the Shooting Lemma, which establishes a
+relationship between a chord in a circle, a tangent circle, and the midpoint of the
+larger arc. Using this foundational lemma, the proofs of Sawayama&#8217;s Lemma and
+Verrier&#8217;s Lemma follow, demonstrating the collinearity of specific points
+associated with inscribed triangles and tangent circles. The final section extends
+these results to prove Thebault&#8217;s theorem, generalizing the principles of
+Sawayama&#8217;s and Verrier&#8217;s Lemmas to a broader context involving two tangent
+circles.
+   <h3 class="sectionHead"><span class="titlemark">1   </span> <a 
+ id="x1-10001"></a>The Shooting Lemma</h3>
+   <div class="newtheorem">
+<!--l. 51--><p class="noindent" ><span class="head">
+<a 
+ id="x1-1001r1"></a>
+<span 
+class="cmbx-10">Theorem 1.</span>  </span><span 
+class="cmti-10">Consider the chord </span><img 
+src="doc0x.png" alt="BC  " class="math"> <span 
+class="cmti-10">in the circle </span><img 
+src="doc1x.png" alt="&#x03A9;  " class="math"><span 
+class="cmti-10">. Let the circle </span><img 
+src="doc2x.png" alt="&#x03C9;  " class="math">
+<span 
+class="cmti-10">touch </span><img 
+src="doc3x.png" alt="BC  " class="math"> <span 
+class="cmti-10">at a point </span><img 
+src="doc4x.png" alt="D  " class="math"> <span 
+class="cmti-10">and the circle </span><img 
+src="doc5x.png" alt="&#x03A9;  " class="math"> <span 
+class="cmti-10">at a point </span><img 
+src="doc6x.png" alt="E  " class="math"><span 
+class="cmti-10">. Prove that the</span>
+<span 
+class="cmti-10">line </span><img 
+src="doc7x.png" alt="DE  " class="math"> <span 
+class="cmti-10">passes through </span><img 
+src="doc8x.png" alt="M  " class="math"><span 
+class="cmti-10">, the middle of the larger arc </span><img 
+src="doc9x.png" alt=" &#x2322;
+BC  " class="math"><span 
+class="cmti-10">.</span>
+   </div>
+<!--l. 53--><p class="indent" >
+<div class="center" 
+>
+<!--l. 55--><p class="noindent" >
+                                                                  
+
+                                                                  
+<!--l. 90--><p class="noindent" ><object data="doc-1.svg" width="192.45691 " height="189.2864 " type="image/svg+xml"><p>SVG-Viewer needed.</p></object></div>
+   <div class="proof">
+<!--l. 94--><p class="indent" >   <span class="head">
+<tspan font-family="\cmti" font-size="\10">Proof.</tspan> </span>The proof is quite trivial, simply consider the homothety centered at
+<img 
+src="doc10x.png" alt="E  " class="math">, which transforms <img 
+src="doc11x.png" alt="&#x03C9;  " class="math"> into <img 
+src="doc12x.png" alt="&#x03A9;  " class="math">. Then, <img 
+src="doc13x.png" alt="B  " class="math"> is mapped to <img 
+src="doc14x.png" alt="B &#x2032; " class="math"> and <img 
+src="doc15x.png" alt="C  " class="math"> to
+<img 
+src="doc16x.png" alt="C &#x2032; " class="math">, where <img 
+src="doc17x.png" alt="B &#x2032; " class="math"> and <img 
+src="doc18x.png" alt="C &#x2032; " class="math"> are the intersections of <img 
+src="doc19x.png" alt="CE  " class="math"> and <img 
+src="doc20x.png" alt="BE  " class="math"> with the
+tangent from <img 
+src="doc21x.png" alt="M  " class="math"> to <img 
+src="doc22x.png" alt="&#x03A9;  " class="math"> respectevely.
+<div class="center" 
+>
+<!--l. 96--><p class="noindent" >
+<!--l. 152--><p class="noindent" ><object data="doc-2.svg" width="474.26514 " height="167.94421 " type="image/svg+xml"><p>SVG-Viewer needed.</p></object></div>
+<!--l. 155--><p class="indent" >   Then, <img 
+src="doc23x.png" alt="&#x2220;BCM   = &#x2220;CM C &#x2032; " class="math"> due to <img 
+src="doc24x.png" alt="CB &#x2225; C&#x2032;B&#x2032; " class="math">, and <img 
+src="doc25x.png" alt="&#x2220;CBM   = &#x2220;CM  C&#x2032; " class="math"> because
+<img 
+src="doc26x.png" alt="C &#x2032;B &#x2032; " class="math"> touches <img 
+src="doc27x.png" alt="&#x03A9;  " class="math"> and finally <img 
+src="doc28x.png" alt="&#x2220;CBM   = &#x2220;BM  B&#x2032; " class="math">. Thus, <img 
+src="doc29x.png" alt="&#x2220;CM  C &#x2032; = &#x2220;BM B&#x2032; " class="math">,
+however due to <img 
+src="doc30x.png" alt="&#x03A9;  " class="math"> touching <img 
+src="doc31x.png" alt="C &#x2032;B &#x2032; " class="math"> we know that <img 
+src="doc32x.png" alt="&#x2220;CEM   = &#x2220;CM  C&#x2032; " class="math"> and
+<img 
+src="doc33x.png" alt="&#x2220;BEM   = &#x2220;BM  B &#x2032; " class="math">, consequently <img 
+src="doc34x.png" alt="&#x2220;CEM   = &#x2220;M EB  " class="math">. In other words <img 
+src="doc35x.png" alt="M E  " class="math"> is
+the bisector of <img 
+src="doc36x.png" alt="&#x2220;CEB  " class="math"> which means that <img 
+src="doc37x.png" alt="M  " class="math"> is the middle of the larger arc
+<img 
+src="doc38x.png" alt=" &#x2322;
+BC  " class="math">.
+                                                                <tspan font-family="\msam" font-size="\10">&#x25A0;</tspan>
+                                                                  
+
+                                                                  
+   </div>
+<!--l. 159--><p class="noindent" >In fact, due to <img 
+src="doc39x.png" alt="&#x2220;BEM   = &#x2220;DBM  " class="math"> we conclude that <img 
+src="doc40x.png" alt="(EDB  )  " class="math"> touches <img 
+src="doc41x.png" alt="BM  " class="math">,
+consequently,
+   <table 
+class="equation"><tr><td>
+   <div class="math-display" >
+<img 
+src="doc42x.png" alt="pow (EDB )M = M D &#x22C5;M E = M B2
+" class="math-display" ><a 
+ id="x1-1002r1"></a></div>
+   </td><td class="equation-label">(1)</td></tr></table>
+<!--l. 163--><p class="nopar" >
+<!--l. 165--><p class="indent" >   And due to <img 
+src="doc43x.png" alt="M  " class="math"> being the middle of <img 
+src="doc44x.png" alt="B&#x2322;C  " class="math"> it must be that <img 
+src="doc45x.png" alt="CM  = M B  " class="math">, thus,
+<img 
+src="doc46x.png" alt="M B2 = M C &#x22C5;M B  " class="math">. Combining these results we get a nice formula,
+   <table 
+class="equation"><tr><td>
+   <div class="math-display" >
+<img 
+src="doc47x.png" alt="M C &#x22C5;M B = M D &#x22C5;M E
+" class="math-display" ><a 
+ id="x1-1003r2"></a></div>
+   </td><td class="equation-label">(2)</td></tr></table>
+<!--l. 168--><p class="nopar" >
+<!--l. 170--><p class="indent" >   The figure can also show a lot of interesting and fundemental properties if one
+performs an inversion centered at the point <img 
+src="doc48x.png" alt="M  " class="math"> with a radius of <img 
+src="doc49x.png" alt="M B = M  C  " class="math">.
+Then through this process <img 
+src="doc50x.png" alt="&#x03A9; &#x2194; BC  " class="math"> and because <img 
+src="doc51x.png" alt="&#x03C9;  " class="math"> must continue to touch
+<img 
+src="doc52x.png" alt="inv(BC )  " class="math"> and <img 
+src="doc53x.png" alt="inv (&#x03A9; )  " class="math"> (in other words <img 
+src="doc54x.png" alt="&#x03A9;  " class="math"> and <img 
+src="doc55x.png" alt="BC  " class="math">) and it must be in the same
+angle from <img 
+src="doc56x.png" alt="M  " class="math">, it must be the case that <img 
+src="doc57x.png" alt="&#x03C9; &#x2192; &#x03C9;  " class="math"> under the inversion.
+Consequently, it must mean that <img 
+src="doc58x.png" alt="D &#x2194;  E  " class="math"> and thus <img 
+src="doc59x.png" alt="M,D  " class="math"> and <img 
+src="doc60x.png" alt="E  " class="math"> are colinear.
+Another consequence of such argument is that the length of the tangents from <img 
+src="doc61x.png" alt="M  " class="math">
+to <img 
+src="doc62x.png" alt="&#x03C9;  " class="math"> are equal to <img 
+src="doc63x.png" alt="M B = M C  " class="math">.
+<!--l. 172--><p class="indent" >   Now let us consider the following, a bit stronger statement,
+   <div class="newtheorem">
+<!--l. 174--><p class="noindent" ><span class="head">
+<a 
+ id="x1-1004r2"></a>
+                                                                  
+
+                                                                  
+<tspan font-family="\cmbx" font-size="\10">Theorem 2.</tspan>  </span><tspan font-family="\cmti" font-size="\10">Let </tspan><img 
+src="doc64x.png" alt="A  " class="math"> <tspan font-family="\cmti" font-size="\10">be an arbitrary point on the arc </tspan><img 
+src="doc65x.png" alt="C&#x2322;EB  " class="math"> <tspan font-family="\cmti" font-size="\10">and let </tspan><img 
+src="doc66x.png" alt="I  " class="math"> <tspan font-family="\cmti" font-size="\10">be</tspan>
+<tspan font-family="\cmti" font-size="\10">an arbitrary point on </tspan><img 
+src="doc67x.png" alt="AM  " class="math"><tspan font-family="\cmti" font-size="\10">. Let </tspan><img 
+src="doc68x.png" alt="L  " class="math"> <tspan font-family="\cmti" font-size="\10">be the intersection of </tspan><img 
+src="doc69x.png" alt="ID  " class="math"> <tspan font-family="\cmti" font-size="\10">and </tspan><img 
+src="doc70x.png" alt="&#x03C9;  " class="math"><tspan font-family="\cmti" font-size="\10">,</tspan>
+<tspan font-family="\cmti" font-size="\10">prove that </tspan><img 
+src="doc71x.png" alt="AILE  " class="math"> <tspan font-family="\cmti" font-size="\10">is cyclic.</tspan>
+   </div>
+<!--l. 176--><p class="indent" >
+<div class="center" 
+>
+<!--l. 178--><p class="noindent" >
+<!--l. 230--><p class="noindent" ><object data="doc-3.svg" width="224.30806 " height="232.34149 " type="image/svg+xml"><p>SVG-Viewer needed.</p></object></div>
+   <div class="proof">
+<!--l. 234--><p class="indent" >   <span class="head">
+<tspan font-family="\cmti" font-size="\10">Proof.</tspan> </span>
+<!--l. 235--><p class="indent" >   This is also quite a trivial statement, noticing from the previous statement
+that  <img 
+src="doc72x.png" alt="CM  2 = M X &#x22C5;AM  " class="math">  and  <img 
+src="doc73x.png" alt="CM 2 = M D &#x22C5;M E  " class="math">  we  can  conclude  that
+<img 
+src="doc74x.png" alt="M X &#x22C5;M A = M D  &#x22C5;M  E  " class="math"> which by the power of the point <img 
+src="doc75x.png" alt="M  " class="math"> concludes that
+<img 
+src="doc76x.png" alt="AXDE  " class="math"> is cyclic. Now, all that is left to notice is that, <img 
+src="doc77x.png" alt="&#x2220;ELD  = &#x2220;EDB  " class="math">
+due to <img 
+src="doc78x.png" alt="DB  " class="math"> touching <img 
+src="doc79x.png" alt="&#x03C9;  " class="math"> and <img 
+src="doc80x.png" alt="&#x2220;EDB  = &#x2220;EAX  " class="math"> due to <img 
+src="doc81x.png" alt="AXED  " class="math"> being
+cyclic, thus <img 
+src="doc82x.png" alt="&#x2220;IAE  = &#x2220;ELD  " class="math"> and <img 
+src="doc83x.png" alt="AILE  " class="math"> is cyclic.
+                                                                <tspan font-family="\msam" font-size="\10">&#x25A0;</tspan>
+   </div>
+<!--l. 239--><p class="indent" >   It is a bit interesting to see the behaviour of <img 
+src="doc84x.png" alt="(AILE )  " class="math"> as one moves
+<img 
+src="doc85x.png" alt="I  " class="math"> along <img 
+src="doc86x.png" alt="AM  " class="math">. When <img 
+src="doc87x.png" alt="I = X  " class="math"> we get an already proven statement that
+<img 
+src="doc88x.png" alt="AXDE  " class="math"> is cyclic and when <img 
+src="doc89x.png" alt="I = A  " class="math"> we see that <img 
+src="doc90x.png" alt="(AILE  )  " class="math"> touches <img 
+src="doc91x.png" alt="ED  " class="math">.
+However, there is a more important position of <img 
+src="doc92x.png" alt="I  " class="math"> which has the following
+property.
+                                                                  
+
+                                                                  
+   <div class="newtheorem">
+<!--l. 241--><p class="noindent" ><span class="head">
+<a 
+ id="x1-1005r1"></a>
+<tspan font-family="\cmbx" font-size="\10">Lemma 1.</tspan>  </span><tspan font-family="\cmti" font-size="\10">If </tspan><img 
+src="doc93x.png" alt="M I = BM = CM  " class="math"><tspan font-family="\cmti" font-size="\10">, then </tspan><img 
+src="doc94x.png" alt="AL  " class="math"> <tspan font-family="\cmti" font-size="\10">tangent to </tspan><img 
+src="doc95x.png" alt="&#x03C9;  " class="math"><tspan font-family="\cmti" font-size="\10">.</tspan>
+   </div>
+<!--l. 243--><p class="indent" >
+   <div class="proof">
+<!--l. 245--><p class="indent" >   <span class="head">
+<tspan font-family="\cmti" font-size="\10">Proof.</tspan> </span>This again is no less trivial than the last statement, simply notice that
+<img 
+src="doc96x.png" alt="M D &#x22C5;M E = M C2 = M I2  " class="math">, thus <img 
+src="doc97x.png" alt="(IDE )  " class="math"> touches <img 
+src="doc98x.png" alt="AM  " class="math">. Consequently,
+   <table 
+class="equation"><tr><td>
+   <div class="math-display" >
+<img 
+src="doc99x.png" alt="&#x2220;IDE  = &#x2220;AIE  = &#x2220;ALE
+" class="math-display" ><a 
+ id="x1-1006r3"></a></div>
+   </td><td class="equation-label">(3)</td></tr></table>
+<!--l. 249--><p class="nopar" >
+<!--l. 251--><p class="indent" >   due to <img 
+src="doc100x.png" alt="AILE  " class="math"> being cyclic. Which implies that <img 
+src="doc101x.png" alt="AL  " class="math"> touches <img 
+src="doc102x.png" alt="&#x03C9;  " class="math">.       <tspan font-family="\msam" font-size="\10">&#x25A0;</tspan>
+   </div>
+<!--l. 254--><p class="noindent" >
+   <h3 class="sectionHead"><span class="titlemark">2   </span> <a 
+ id="x1-20002"></a>Sawayama&#8217;s and Verrier&#8217;s Lemma&#8217;s</h3>
+   <div class="newtheorem">
+<!--l. 256--><p class="noindent" ><span class="head">
+<a 
+ id="x1-2001r3"></a>
+<tspan font-family="\cmbx" font-size="\10">Theorem 3.</tspan>  </span><tspan font-family="\cmbxti" font-size="\10">(Sawayama&#8217;s lemma) </tspan><tspan font-family="\cmti" font-size="\10">Let </tspan><img 
+src="doc103x.png" alt="&#x25B3;ABC  " class="math"> <tspan font-family="\cmti" font-size="\10">be inscribed into </tspan><img 
+src="doc104x.png" alt="&#x03A9;  " class="math"> <tspan font-family="\cmti" font-size="\10">and</tspan>
+<tspan font-family="\cmti" font-size="\10">let </tspan><img 
+src="doc105x.png" alt="X  " class="math"> <tspan font-family="\cmti" font-size="\10">be an arbitrary point </tspan><img 
+src="doc106x.png" alt="AB  " class="math"><tspan font-family="\cmti" font-size="\10">. Consider </tspan><img 
+src="doc107x.png" alt="&#x03C9;  " class="math"> <tspan font-family="\cmti" font-size="\10">which is tangent to the</tspan>
+<tspan font-family="\cmti" font-size="\10">segment </tspan><img 
+src="doc108x.png" alt="XC  " class="math"><tspan font-family="\cmti" font-size="\10">, the segment </tspan><img 
+src="doc109x.png" alt="XB  " class="math"> <tspan font-family="\cmti" font-size="\10">and </tspan><img 
+src="doc110x.png" alt="&#x03A9;  " class="math"><tspan font-family="\cmti" font-size="\10">. Let </tspan><img 
+src="doc111x.png" alt="L  " class="math"> <tspan font-family="\cmti" font-size="\10">and </tspan><img 
+src="doc112x.png" alt="K  " class="math"> <tspan font-family="\cmti" font-size="\10">be the tangency</tspan>
+<tspan font-family="\cmti" font-size="\10">points of </tspan><img 
+src="doc113x.png" alt="&#x03C9;  " class="math"> <tspan font-family="\cmti" font-size="\10">with </tspan><img 
+src="doc114x.png" alt="XC  " class="math"> <tspan font-family="\cmti" font-size="\10">and </tspan><img 
+src="doc115x.png" alt="XB  " class="math"> <tspan font-family="\cmti" font-size="\10">respectively. Prove that </tspan><img 
+src="doc116x.png" alt="L  " class="math"><tspan font-family="\cmti" font-size="\10">, </tspan><img 
+src="doc117x.png" alt="K  " class="math"> <tspan font-family="\cmti" font-size="\10">and </tspan><img 
+src="doc118x.png" alt="I  " class="math">
+<tspan font-family="\cmti" font-size="\10">(the incenter of </tspan><img 
+src="doc119x.png" alt="&#x25B3;ABC  " class="math"><tspan font-family="\cmti" font-size="\10">) are colinear.</tspan>
+                                                                  
+
+                                                                  
+   </div>
+<!--l. 258--><p class="indent" >
+<div class="center" 
+>
+<!--l. 260--><p class="noindent" >
+<!--l. 299--><p class="noindent" ><object data="doc-4.svg" width="231.94096 " height="231.70358 " type="image/svg+xml"><p>SVG-Viewer needed.</p></object></div>
+   <div class="proof">
+<!--l. 303--><p class="indent" >   <span class="head">
+<tspan font-family="\cmti" font-size="\10">Proof.</tspan> </span>Now it is time to utilize all the lemmas proven in the previous section.
+The  first  step  is  to  extend  <img 
+src="doc120x.png" alt="CI  " class="math">  till  the  intersection  with  <img 
+src="doc121x.png" alt="&#x03A9;  " class="math">,  let  that
+intersection  point  be  <img 
+src="doc122x.png" alt="P  " class="math">.  Then,  due  to  the  Trillium  theorem  it  is  clear
+that  <img 
+src="doc123x.png" alt="PI = AP = P B  " class="math">.  This  allows  one  to  apply  the  last  lemma  to  this
+configuration. Here <img 
+src="doc124x.png" alt="C  " class="math"> is serves as the arbitrary point from the last lemma and
+due to <img 
+src="doc125x.png" alt="IP = AP  = PB  " class="math"> it must be that the intersection of <img 
+src="doc126x.png" alt="IK  " class="math"> with <img 
+src="doc127x.png" alt="&#x03C9;  " class="math">,
+let that point be <img 
+src="doc128x.png" alt=" &#x2032;
+L " class="math">, must be the tangency point from <img 
+src="doc129x.png" alt="C  " class="math"> to <img 
+src="doc130x.png" alt="&#x03C9;  " class="math">.
+<div class="center" 
+>
+<!--l. 305--><p class="noindent" >
+                                                                  
+
+                                                                  
+<!--l. 349--><p class="noindent" ><object data="doc-5.svg" width="231.94096 " height="249.911 " type="image/svg+xml"><p>SVG-Viewer needed.</p></object></div>
+<!--l. 352--><p class="indent" >   However, that tangency point is <img 
+src="doc131x.png" alt="L  " class="math"> by definition, thus <img 
+src="doc132x.png" alt="L &#x2032; = L  " class="math"> and
+consequently <img 
+src="doc133x.png" alt="L  " class="math">, <img 
+src="doc134x.png" alt="I  " class="math"> and <img 
+src="doc135x.png" alt="K  " class="math"> are colinear.
+                                                                <tspan font-family="\msam" font-size="\10">&#x25A0;</tspan>
+   </div>
+<!--l. 356--><p class="noindent" >Now consider what happens when one moves <img 
+src="doc136x.png" alt="X  " class="math"> along <img 
+src="doc137x.png" alt="AB  " class="math">, specifically
+let <img 
+src="doc138x.png" alt="X = A  " class="math">. Then, Sawayama&#8217;s lemma will transform itself into Verrier&#8217;s
+lemma.
+   <div class="newtheorem">
+<!--l. 358--><p class="noindent" ><span class="head">
+<a 
+ id="x1-2002r4"></a>
+<tspan font-family="\cmbx" font-size="\10">Theorem 4.</tspan>  </span><tspan font-family="\cmbxti" font-size="\10">(Verrier&#8217;s lemma) </tspan><tspan font-family="\cmti" font-size="\10">Let </tspan><img 
+src="doc139x.png" alt="&#x25B3;ABC  " class="math"> <tspan font-family="\cmti" font-size="\10">be inscribed into </tspan><img 
+src="doc140x.png" alt="&#x03A9;  " class="math"> <tspan font-family="\cmti" font-size="\10">and</tspan>
+<tspan font-family="\cmti" font-size="\10">let </tspan><img 
+src="doc141x.png" alt="&#x03C9;  " class="math"> <tspan font-family="\cmti" font-size="\10">be a circle which is tangent to the segments </tspan><img 
+src="doc142x.png" alt="BC  " class="math"><tspan font-family="\cmti" font-size="\10">, </tspan><img 
+src="doc143x.png" alt="AB  " class="math"> <tspan font-family="\cmti" font-size="\10">and </tspan><img 
+src="doc144x.png" alt="&#x03A9;  " class="math"> <tspan font-family="\cmti" font-size="\10">at</tspan>
+<tspan font-family="\cmti" font-size="\10">points </tspan><img 
+src="doc145x.png" alt="L  " class="math"><tspan font-family="\cmti" font-size="\10">, </tspan><img 
+src="doc146x.png" alt="K  " class="math"> <tspan font-family="\cmti" font-size="\10">and </tspan><img 
+src="doc147x.png" alt="T  " class="math"> <tspan font-family="\cmti" font-size="\10">respectively. Then, </tspan><img 
+src="doc148x.png" alt="L  " class="math"><tspan font-family="\cmti" font-size="\10">, </tspan><img 
+src="doc149x.png" alt="K  " class="math"> <tspan font-family="\cmti" font-size="\10">and </tspan><img 
+src="doc150x.png" alt="I  " class="math"> <tspan font-family="\cmti" font-size="\10">(incenter of</tspan>
+<img 
+src="doc151x.png" alt="&#x25B3;ABC  " class="math"><tspan font-family="\cmti" font-size="\10">) are colinear.</tspan>
+   </div>
+<!--l. 360--><p class="indent" >
+<div class="center" 
+>
+<!--l. 362--><p class="noindent" >
+                                                                  
+
+                                                                  
+<!--l. 399--><p class="noindent" ><object data="doc-6.svg" width="167.93633 " height="161.01201 " type="image/svg+xml"><p>SVG-Viewer needed.</p></object></div>
+<!--l. 402--><p class="indent" >   This statement has other proofs which do not involve Sawayama&#8217;s lemma, one of
+the most notable ones is the following which showcases the mechanism at
+play.
+   <div class="proof">
+<!--l. 405--><p class="indent" >   <span class="head">
+<tspan font-family="\cmti" font-size="\10">Proof.</tspan> </span>Let us intersect <img 
+src="doc152x.png" alt="TL  " class="math"> and <img 
+src="doc153x.png" alt="T K  " class="math"> with <img 
+src="doc154x.png" alt="&#x03A9;  " class="math"> in points <img 
+src="doc155x.png" alt="M1  " class="math"> and <img 
+src="doc156x.png" alt="M2  " class="math">,
+by the shooting lemma it must be that <img 
+src="doc157x.png" alt="M1  " class="math"> and <img 
+src="doc158x.png" alt="M2  " class="math"> are the middle&#8217;s of arcs
+<img 
+src="doc159x.png" alt=" &#x2322;
+AB  " class="math"> and <img 
+src="doc160x.png" alt=" &#x2322;
+AC  " class="math">. Consequently they must lie on the lines <img 
+src="doc161x.png" alt="BI  " class="math"> and <img 
+src="doc162x.png" alt="CI  " class="math">.
+<div class="center" 
+>
+<!--l. 407--><p class="noindent" >
+<!--l. 451--><p class="noindent" ><object data="doc-7.svg" width="181.37769 " height="181.16571 " type="image/svg+xml"><p>SVG-Viewer needed.</p></object></div>
+<!--l. 454--><p class="indent" >   All that is left is to apply Pascal&#8217;s theorem for <img 
+src="doc163x.png" alt="M1AM2BT   C  " class="math"> and conclude that
+<img 
+src="doc164x.png" alt="L  " class="math">, <img 
+src="doc165x.png" alt="I  " class="math"> and <img 
+src="doc166x.png" alt="K  " class="math"> are colinear.
+                                                                <tspan font-family="\msam" font-size="\10">&#x25A0;</tspan>
+   </div>
+<!--l. 458--><p class="indent" >   A beautiful lemma about the <img 
+src="doc167x.png" alt="M1M2  " class="math"> is the following,
+   <div class="newtheorem">
+<!--l. 460--><p class="noindent" ><span class="head">
+                                                                  
+
+                                                                  
+<a 
+ id="x1-2003r2"></a>
+<tspan font-family="\cmbx" font-size="\10">Lemma 2.</tspan>  </span><tspan font-family="\cmti" font-size="\10">The radical axis of </tspan><img 
+src="doc168x.png" alt="(A,0)  " class="math"> <tspan font-family="\cmti" font-size="\10">(the circle centered at </tspan><img 
+src="doc169x.png" alt="A  " class="math"> <tspan font-family="\cmti" font-size="\10">with a radius</tspan>
+<tspan font-family="\cmti" font-size="\10">of zero) and </tspan><img 
+src="doc170x.png" alt="&#x03C9;  " class="math"> <tspan font-family="\cmti" font-size="\10">is </tspan><img 
+src="doc171x.png" alt="M1M2   " class="math"><tspan font-family="\cmti" font-size="\10">.</tspan>
+   </div>
+<!--l. 462--><p class="indent" >
+   <div class="proof">
+<!--l. 465--><p class="indent" >   <span class="head">
+<tspan font-family="\cmti" font-size="\10">Proof.</tspan> </span>Notice that due to the shooting lemma and its consequences, it must
+be that <img 
+src="doc172x.png" alt="M  A2 = M L &#x22C5;M  T
+  1      1     1  " class="math"> and <img 
+src="doc173x.png" alt="M  A2 = M  K &#x22C5;M T
+  2       2     2  " class="math">. This, means
+that,
+   <table 
+class="equation"><tr><td>
+   <div class="math-display" >
+<img 
+src="doc174x.png" alt="pow    M  = M  2= M  L&#x22C5;M  T = pow M
+    (A,0) 1    1     1    1       &#x03C9;  1
+" class="math-display" ><a 
+ id="x1-2004r4"></a></div>
+   </td><td class="equation-label">(4)</td></tr></table>
+<!--l. 468--><p class="nopar" >
+   <table 
+class="equation"><tr><td>
+   <div class="math-display" >
+<img 
+src="doc175x.png" alt="              2
+pow(A,0)M2 = M 2 = M2K  &#x22C5;M2T = pow&#x03C9;M2
+" class="math-display" ><a 
+ id="x1-2005r5"></a></div>
+   </td><td class="equation-label">(5)</td></tr></table>
+<!--l. 471--><p class="nopar" >Thus, it must be that <img 
+src="doc176x.png" alt="M1  " class="math"> and <img 
+src="doc177x.png" alt="M2  " class="math"> lie on the radical axis of <img 
+src="doc178x.png" alt="(A, 0)  " class="math"> and <img 
+src="doc179x.png" alt="&#x03C9;  " class="math">, in
+other words <img 
+src="doc180x.png" alt="M1M2  " class="math"> is the radical axis of <img 
+src="doc181x.png" alt="(A,0)  " class="math"> and <img 
+src="doc182x.png" alt="&#x03C9;  " class="math">.
+                                                                <tspan font-family="\msam" font-size="\10">&#x25A0;</tspan>
+                                                                  
+
+                                                                  
+   </div>
+<!--l. 476--><p class="noindent" >
+   <h3 class="sectionHead"><span class="titlemark">3   </span> <a 
+ id="x1-30003"></a>Thebault&#8217;s theorem</h3>
+   <div class="newtheorem">
+<!--l. 478--><p class="noindent" ><span class="head">
+<a 
+ id="x1-3001r5"></a>
+<tspan font-family="\cmbx" font-size="\10">Theorem 5.</tspan>  </span><tspan font-family="\cmbxti" font-size="\10">(Thebault&#8217;s theorem) </tspan><tspan font-family="\cmti" font-size="\10">If </tspan><img 
+src="doc183x.png" alt="&#x25B3;ABC  " class="math"> <tspan font-family="\cmti" font-size="\10">is inscribed into </tspan><img 
+src="doc184x.png" alt="&#x03A9;  " class="math"><tspan font-family="\cmti" font-size="\10">, let</tspan>
+<img 
+src="doc185x.png" alt="&#x03C9;1   " class="math"> <tspan font-family="\cmti" font-size="\10">be the circle tangent to the segments </tspan><img 
+src="doc186x.png" alt="XB  " class="math"> <tspan font-family="\cmti" font-size="\10">and </tspan><img 
+src="doc187x.png" alt="XC  " class="math"> <tspan font-family="\cmti" font-size="\10">and </tspan><img 
+src="doc188x.png" alt="&#x03A9;  " class="math"> <tspan font-family="\cmti" font-size="\10">and let</tspan>
+<tspan font-family="\cmti" font-size="\10">the circle </tspan><img 
+src="doc189x.png" alt="&#x03C9;2   " class="math">  <tspan font-family="\cmti" font-size="\10">be the circle tangent to the segments </tspan><img 
+src="doc190x.png" alt="XC  " class="math"><tspan font-family="\cmti" font-size="\10">, </tspan><img 
+src="doc191x.png" alt="AX  " class="math"> <tspan font-family="\cmti" font-size="\10">and </tspan><img 
+src="doc192x.png" alt="&#x03A9;  " class="math"><tspan font-family="\cmti" font-size="\10">.</tspan>
+<tspan font-family="\cmti" font-size="\10">Let </tspan><img 
+src="doc193x.png" alt="O1   " class="math">  <tspan font-family="\cmti" font-size="\10">and </tspan><img 
+src="doc194x.png" alt="O2   " class="math">  <tspan font-family="\cmti" font-size="\10">be the centers of </tspan><img 
+src="doc195x.png" alt="&#x03C9;1   " class="math">  <tspan font-family="\cmti" font-size="\10">and </tspan><img 
+src="doc196x.png" alt="&#x03C9;2   " class="math"><tspan font-family="\cmti" font-size="\10">. Then, </tspan><img 
+src="doc197x.png" alt="O1   " class="math"><tspan font-family="\cmti" font-size="\10">, </tspan><img 
+src="doc198x.png" alt="O2   " class="math">  <tspan font-family="\cmti" font-size="\10">and</tspan>
+<img 
+src="doc199x.png" alt="I  " class="math"> <tspan font-family="\cmti" font-size="\10">(the incenter of </tspan><img 
+src="doc200x.png" alt="&#x25B3;ABC  " class="math"><tspan font-family="\cmti" font-size="\10">) are colinear.</tspan>
+   </div>
+<!--l. 480--><p class="indent" >
+<div class="center" 
+>
+<!--l. 483--><p class="noindent" >
+<!--l. 531--><p class="noindent" ><object data="doc-8.svg" width="210.77074 " height="188.86171 " type="image/svg+xml"><p>SVG-Viewer needed.</p></object></div>
+   <div class="proof">
+<!--l. 535--><p class="indent" >   <span class="head">
+<tspan font-family="\cmti" font-size="\10">Proof.</tspan> </span>
+<!--l. 536--><p class="indent" >   Notice, due to Sawayama&#8217;s lemma it must be that <img 
+src="doc201x.png" alt="LK &#x2229; M N = I  " class="math">, where
+<img 
+src="doc202x.png" alt="M, N  " class="math"> are the tangency points of <img 
+src="doc203x.png" alt="&#x03C9;2  " class="math"> with <img 
+src="doc204x.png" alt="AX  " class="math"> and <img 
+src="doc205x.png" alt="XC  " class="math"> and <img 
+src="doc206x.png" alt="K, L  " class="math"> are
+the tangency points of <img 
+src="doc207x.png" alt="&#x03C9;1  " class="math"> with <img 
+src="doc208x.png" alt="XB  " class="math"> and <img 
+src="doc209x.png" alt="XC  " class="math">. With this in mind I suggest
+looking at the problem from another perspective, <img 
+src="doc210x.png" alt="LN  " class="math"> is the inner tangent
+between <img 
+src="doc211x.png" alt="&#x03C9;1  " class="math"> and <img 
+src="doc212x.png" alt="&#x03C9;2  " class="math"> and <img 
+src="doc213x.png" alt="M  K  " class="math"> is the outer tangent between <img 
+src="doc214x.png" alt="&#x03C9;1  " class="math"> and <img 
+src="doc215x.png" alt="&#x03C9;2  " class="math">.
+One must prove that <img 
+src="doc216x.png" alt="M N &#x2229; LK  &#x2208; O1O2  " class="math">.
+                                                                  
+
+                                                                  
+<div class="center" 
+>
+<!--l. 538--><p class="noindent" >
+<!--l. 592--><p class="noindent" ><object data="doc-9.svg" width="210.77074 " height="188.86171 " type="image/svg+xml"><p>SVG-Viewer needed.</p></object></div>
+<!--l. 595--><p class="indent" >   As it turns out this statement is true for arbitrary circles <img 
+src="doc217x.png" alt="&#x03C9;1  " class="math"> and <img 
+src="doc218x.png" alt="&#x03C9;2  " class="math">.
+   <div class="newtheorem">
+<!--l. 597--><p class="noindent" ><span class="head">
+<a 
+ id="x1-3002r3"></a>
+<tspan font-family="\cmbx" font-size="\10">Lemma 3.</tspan>  </span><tspan font-family="\cmti" font-size="\10">Let  </tspan><img 
+src="doc219x.png" alt="&#x03C9;1   " class="math">   <tspan font-family="\cmti" font-size="\10">and  </tspan><img 
+src="doc220x.png" alt="&#x03C9;2   " class="math">   <tspan font-family="\cmti" font-size="\10">be  arbitrary  circles  prove  that  if  </tspan><img 
+src="doc221x.png" alt="LN  " class="math">
+<tspan font-family="\cmti" font-size="\10">is  the  inner  tangent  line  between  them  and  </tspan><img 
+src="doc222x.png" alt="M K  " class="math">  <tspan font-family="\cmti" font-size="\10">is  the  outer,  then</tspan>
+<img 
+src="doc223x.png" alt="M N &#x2229; LK  &#x2208; O1O2   " class="math"><tspan font-family="\cmti" font-size="\10">.</tspan>
+   </div>
+<!--l. 599--><p class="indent" >
+<!--l. 601--><p class="indent" >   This is a wonderful statement to consider on its own. Proving this statement
+automatically proves Thebault&#8217;s theorem. Let us consider the homothepy center <img 
+src="doc224x.png" alt="P  " class="math">
+which transforms <img 
+src="doc225x.png" alt="&#x03C9;
+ 1  " class="math"> to <img 
+src="doc226x.png" alt="&#x03C9;
+ 2  " class="math"> (in other words the intersection of the two outer
+common tangents). Let <img 
+src="doc227x.png" alt="X  " class="math"> and <img 
+src="doc228x.png" alt="Y  " class="math"> be the points of tangency of the common
+tangent of <img 
+src="doc229x.png" alt="&#x03C9;
+  1  " class="math"> and <img 
+src="doc230x.png" alt="&#x03C9;
+ 2  " class="math">. Let <img 
+src="doc231x.png" alt="A  " class="math"> and <img 
+src="doc232x.png" alt="B  " class="math"> be the intersection of <img 
+src="doc233x.png" alt="NL  " class="math">
+with <img 
+src="doc234x.png" alt="M K  " class="math"> and <img 
+src="doc235x.png" alt="XY  " class="math"> respectively. Consider the triangle <img 
+src="doc236x.png" alt="&#x25B3;ABP  " class="math">, then
+<img 
+src="doc237x.png" alt="&#x03C9;
+ 1  " class="math"> is its incircle and <img 
+src="doc238x.png" alt="&#x03C9;
+ 2  " class="math"> is its excircle. Then, by the Iran lemma the
+projection of <img 
+src="doc239x.png" alt="B  " class="math"> onto the bisector of <img 
+src="doc240x.png" alt="&#x2220;BP  A  " class="math"> must lie on both <img 
+src="doc241x.png" alt="M N  " class="math"> and
+<img 
+src="doc242x.png" alt="LK  " class="math">.
+<div class="center" 
+>
+<!--l. 603--><p class="noindent" >
+                                                                  
+
+                                                                  
+<!--l. 666--><p class="noindent" ><object data="doc-10.svg" width="384.56789 " height="159.07098 " type="image/svg+xml"><p>SVG-Viewer needed.</p></object></div>
+<!--l. 669--><p class="indent" >   In other words, the projection of <img 
+src="doc243x.png" alt="B  " class="math"> onto the bisector of <img 
+src="doc244x.png" alt="&#x2220;AP  B  " class="math"> is
+<img 
+src="doc245x.png" alt="M N &#x2229; LK  " class="math">. However, the projection of <img 
+src="doc246x.png" alt="B  " class="math"> onto the bisector of <img 
+src="doc247x.png" alt="&#x2220;AP B  " class="math">
+obviously is part of <img 
+src="doc248x.png" alt="O1O2  " class="math">. Thus, <img 
+src="doc249x.png" alt="M N &#x2229; LK &#x2208; O1O2  " class="math"> and the lemma is proven,
+proving Thebault&#8217;s theorem.
+                                                                <tspan font-family="\msam" font-size="\10">&#x25A0;</tspan>
+   </div>
+
+<br>
+    <br>
+
+    <div class="section-name" style="text-align: center;">
+      <h2 style="display: inline;" class="symbol-change">§</h2><h2 style="display: inline;"> 💬 Comments</h2>
+    </div>
+
+    <br>
+
+    <script src="https://utteranc.es/client.js"
+        repo="MrMineev/MrMineev.github.io"
+        issue-term="pathname"
+        label="WEBSITE_COMMENT"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+    </script>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+    
+</body></html> 
+
+                                                                  
+
+
