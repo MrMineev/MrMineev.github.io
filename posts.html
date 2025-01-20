@@ -70,6 +70,37 @@
     <br>
 
     <div class="content-text definition-box">
+
+<i>On the circumference of a circle there are red and blue points. One may add a red point and change the colour of both its neighbours (to the other colour) or remove a red point and change the colour of both its previous neighbours. Initially there are two red points. Prove that there is no sequence of allowed operations which leads to the configuration consisting of two blue points.</i>
+<br>
+<br>
+There are two beautiful in their own way solutions, here I will present both of those solutions, one will have group-theoretic origins whilst the other will stem from pure combinatorial conclusions.
+<br>
+<br>
+<b>Combinatorial Approach:</b> Suppose \(B_1, \ldots B_n\) are the blue points on the circle, and let \(a_1, a_2, \ldots a_n\) represent the number of red points between \(B_i\) and \(B_{i + 1}\). Then, let us call the following quantity the characteristic of the state,
+$$C = a_1 - a_2 + \ldots - a_n$$
+Then it is not difficult to check that this value remains invariant under the operations, however is different at the start and at the end, contradiction!
+<br>
+<br>
+<b>Group-theoretic Approach:</b> Let us consider the <i>Dihedral group</i> of a \(3\)-gon (a order \(6\) group), let \(r\) and \(s\) be its generators, the group will consist of \(6\) elements, \(\{1, r, r^2, s, sr, sr^2\}\). Let us notice that the following identities hold,
+$$rrr = ss \impliedby r^3 = 1 = s^2$$
+$$rrs = sr \impliedby r^2s^2 = srs = r^{-1}$$
+$$srr = rs \impliedby s^2r^2 =srs =r^{-1}$$
+$$srs = rr \impliedby r^2 = r^{-1}$$
+Let us assume \(r\) is red and \(s\) is blue, as you can see from these four examples, the exact operations described in the problem statement are actually simply identities in $D_6$. Thus, a simple idea, which naturally follows out of this is to consider the product of all the values around the circle (meaning, a product of some $r$-s and $s$-s), then due to the operation keeping this product the same, we have identified an extremely useful invariant. All that is left to notice is that $r^2 = r_{-1} \neq 1$, however $s^2 = 1$, thus it is impossible to get from one state to the other simply through applying the operations outlined in the problem statement.
+
+<br>
+<br>
+<i>Tournament of Towns 001, 1980 Spring J1 S1 </i>
+<br>
+<br>
+<br>
+      <span class="publication-date">🗓️ January 20, 2025</span>
+    </div>
+
+    <br>
+
+    <div class="content-text definition-box">
       Good luck!
       <br>
       <br>
