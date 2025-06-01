@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Home | MrMineev </title>
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="icon" href="assets/website-logo.png">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script type="text/javascript" id="MathJax-script" async
+      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+    </script>
+
+    <meta name="google-site-verification" content="4dvR_AeWXdmHvaVlSxRmbsdaTpIbvM0_TX3gEOyIiN4" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+      .container {
+        display: flex;
+        align-items: center;
+      }
+      
+      .line {
+        border-left: 5px solid black;
+        height: 100px; /* Adjust as needed */
+        margin-right: 10px; /* Adjust spacing between text and line */
+      }
+      
+      .text {
+        font-size: 16px; /* Adjust font size as needed */
+        /* Add any other styles you want */
+      }
+
+      /* CSS styles for the solution box */
+      .solutionBox {
+          display: none; /* Initially hidden */
+          margin-top: 10px;
+          padding: 15px;
+          border: 1px solid #ccc;
+          background-color: #f9f9f9;
+          width: fit-content;
+      }
+
+      h2 {
+        position: relative;
+        font-family: 'Poppins', sans-serif;
+        font-size: 2rem;
+        color: #324A5F; /* a slightly softer dark-blue */
+        background: linear-gradient(
+          to right,
+          #F0FBF7 0%,
+          #FFFFFF 100%
+        ); /* very light mint-to-white gradient */
+        padding: 0.75rem 1rem 0.75rem 2rem; /* extra left padding to separate from border */
+        margin-bottom: 1.5rem;
+        border-radius: 8px;
+        box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.08);
+      }
+
+      /* Colored accent bar using ::before, positioned 12px left of the text block */
+      h2::before {
+        content: '';
+        position: absolute;
+        top: 0.5rem;
+        left: 0.5rem;
+        bottom: 0.5rem;
+        width: 8px;
+        background-color: #8FC1A9; /* softer green accent */
+        border-radius: 4px;
+      }
+
+      .photo-collage {
+        position: relative;
+        width: 100%;
+        height: 100vh;
+        overflow: hidden;
+        background-color: #f9f9f9;
+      }
+
+      /* Base style for all photos */
+      .collage-photo {
+        position: absolute;
+        width: 20%;
+        object-fit: cover;
+        border-radius: 10px;
+        box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.25);
+        /* rotation via CSS variable: */
+        transform: rotate(calc(-15deg + 30deg * var(--rand-rotate)));
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="global-name">MrMineev</h1>
+    <div id="global-name-line"></div>
+
+    <br>
+
+    <div style="text-align: center;">
+      <a href="index.html">
+        <button class="button-link">
+          Go to Articles
+        </button>
+      </a>
+    </div>
+
+    <br>
+
+    <h2>Geometry</h2>
+
+    <br>
+    <br>
+    <br>
+    <div class="photo-collage">
+      <img src="assets/own_6.jpg" class="collage-photo"/>
+      <img src="assets/own_24_May.jpg" class="collage-photo"/>
+      <img src="assets/own_3.jpg" class="collage-photo"/>
+      <img src="assets/p1.jpg" class="collage-photo"/>
+    </div>
+    <br>
+    <br>
+    <br>
+
+    <h2>Number Theory</h2>
+
+    
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+
+
+    <h2>Algebra</h2>
+
+    
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+
+
+    <h2>Combinatorics</h2>
+
+    
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <script>
+      window.addEventListener("load", () => {
+        const container = document.querySelector(".photo-collage");
+        const containerStyles = getComputedStyle(container);
+        const containerWidth = parseInt(containerStyles.width, 10);
+        const containerHeight = parseInt(containerStyles.height, 10);
+
+        // Keep track of already‐placed rectangles: { x, y, width, height }
+        const placedRects = [];
+
+        // Utility: checks if two axis‐aligned rectangles overlap
+        function rectsOverlap(r1, r2) {
+          return !(
+            r1.x + r1.width  <= r2.x ||
+            r2.x + r2.width  <= r1.x ||
+            r1.y + r1.height <= r2.y ||
+            r2.y + r2.height <= r1.y
+          );
+        }
+
+        const photos = Array.from(document.querySelectorAll(".collage-photo"));
+
+        photos.forEach(photo => {
+          // Measure this photo’s rendered size (may vary per image)
+          const pw = photo.offsetWidth;
+          const ph = photo.offsetHeight;
+
+          let posX, posY, collision;
+          let attempt = 0;
+
+          do {
+            // Pick random x in [0, containerWidth – pw]
+            posX = Math.floor(Math.random() * (containerWidth - pw + 1));
+            // Pick random y in [0, containerHeight – ph]
+            posY = Math.floor(Math.random() * (containerHeight - ph + 1));
+
+            const candidate = { x: posX, y: posY, width: pw, height: ph };
+
+            // Check if this candidate collides with any already‐placed image
+            collision = placedRects.some(existing => rectsOverlap(existing, candidate));
+
+            attempt++;
+            // Avoid infinite loop if container is too crowded
+          } while (collision && attempt < 500);
+
+          // Save this image’s rectangle so future placements avoid it
+          placedRects.push({ x: posX, y: posY, width: pw, height: ph });
+
+          // Position the photo and give it a random rotation factor
+          photo.style.left = posX + "px";
+          photo.style.top  = posY + "px";
+          photo.style.setProperty("--rand-rotate", Math.random().toFixed(4));
+        });
+      });
+
+      function showSolution(id_text) {
+        var solutionBox = document.getElementById(id_text);
+        if (solutionBox.style.display === 'none' || solutionBox.style.display === '') {
+          solutionBox.style.display = 'block'; // Show the box
+        } else {
+          solutionBox.style.display = 'none'; // Hide the box
+        }
+      }
+
+      const articles = document.querySelectorAll('.content-text.definition-box');
+      const linksDiv = document.createElement('div');
+
+      articles.forEach((article, index) => {
+        const publicationDate = article.querySelector('.publication-date').textContent.trim();
+
+        let articleId = article.id;
+        if (!articleId) {
+          articleId = `article-${index + 1}`; // Create a unique ID
+          article.id = articleId; // Assign the ID to the article div
+        }
+
+        const onclickAttr = article.getAttribute('onclick');
+        let href = '#'; // Default to '#' if no href is found
+        if (onclickAttr) {
+          const match = onclickAttr.match(/'(.*?)'/);
+          if (match && match[1]) {
+            href = match[1];
+          }
+        }
+
+        const link = document.createElement('a');
+        link.href = `#${articleId}`; // Set href to refer to the specific div by its ID
+        link.textContent = publicationDate;
+        link.style.display = 'inline-block'; // Inline-block style for the links
+        linksDiv.appendChild(link);
+
+        const space = document.createElement('span');
+        space.innerHTML = '&nbsp;';
+        linksDiv.appendChild(space);
+      });
+
+      document.getElementById('articleList').appendChild(linksDiv);
+    </script>
+  </body>
+</html>
+

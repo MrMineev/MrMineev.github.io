@@ -62,9 +62,8 @@
   background-color: rgb(249, 242, 232);
   position: relative;
   display: flex;
-  margin-left: 15%;
   margin-top: 2%;
-  width: 70%;
+  width: 90%;
   height: 200px;
   border-radius: 20px 0 20px 20px;
   border: 2px solid black;
@@ -150,3 +149,220 @@
     display: block; /* Add this line to ensure the image is displayed */
   }
 } 
+
+/* CONTENT AREA FOR DEMO */
+/* ----------------------------------------- */
+/* BASE LAYOUT */
+/* ----------------------------------------- */
+
+/* ARTICLES CONTAINER (takes full width on mobile, leaves room for sidebar on desktop) */
+.page-content {
+  margin-left: 5%;  /* on desktop, leave some left margin */
+  padding: 1rem;
+  width: 65%;       /* on desktop, articles occupy ~65% of the row */
+}
+
+/* ROW: holds .page-content + .desktop-only sidebar on desktop, but stacks on mobile */
+.row {
+  display: flex;
+  flex-direction: row;
+}
+
+/* ----------------------------------------- */
+/* INFO‐CONTAINER (BOTH MOBILE & DESKTOP COPIES) */
+/* ----------------------------------------- */
+
+.info-container {
+  background-color: rgb(249, 242, 232);
+  position: relative;
+  display: flex;
+  flex-direction: column; /* stack toggle + links vertically */
+  margin-top: 2%;
+  border-radius: 20px 0 20px 20px;
+  border: 2px solid black;
+  box-shadow: 5px 5px #000000;
+  box-sizing: border-box;
+  overflow: hidden;
+  height: auto;  /* let content dictate height */
+}
+
+/* Toggle button (hidden by default on desktop) */
+.info-toggle {
+  display: none;
+  background-color: #61b58e;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+  text-align: left;
+  width: 100%;
+  box-sizing: border-box;
+}
+.info-toggle:focus {
+  outline: 2px solid #315587;
+}
+
+/* Quick-links list (visible by default on desktop) */
+.info-links {
+  padding: 1rem;
+  font-family: 'Poppins', sans-serif;
+}
+
+.info-links h2 {
+  margin-top: 0;
+  font-size: 1.2rem;
+  color: #315587;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 0.5rem;
+}
+
+.info-links ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.info-links li {
+  margin-top: 0.5rem;
+}
+
+.info-links a {
+  display: block;
+  padding: 0.5rem 0.75rem;
+  border-radius: 10px;
+  text-decoration: none;
+  background-color: #eafff3;
+  color: #315587;
+  transition: background-color 0.3s, color 0.3s;
+  font-size: 1rem;
+  box-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+.info-links a:hover {
+  background-color: #72c488;
+  color: white;
+}
+
+.info-links {
+  padding: 1rem;
+  display: block; /* desktop will show it; mobile overrides to hide initially */
+}
+.info-links h2 {
+  margin-top: 0;
+  font-size: 1.2rem;
+}
+.info-links ul {
+  list-style: none;
+  margin: 0;
+  padding-left: 0;
+}
+.info-links li + li {
+  margin-top: 0.5rem;
+}
+
+/* When the “expanded” class is toggled, force display */
+.info-links.expanded {
+  display: block;
+}
+.info-links.collapsed {
+  display: none;
+}
+
+/* ----------------------------------------- */
+/* DESKTOP ONLY */
+/* ----------------------------------------- */
+.desktop-only {
+  display: none;  /* hidden by default; shown in desktop media query */
+}
+
+@media only screen and (min-width: 769px) {
+  /* Show desktop‐only sidebar */
+  .desktop-only {
+    display: flex;
+    flex-direction: column;
+    width: 25%;         /* sidebar width on desktop */
+    margin-left: 0;     /* spacing handled by .page-content’s margin */
+    margin-right: 5%;   /* small right margin off the edge */
+    max-height: 500px;
+    background-color: rgb(227, 255, 214);
+  }
+
+  /* Inside desktop‐only, always show links; hide toggle if you don’t want collapsing */
+  #info-toggle-desktop {
+    display: none;     /* remove if you want a collapsible sidebar on desktop */
+  }
+  #info-links-desktop {
+    display: block;
+  }
+
+  /* Ensure .row stays a 2-column layout */
+  .row {
+    display: flex;
+    flex-direction: row;
+  }
+  .page-content {
+    width: 65%;        /* articles area width on desktop */
+    margin-left: 5%;
+  }
+}
+
+/* ----------------------------------------- */
+/* MOBILE ONLY */
+/* ----------------------------------------- */
+.mobile-only {
+  display: none; /* hidden by default; shown in mobile media query */
+}
+
+@media only screen and (max-width: 768px) {
+  /* Stack .row vertically on small screens */
+  .row {
+    display: flex;
+    flex-direction: column;
+  }
+  .page-content {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  /* Show the mobile-only accordion right under the header */
+  .mobile-only {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 1rem 0;  /* vertical spacing from header */
+  }
+
+  /* Hide desktop‐only block on mobile */
+  .desktop-only {
+    display: none;
+  }
+
+  /* Show the toggle button on mobile */
+  #info-toggle-mobile {
+    display: block;
+  }
+
+  /* Quick links are hidden initially on mobile; expand by toggling .expanded */
+  #info-links-mobile {
+    display: none;
+    background-color: rgb(249, 242, 232);
+    padding: 1rem;
+  }
+  #info-links-mobile.expanded {
+    display: block;
+  }
+  #info-links-mobile h2 {
+    margin-top: 0;
+    font-size: 1.2rem;
+  }
+  #info-links-mobile ul {
+    list-style: none;
+    margin: 0;
+    padding-left: 0;
+  }
+  #info-links-mobile li + li {
+    margin-top: 0.5rem;
+  }
+}
+

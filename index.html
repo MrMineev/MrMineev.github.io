@@ -24,6 +24,21 @@
 
     <br>
 
+    <div class="info-container mobile-only">
+      <button id="info-toggle-mobile" class="info-toggle">
+        ☰ Daniel Mineev
+      </button>
+      <nav id="info-links-mobile" class="info-links">
+        <h2>Daniel Mineev</h2>
+        <ul>
+          <li><a href="#olsol">Olympiad Solutions Archive</a></li>
+          <li><a href="myprob.html">My Olympiad Problems</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <br>
+
     <div style="text-align: center;">
       <button class="button-link" onclick="window.location.href='posts.html'">
         Go to Posts
@@ -39,277 +54,295 @@
 
     <br>
 
-    <div id='articleList' style='text-align: center;'>
-    </div>
+    <br>
 
-    <div id='articles'>
-      <article class="post-container" onclick="window.location.href='articles/gravity-simulator/gravity-simulator'">
-        <div class="image-column">
-          <img src="assets/space-simulator.png" alt="Article Image">
+    <br>
+
+    <div class="row">
+      <div class="page-content">
+        <div id='articleList' style='text-align: center;'>
         </div>
-        <div class="content-column">
-          <h1 class="article-name">🌍 Simulating Gravity</h1>
-          <p class="article-description">
-            This project combines physics principles and modern software to simulate gravity and a rocket that you can control.
-          </p>
-          <span class="publication-date">🗓️ July 10, 2023</span>
+
+        <div id='articles'>
+          <article class="post-container" onclick="window.location.href='articles/gravity-simulator/gravity-simulator'">
+            <div class="image-column">
+              <img src="assets/space-simulator.png" alt="Article Image">
+            </div>
+            <div class="content-column">
+              <h1 class="article-name">🌍 Simulating Gravity</h1>
+              <p class="article-description">
+                This project combines physics principles and modern software to simulate gravity and a rocket that you can control.
+              </p>
+              <span class="publication-date">🗓️ July 10, 2023</span>
+            </div>
+          </article>
+
+          <article class="post-container" onclick="window.location.href='articles/recommendation-system/recommendation-system'">
+              <div class="image-column">
+                <img src="assets/recommendation-system.png" alt="Article Image">
+              </div>
+              <div class="content-column">
+                <h1 class="article-name">🔍 Recommendation Systems</h1>
+                <p class="article-description">
+                  What does a person like? How to predict how much a person would like something?
+                  The answer to these questions lies in Recommendations Systems.
+                </p>
+                <span class="publication-date">🗓️ July 12, 2023</span>
+              </div>
+          </article>
+
+          <article class="post-container" onclick="window.location.href='articles/dsa/dsa'">
+              <div class="image-column">
+                <img src="assets/lock-image.png" alt="Article Image">
+              </div>
+              <div class="content-column">
+                <h1 class="article-name">🔐 Digital Signature</h1>
+                <p class="article-description">
+                  What is DSA and How Does it Work?
+                </p>
+                <span class="publication-date">🗓️ July 14, 2023</span>
+              </div>
+          </article>
+
+          <article class="post-container" onclick="window.location.href='articles/jpeg/jpeg'">
+              <div class="image-column">
+                <img src="assets/jpeg-image.png" alt="Article Image">
+              </div>
+              <div class="content-column">
+                <h1 class="article-name">🖼 Image Compression</h1>
+                <p class="article-description">
+                  How to compress information? How does JPEG work?
+                </p>
+                <span class="publication-date">🗓️ July 17, 2023</span>
+              </div>
+          </article>
+
+          <article class="post-container" onclick="window.location.href='articles/lambda-calculus/lambda-calculus'">
+              <div class="image-column">
+                <img src="assets/lambda-calculus.png" alt="Article Image">
+              </div>
+              <div class="content-column">
+                <h1 class="article-name">λ Lambda Calculus</h1>
+                <p class="article-description">
+                  What is Lambda Calculus? What is the underlying principal of Functional Programming?
+                </p>
+                <span class="publication-date">🗓️ July 22, 2023</span>
+              </div>
+          </article>
+
+          <article class="post-container" onclick="window.location.href='articles/hyperion/hyperion'">
+              <div class="image-column">
+                <img src="assets/hyperion-logo.png" alt="Article Image">
+              </div>
+              <div class="content-column">
+                <h1 class="article-name">🌓 Hyperion</h1>
+                <p class="article-description">
+                  A programming language called Hyperion.
+                </p>
+                <span class="publication-date">🗓️ July 30, 2023</span>
+              </div>
+          </article>
+
+          <article class="post-container" onclick="window.location.href='articles/hpm/hpm'">
+              <div class="image-column">
+                <img src="assets/hpm-logo-filled.png" alt="Article Image">
+              </div>
+              <div class="content-column">
+                <h1 class="article-name">🌓 HPM</h1>
+                <p class="article-description">
+                  Hyperion Package Manager
+                </p>
+                <span class="publication-date">🗓️ August 3, 2023</span>
+              </div>
+          </article>
+
+          <article class="post-container" onclick="window.location.href='articles/congestion-game/congestion-game'">
+              <div class="image-column">
+                <img src="assets/congestion_game_logo.png" alt="Article Image">
+              </div>
+              <div class="content-column">
+                <h1 class="article-name">🎮 Congestion Game</h1>
+                <p class="article-description">
+                  Building new roads doesn't always improve travel time.
+                </p>
+                <span class="publication-date">🗓️ August 16, 2023</span>
+              </div>
+          </article>
+
+          <article class="post-container" onclick="window.location.href='articles/newton-fractal/newton-fractal'">
+              <div class="image-column">
+                <img src="assets/newton-fractal-logo.png" alt="Article Image">
+              </div>
+              <div class="content-column">
+                <h1 class="article-name">🦋 The Newton Fractal</h1>
+                <p class="article-description">
+                  The Newton Fractal, what does it have to do with Newton?
+                </p>
+                <span class="publication-date">🗓️ September 25, 2023</span>
+              </div>
+          </article>
+
+          <article class="post-container" onclick="window.location.href='articles/coffee-cup/coffee-cup'">
+              <div class="image-column">
+                <img src="assets/coffee.avif" alt="Article Image">
+              </div>
+              <div class="content-column">
+                <h1 class="article-name">☕️ Coffee Cups?</h1>
+                <p class="article-description">
+                  How to predict the tempurature of a coffee cup over time?
+                </p>
+                <span class="publication-date">🗓️ October 15, 2023</span>
+              </div>
+          </article>
+
+          <article class="post-container" onclick="window.location.href='articles/harmonic-series/harmonic-series'">
+              <div class="image-column">
+                <img src="assets/harmonic_series_logo.png" alt="Article Image">
+              </div>
+              <div class="content-column">
+                <h1 class="article-name">🦑 Harmonic Series</h1>
+                <p class="article-description">
+                  Stacking Bricks, Divergance of Harmonic Series, and more
+                </p>
+                <span class="publication-date">🗓️ December 3, 2023</span>
+              </div>
+          </article>
+
+          <article class="post-container" onclick="window.location.href='articles/ramsey-numbers/ramsey-numbers'">
+              <div class="image-column">
+                <img src="assets/counterexample-5-nodes.png" alt="Article Image">
+              </div>
+              <div class="content-column">
+                <h1 class="article-name">🎲 Ramsey Numbers</h1>
+                <p class="article-description">
+                  Finding minimal sizes of graphs so that a particular pattern would appear with certainty.
+                </p>
+                <span class="publication-date">🗓️ January 22, 2024</span>
+              </div>
+          </article>
+
+          <article class="post-container" onclick="window.location.href='articles/intro-rl/intro-rl'">
+              <div class="image-column">
+                <img src="assets/logo-rl.jpeg" alt="Article Image">
+              </div>
+              <div class="content-column">
+                <h1 class="article-name">🤖 Intro to Reinforcement Learning</h1>
+                <p class="article-description">
+                Exploring Monte Carlo Methods, solving blackjack, playing race games and more!
+                </p>
+                <span class="publication-date">🗓️ February 25, 2024</span>
+              </div>
+          </article>
+
+          <article class="post-container" onclick="window.location.href='articles/symmetric-polynomials/symmetric_polynomials.html'">
+              <div class="image-column">
+                <img src="assets/symmetry_article.jpg" alt="Article Image">
+              </div>
+              <div class="content-column">
+                <h1 class="article-name">🦋 Symmetric Polynomials</h1>
+                <p class="article-description">
+                Exploring Symmetric Polynomials, and the concept of Elementary Symmetric Polynomials!
+                </p>
+                <span class="publication-date">🗓️ April 13, 2024</span>
+              </div>
+          </article>
+
+          <article class="post-container" onclick="window.location.href='articles/perfect-numbers/doc.html'">
+              <div class="image-column">
+                <img src="assets/perfect_numbers.jpg" alt="Article Image">
+              </div>
+              <div class="content-column">
+                <h1 class="article-name">💯 On the topic of Perfect Numbers</h1>
+                <p class="article-description">
+                  Perfect Numbers and considering examples of prime factoring forms of perfect numbers!
+                </p>
+                <span class="publication-date">🗓️ May 14, 2024</span>
+              </div>
+          </article>
+
+          <article class="post-container" onclick="window.location.href='articles/collatz-conjecture/devproof.html'">
+              <div class="image-column">
+                <img src="assets/collatz-conjecture-logo.jpg" alt="Article Image">
+              </div>
+              <div class="content-column">
+                <h1 class="article-name">♾️  Thoughts on the Collatz Conjecture</h1>
+                <p class="article-description">
+                  The Collatz Conjecture, who hasn't heard of it?
+                </p>
+                <span class="publication-date">🗓️ June 10, 2024</span>
+              </div>
+          </article>
+
+          <article class="post-container" onclick="window.location.href='articles/discrete-calculus/discrete_calculus.html'">
+              <div class="image-column">
+                <img src="assets/discrete-calculus-logo.jpeg" alt="Article Image">
+              </div>
+              <div class="content-column">
+                <h1 class="article-name">🎰 Discrete Calculus</h1>
+                <p class="article-description">
+                  Discrete Calculus: you guessed it, a discrete version of calculus!
+                </p>
+                <span class="publication-date">🗓️ June 18, 2024</span>
+              </div>
+          </article>
+
+          <article class="post-container" onclick="window.location.href='articles/optimal-partitioning-number-theory/doc.html'">
+              <div class="image-column">
+                <img src="assets/opt-part-num.jpg" alt="Article Image">
+              </div>
+              <div class="content-column">
+                <h1 class="article-name">7️⃣ Optimal Partitioning (Number Theory)</h1>
+                <p class="article-description">
+                  Exploring an interesting problem...
+                </p>
+                <span class="publication-date">🗓️ September 30, 2024</span>
+              </div>
+          </article>
+        
+          <article class="post-container" onclick="window.location.href='articles/thebaults-theorem/doc.html'">
+              <div class="image-column">
+                <img src="assets/tebo-theorem.jpg" alt="Article Image">
+              </div>
+              <div class="content-column">
+                <h1 class="article-name">📐 Sawayama's Lemma and Thebault's circles</h1>
+                <p class="article-description">
+                  This paper compiles a collection of geometric proofs and related constructions that center around Sawayama's Lemma and Thébault's theorem.
+                </p>
+                <span class="publication-date">🗓️ December 21, 2024</span>
+              </div>
+          </article>
         </div>
-      </article>
 
-      <article class="post-container" onclick="window.location.href='articles/recommendation-system/recommendation-system'">
-          <div class="image-column">
-            <img src="assets/recommendation-system.png" alt="Article Image">
-          </div>
-          <div class="content-column">
-            <h1 class="article-name">🔍 Recommendation Systems</h1>
-            <p class="article-description">
-              What does a person like? How to predict how much a person would like something?
-              The answer to these questions lies in Recommendations Systems.
-            </p>
-            <span class="publication-date">🗓️ July 12, 2023</span>
-          </div>
-      </article>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+      </div>
 
-      <article class="post-container" onclick="window.location.href='articles/dsa/dsa'">
-          <div class="image-column">
-            <img src="assets/lock-image.png" alt="Article Image">
-          </div>
-          <div class="content-column">
-            <h1 class="article-name">🔐 Digital Signature</h1>
-            <p class="article-description">
-              What is DSA and How Does it Work?
-            </p>
-            <span class="publication-date">🗓️ July 14, 2023</span>
-          </div>
-      </article>
-
-      <article class="post-container" onclick="window.location.href='articles/jpeg/jpeg'">
-          <div class="image-column">
-            <img src="assets/jpeg-image.png" alt="Article Image">
-          </div>
-          <div class="content-column">
-            <h1 class="article-name">🖼 Image Compression</h1>
-            <p class="article-description">
-              How to compress information? How does JPEG work?
-            </p>
-            <span class="publication-date">🗓️ July 17, 2023</span>
-          </div>
-      </article>
-
-      <article class="post-container" onclick="window.location.href='articles/lambda-calculus/lambda-calculus'">
-          <div class="image-column">
-            <img src="assets/lambda-calculus.png" alt="Article Image">
-          </div>
-          <div class="content-column">
-            <h1 class="article-name">λ Lambda Calculus</h1>
-            <p class="article-description">
-              What is Lambda Calculus? What is the underlying principal of Functional Programming?
-            </p>
-            <span class="publication-date">🗓️ July 22, 2023</span>
-          </div>
-      </article>
-
-      <article class="post-container" onclick="window.location.href='articles/hyperion/hyperion'">
-          <div class="image-column">
-            <img src="assets/hyperion-logo.png" alt="Article Image">
-          </div>
-          <div class="content-column">
-            <h1 class="article-name">🌓 Hyperion</h1>
-            <p class="article-description">
-              A programming language called Hyperion.
-            </p>
-            <span class="publication-date">🗓️ July 30, 2023</span>
-          </div>
-      </article>
-
-      <article class="post-container" onclick="window.location.href='articles/hpm/hpm'">
-          <div class="image-column">
-            <img src="assets/hpm-logo-filled.png" alt="Article Image">
-          </div>
-          <div class="content-column">
-            <h1 class="article-name">🌓 HPM</h1>
-            <p class="article-description">
-              Hyperion Package Manager
-            </p>
-            <span class="publication-date">🗓️ August 3, 2023</span>
-          </div>
-      </article>
-
-      <article class="post-container" onclick="window.location.href='articles/congestion-game/congestion-game'">
-          <div class="image-column">
-            <img src="assets/congestion_game_logo.png" alt="Article Image">
-          </div>
-          <div class="content-column">
-            <h1 class="article-name">🎮 Congestion Game</h1>
-            <p class="article-description">
-              Building new roads doesn't always improve travel time.
-            </p>
-            <span class="publication-date">🗓️ August 16, 2023</span>
-          </div>
-      </article>
-
-      <article class="post-container" onclick="window.location.href='articles/newton-fractal/newton-fractal'">
-          <div class="image-column">
-            <img src="assets/newton-fractal-logo.png" alt="Article Image">
-          </div>
-          <div class="content-column">
-            <h1 class="article-name">🦋 The Newton Fractal</h1>
-            <p class="article-description">
-              The Newton Fractal, what does it have to do with Newton?
-            </p>
-            <span class="publication-date">🗓️ September 25, 2023</span>
-          </div>
-      </article>
-
-      <article class="post-container" onclick="window.location.href='articles/coffee-cup/coffee-cup'">
-          <div class="image-column">
-            <img src="assets/coffee.avif" alt="Article Image">
-          </div>
-          <div class="content-column">
-            <h1 class="article-name">☕️ Coffee Cups?</h1>
-            <p class="article-description">
-              How to predict the tempurature of a coffee cup over time?
-            </p>
-            <span class="publication-date">🗓️ October 15, 2023</span>
-          </div>
-      </article>
-
-      <article class="post-container" onclick="window.location.href='articles/harmonic-series/harmonic-series'">
-          <div class="image-column">
-            <img src="assets/harmonic_series_logo.png" alt="Article Image">
-          </div>
-          <div class="content-column">
-            <h1 class="article-name">🦑 Harmonic Series</h1>
-            <p class="article-description">
-              Stacking Bricks, Divergance of Harmonic Series, and more
-            </p>
-            <span class="publication-date">🗓️ December 3, 2023</span>
-          </div>
-      </article>
-
-      <article class="post-container" onclick="window.location.href='articles/ramsey-numbers/ramsey-numbers'">
-          <div class="image-column">
-            <img src="assets/counterexample-5-nodes.png" alt="Article Image">
-          </div>
-          <div class="content-column">
-            <h1 class="article-name">🎲 Ramsey Numbers</h1>
-            <p class="article-description">
-              Finding minimal sizes of graphs so that a particular pattern would appear with certainty.
-            </p>
-            <span class="publication-date">🗓️ January 22, 2024</span>
-          </div>
-      </article>
-
-      <article class="post-container" onclick="window.location.href='articles/intro-rl/intro-rl'">
-          <div class="image-column">
-            <img src="assets/logo-rl.jpeg" alt="Article Image">
-          </div>
-          <div class="content-column">
-            <h1 class="article-name">🤖 Intro to Reinforcement Learning</h1>
-            <p class="article-description">
-            Exploring Monte Carlo Methods, solving blackjack, playing race games and more!
-            </p>
-            <span class="publication-date">🗓️ February 25, 2024</span>
-          </div>
-      </article>
-
-      <article class="post-container" onclick="window.location.href='articles/symmetric-polynomials/symmetric_polynomials.html'">
-          <div class="image-column">
-            <img src="assets/symmetry_article.jpg" alt="Article Image">
-          </div>
-          <div class="content-column">
-            <h1 class="article-name">🦋 Symmetric Polynomials</h1>
-            <p class="article-description">
-            Exploring Symmetric Polynomials, and the concept of Elementary Symmetric Polynomials!
-            </p>
-            <span class="publication-date">🗓️ April 13, 2024</span>
-          </div>
-      </article>
-
-      <article class="post-container" onclick="window.location.href='articles/perfect-numbers/doc.html'">
-          <div class="image-column">
-            <img src="assets/perfect_numbers.jpg" alt="Article Image">
-          </div>
-          <div class="content-column">
-            <h1 class="article-name">💯 On the topic of Perfect Numbers</h1>
-            <p class="article-description">
-              Perfect Numbers and considering examples of prime factoring forms of perfect numbers!
-            </p>
-            <span class="publication-date">🗓️ May 14, 2024</span>
-          </div>
-      </article>
-
-      <article class="post-container" onclick="window.location.href='articles/collatz-conjecture/devproof.html'">
-          <div class="image-column">
-            <img src="assets/collatz-conjecture-logo.jpg" alt="Article Image">
-          </div>
-          <div class="content-column">
-            <h1 class="article-name">♾️  Thoughts on the Collatz Conjecture</h1>
-            <p class="article-description">
-              The Collatz Conjecture, who hasn't heard of it?
-            </p>
-            <span class="publication-date">🗓️ June 10, 2024</span>
-          </div>
-      </article>
-
-      <article class="post-container" onclick="window.location.href='articles/discrete-calculus/discrete_calculus.html'">
-          <div class="image-column">
-            <img src="assets/discrete-calculus-logo.jpeg" alt="Article Image">
-          </div>
-          <div class="content-column">
-            <h1 class="article-name">🎰 Discrete Calculus</h1>
-            <p class="article-description">
-              Discrete Calculus: you guessed it, a discrete version of calculus!
-            </p>
-            <span class="publication-date">🗓️ June 18, 2024</span>
-          </div>
-      </article>
-
-      <article class="post-container" onclick="window.location.href='articles/optimal-partitioning-number-theory/doc.html'">
-          <div class="image-column">
-            <img src="assets/opt-part-num.jpg" alt="Article Image">
-          </div>
-          <div class="content-column">
-            <h1 class="article-name">7️⃣ Optimal Partitioning (Number Theory)</h1>
-            <p class="article-description">
-              Exploring an interesting problem...
-            </p>
-            <span class="publication-date">🗓️ September 30, 2024</span>
-          </div>
-      </article>
-    
-      <article class="post-container" onclick="window.location.href='articles/thebaults-theorem/doc.html'">
-          <div class="image-column">
-            <img src="assets/tebo-theorem.jpg" alt="Article Image">
-          </div>
-          <div class="content-column">
-            <h1 class="article-name">📐 Sawayama's Lemma and Thebault's circles</h1>
-            <p class="article-description">
-              This paper compiles a collection of geometric proofs and related constructions that center around Sawayama's Lemma and Thébault's theorem.
-            </p>
-            <span class="publication-date">🗓️ December 21, 2024</span>
-          </div>
-      </article>
+      <div class="info-container desktop-only">
+        <nav id="info-links-desktop" class="info-links">
+          <h2>Daniel Mineev</h2>
+          <ul>
+            <li><a href="#olsol">Olympiad Solutions Archive</a></li>
+            <li><a href="myprob.html">My Olympiad Problems</a></li>
+          </ul>
+        </nav>
+      </div>
     </div>
-
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
 
     <script>
       // Get all articles
@@ -336,6 +369,15 @@
 
       // Append the links div to the articleList div
       document.getElementById('articleList').appendChild(linksDiv);
+
+      // for phones
+      document.addEventListener("DOMContentLoaded", () => {
+        const toggleBtnMobile = document.getElementById("info-toggle-mobile");
+        const linksNavMobile = document.getElementById("info-links-mobile");
+        toggleBtnMobile.addEventListener("click", () => {
+          linksNavMobile.classList.toggle("expanded");
+        });
+      });
     </script>
 
     <script src="main.js"></script>
