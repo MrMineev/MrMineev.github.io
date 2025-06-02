@@ -93,6 +93,28 @@
         /* rotation via CSS variable: */
         transform: rotate(calc(-15deg + 30deg * var(--rand-rotate)));
       }
+
+      ul.styled-list {
+        list-style: none; /* remove default bullets */
+        padding: 0;
+        max-width: 400px;
+        margin: auto;
+      }
+
+      ul.styled-list li {
+        background: #fff;
+        margin-bottom: 12px;
+        padding: 15px 20px;
+        border-left: 6px solid #4CAF50;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        transition: transform 0.2s, background 0.2s;
+      }
+
+      ul.styled-list li:hover {
+        background: #e8f5e9;
+        transform: translateX(5px);
+      }
     </style>
   </head>
   <body>
@@ -144,6 +166,17 @@
     <br>
     <br>
     <br>
+    <ul class="styled-list">
+      <li>\(f(f(x + y)) = f(x) + f(y) - y\)</li>
+      <li>\(f(f(x + y)) = f(x) + f(y)\) where \(f : \mathbb{Q} \rightarrow \mathbb{Q}\)</li>
+      <li>\(f(x^5 - 4x^3 + f(y)) + f(y) = f(x^3 + xf(y))\)</li>
+    </ul>
+    <br>
+    <br>
+    <br>
+    <ul class="styled-list">
+      <li>\(3b^2 \leq \sqrt[4]{\left( \frac{1}{c^2} + b^2 + c^2 \right) \left(  \frac{1}{c^6} + \frac{1}{b^6} + \frac{1}{c^2} \right) \left(  \frac{b^6}{c^2} + b^4 + c^4 \right)^2}\) for any \(b,c \in \mathbb{R}\)</li>
+    </ul>
     <br>
     <br>
     <br>
@@ -156,6 +189,9 @@
     <br>
     <br>
     <br>
+    <ul class="styled-list">
+      <li>Alice and Bob received a gift for Christmas, which was a board game where there were 2024 cities. Along with the board, a figurine knight was given. They decided to play a game, the knight starts in city 1, and then every turn, you can move the knight to another city, but every time you do so, the knight leaves a mark on the road between the two cities. The knight is not allowed to travel on previously marked roads. Here is the twist: the knight does not want to go to City 2024, meaning if a player moves the knight to City 2024, they lose. Alice moves first. Who can guarantee a victory?</li>
+    </ul>
     <br>
     <br>
     <br>
