@@ -1,0 +1,975 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Article | MrMineev </title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"rel="stylesheet">
+    <link rel="stylesheet" href="../article-style.css">
+    <link rel="stylesheet" href="hyperion.css">
+
+    <link rel="icon" href="../../assets/hyperion-icon.png">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+    <!---->
+    <!-- BACK TO TOP BUTTON -->
+    <a href="#" class="back-to-top">
+      <span class="material-icons">arrow_upward</span>
+    </a>
+
+    <h1 id="global-name" onclick="window.location.href='https://mrmineev.github.io/'">MrMineev</h1>
+    <div id="global-name-line"></div>
+
+    <br>
+    <!-- TABLE OF CONTENTS -->
+    <div class="toc_wrapper">
+      <div id="toc_container">
+        <p class="toc_title">Contents</p>
+        <ul class="toc_list">
+          <li><a href="#what-is-hyperion">1 What is Hyperion?</a>
+          <li><a href="#variables">2 Variables</a></li>
+          <li><a href="#data-types">3 Data Types</a></li>
+          <li><a href="#built-in-functions">4 Built-in Functions</a></li>
+          <li><a href="#control-flow">5 Control Flow</a></li>
+          <ul>
+            <li><a href="#if-stmt">5.1 If Statements</a></li>
+            <li><a href="#while-stmt">5.2 While Loops</a></li>
+            <li><a href="#for-stmt">5.2 For Loops</a></li>
+          </ul>
+          <li><a href="#functions">6 Functions</a></li>
+          <li><a href="#classes">7 Classes</a></li>
+          <li><a href="#import-stmt">8 Import Statement</a></li>
+          <ul>
+            <li><a href="#std-lib">8.1 Standart Library</a></li>
+            <ul>
+              <li><a href="#type-conv">8.1.1 Type Conversion</a></li>
+              <li><a href="#time">8.1.2 Time</a></li>
+              <li><a href="#sys">8.1.3 Sys</a></li>
+              <li><a href="#string">8.1.4 String</a></li>
+              <li><a href="#math">8.1.5 Math</a></li>
+              <li><a href="#file_io">8.1.6 File I/O</a></li>
+              <li><a href="#list">8.1.7 List</a></li>
+              <li><a href="#console">8.1.8 Console</a></li>
+              <li><a href="#random">8.1.9 Random</a></li>
+            </ul>
+            <li><a href="#module-stmt">8.2 Modules</a></li>
+          </ul>
+          <li><a href="#links">9 Links</a></li>
+        </ul>
+      </div> 
+    </div>
+    <!-- TABLE OF CONTENTS -->
+    
+    <h2 id="article-name">🌓 Hyperion</h2>
+    
+    <div id="article-content">
+      <div id="what-is-hyperion" class="section-name" style="text-align: center;">
+        <h2 style="display: inline;" class="symbol-change">§</h2><h2 style="display: inline;"> What is Hyperion?</h2>
+      </div>
+
+      <p class="content-text">
+        Hyperion is a dynamically typed programming language with a garbage collector. Hyperion compiles to bytecode and executes it using a VM (Virtual Machine).
+      </p>
+      <div style="text-align: center;">
+        <img style="width: 40%;" src="../../assets/hyperion-behind-the-scenes.png"></img>
+      </div>
+
+      <br>
+
+      <div id="variables" class="section-name" style="text-align: center;">
+        <h2 style="display: inline;" class="symbol-change">§</h2><h2 style="display: inline;"> Variables</h2>
+      </div>
+
+      <p class="content-text">
+        In Hyperion, you would use the 'let' keyword to create a variable.
+      </p>
+
+      <pre>
+        <code style="color:rgb(68, 68, 68); font-weight:400; background-color:rgb(240, 240, 240);background:rgb(240, 240, 240);display:block;padding: .5em;"><span style="color: #06b46b; font-weight:400;">let</span> a <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">5</span>;</code>
+      </pre>
+
+      <p class="content-text">
+        Because the language is dynamically typed, you can do the following.
+      </p>
+
+      <pre>
+        <code style="color:rgb(68, 68, 68); font-weight:400; background-color:rgb(240, 240, 240);background:rgb(240, 240, 240);display:block;padding: .5em;"><span style="color: #06b46b; font-weight:400;">let</span> a <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">5</span>;
+a <span style="color: #333333">=</span> <span style="background-color: #fff0f0; font-weight: bold">"Hello world!"</span>;</code>
+      </pre>
+
+      <div id="data-types" class="section-name" style="text-align: center;">
+        <h2 style="display: inline;" class="symbol-change">§</h2><h2 style="display: inline;"> Data Types</h2>
+      </div>
+
+      <p class="content-text">
+        In Hyperion, there are 4 data types.
+        <ul class="content-text">
+          <li>Numbers</li>
+          <li>Strings</li>
+          <li>Booleans</li>
+          <li>Lists</li>
+        </ul>
+      </p>
+      <p class="content-text">
+        The critical thing to notice here is that lists can contain different types simultaneously.
+      </p>
+      <pre>
+        <code style="color:rgb(68, 68, 68); font-weight:400; background-color:rgb(240, 240, 240);background:rgb(240, 240, 240);display:block;padding: .5em;"><span style="color: #06b46b; font-weight:400;">let</span> a <span style="color: #333333">=</span> [
+  <span style="color: #0000DD; font-weight: bold">5</span>,
+  <span style="background-color: #fff0f0; font-weight: bold">"Hello world!"</span>,
+  <span style="color: #f28622; font-weight: bold;">true</span>,
+  [<span style="color: #0000DD; font-weight: bold">1</span>, <span style="color: #0000DD; font-weight: bold">2</span>, <span style="color: #f28622; font-weight: bold">true</span>]
+];</code>
+      </pre>
+
+      <p class="content-text">
+        When performing operations, the two operands must be the same type. You can't add an integer and a string. Here are all the operators supported in Hyperion.
+        <table class="content-text">
+          <thead>
+            <th>Operation</th>
+            <th>Numbers</th>
+            <th>Strings</th>
+            <th>Booleans</th>
+            <th>Lists</th>
+          </thead>
+          <tbody>
+            <tr>
+              <td>*</td>
+              <td>2 * 3 = 6</td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>-</td>
+              <td>5 - 6 = -1</td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>/</td>
+              <td>5 / 2 = 2.5</td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>+</td>
+              <td>5 + 5 = 10</td>
+              <td>"ab" + "oba" = "aboba"</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>%</td>
+              <td>10 % 4 = 2</td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>==</td>
+              <td>5 == 5</td>
+              <td>"aboba" == "aboba"</td>
+              <td>true == true</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>>=</td>
+              <td>5 >= 5, 5 >= 3</td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>&lt;=</td>
+              <td>5 &lt;= 5, 3 &lt;= 5</td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>></td>
+              <td>5 > 3</td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>&lt;</td>
+              <td>3 &lt; 5</td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>!</td>
+              <td>always false</td>
+              <td>always false</td>
+              <td>!true = false, !false = true</td>
+              <td>always false</td>
+            </tr>
+            <tr>
+              <td>^</td>
+              <td>10 ^ 3 = 9, basic XOR</td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+      </p>
+
+      <br>
+
+      <div id="built-in-functions" class="section-name" style="text-align: center;">
+        <h2 style="display: inline;" class="symbol-change">§</h2><h2 style="display: inline;"> Built-in Functions</h2>
+      </div>
+
+      <p class="content-text">
+        <table class="content-text">
+          <thead>
+            <th>Function</th>
+            <th>Usage</th>
+            <th>Description</th>
+          </thead>
+          <tbody>
+            <tr>
+              <td>inc</td>
+              <td>inc &lt;var></td>
+              <td>adds 1 to a variable, the same thing as writing &lt;var> = &lt;var> + 1;</td>
+            </tr>
+            <tr>
+              <td>decr</td>
+              <td>decr &lt;var></td>
+              <td>subtracts 1 from a variable, the same thing as writing &lt;var> = &lt;var> - 1;</td>
+            </tr>
+            <tr>
+              <td>print</td>
+              <td>print &lt;object></td>
+              <td>prints an object and goes to the next line. If you don't want to go switch lines add | at the end.</td>
+            </tr>
+          </tbody>
+        </table>
+      </p>
+
+      <br>
+
+      <div id="control-flow" class="section-name" style="text-align: center;">
+        <h2 style="display: inline;" class="symbol-change">§</h2><h2 style="display: inline;"> Control Flow</h2>
+      </div>
+
+      <div id="if-stmt" class="section-name" style="text-align: center;">
+        <h2 style="display: inline;" class="symbol-change">§§</h2><h2 style="display: inline;"> If</h2>
+      </div>
+
+      <p class="content-text">
+        The syntax for if statements is simple.
+      </p>
+
+      <pre>
+              <code style="color:rgb(68, 68, 68); font-weight:400; background-color:rgb(240, 240, 240);background:rgb(240, 240, 240);display:block;padding: .5em;"><span style="color: #06b46b; font-weight:400;">if</span> (<span style="color: #e900fe">&lt;condition></span>) {
+  <span style="color: #0000fe">&lt;body></span> 
+} <span style="color: #06b46b; font-weight:400;">else if</span> (<span style="color: #e900fe">&lt;condition></span>) {
+  <span style="color: #0000fe">&lt;body></span> 
+} <span style="color: #06b46b; font-weight:400;">else if</span> {
+  <span style="color: #0000fe">&lt;body></span> 
+}</code>
+      </pre>
+
+      <br>
+
+      <div id="while-stmt" class="section-name" style="text-align: center;">
+        <h2 style="display: inline;" class="symbol-change">§§</h2><h2 style="display: inline;"> While</h2>
+      </div>
+
+      <p class="content-text">
+        Hyperion also has while loops.
+      </p>
+
+      <pre>
+        <code style="color:rgb(68, 68, 68); font-weight:400; background-color:rgb(240, 240, 240);background:rgb(240, 240, 240);display:block;padding: .5em;"><span style="color: #06b46b; font-weight:400;">while</span> (<span style="color: #e900fe">&lt;condition></span>) {
+  <span style="color: #0000fe">&lt;body></span> 
+}</code>
+      </pre>
+
+      <br>
+
+      <div id="for-stmt" class="section-name" style="text-align: center;">
+        <h2 style="display: inline;" class="symbol-change">§§</h2><h2 style="display: inline;"> For</h2>
+      </div>
+
+      <pre>
+        <code style="color:rgb(68, 68, 68); font-weight:400; background-color:rgb(240, 240, 240);background:rgb(240, 240, 240);display:block;padding: .5em;"><span style="color: #06b46b; font-weight:400;">for</span> (statement1; statement2; statement3) {
+  <span style="color: #0000fe">&lt;body></span> 
+}</code>
+      </pre>
+
+      <p class="content-text">
+        Statement 1 is executed once before the execution of the code block.<br>
+        Statement 2 defines the condition for executing the code block.<br>
+        Statement 3 is executed every time after the code block has been completed.
+      </p>
+      <p class="content-text">
+        Here is an example of how to add 1 to each item in a list in Hyperion.
+      </p>
+      <pre>
+              <code style="color:rgb(68, 68, 68); font-weight:400; background-color:rgb(240, 240, 240);background:rgb(240, 240, 240);display:block;padding: .5em;"><span style="color: #06b46b; font-weight:400;">let</span> a <span style="color: #333333">=</span> [1, 2, 3];
+<span style="color: #06b46b; font-weight:400;">for</span> (<span style="color: #06b46b; font-weight:400;">let</span> i = 0; i &lt; 3; <span style="color: #0000fe">inc</span> i) {
+  <span style="color: #0000fe">inc</span> a[i];
+}
+<span style="color: #e48b17; font-weight:400;">print</span> a;</code>
+      </pre>
+
+      <br>
+
+      <div id="functions" class="section-name" style="text-align: center;">
+        <h2 style="display: inline;" class="symbol-change">§</h2><h2 style="display: inline;"> Functions</h2>
+      </div>
+
+      <p class="content-text">
+        To declare a function in Hyperion, use the 'def' keyword. Use the following format.
+      </p>
+
+      <pre>
+        <code style="color:rgb(68, 68, 68); font-weight:400; background-color:rgb(240, 240, 240);background:rgb(240, 240, 240);display:block;padding: .5em;"><span style="color: #06b46b; font-weight:400;">def</span> <span style="color: #e900fe">&lt;function name></span>(<span style="color: #e900fe">&lt;argument1></span>, <span style="color: #e900fe">&lt;argument2></span>, ...) {
+  <span style="color: #0000fe">&lt;body></span>
+}</code>
+      </pre>
+
+      <p class="content-text">
+        You can use the return keyword to return something from a function. For example, you can write the following to write the function that takes in a number x and returns x * x.
+      </p>
+
+      <pre>
+        <code style="color:rgb(68, 68, 68); font-weight:400; background-color:rgb(240, 240, 240);background:rgb(240, 240, 240);display:block;padding: .5em;"><span style="color: #06b46b; font-weight:400;">def</span> <span style="color: #e900fe">f</span>(x) {
+  <span style="color: #0000fe">return</span> x * x;
+}</code>
+      </pre>
+
+      <p class="content-text">
+        Functions in Hyperion are also values. So you can pass functions as arguments to other functions and store them in variables.
+      </p>
+
+      <pre>
+              <code style="color:rgb(68, 68, 68); font-weight:400; background-color:rgb(240, 240, 240);background:rgb(240, 240, 240);display:block;padding: .5em;"><span style="color: #06b46b; font-weight:400;">def</span> <span style="color: #e900fe">f</span>(x) {
+  <span style="color: #0000fe">return</span> x * x;
+}
+<span style="color: #06b46b; font-weight:400;">let</span> g <span style="color: #333333">=</span> f;
+<span style="color: #e48b17; font-weight:400;">print</span> g(<span style="color: #0000DD; font-weight: bold">5</span>);</code>
+      </pre>
+
+      <p class="content-text">
+        And also, you can declare functions inside of functions.
+      </p>
+
+      <pre>
+              <code style="color:rgb(68, 68, 68); font-weight:400; background-color:rgb(240, 240, 240);background:rgb(240, 240, 240);display:block;padding: .5em;"><span style="color: #06b46b; font-weight:400;">def</span> <span style="color: #e900fe">f</span>(x) {
+  <span style="color: #06b46b; font-weight:400;">def</span> <span style="color: #e900fe">g</span>() {
+    <span style="color: #e48b17; font-weight:400;">print</span> x;
+  }
+  <span style="color: #0000fe">return</span> g;
+}
+<span style="color: #06b46b; font-weight:400;">let</span> x <span style="color: #333333">=</span> f(5);
+x();</code>
+      </pre>
+
+      <p class="content-text">
+        This code will output 5.
+      </p>
+
+      <br>
+
+      <div id="classes" class="section-name" style="text-align: center;">
+        <h2 style="display: inline;" class="symbol-change">§</h2><h2 style="display: inline;"> Classes</h2>
+      </div>
+
+      <p class="content-text">
+        In Hyperion, as in most programming languages, there are classes. To demonstrate how classes work, look at the following example.
+      </p>
+
+      <pre>
+        <code style="color:rgb(68, 68, 68); font-weight:400; background-color:rgb(240, 240, 240);background:rgb(240, 240, 240);display:block;padding: .5em;"><span style="color: blue; font-weight:400;">import</span> <span style="color: #e48b17; font-weight:400;">std</span> type_conv;
+
+<span style="color: #06b46b; font-weight:400;">class</span> <span style="color: #e900fe">Person</span> {
+  <span style="color: #06b46b; font-weight:400;">init</span>(age, name) {
+    <span style="color: #e48b17; font-weight:400;">this</span>.age = age;
+    <span style="color: #e48b17; font-weight:400;">this</span>.name = name;
+  }
+
+  <span style="color: #06b46b; font-weight:400;">show</span>() {
+    <span style="color: #e48b17; font-weight:400;">print</span> "[AGE]: " + <span style="color:blue; font-weight:400;">type_conv</span>:to_string(<span style="color: #e48b17; font-weight:400;">this</span>.age) + " [NAME]: " + <span style="color: #e48b17; font-weight:400;">this</span>.name;
+  }
+}
+
+<span style="color: #06b46b; font-weight:400;">let</span> Bob <span style="color: #333333">=</span> <span style="color:#e900fe; font-weight: 400;">Person</span>(41, "Bob");
+Bob.show();</code>
+      </pre> 
+
+      <p class="content-text">
+        This code will output '[AGE]: 41.000000 [NAME]: Bob'. The first line is an import of a standard library for type conversion.
+      </p>
+
+      <br>
+
+      <div id="import-stmt" class="section-name" style="text-align: center;">
+        <h2 style="display: inline;" class="symbol-change">§</h2><h2 style="display: inline;"> Import Statements</h2>
+      </div>
+
+      <p class="content-text">
+        There are two types of import statements. The first type is a standard library import and a module import.
+      </p>
+
+      <div id="std-lib" class="section-name" style="text-align: center;">
+        <h2 style="display: inline;" class="symbol-change">§§</h2><h2 style="display: inline;"> Standart Libraries</h2>
+      </div>
+
+      <p class="content-text">
+        In Hyperion, to import a standard library, the 'std' keyword is used.
+      </p>
+
+      <pre><code style="color:rgb(68, 68, 68); font-weight:400; background-color:rgb(240, 240, 240);background:rgb(240, 240, 240);display:block;padding: .5em;"><span style="color: blue; font-weight:400;">import</span> <span style="color: #e48b17; font-weight:400;">std</span> <span style="color: #e900fe">&lt;library name></span>;</code></pre>
+
+      <div id="type-conv" class="section-name" style="text-align: center;">
+        <h2 style="display: inline;" class="symbol-change">§§§</h2><h2 style="display: inline;"> Type Conversion (type_conv)</h2>
+      </div>
+
+      <br>
+
+      <table class="content-text">
+        <thead>
+          <th>Function</th>
+          <th>Argument Count</th>
+          <th>Arguments</th>
+          <th>Return Type</th>
+          <th>Description</th>
+        </thead>
+        <tbody>
+          <tr>
+            <td>type_conv:to_string</td>
+            <td>1</td>
+            <td>(bool or number)</td>
+            <td>string</td>
+            <td>returns argument as a string</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <br>
+
+      <div id="time" class="section-name" style="text-align: center;">
+        <h2 style="display: inline;" class="symbol-change">§§§</h2><h2 style="display: inline;"> Time (time)</h2>
+      </div>
+
+      <br>
+
+      <table class="content-text">
+        <thead>
+          <th>Function</th>
+          <th>Argument Count</th>
+          <th>Arguments</th>
+          <th>Return Type</th>
+          <th>Description</th>
+        </thead>
+        <tbody>
+          <tr>
+            <td>time:clock</td>
+            <td>0</td>
+            <td></td>
+            <td>number</td>
+            <td>returns the time that has passed from the start of the program in seconds</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <br>
+
+      <div id="sys" class="section-name" style="text-align: center;">
+        <h2 style="display: inline;" class="symbol-change">§§§</h2><h2 style="display: inline;"> Sys (sys)</h2>
+      </div>
+
+      <br>
+
+      <table class="content-text">
+        <thead>
+          <th>Function</th>
+          <th>Argument Count</th>
+          <th>Arguments</th>
+          <th>Return Type</th>
+          <th>Description</th>
+        </thead>
+        <tbody>
+          <tr>
+            <td>sys:get_argc</td>
+            <td>0</td>
+            <td></td>
+            <td>number</td>
+            <td>returns the number of command-line arguments</td>
+          </tr>
+          <tr>
+            <td>sys:get_argv</td>
+            <td>0</td>
+            <td></td>
+            <td>list&lt;string></td>
+            <td>returns a list with the command-line arguments</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <br>
+
+      <div id="string" class="section-name" style="text-align: center;">
+        <h2 style="display: inline;" class="symbol-change">§§§</h2><h2 style="display: inline;"> String (string)</h2>
+      </div>
+
+      <br>
+
+      <table class="content-text">
+        <thead>
+          <th>Function</th>
+          <th>Argument Count</th>
+          <th>Arguments</th>
+          <th>Return Type</th>
+          <th>Description</th>
+        </thead>
+        <tbody>
+          <tr>
+            <td>string:len</td>
+            <td>1</td>
+            <td>(string)</td>
+            <td>number</td>
+            <td>returns the length of the string</td>
+          </tr>
+          <tr>
+            <td>string:get</td>
+            <td>2</td>
+            <td>(string, number)</td>
+            <td>string</td>
+            <td>returns the i-th character of a string</td>
+          </tr>
+          <tr>
+            <td>string:ord</td>
+            <td>1</td>
+            <td>(string)</td>
+            <td>number</td>
+            <td>returns the ascii value of a character</td>
+          </tr>
+          <tr>
+            <td>string:chr</td>
+            <td>1</td>
+            <td>(number)</td>
+            <td>string</td>
+            <td>returns the ascii value of a number</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <br>
+
+      <div id="os" class="section-name" style="text-align: center;">
+        <h2 style="display: inline;" class="symbol-change">§§§</h2><h2 style="display: inline;"> OS (os)</h2>
+      </div>
+
+      <br>
+
+      <table class="content-text">
+        <thead>
+          <th>Function</th>
+          <th>Argument Count</th>
+          <th>Arguments</th>
+          <th>Return Type</th>
+          <th>Description</th>
+        </thead>
+        <tbody>
+          <tr>
+            <td>os:getcwd</td>
+            <td>0</td>
+            <td></td>
+            <td>string</td>
+            <td>returns the current working directory</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <br>
+
+      <div id="math" class="section-name" style="text-align: center;">
+        <h2 style="display: inline;" class="symbol-change">§§§</h2><h2 style="display: inline;"> Math (math)</h2>
+      </div>
+
+      <br>
+
+      <table class="content-text">
+        <thead>
+          <th>Function</th>
+          <th>Argument Count</th>
+          <th>Arguments</th>
+          <th>Return Type</th>
+          <th>Description</th>
+        </thead>
+        <tbody>
+          <tr>
+            <td>math:gcd</td>
+            <td>2</td>
+            <td>(number), (number)</td>
+            <td>number</td>
+            <td>returns the greatest common divisor of the two arguments</td>
+          </tr>
+          <tr>
+            <td>math:lcm</td>
+            <td>2</td>
+            <td>(number), (number)</td>
+            <td>number</td>
+            <td>returns the least common multiple of the two arguments</td>
+          </tr>
+          <tr>
+            <td>math:fac</td>
+            <td>1</td>
+            <td>(number)</td>
+            <td>number</td>
+            <td>returns the factorial of a number</td>
+          </tr>
+          <tr>
+            <td>math:ceil</td>
+            <td>1</td>
+            <td>(number)</td>
+            <td>number</td>
+            <td>returns the smallest integer value that is bigger than or equal to a number</td>
+          </tr>
+          <tr>
+            <td>math:floor</td>
+            <td>1</td>
+            <td>(number)</td>
+            <td>number</td>
+            <td>rounds down a real number "x" to the nearest integer less than or equal to "x."</td>
+          </tr>
+          <tr>
+            <td>math:abs</td>
+            <td>1</td>
+            <td>(number)</td>
+            <td>number</td>
+            <td>returns module of n</td>
+          </tr>
+          <tr>
+            <td>math:sin</td>
+            <td>1</td>
+            <td>(number)</td>
+            <td>number</td>
+            <td>returns the sin of n, where n is in radians</td>
+          </tr>
+          <tr>
+            <td>math:tan</td>
+            <td>1</td>
+            <td>(number)</td>
+            <td>number</td>
+            <td>returns the tan of n, where n is in radians</td>
+          </tr>
+          <tr>
+            <td>math:cos</td>
+            <td>1</td>
+            <td>(number)</td>
+            <td>number</td>
+            <td>returns the cos of n, where n is in radians</td>
+          </tr>
+          <tr>
+            <td>math:pi</td>
+            <td>0</td>
+            <td></td>
+            <td>number</td>
+            <td>returns pi</td>
+          </tr>
+          <tr>
+            <td>math:e</td>
+            <td>0</td>
+            <td></td>
+            <td>number</td>
+            <td>returns eulers number</td>
+          </tr>
+          <tr>
+            <td>math:pow</td>
+            <td>2</td>
+            <td>(number), (number)</td>
+            <td>number</td>
+            <td>returns n^m</td>
+          </tr>
+          <tr>
+            <td>math:to_radians</td>
+            <td>1</td>
+            <td>(number)</td>
+            <td>number</td>
+            <td>returns n * pi / 180</td>
+          </tr>
+          <tr>
+            <td>math:golden_ratio</td>
+            <td>0</td>
+            <td></td>
+            <td>number</td>
+            <td>returns the value of the golden ratio</td>
+          </tr>
+          <tr>
+            <td>math:log</td>
+            <td>2</td>
+            <td>number, number</td>
+            <td>number</td>
+            <td>returns the log base first argument of second argument</td>
+          </tr>
+          <tr>
+            <td>math:ln</td>
+            <td>2</td>
+            <td>number</td>
+            <td>number</td>
+            <td>returns the ln of first argument (natural logarithm)</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <br>
+
+      <div id="file_io" class="section-name" style="text-align: center;">
+        <h2 style="display: inline;" class="symbol-change">§§§</h2><h2 style="display: inline;"> File I/O (file_io)</h2>
+      </div>
+
+      <br>
+
+      <table class="content-text">
+        <thead>
+          <th>Function</th>
+          <th>Argument Count</th>
+          <th>Arguments</th>
+          <th>Return Type</th>
+          <th>Description</th>
+        </thead>
+        <tbody>
+          <tr>
+            <td>file_io:write</td>
+            <td>2</td>
+            <td>(string), (string)</td>
+            <td></td>
+            <td>writes the second argument to the filepath (first argument)</td>
+          </tr>
+          <tr>
+            <td>file_io:read</td>
+            <td>1</td>
+            <td>(string)</td>
+            <td>string</td>
+            <td>reads a file (first argument)</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <br>
+
+      <div id="list" class="section-name" style="text-align: center;">
+        <h2 style="display: inline;" class="symbol-change">§§§</h2><h2 style="display: inline;"> List (list)</h2>
+      </div>
+
+      <br>
+
+      <table class="content-text">
+        <thead>
+          <th>Function</th>
+          <th>Argument Count</th>
+          <th>Arguments</th>
+          <th>Return Type</th>
+          <th>Description</th>
+        </thead>
+        <tbody>
+          <tr>
+            <td>list:push_back</td>
+            <td>2</td>
+            <td>(list), (value)</td>
+            <td></td>
+            <td>pushes a value to the end of a list</td>
+          </tr>
+          <tr>
+            <td>list:init</td>
+            <td>2</td>
+            <td>(number), (value)</td>
+            <td>list</td>
+            <td>returns a list of n elements with each value being the second argument</td>
+          </tr>
+          <tr>
+            <td>list:erase</td>
+            <td>2</td>
+            <td>(list), (number)</td>
+            <td></td>
+            <td>erases the i-th element from a list</td>
+          </tr>
+          <tr>
+            <td>list:erase</td>
+            <td>1</td>
+            <td>(list)</td>
+            <td>number</td>
+            <td>returns the length of the list</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <br>
+
+      <div id="console" class="section-name" style="text-align: center;">
+        <h2 style="display: inline;" class="symbol-change">§§§</h2><h2 style="display: inline;"> Console (console)</h2>
+      </div>
+
+      <br>
+
+      <table class="content-text">
+        <thead>
+          <th>Function</th>
+          <th>Argument Count</th>
+          <th>Arguments</th>
+          <th>Return Type</th>
+          <th>Description</th>
+        </thead>
+        <tbody>
+          <tr>
+            <td>console:get_line</td>
+            <td>0</td>
+            <td></td>
+            <td>string</td>
+            <td>returns the line read from the user</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <br>
+
+      <div id="random" class="section-name" style="text-align: center;">
+        <h2 style="display: inline;" class="symbol-change">§§§</h2><h2 style="display: inline;"> Random (random)</h2>
+      </div>
+
+      <br>
+
+      <table class="content-text">
+        <thead>
+          <th>Function</th>
+          <th>Argument Count</th>
+          <th>Arguments</th>
+          <th>Return Type</th>
+          <th>Description</th>
+        </thead>
+        <tbody>
+          <tr>
+            <td>random:rand</td>
+            <td>0</td>
+            <td></td>
+            <td>number</td>
+            <td>returns a random number</td>
+          </tr>
+          <tr>
+            <td>random:srand</td>
+            <td>1</td>
+            <td>(number)</td>
+            <td></td>
+            <td>sets the random seed to the first argument</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <br>
+
+      <div id="module-stmt" class="section-name" style="text-align: center;">
+        <h2 style="display: inline;" class="symbol-change">§</h2><h2 style="display: inline;"> Modules</h2>
+      </div>
+
+      <p class="content-text">
+        You want to split code into multiple files when working on big projects. Let's say you have a file Person.hypl with the following code.
+      </p>
+
+      <pre>
+        <code style="color:rgb(68, 68, 68); font-weight:400; background-color:rgb(240, 240, 240);background:rgb(240, 240, 240);display:block;padding: .5em;"><span style="color: blue; font-weight:400;">import</span> <span style="color: #e48b17; font-weight:400;">std</span> type_conv;
+
+<span style="color: #06b46b; font-weight:400;">class</span> <span style="color: #e900fe">Person</span> {
+  <span style="color: #06b46b; font-weight:400;">init</span>(age, name) {
+    <span style="color: #e48b17; font-weight:400;">this</span>.age = age;
+    <span style="color: #e48b17; font-weight:400;">this</span>.name = name;
+  }
+
+  <span style="color: #06b46b; font-weight:400;">show</span>() {
+    <span style="color: #e48b17; font-weight:400;">print</span> "[AGE]: " + <span style="color:blue; font-weight:400;">type_conv</span>:to_string(<span style="color: #e48b17; font-weight:400;">this</span>.age) + " [NAME]: " + <span style="color: #e48b17; font-weight:400;">this</span>.name;
+  }
+}</code>
+      </pre> 
+
+      <p class="content-text">
+        And we have a main.hypl file. We want to import Person from Person.hypl to do that, we can write the following.
+      </p>
+
+      <pre>
+        <code style="color:rgb(68, 68, 68); font-weight:400; background-color:rgb(240, 240, 240);background:rgb(240, 240, 240);display:block;padding: .5em;"><span style="color: blue; font-weight:400;">import</span> <span style="color: #e48b17; font-weight:400;">module</span> Person;
+
+<span style="color: #06b46b; font-weight:400;">let</span> Bob <span style="color: #333333">=</span> <span style="color:#e900fe; font-weight: 400;">Person</span>(41, "Bob");
+Bob.show();</code>
+      </pre> 
+
+      <p class="content-text">
+        And this code will output '[AGE]: 41.000000 [NAME]: Bob'. If you are importing files from other folders you can use the @ symbol for example. If the Person class would be in libraries/person.hypl, you would rewrite the main.hypl the following way.
+      </p>
+
+      <pre>
+        <code style="color:rgb(68, 68, 68); font-weight:400; background-color:rgb(240, 240, 240);background:rgb(240, 240, 240);display:block;padding: .5em;"><span style="color: blue; font-weight:400;">import</span> <span style="color: #e48b17; font-weight:400;">module</span> libraries@Person;
+
+<span style="color: #06b46b; font-weight:400;">let</span> Bob <span style="color: #333333">=</span> <span style="color:#e900fe; font-weight: 400;">Person</span>(41, "Bob");
+Bob.show();</code>
+      </pre> 
+
+      <br>
+
+      <div id="links" class="section-name" style="text-align: center;">
+        <h2 style="display: inline;" class="symbol-change">§</h2><h2 style="display: inline;"> Links</h2>
+      </div>
+
+      <button class="button-link">
+        GitHub
+      </button>
+      &nbsp;
+      <a rel="noopener noreferrer" target="_blank" class="link" href="https://github.com/MrMineev/Hyperion">https://github.com/MrMineev/Hyperion</a>
+    </div>
+
+    <br>
+    <br>
+
+    <div class="section-name" style="text-align: center;">
+      <h2 style="display: inline;" class="symbol-change">§</h2><h2 style="display: inline;"> 💬 Comments</h2>
+    </div>
+
+    <br>
+
+    <script src="https://utteranc.es/client.js"
+        repo="MrMineev/MrMineev.github.io"
+        issue-term="pathname"
+        label="WEBSITE_COMMENT"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+    </script>
+
+    <br>
+    <br>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <script src="../linenumber.js"></script>
+    <script async="true" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=AM_CHTML"> </script>
+    <script async="true" src="https://cdn.jsdelivr.net/npm/mathjax@2.7.6/MathJax.js?config=AM_CHTML"> </script>
+  </body>
+</html>
+
