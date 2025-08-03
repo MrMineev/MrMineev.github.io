@@ -1,0 +1,899 @@
+\documentclass{article}
+
+%% \usepackage{mrmineev}
+
+% \usepackage{graphicx} % Required for inserting images
+\RequirePackage{amsmath,amssymb,amsthm}
+% \RequirePackage{iftex}
+% \RequirePackage[dvipsnames]{xcolor}
+% \RequirePackage{mdframed}
+% \RequirePackage{thmtools}
+% \RequirePackage{xpatch}
+% \RequirePackage{fancyhdr}
+% \RequirePackage{titlesec}
+% \RequirePackage{xcolor}
+\usepackage[inline]{asymptote}
+% \usepackage[colorlinks=true, linkcolor=blue, urlcolor=blue]{hyperref}
+\def\asydir{asy}
+
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+% \usepackage{tcolorbox}
+% \usepackage{tikz}
+% \usetikzlibrary{calc, intersections, through, backgrounds}
+% \usepackage{tkz-euclide}
+% \usetikzlibrary{graphs}
+% \usepackage{multicol}
+% \usepackage{pgfplots}
+% \usepackage{tabularx}
+% \usepackage{import}
+% \usepackage{lipsum}
+% \usepackage{fancyhdr} 
+% \usepackage{wrapfig}
+% \usepackage{mwe}
+% \usepackage[export]{adjustbox}
+% \usepackage{subcaption}
+% \usepackage{caption}
+%\usepackage{gensymb}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{problem}{Problem}
+\newtheorem{note}{Note}
+\newtheorem{question}{Question}
+\newtheorem{lemma}{Lemma}
+
+\title{The Anchor Point Lemma}
+\author{Daniel Mineev}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\section{The Config}
+
+\begin{problem}[AoPS]
+  Given a triangle \(\triangle ABC\), let \(D\) be an arbitrary point on \(BC\), then let \(DE\) and \(DF\) be parallel to \(AC\) and \(AB\) respectively. Let \((AEF)\) intersect \((ABC)\) at \(G\), let \(GD\) intersect \((ABC)\) at \(X\). Prove, that if \(M\) is the midpoint of \(AC\), then \(A, X\) and \(M\) are colinear.
+\end{problem}
+\begin{center}
+  \begin{asy}
+    pair A = (4.,4.);
+pair C = (0.,0.);
+pair B = (5.,0.);
+pair D = (3.02442,0.);
+pair E = (4.60488,1.58045);
+pair F = (2.41954,2.41954);
+pair G = (5.12405,2.77056);
+pair X = (1.98630,-1.36986);
+pair M = (2.5,0.);
+
+import graph;
+size(8cm);
+pen zzttqq = rgb(0.6,0.2,0.);
+pen xfqqff = rgb(0.49803,0.,1.);
+pen lightgreen = rgb(247, 255, 247);
+pen lightpurple = rgb(245, 234, 252);
+draw(A--B--C--cycle, linewidth(0.6) + zzttqq);
+
+filldraw(circle((2.5,1.5), 2.91547), lightgreen, linewidth(0.6) + green);
+filldraw(circle((3.76393,2.65560), 1.36496), lightpurple, linewidth(0.6) + xfqqff);
+draw(circle((2.5,1.5), 2.91547), linewidth(0.6) + green);
+
+draw(A--B, linewidth(0.6) + zzttqq);
+draw(B--C, linewidth(0.6) + zzttqq);
+draw(C--A, linewidth(0.6) + zzttqq);
+draw(D--F, linewidth(0.6));
+draw(D--E, linewidth(0.6));
+draw(X--G, linewidth(0.6));
+draw(A--X, linewidth(0.6));
+
+dot("$A$", A, dir(66));
+dot("$C$", C, dir(213));
+dot("$B$", B, dir(285));
+dot("$D$", D, dir(-90));
+dot("$E$", E, dir(-10));
+dot("$F$", F, dir(196));
+dot("$G$", G, dir(39));
+dot("$X$", X, dir(229));
+dot("$M$", M, dir(120));
+  \end{asy}
+\end{center}
+
+This theorem can be proven in various ways, the first way and arguably most beautiful way is using the Butterfly theorem, (thanks @KrazyNumberMan)
+
+\begin{proof}
+  Let \(Y\) be the intersection of \(MG\) with \((ABC)\) and let \(K\) be the intersection of \(AY\) with \(BC\) and \(P = EF \cap AD\). Then,
+  \begin{lemma}
+    \(MP \parallel AK\)
+  \end{lemma}
+  indeed, since \(G\) is the Miquel point of \(CFEB\) it must be that \(\triangle{GEB} \sim \triangle{GPD} \sim \triangle{GFC}\), consequently,
+  \[\measuredangle GMP = \measuredangle GBA = \measuredangle GYA\]
+  thus implying the desired result. \(\square\)
+  \begin{center}
+    \begin{asy}
+pair A = (4.,4.);
+pair C = (0.,0.);
+pair B = (5.,0.);
+pair D = (3.02442,0.);
+pair E = (4.60488,1.58045);
+pair F = (2.41954,2.41954);
+pair G = (5.12405,2.77056);
+pair X = (1.98630,-1.36986);
+pair M = (2.5,0.);
+pair P = (3.51221,2.);
+pair Y = (1.37373,-1.18914);
+pair K = (1.97557,0.);
+
+import graph;
+size(8.32144cm);
+pen zzttqq = rgb(0.6,0.2,0.);
+pen xfqqff = rgb(0.49803,0.,1.);
+pen lightgreen = rgb(247, 255, 247);
+pen lightpurple = rgb(245, 234, 252);
+
+draw(A--B--C--cycle, linewidth(0.6) + zzttqq);
+
+filldraw(circle((2.5,1.5), 2.91547), lightgreen, linewidth(0.6) + green);
+filldraw(circle((3.76393,2.65560), 1.36496), lightpurple, linewidth(0.6) + xfqqff);
+draw(circle((2.5,1.5), 2.91547), linewidth(0.6) + green);
+
+draw(A--B, linewidth(0.6) + zzttqq);
+draw(B--C, linewidth(0.6) + zzttqq);
+draw(C--A, linewidth(0.6) + zzttqq);
+draw(D--F, linewidth(0.6));
+draw(D--E, linewidth(0.6));
+draw(X--G, linewidth(0.6));
+draw(A--X, linewidth(0.6));
+draw(A--D, linewidth(0.6));
+draw(E--F, linewidth(0.6));
+draw(Y--G, linewidth(0.6));
+draw(A--Y, linewidth(0.6));
+draw(M--P, linewidth(0.6));
+
+dot("$A$", A, dir(68));
+dot("$C$", C, dir(213));
+dot("$B$", B, dir(284));
+dot("$D$", D, dir(-90));
+dot("$E$", E, dir(-10));
+dot("$F$", F, dir(160));
+dot("$G$", G, dir(34));
+dot("$X$", X, dir(231));
+dot("$M$", M, dir(120));
+dot("$P$", P, dir(32));
+dot("$Y$", Y, dir(225));
+dot("$K$", K, dir(120));
+    \end{asy}
+  \end{center}
+  Since \(P\) is the midpoint of \(AD\) and \(MP \parallel AK\) it must be that \(PM\) is the midline in \(\triangle{AKD}\), thus \(M\) is the midpoint of \(KD\). Thus, by the Butterfly theorem it must be that \(X, D, G\) are colinear.
+\end{proof}
+
+Another proof of the original theorem involves constructing the symmedian, the proof in itself is not particularly interesting, however the results shown are somewhat reasonable.
+
+\begin{proof}
+  Let us prove that,
+  \begin{lemma}
+    \(S \in (AGD)\), where \(S\) is the foot of the symmedian from \(A\) onto \(BC\).
+  \end{lemma}
+  Using coaxility lemma, all we have to prove is that,
+  \[\frac{PE}{BP} = \frac{FQ}{QC}\]
+  Then this would mean that \((APQ)\) passes through \(G\), where we define \(P\) and \(Q\) to be the intersection points of \((ADS)\) with \(AB\) and \(AC\). Notice,
+  \begin{multline*}
+    BE = AB - EA = AB - DF = AB - AB \cdot \frac{CD}{BC} = AB \cdot \frac{BD}{BC}
+  \end{multline*}
+  \begin{center}
+    \begin{asy}
+pair A = (4.57545,3.35119);
+pair C = (0.,0.);
+pair B = (5.,0.);
+pair D = (3.18722,0.);
+pair E = (4.84607,1.21498);
+pair F = (2.91660,2.13620);
+pair G = (5.31461,1.88408);
+pair X = (1.66517,-1.34798);
+pair M = (2.5,0.);
+pair S = (3.6907079960646754,0.);
+pair P = (1.67328,1.22556);
+pair Q = (4.91169,0.69705);
+pair H = (2.5,-4.51010);
+
+import graph;
+size(12cm);
+pen zzttqq = rgb(0.6,0.2,0.);
+pen xfqqff = rgb(0.49803,0.,1.);
+pen lightgreen = rgb(247, 255, 247);
+pen lightpurple = rgb(245, 234, 252);
+pen lightblue = rgb(234, 237, 255);
+
+draw(A--B--C--cycle, linewidth(0.6) + zzttqq);
+
+filldraw(circle((2.5,1.38577), 2.85838), lightgreen, linewidth(0.6) + green);
+filldraw(circle((3.43896,1.85884), 1.87581), lightblue, linewidth(0.6) + blue);
+filldraw(circle((4.13666,2.21036), 1.22230), lightpurple, linewidth(0.6) + xfqqff);
+
+draw(circle((2.5,1.38577), 2.85838), linewidth(0.6) + green);
+
+
+draw(A--B, linewidth(0.6) + zzttqq);
+draw(B--C, linewidth(0.6) + zzttqq);
+draw(C--A, linewidth(0.6) + zzttqq);
+draw(D--F, linewidth(0.6));
+draw(D--E, linewidth(0.6));
+draw(X--G, linewidth(0.6));
+draw(A--X, linewidth(0.6));
+draw(C--H, linewidth(0.6));
+draw(H--B, linewidth(0.6));
+draw(A--H, linewidth(0.6));
+draw(circle((3.43896,1.85884), 1.87581), linewidth(0.6) + blue);
+
+dot("$A$", A, dir(68));
+dot("$C$", C, dir(213));
+dot("$B$", B, dir(283));
+dot("$D$", D, dir(270));
+dot("$E$", E, dir(-10));
+dot("$F$", F, dir(170));
+dot("$G$", G, dir(34));
+dot("$X$", X, dir(231));
+dot("$M$", M, dir(140));
+dot("$S$", S, dir(-80));
+dot("$P$", P, dir(170));
+dot("$Q$", Q, dir(-20));
+dot(H);
+    \end{asy}
+  \end{center}
+  
+  Now let us try calculating the value of \(BP\), this can be done through the Power of the Point,
+  \begin{equation*}
+    BP = \frac{BS \cdot BD}{BA}
+  \end{equation*}
+  Thus,
+  \begin{equation*}
+    \frac{PE}{BP} = \frac{BE - BP}{BP} = \frac{BE}{BP} - 1 = \frac{AB \cdot \frac{DB}{BC}}{\frac{BS \cdot BD}{BA}} - 1 = \frac{AB^2}{BS \cdot BC} - 1
+  \end{equation*}
+  We want to show this is the same as,
+  \begin{equation*}
+    \frac{FQ}{QC} = \frac{AC^2}{CS \cdot BC} - 1
+  \end{equation*}
+  (same logic for this expression). Let us use the formula for the length of \(BS\) (because the symmedian is the isogonal conjugate of the median),
+  \[BS = \frac{AB^2}{AC^2} \cdot CS\]
+  Thus,
+  \begin{equation*}
+    \frac{PE}{BP} = \frac{AB^2}{BS \cdot BC} - 1 = \frac{AB^2}{\frac{AB^2}{AC^2} \cdot CS \cdot BC} - 1 = \frac{AC^2}{CS \cdot BC} - 1 = \frac{FQ}{QC}
+  \end{equation*}
+
+  This finishes the proof of the lemma, thus \(ASDG\) is cyclic. \(square\)
+
+  It is quite well known that if \(X'\) is the intersection of \(AM\) with \((ABC)\), then \(\angle{ABX'} = \angle{ASC}\).
+
+  \begin{lemma}
+    \(\angle{ABX'} = \angle{ASC}\)
+  \end{lemma}
+
+  \begin{center}
+    \begin{asy}
+pair A = (4.04814,3.63099);
+pair C = (0.,0.);
+pair B = (5.,0.);
+pair M = (2.5,0.);
+pair S = (3.38644,0.);
+pair X = (1.87898,-1.45651);
+
+import graph;
+size(8cm);
+pen zzttqq = rgb(0.6,0.2,0.);
+pen lightgreen = rgb(247, 255, 247);
+pen lightpurple = rgb(245, 234, 252);
+pen lightblue = rgb(234, 237, 255);
+
+draw(A--B--C--cycle, linewidth(0.6) + zzttqq);
+
+filldraw(circle((2.5,1.28489), 2.81086), lightgreen, linewidth(0.6) + green);
+
+draw(arc(S,0.32284,0.,79.67192)--S--cycle, linewidth(0.6) + blue);
+draw(arc(C,0.32284,-37.78132,41.89059)--C--cycle, linewidth(0.6) + blue);
+draw(A--B, linewidth(0.6) + zzttqq);
+draw(B--C, linewidth(0.6) + zzttqq);
+draw(C--A, linewidth(0.6) + zzttqq);
+draw(A--X, linewidth(0.6));
+draw(A--S, linewidth(0.6));
+draw(C--X, linewidth(0.6));
+
+dot("$A$", A, dir(68));
+dot("$C$", C, dir(213));
+dot("$B$", B, dir(283));
+dot("$M$", M, dir(120));
+dot("$S$", S, dir(288));
+dot("$X$", X, dir(235));
+    \end{asy}
+  \end{center}
+
+  this is just obvious because \(\triangle ABX' \sim \triangle ASC\), due to \(\angle{ABX'} = \angle{SAC}\) and \(\angle{AX'B} = \angle{ACS}\). \(\square\)
+
+  Now going back to our problem, notice that,
+  \[\angle{ASC} = 180 - \angle{AGX} = \angle{ABX}\]
+
+  Because only one point satisfies such condition it must mean that \(X' = X\) in other words, \(A, M\) and \(X\) are colinear.
+
+\end{proof}
+
+\section{The Conflict}
+
+Now, given this powerful configuration let extend it and consider some other problems,
+
+\begin{problem}[AoPS]
+  Prove that \(MP\) is tangent to \((XMG)\).
+\end{problem}
+\begin{center}
+  \begin{asy}
+pair A = (3.76162,6.11153);
+pair C = (0.,0.);
+pair B = (5.,0.);
+pair D = (3.97903,0.);
+pair E = (4.74713,1.24793);
+pair F = (2.99352,4.86360);
+pair G = (5.78163,1.05148);
+pair X = (2.29751,-0.98085);
+pair M = (2.5,0.);
+pair P = (3.87033,3.05576);
+pair Y = (0.77278,-0.55342);
+pair K = (1.02096,0.);
+
+import graph;
+size(10cm);
+pen zzttqq = rgb(0.6,0.2,0.);
+pen xfqqff = rgb(0.49803,0.,1.);
+pen ffttww = rgb(1.,0.2,0.4);
+
+pen lightgreen = rgb(247, 255, 247);
+pen lightpurple = rgb(245, 234, 252);
+pen lightblue = rgb(234, 237, 255);
+pen lightred = rgb(255, 234, 242);
+pen lightpink = rgb(255, 234, 255);
+
+draw(A--B--C--cycle, linewidth(0.6) + zzttqq);
+filldraw(circle((2.5,2.67466), 3.66112), lightgreen, linewidth(0.6) + green);
+filldraw(circle((4.61286,-0.94749), 2.31558), lightred, linewidth(0.6) + ffttww);
+filldraw(circle((5.80447,3.99382), 2.94243), lightpurple, linewidth(0.6) + xfqqff);
+
+draw(circle((2.5,2.67466), 3.66112), linewidth(0.6) + green);
+draw(circle((4.61286,-0.94749), 2.31558), linewidth(0.6) + ffttww);
+
+draw(A--B, linewidth(0.6) + zzttqq);
+draw(B--C, linewidth(0.6) + zzttqq);
+draw(C--A, linewidth(0.6) + zzttqq);
+draw(D--F, linewidth(0.6));
+draw(D--E, linewidth(0.6));
+draw(X--G, linewidth(0.6));
+draw(A--X, linewidth(0.6));
+
+
+draw(A--D, linewidth(0.6));
+draw(E--F, linewidth(0.6));
+draw(M--P, linewidth(0.6));
+draw(Y--G, linewidth(0.6));
+draw(A--Y, linewidth(0.6));
+
+dot("$A$", A, dir(90));
+dot("$C$", C, dir(214));
+dot("$B$", B, dir(284));
+dot("$D$", D, dir(270));
+dot("$E$", E, dir(78));
+dot("$F$", F, dir(197));
+dot("$G$", G, dir(281));
+dot("$X$", X, dir(230));
+dot("$M$", M, dir(120));
+dot("$P$", P, dir(24));
+dot("$Y$", Y, dir(220));
+dot("$K$", K, dir(120));
+  \end{asy}
+\end{center}
+\begin{proof}
+Notice,
+\[\measuredangle{GMP} = \measuredangle{GYA} = \measuredangle{GXA}\]
+which proves the desired tangency.
+\end{proof}
+
+\begin{problem}[AoPS]
+  Let \(J\) be the intersection of \((XIG)\) with \(AC\). Prove that \(JM\) and \(AD\) intersect on \(XB\).
+\end{problem}
+\begin{center}
+  \begin{asy}
+pair A = (3.65816,3.89754);
+pair C = (0.,0.);
+pair B = (5.,0.);
+pair D = (3.20834,0.);
+pair E = (4.51918,1.39661);
+pair F = (2.34733,2.50093);
+pair G = (5.09898,2.43047);
+pair X = (2.06215,-1.47346);
+pair M = (2.5,0.);
+pair P = (3.43325,1.94877);
+pair Y = (1.21712,-1.19969);
+pair K = (1.79165,0.);
+pair J = (1.49854,1.59660);
+pair I = (4.01535,2.86005);
+pair H = (3.09826,-0.95380);
+
+pair T = (1.0988188179927, 3.7739705487634);
+
+import graph;
+size(10cm);
+pen zzttqq = rgb(0.6,0.2,0.);
+pen xfqqff = rgb(0.49803,0.,1.);
+pen ffqqff = rgb(1.,0.,1.);
+pen lightgreen = rgb(247, 255, 247);
+pen lightpurple = rgb(245, 234, 252);
+pen lightblue = rgb(234, 237, 255);
+pen lightred = rgb(255, 234, 242);
+pen lightpink = rgb(255, 234, 255);
+
+draw(A--B--C--cycle, linewidth(0.6) + zzttqq);
+
+filldraw(circle((2.5,1.31906), 2.82664), lightgreen, linewidth(0.6) + green);
+filldraw(circle((3.67047,0.40856), 2.47562), lightpink, linewidth(0.6) + ffqqff);
+filldraw(circle((3.72459,2.52173), 1.37741), lightpurple, linewidth(0.6) + xfqqff);
+draw(circle((2.5,1.31906), 2.82664), linewidth(0.6) + green);
+draw(circle((3.67047,0.40856), 2.47562), linewidth(0.6) + ffqqff);
+
+draw(A--B, linewidth(0.6) + zzttqq);
+draw(B--C, linewidth(0.6) + zzttqq);
+draw(C--A, linewidth(0.6) + zzttqq);
+draw(D--F, linewidth(0.6));
+draw(D--E, linewidth(0.6));
+draw(X--G, linewidth(0.6));
+draw(A--X, linewidth(0.6));
+draw(A--D, linewidth(0.6));
+draw(E--F, linewidth(0.6));
+draw(M--P, linewidth(0.6));
+draw(Y--G, linewidth(0.6));
+draw(A--Y, linewidth(0.6));
+draw(X--B, linewidth(0.6));
+draw(H--J, linewidth(0.6));
+draw(A--H, linewidth(0.6));
+draw(J--X, linewidth(0.6));
+draw(X--T, linewidth(0.6));
+
+dot("$A$", A, dir(68));
+dot("$C$", C, dir(213));
+dot("$B$", B, dir(285));
+dot("$D$", D, dir(-80));
+dot("$E$", E, dir(310));
+dot("$F$", F, dir(190));
+dot("$G$", G, dir(279));
+dot("$X$", X, dir(230));
+dot("$M$", M, dir(184));
+dot("$P$", P, dir(20));
+dot("$Y$", Y, dir(222));
+dot("$K$", K, dir(139));
+dot("$J$", J, dir(146));
+dot("$I$", I, dir(62));
+dot("$W$", H, dir(-90));
+dot("$A'$", T, dir(120));
+  \end{asy}
+\end{center}
+\begin{proof}
+  (thanks @keglesnit)
+
+  Let \(J = XK \cap AC\) and let \(W = AD \cap XB\), then let us prove that \(JW\) passes through \(M\). Let \(A'\) be the second intersection of \(XK\) with \((ABC)\). Then,
+  \begin{multline*}
+  (A’,G;B,C)\overset{X}{=}(K,D;B,C)\overset{A}{=}(AK\cap(AEF), AD\cap(AEF);F,E)
+  \\ \overset{P}{=}(G,A;E,F)=(A,G;F,E)
+  \end{multline*}
+  \begin{note}
+    The fact that \(AK \cap (AEF), P\) and \(G\) lie on one line directly follows from angle chase similar to that done in the proof of the Anchor Point Lemma
+  \end{note}
+  This implies that \(GBCA'\) is similar to \(GEFA\). Thus,
+  \[\angle JXG=\angle A’XG=\angle AFG\]
+  consequently it must be that \(J\) is the intersection of \((XEG)\) with \(AC\).
+
+  Now, all that is left to show that \(JW\) passes through \(M\).
+
+  Let \(J' = WM \cap AC\), then by Desargues Involution Theorem (DIT) applied to \(X, W, J'\) and \(A\), there exists an involution swapping \(B \leftrightarrow C, M \leftrightarrow M, D \leftrightarrow XJ’\cap BC\). Consequently the involution must be a reflection over \(M\), thus \(XJ' \cap BC = K\), thus \(J' = J\).
+
+  Consequently it must be that \(AD\), \(XB\) and \(JM\) are concurrent.
+\end{proof}
+
+\begin{problem}[AoPS]
+  Let \(T\) be the intersection of \((XMG)\) and \(BC\). Prove that \(AJ\) and \(EF\) are parallel.
+\end{problem}
+\begin{center}
+  \begin{asy}
+pair A = (3.51226,3.71957);
+pair C = (0.,0.);
+pair B = (5.,0.);
+pair D = (4.04411,0.);
+pair E = (4.71557,0.71109);
+pair F = (2.84080,3.00847);
+pair G = (5.24751,0.95571);
+pair X = (2.07424,-1.56443);
+pair M = (2.5,0.);
+pair P = (3.77819,1.85978);
+pair J = (6.54761,0.);
+
+import graph;
+size(9.56793cm);
+pen zzttqq = rgb(0.6,0.2,0.);
+pen xfqqff = rgb(0.49803,0.,1.);
+pen ffqqff = rgb(1.,0.,1.);
+pen dcrutc = rgb(0.86274,0.07843,0.23529);
+pen lightgreen = rgb(247, 255, 247);
+pen lightpurple = rgb(245, 234, 252);
+pen lightblue = rgb(234, 237, 255);
+pen lightred = rgb(255, 234, 242);
+pen lightpink = rgb(255, 234, 255);
+
+draw(A--B--C--cycle, linewidth(0.6) + zzttqq);
+
+filldraw(circle((2.5,1.15737), 2.75490), lightgreen, linewidth(0.6) + green);
+filldraw(circle((4.52380,-1.39091), 2.45569), lightpink, linewidth(0.6) + ffqqff);
+filldraw(circle((4.30997,2.29375), 1.63380), lightpurple, linewidth(0.6) + xfqqff);
+draw(circle((2.5,1.15737), 2.75490), linewidth(0.6) + green);
+draw(circle((4.52380,-1.39091), 2.45569), linewidth(0.6) + ffqqff);
+
+draw(A--B, linewidth(0.6) + zzttqq);
+draw(B--C, linewidth(0.6) + zzttqq);
+draw(C--A, linewidth(0.6) + zzttqq);
+draw(D--F, linewidth(0.6));
+draw(D--E, linewidth(0.6));
+draw(X--G, linewidth(0.6));
+draw(A--X, linewidth(0.6));
+draw(A--D, linewidth(0.6));
+draw(E--F, linewidth(0.6) + red);
+draw(M--P, linewidth(0.6));
+draw(X--B, linewidth(0.6));
+draw(B--J, linewidth(0.6));
+draw(A--J, linewidth(0.6) + dcrutc);
+
+dot("$A$", A, dir(67));
+dot("$C$", C, dir(215));
+dot("$B$", B, dir(283));
+dot("$D$", D, dir(280));
+dot("$E$", E, dir(86));
+dot("$F$", F, dir(192));
+dot("$G$", G, dir(123));
+dot("$X$", X, dir(230));
+dot("$M$", M, dir(149));
+dot("$P$", P, dir(14));
+dot("$T$", J, dir(63));
+  \end{asy}
+\end{center}
+\begin{proof}
+  Notice, \((E, F; P, \infty_{EF}) = -1\), consequently projecting from \(A\) we obtain,
+  \[(B, C; D, U) = -1\]
+  where \(U\) is the intersection of a line parallel to \(EF\) through \(A\) with \(BC\). However, since \(XMGT\) is cyclic it must be that \((B, C; D, T) = -1\). (since \(DT \cdot DM = DG \cdot DX = DB \cdot DC\)) Consequently \(T = U\), thus \(AT\) is parallel to \(EF\).
+\end{proof}
+
+\section{The Generalization}
+
+While the original statement is useful, it can rarely be used in problem due to a rather peculiar condition on parallel lines. Thankfully there exists a far more useful generalized of the theorem,
+
+\begin{problem}[Generalized Anchor Point Lemma]
+  Let \(D\) be an arbitrary point on \(BC\) in \(\triangle{ABC}\). Let there be two fixed directions \(l_1\) and \(l_2\). Let \(E\) and \(F\) be the intersection of two lines through \(D\) parallel to \(l_1\) and \(l_2\) with \(AB\) and \(AC\). Let \(G\) be the intersection of \((AFE)\) and \((ABC)\). Prove that \(DG\) passes through a constant point on \((ABC)\).
+
+  Also prove that the circles \((AFE)\) are all coaxial and the second constant point is the intersection of the circle with the line isogonal to \(AX\) in \(\angle{CAB}\) with \((AFE)\).
+\end{problem}
+
+\begin{center}
+  \begin{asy}
+pair A = (3.08058,3.67671);
+pair B = (5.,0.);
+pair C = (0.,0.);
+pair D = (2.12117,0.);
+pair Ep = (-2.39032,4.43053);
+pair Fp = (-3.39881,3.62311);
+pair E = (4.15142,1.62546);
+pair F = (2.12117,2.53164);
+pair G = (4.45694,2.90241);
+pair X = (1.09354,-1.27692);
+pair H = (3.47596,1.30515);
+pair Y = (3.90645,-1.27692);
+
+import graph;
+size(10.65627cm);
+pen zzttqq = rgb(0.6,0.2,0.);
+pen xfqqff = rgb(0.49803,0.,1.);
+pen lightgreen = rgb(247, 255, 247);
+pen lightpurple = rgb(245, 234, 252);
+pen lightblue = rgb(234, 237, 255);
+pen lightred = rgb(255, 234, 242);
+pen lightpink = rgb(255, 234, 255);
+
+draw(A--B--C--cycle, linewidth(0.6) + zzttqq);
+
+filldraw(circle((2.5,1.03425), 2.70549), lightgreen, linewidth(0.6) + green);
+filldraw(circle((3.32374,2.49851), 1.20302), lightpurple, linewidth(0.6) + xfqqff);
+draw(circle((2.5,1.03425), 2.70549), linewidth(0.6) + green);
+
+draw(A--B, linewidth(0.6) + zzttqq);
+draw(B--C, linewidth(0.6) + zzttqq);
+draw(C--A, linewidth(0.6) + zzttqq);
+draw(D--F, linewidth(0.6));
+draw(D--E, linewidth(0.6));
+draw(X--G, linewidth(0.6));
+draw(A--X, linewidth(0.6));
+draw(A--Y, linewidth(0.6));
+draw(X--Y, linewidth(0.6));
+
+dot("$A$", A, dir(90));
+dot("$B$", B, dir(287));
+dot("$C$", C, dir(217));
+dot("$D$", D, dir(270));
+dot("$E$", E, dir(-10));
+dot("$F$", F, dir(186));
+dot("$G$", G, dir(54));
+dot("$X$", X, dir(234));
+dot("$P$", H, dir(60));
+dot("$Y$", Y, dir(290));
+  \end{asy}
+\end{center}
+\begin{proof}
+  Maybe it is possible to extend the synthetic approach described earlier, however it is far more simpler to use the Cool Ratio Lemma. Let \(f(P) = \frac{BP}{CP}\), then,
+  \[f(X) = \frac{f(D)}{f(G)} = \frac{f(D)}{EB / CF} = \frac{CF \cdot BD}{EB \cdot DC} = \text{const}\]
+  thus since \(f(X)\) is constant it must be that \(X\) is constant.
+\end{proof}
+
+\section{The Anchor Point Method}
+
+Now I will outline a technique which is sometimes very powerful in simplifying a problem which involves some intersection of some circle with \((ABC)\). Let us go through some well known configurations and attack them with the Generalized Anchor Point Lemma.
+
+\subsection{Sharky-Devil}
+
+\begin{problem}[Sharky-Devil Configuration]
+  Let \((I)\) be the incircle of \(\triangle{ABC}\), let \(D, E, F\) be the tangency points of \((I)\) with \(BC, AB\) and \(AC\), respectively. Let \(G\) be the second intersection of \((AFE)\) with \((ABC)\). Let \(S\) be the midpoint of the arc \(BC\). Prove that \(S, D\) and \(G\) are colinear.
+\end{problem}
+
+\begin{center}
+  \begin{asy}
+pair A = (3.46564,4.17696);
+pair B = (5.,0.);
+pair C = (0.,0.);
+pair I = (2.98881,1.40379);
+pair E = (4.30652,1.88784);
+pair F = (1.90846,2.30017);
+pair G = (4.26084,3.74489);
+pair D = (2.98881,0.);
+pair S = (2.5,-1.43909);
+pair M = (2.5,0.);
+pair W = (2.5,4.34300);
+pair X = (4.13797,2.34668);
+pair Y = (1.59633,1.92398);
+
+import graph;
+size(8cm);
+
+pen zzttqq = rgb(0.6,0.2,0.);
+pen xfqqff = rgb(0.49803,0.,1.);
+pen dcrutc = rgb(0.86274,0.07843,0.23529);
+
+pen lightgreen = rgb(247, 255, 247);
+pen lightpurple = rgb(245, 234, 252);
+pen lightblue = rgb(234, 237, 255);
+pen lightred = rgb(255, 234, 242);
+pen lightpink = rgb(255, 234, 255);
+
+
+draw(A--B--C--cycle, linewidth(0.6) + zzttqq);
+
+filldraw(circle((2.5,1.45195), 2.89105), lightgreen, linewidth(0.6) + green);
+filldraw(circle((2.74440,2.87340), 1.48978), lightred, linewidth(0.6) + dcrutc);
+filldraw(circle((3.22723,2.79038), 1.40693), lightpurple, linewidth(0.6) + xfqqff);
+draw(circle((2.5,1.45195), 2.89105), linewidth(0.6) + green);
+draw(circle((2.74440,2.87340), 1.48978), linewidth(0.6) + dcrutc);
+
+draw(A--B, linewidth(0.6) + zzttqq);
+draw(B--C, linewidth(0.6) + zzttqq);
+draw(C--A, linewidth(0.6) + zzttqq);
+draw(circle(I, 1.40379), linewidth(0.6) + blue);
+draw(S--G, linewidth(0.6));
+draw(D--F, linewidth(0.6));
+draw(D--E, linewidth(0.6));
+draw(S--W, linewidth(0.6));
+draw(M--X, linewidth(0.6));
+draw(M--Y, linewidth(0.6));
+
+
+dot("$A$", A, dir(88));
+dot("$B$", B, dir(287));
+dot("$C$", C, dir(217));
+dot("$I$", I, dir(249));
+dot("$E$", E, dir(316));
+dot("$F$", F, dir(182));
+dot("$G$", G, dir(65));
+dot("$D$", D, dir(276));
+dot("$S$", S, dir(254));
+dot("$M$", M, dir(215));
+dot("$W$", W, dir(150));
+dot("$X$", X, dir(327));
+dot("$Y$", Y, dir(192));
+  \end{asy}
+\end{center}
+
+\begin{proof}
+  Let us introduce \(M\) the midpoint of \(BC\) and \(W\) the midpoint of the larger arc \(BC\). Then, let \(X\) and \(Y\) be the intersections of the lines through \(M\) parallel to \(DE\) and \(DF\) with \(AB\) and \(AC\), respectively. By the Generalized Anchor Point Lemma all that is left to prove is that \(AWXY\) is cyclic.
+
+  Notice, since,
+  \[\measuredangle WXY = \measuredangle WAC\]
+  \[\measuredangle XYW = \measuredangle XAW\]
+  which implies that \(\angle{WAC} = 180 - \angle{BAW}\), however this is only true for \(W\) being the midpoint of the larger arrc \(BC\). Thus \(WAXY\) is cyclic which proves one of the properties of the Sharky-Devil point. (Amusingly \(I\) lies on this circle as well due to \(I \in (AFE)\) and \(I\) lying on the angle bisector of \(\angle{CAB}\)).
+\end{proof}
+
+\subsection{Problems}
+
+\begin{problem}[USA TST 2012 P1]
+  In acute triangle $ABC$, $\angle{A}<\angle{B}$ and $\angle{A}<\angle{C}$. Let $P$ be a variable point on side $BC$. Points $D$ and $E$ lie on sides $AB$ and $AC$, respectively, such that $BP=PD$ and $CP=PE$. Prove that as $P$ moves along side $BC$, the circumcircle of triangle $ADE$ passes through a fixed point other than $A$.
+\end{problem}
+\begin{center}
+  \begin{asy}
+pair A = (3.88338,4.25899);
+pair C = (0.,0.);
+pair B = (5.49721,-0.08825);
+pair P = (3.10681,-0.04987);
+pair D = (4.89312,1.53901);
+pair E = (2.77111,3.03915);
+
+import graph;
+size(8.48494cm);
+pen zzttqq = rgb(0.6,0.2,0.);
+pen qqwuqq = rgb(0.,0.39215,0.);
+
+pen xfqqff = rgb(0.49803,0.,1.);
+
+pen lightgreen = rgb(247, 255, 247);
+pen lightpurple = rgb(245, 234, 252);
+pen lightblue = rgb(234, 237, 255);
+pen lightred = rgb(255, 234, 242);
+pen lightpink = rgb(255, 234, 255);
+
+filldraw(circle((2.77135,1.37300), 3.09282), lightgreen, linewidth(0.6)+green);
+filldraw(circle((4.21884,2.83611), 1.46189), lightpurple, linewidth(0.6)+xfqqff);
+draw(circle((2.77135,1.37300), 3.09282), linewidth(0.6)+green);
+
+draw(A--B--C--cycle, linewidth(0.6) + zzttqq);
+draw(A--B, linewidth(0.6) + zzttqq);
+draw(B--C, linewidth(0.6) + zzttqq);
+draw(C--A, linewidth(0.6) + zzttqq);
+
+draw(C--P, linewidth(0.6) + blue);
+draw((1.55414,0.02063)--(1.55267,-0.07051), linewidth(0.6) + blue);
+draw(P--E, linewidth(0.6) + blue);
+draw((2.89365,1.48971)--(2.98427,1.49956), linewidth(0.6) + blue);
+draw(P--D, linewidth(0.6) + qqwuqq);
+draw((3.95549,0.76600)--(4.01607,0.69789), linewidth(0.6) + qqwuqq);
+draw((3.98386,0.79124)--(4.04445,0.72313), linewidth(0.6) + qqwuqq);
+draw(P--B, linewidth(0.6) + qqwuqq);
+draw((4.28375,-0.02319)--(4.28229,-0.11433), linewidth(0.6) + qqwuqq);
+draw((4.32173,-0.02380)--(4.32027,-0.11494), linewidth(0.6) + qqwuqq);
+
+
+dot("$A$", A, dir(70));
+dot("$C$", C, dir(210));
+dot("$B$", B, dir(297));
+dot("$P$", P, dir(275));
+dot("$D$", D, dir(309));
+dot("$E$", E, dir(178));
+  \end{asy}
+\end{center}
+\begin{proof}
+  Since as we move \(P\) the lines \(EP\) and \(PD\) are parallel to two fixed directions, thus by the Generalized Anchor Point Lemma it must be that \((AED)\) passes through a fixed point.
+\end{proof}
+
+\begin{problem}[ELMO 2013 Shortlist G3]
+  n $\triangle ABC$, a point $D$ lies on line $BC$. The circumcircle of $ABD$ meets $AC$ at $F$ (other than $A$), and the circumcircle of $ADC$ meets $AB$ at $E$ (other than $A$). Prove that as $D$ varies, the circumcircle of $AEF$ always passes through a fixed point other than $A$, and that this point lies on the median from $A$ to $BC$.
+\end{problem}
+\begin{center}
+  \begin{asy}
+pair A = (4.11001,4.40276);
+pair C = (-0.00759,-0.01519);
+pair B = (5.39307,-0.06971);
+pair D = (4.06500,-0.05630);
+pair E = (4.96795,1.41218);
+pair F = (2.47574,2.64928);
+pair Q = (5.70239,2.56419);
+pair S = (3.13737,-1.54089);
+pair X = (4.05275,-1.26927);
+pair T = (8.00644,-0.09609);
+
+import graph;
+size(12.92041cm);
+pen zzttqq = rgb(0.6,0.2,0.);
+pen xfqqff = rgb(0.49803,0.,1.);
+pen dcrutc = rgb(0.86274,0.07843,0.23529);
+
+pen lightgreen = rgb(247, 255, 247);
+pen lightpurple = rgb(245, 234, 252);
+pen lightblue = rgb(234, 237, 255);
+pen lightred = rgb(255, 234, 242);
+pen lightpink = rgb(255, 234, 255);
+
+
+draw(A--B, linewidth(0.6) + zzttqq);
+draw(B--C, linewidth(0.6) + zzttqq);
+draw(C--A, linewidth(0.6) + zzttqq);
+
+filldraw(circle((4.75154,2.16652), 2.32643), lightpink, linewidth(0.6));
+filldraw(circle((2.05121,2.19378), 3.01964), lightpink, linewidth(0.6));
+
+filldraw(circle((2.70912,1.58059), 3.15073), lightgreen, linewidth(0.6)+green);
+
+filldraw(circle((4.09363,2.77971), 1.62313), lightpurple, linewidth(0.6)+xfqqff);
+
+draw(circle((4.75154,2.16652), 2.32643), linewidth(0.6)+dcrutc);
+draw(circle((2.05121,2.19378), 3.01964), linewidth(0.6)+dcrutc);
+
+draw(circle((2.70912,1.58059), 3.15073), linewidth(0.6)+green);
+
+
+draw(A--B--C--cycle, linewidth(0.6) + zzttqq);
+
+draw(A--D, linewidth(0.6));
+draw(D--F, linewidth(0.6));
+draw(D--E, linewidth(0.6));
+draw(Q--S, linewidth(0.6));
+draw(A--S, linewidth(0.6));
+draw(A--X, linewidth(0.6));
+draw(T--A, linewidth(0.6));
+draw(T--S, linewidth(0.6));
+draw(B--T, linewidth(0.6));
+
+dot("$A$", A, dir(90));
+dot("$C$", C, dir(210));
+dot("$B$", B, dir(298));
+dot("$D$", D, dir(276));
+dot("$E$", E, dir(308));
+dot("$F$", F, dir(162));
+dot("$Q$", Q, dir(61));
+dot("$S$", S, dir(265));
+dot("$X$", X, dir(289));
+dot("$T$", T, dir(62));
+  \end{asy}
+\end{center}
+\begin{proof}
+  Notice, \(FD\) and \(DE\) point in constant directions, since \(\angle{CDF} = \angle{A} = \angle{EDB}\). Thus, by the Generalized Anchor Point Lemma all we need to do is show for one position of \(D\) that \((AFE)\) passes through some fixed point on the median. Let us fix \(D\) to be the foot of the altitude from \(A\) to \(BC\). Let \(S\) be the intersection of the symmedian from \(A\) with \((ABC)\), then, (it is well known, however the proof is outlined below)
+  \begin{lemma}
+    \(S, D, Q\) are colinear.
+  \end{lemma}
+  indeed, since \(ABSC\) is harmonic, by projecting from \(T\) it must be that \(QBCX\) is harmonic, consequently projecting from \(D\) we obtain that \(Q\) goes to a point \(W\) on \((ABC)\) such that \(ABCW\) is harmonic, thus \(W = S\), thus \(Q, D, S\) are colinear. \(\square\)
+
+  Now, by the Generalized Anchor Point Lemma since \(S, D, Q\) are colinear, it must be that \((AEF)\) passes through a fixed point lying on the isogonal line to \(AS\) in \(\angle{CAB}\) which is the median.
+\end{proof}
+
+\section{Conclusion}
+
+I believe that the Generalized Anchor Point Method is quite powerful in problems invovling some type of intersection of \((ABC)\) with a circle passing through \(A\) with well defined intersections with \(AB\) and \(AC\).
+
+\begin{note}[TODO]
+  Additional problems that can be solved using this method will be added to this document as I come across them.
+\end{note}
+
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

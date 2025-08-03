@@ -1,0 +1,930 @@
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=latex 2023.10.12)  3 AUG 2025 22:33
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**\makeatletter\def\HCode{\futurelet\HCode\HChar}\def\HChar{\ifx"\HCode\def\HCo
+de"##1"{\Link##1}\expandafter\HCode\else\expandafter\Link\fi}\def\Link#1.a.b.c.
+{\g@addto@macro\@documentclasshook{\RequirePackage[#1,html]{tex4ht}}\let\HCode\
+documentstyle\def\documentstyle{\let\documentstyle\HCode\expandafter\def\csname
+ tex4ht\endcsname{#1,html}\def\HCode####1{\documentstyle[tex4ht,}\@ifnextchar[{
+\HCode}{\documentstyle[tex4ht]}}}\makeatother\HCode .a.b.c.\input  main.tex
+ (./main.tex
+(/usr/local/texlive/2023/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2022/07/02 v1.4n Standard LaTeX document class
+(/usr/local/texlive/2023/texmf-dist/tex/latex/base/size10.clo
+File: size10.clo 2022/07/02 v1.4n Standard LaTeX file (size option)
+)
+\c@part=\count185
+\c@section=\count186
+\c@subsection=\count187
+\c@subsubsection=\count188
+\c@paragraph=\count189
+\c@subparagraph=\count190
+\c@figure=\count191
+\c@table=\count192
+\abovecaptionskip=\skip48
+\belowcaptionskip=\skip49
+\bibindent=\dimen140
+)
+(/usr/local/texlive/2023/texmf-dist/tex/generic/tex4ht/tex4ht.sty
+version 2023-02-03-14:48
+Package: tex4ht 
+--------------------------------------
+--- Note --- for _ at preamble, use the command line option `early_'
+--------------------------------------
+--------------------------------------
+--- Note --- for ^ at preamble, use the command line option `early^'
+--------------------------------------
+\tmp:toks=\toks16
+)
+(/usr/local/texlive/2023/texmf-dist/tex/generic/tex4ht/usepackage.4ht
+version 2023-01-12-14:08
+)
+(/usr/local/texlive/2023/texmf-dist/tex/latex/amsmath/amsmath.sty
+Package: amsmath 2022/04/08 v2.17n AMS math features
+\@mathmargin=\skip50
+
+For additional information on amsmath, use the `?' option.
+(/usr/local/texlive/2023/texmf-dist/tex/latex/amsmath/amstext.sty
+Package: amstext 2021/08/26 v2.01 AMS text
+
+(/usr/local/texlive/2023/texmf-dist/tex/latex/amsmath/amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0 generic functions
+\@emptytoks=\toks17
+\ex@=\dimen141
+))
+(/usr/local/texlive/2023/texmf-dist/tex/latex/amsmath/amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d Bold Symbols
+\pmbraise@=\dimen142
+)
+(/usr/local/texlive/2023/texmf-dist/tex/latex/amsmath/amsopn.sty
+Package: amsopn 2022/04/08 v2.04 operator names
+)
+\inf@bad=\count193
+LaTeX Info: Redefining \frac on input line 234.
+\uproot@=\count194
+\leftroot@=\count195
+LaTeX Info: Redefining \overline on input line 399.
+LaTeX Info: Redefining \colon on input line 410.
+\classnum@=\count196
+\DOTSCASE@=\count197
+LaTeX Info: Redefining \ldots on input line 496.
+LaTeX Info: Redefining \dots on input line 499.
+LaTeX Info: Redefining \cdots on input line 620.
+\Mathstrutbox@=\box51
+\strutbox@=\box52
+LaTeX Info: Redefining \big on input line 722.
+LaTeX Info: Redefining \Big on input line 723.
+LaTeX Info: Redefining \bigg on input line 724.
+LaTeX Info: Redefining \Bigg on input line 725.
+\big@size=\dimen143
+LaTeX Font Info:    Redeclaring font encoding OML on input line 743.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 744.
+\macc@depth=\count198
+LaTeX Info: Redefining \bmod on input line 905.
+LaTeX Info: Redefining \pmod on input line 910.
+LaTeX Info: Redefining \smash on input line 940.
+LaTeX Info: Redefining \relbar on input line 970.
+LaTeX Info: Redefining \Relbar on input line 971.
+\c@MaxMatrixCols=\count199
+\dotsspace@=\muskip16
+\c@parentequation=\count266
+\dspbrk@lvl=\count267
+\tag@help=\toks18
+\row@=\count268
+\column@=\count269
+\maxfields@=\count270
+\andhelp@=\toks19
+\eqnshift@=\dimen144
+\alignsep@=\dimen145
+\tagshift@=\dimen146
+\tagwidth@=\dimen147
+\totwidth@=\dimen148
+\lineht@=\dimen149
+\@envbody=\toks20
+\multlinegap=\skip51
+\multlinetaggap=\skip52
+\mathdisplay@stack=\toks21
+LaTeX Info: Redefining \[ on input line 2953.
+LaTeX Info: Redefining \] on input line 2954.
+)
+(/usr/local/texlive/2023/texmf-dist/tex/latex/amsfonts/amssymb.sty
+Package: amssymb 2013/01/14 v3.01 AMS font symbols
+
+(/usr/local/texlive/2023/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+))
+(/usr/local/texlive/2023/texmf-dist/tex/latex/amscls/amsthm.sty
+Package: amsthm 2020/05/29 v2.20.6
+\thm@style=\toks22
+\thm@bodyfont=\toks23
+\thm@headfont=\toks24
+\thm@notefont=\toks25
+\thm@headpunct=\toks26
+\thm@preskip=\skip53
+\thm@postskip=\skip54
+\thm@headsep=\skip55
+\dth@everypar=\toks27
+)
+(/usr/local/texlive/2023/texmf-dist/tex/latex/asymptote/asymptote.sty
+Package: asymptote 2021/12/29 v1.37 Asymptote style file for LaTeX
+
+(./main.pre)
+\ASYbox=\box53
+\ASYdimen=\dimen150
+\c@asy=\count271
+\AsyStream=\write3
+\AsyPreStream=\write4
+ (/usr/local/texlive/2023/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
+\KV@toks@=\toks28
+) (/usr/local/texlive/2023/texmf-dist/tex/latex/base/ifthen.sty
+Package: ifthen 2022/04/13 v1.1d Standard LaTeX ifthen package (DPC)
+)
+(/usr/local/texlive/2023/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/usr/local/texlive/2023/texmf-dist/tex/generic/tex4ht/graphics-hooks.4ht
+version 2022-08-17-14:25
+)
+(/usr/local/texlive/2023/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2022/03/10 v1.4e Standard LaTeX Graphics (DPC,SPQR)
+
+(/usr/local/texlive/2023/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 2021/08/11 v1.11 sin cos tan (DPC)
+)
+(/usr/local/texlive/2023/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: dvips.def on input line 107.
+
+(/usr/local/texlive/2023/texmf-dist/tex/latex/graphics-def/dvips.def
+File: dvips.def 2022/09/22 v3.1e Graphics/color driver for dvips
+))
+\Gin@req@height=\dimen151
+\Gin@req@width=\dimen152
+)
+(/usr/local/texlive/2023/texmf-dist/tex/generic/iftex/ifpdf.sty
+Package: ifpdf 2019/10/25 v3.4 ifpdf legacy package. Use iftex instead.
+
+(/usr/local/texlive/2023/texmf-dist/tex/generic/iftex/iftex.sty
+Package: iftex 2022/02/03 v1.0f TeX engine tests
+))
+(/usr/local/texlive/2023/texmf-dist/tex/generic/iftex/ifxetex.sty
+Package: ifxetex 2019/10/25 v0.7 ifxetex legacy package. Use iftex instead.
+)
+(/usr/local/texlive/2023/texmf-dist/tex/generic/catchfile/catchfile.sty
+Package: catchfile 2019/12/09 v1.8 Catch the contents of a file (HO)
+
+(/usr/local/texlive/2023/texmf-dist/tex/generic/infwarerr/infwarerr.sty
+Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
+)
+(/usr/local/texlive/2023/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty
+Package: ltxcmds 2020-05-10 v1.25 LaTeX kernel commands for general use (HO)
+)
+(/usr/local/texlive/2023/texmf-dist/tex/generic/etexcmds/etexcmds.sty
+Package: etexcmds 2019/12/15 v1.7 Avoid name clashes with e-TeX commands (HO)
+))
+\openout4 = `main.pre'.
+
+)
+\c@theorem=\count272
+\c@problem=\count273
+\c@note=\count274
+\c@question=\count275
+\c@lemma=\count276
+
+(/usr/local/texlive/2023/texmf-dist/tex/generic/tex4ht/tex4ht.4ht
+version 2022-07-05-14:37
+--------------------------------------
+--- Note --- for additional information, use the command line option `info'
+--------------------------------------
+
+::::::::::::::::::::::::::::::::::::::::::
+ TeX4ht info is available in the log file 
+::::::::::::::::::::::::::::::::::::::::::
+) (/usr/local/texlive/2023/texmf-dist/tex/generic/tex4ht/tex4ht.sty
+version 2023-02-03-14:48
+
+l.864 --- TeX4ht warning --- nonprimitive \everypar ---
+--- needs --- tex4ht main ---
+\tmp:cnt=\count277
+\openout15 = `main.tmp'.
+
+(./main.tmp)
+\tmp:dim=\skip56
+--------------------------------------
+--- Note --- for XML code, use the command line option `xml' or `xhtml'
+--------------------------------------
+ (./main.xref)
+\:refout=\write5
+\openout5 = `main.xref'.
+
+
+(/usr/local/texlive/2023/texmf-dist/tex/generic/tex4ht/html4.4ht
+version 2023-03-02-13:31
+--------------------------------------
+--- Note --- to remove the <?xml version=...?> processing instruction use the c
+ommand line option `no-VERSION'
+--------------------------------------
+--------------------------------------
+--- Note --- to remove the DOCTYPE declaration use the command line option `no-
+DOCTYPE'
+--------------------------------------
+)
+(/usr/local/texlive/2023/texmf-dist/tex/generic/tex4ht/html4-math.4ht
+version 2022-10-25-13:59
+)
+--------------------------------------
+--- Note --- for marking of the base font, use the command line option `fonts+'
+
+--------------------------------------
+--------------------------------------
+--- Note --- for non active _, use the command line option `no_'
+--------------------------------------
+--------------------------------------
+--- Note --- for _ of catcode 13, use the command line option `_13'
+--------------------------------------
+--------------------------------------
+--- Note --- for non active ^, use the command line option `no^'
+--------------------------------------
+--------------------------------------
+--- Note --- for ^ of catcode 13, use the command line option `^13'
+--------------------------------------
+
+(/usr/local/texlive/2023/texmf-dist/tex/generic/tex4ht/html4.4ht
+version 2023-03-02-13:31
+--------------------------------------
+--- Note --- for alternative charset, use the command line option `charset=...'
+
+--------------------------------------
+--------------------------------------
+--- Note --- to ignore CSS font decoration, use the `NoFonts' command line opti
+on
+--------------------------------------
+--------------------------------------
+--- Note --- for jpg bitmaps of pictures, use the `jpg' command line option. (C
+haracter bitmaps are controled only by `g' records of tex4ht.env and `-g' switc
+hes of tex4ht.c) 
+--------------------------------------
+--------------------------------------
+--- Note --- for gif bitmaps of pictures, use the `gif' command line option. (C
+haracter bitmaps are controled only by `g' records of tex4ht.env and `-g' switc
+hes of tex4ht.c) 
+--------------------------------------
+--------------------------------------
+--- Note --- for content and toc in 2 frames, use the command line option `fram
+es'
+--------------------------------------
+--------------------------------------
+--- Note --- for content, toc, and footnotes in 3 frames, use the command line 
+option `frames-fn'
+--------------------------------------
+--------------------------------------
+--- Note --- for file extension name xht, use the command line option `xht'
+--------------------------------------
+TeX4ht package options: html
+--------------------------------------
+--- Note --- To print a timestamp, use the command line option timestamp
+--------------------------------------
+--------------------------------------
+--- Note --- to ignore CSS code, use the command line option `-css
+--------------------------------------
+--------------------------------------
+--- Note --- for inline CSS code, use the command line option `css-in'
+--------------------------------------
+--------------------------------------
+--- Note --- for pop ups on mouse over, use the command line option `mouseover'
+
+--------------------------------------
+--------------------------------------
+--- Note --- for addressing images in a subdirectory, use the command line opti
+on `imgdir:.../'
+--------------------------------------
+)
+(/usr/local/texlive/2023/texmf-dist/tex/generic/tex4ht/html4-math.4ht
+version 2022-10-25-13:59
+)
+\:tokwrite=\toks29
+\:tokpage=\toks30
+--------------------------------------
+--- Note --- for back links to toc, use the command line option `sections+'
+--------------------------------------
+--------------------------------------
+--- Note --- for linear crosslinks of pages, use the command line option `next'
+
+--------------------------------------
+\openout15 = `main.4ct'.
+
+\:tocout=\write6
+\openout6 = `main.4tc'.
+
+
+(main.4tc) (/usr/local/texlive/2023/texmf-dist/tex/generic/tex4ht/html4.4ht
+version 2023-03-02-13:31
+)
+(/usr/local/texlive/2023/texmf-dist/tex/generic/tex4ht/html4-math.4ht
+version 2022-10-25-13:59
+)
+(/usr/local/texlive/2023/texmf-dist/tex/generic/tex4ht/latex.4ht
+version 2022-12-26-13:00
+LaTeX Info: Redefining \_ on input line 177.
+LaTeX Info: Redefining \begin on input line 595.
+LaTeX Info: Redefining \end on input line 643.
+LaTeX Info: Redefining \, on input line 805.
+LaTeX Info: Redefining \; on input line 806.
+LaTeX Info: Redefining \! on input line 807.
+LaTeX Info: Redefining \: on input line 808.
+LaTeX Info: Redefining \> on input line 809.
+--------------------------------------
+--- Note --- for links into captions, instead of float heads, use the command l
+ine option `refcaption'
+--------------------------------------
+
+(/usr/local/texlive/2023/texmf-dist/tex/generic/tex4ht/html4.4ht
+version 2023-03-02-13:31
+)
+(/usr/local/texlive/2023/texmf-dist/tex/generic/tex4ht/html4-math.4ht
+version 2022-10-25-13:59
+)
+(/usr/local/texlive/2023/texmf-dist/tex/generic/tex4ht/html4.4ht
+version 2023-03-02-13:31
+--------------------------------------
+--- Note --- For mini tocs immediately aftter the header use the command line o
+ption `minitoc<'
+--------------------------------------
+--------------------------------------
+--- Note --- for enumerated list elements with valued data, use the command lin
+e option `enumerate+'
+--------------------------------------
+--------------------------------------
+--- Note --- for enumerated list elements li's with value attributes, use the c
+ommand line option `enumerate-'
+--------------------------------------
+--------------------------------------
+--- Note --- for CSS2 code, use the command line option `css2'
+--------------------------------------
+--------------------------------------
+--- Note --- for pictorial tabular, use the command line option `pic-tabular'
+--------------------------------------
+--------------------------------------
+--- Note --- for bitmap fbox'es, use the command line option `pic-fbox'
+--------------------------------------
+--------------------------------------
+--- Note --- for bitmap framebox'es, use the command line option `pic-framebox'
+
+--------------------------------------
+--------------------------------------
+--- Note --- for inline footnotes use command line option `fn-in'
+--------------------------------------
+--------------------------------------
+--- Note --- for tracing of latex font commands, use the command line option `f
+onts'
+--------------------------------------
+--------------------------------------
+--- Note --- for width specifications of tabular p entries, use the `p-width' c
+ommand line option or a configuration similar to \Configure{HColWidth}{\HCode{ 
+style="width:\HColWidth"}}
+--------------------------------------
+)
+(/usr/local/texlive/2023/texmf-dist/tex/generic/tex4ht/html4-math.4ht
+version 2022-10-25-13:59
+--------------------------------------
+--- Note --- for pictorial eqnarray, use the command line option `pic-eqnarray'
+
+--------------------------------------
+--------------------------------------
+--- Note --- for pictorial array, use the command line option `pic-array'
+--------------------------------------
+--------------------------------------
+--- Note --- for pictorial $...$ environments, use the command line option `pic
+-m' (not recommended!!)
+--------------------------------------
+--------------------------------------
+--- Note --- for pictorial $...$ and $$...$$ environments with latex alt, use t
+he command line option `pic-m+' (not safe!!)
+--------------------------------------
+--------------------------------------
+--- Note --- for pictorial array, use the command line option `pic-array'
+--------------------------------------
+))
+(/usr/local/texlive/2023/texmf-dist/tex/generic/tex4ht/fontmath.4ht
+version 2022-10-25-13:59
+
+(/usr/local/texlive/2023/texmf-dist/tex/generic/tex4ht/html4.4ht
+version 2023-03-02-13:31
+)
+(/usr/local/texlive/2023/texmf-dist/tex/generic/tex4ht/html4-math.4ht
+version 2022-10-25-13:59
+))
+(/usr/local/texlive/2023/texmf-dist/tex/generic/tex4ht/article.4ht
+version 2023-02-25-15:08
+
+(/usr/local/texlive/2023/texmf-dist/tex/generic/tex4ht/html4.4ht
+version 2023-03-02-13:31
+--------------------------------------
+--- Note --- for automatic sectioning pagination, use the command line option `
+1', `2', `3', '4', '5', '6', or '7'
+--------------------------------------
+--------------------------------------
+--- Note --- for files named derived from section titles, use the command line 
+option `sec-filename'
+--------------------------------------
+--------------------------------------
+--- Note --- for i-columns index, use the command line option `index=i' (e.g., 
+index=2)
+--------------------------------------
+)
+(/usr/local/texlive/2023/texmf-dist/tex/generic/tex4ht/html4-math.4ht
+version 2022-10-25-13:59
+))
+(/usr/local/texlive/2023/texmf-dist/tex/generic/tex4ht/amsmath.4ht
+version 2019-12-29-14:17
+\tmp:muskip=\muskip17
+
+(/usr/local/texlive/2023/texmf-dist/tex/generic/tex4ht/html4.4ht
+version 2023-03-02-13:31
+)
+(/usr/local/texlive/2023/texmf-dist/tex/generic/tex4ht/html4-math.4ht
+version 2022-10-25-13:59
+LaTeX Info: Redefining \[ on input line 507.
+LaTeX Info: Redefining \] on input line 507.
+))
+(/usr/local/texlive/2023/texmf-dist/tex/generic/tex4ht/amstext.4ht
+version 2009-05-21-09:32
+
+(/usr/local/texlive/2023/texmf-dist/tex/generic/tex4ht/html4.4ht
+version 2023-03-02-13:31
+)
+(/usr/local/texlive/2023/texmf-dist/tex/generic/tex4ht/html4-math.4ht
+version 2022-10-25-13:59
+))
+(/usr/local/texlive/2023/texmf-dist/tex/generic/tex4ht/amsbsy.4ht
+version 2009-05-21-09:32
+
+(/usr/local/texlive/2023/texmf-dist/tex/generic/tex4ht/html4.4ht
+version 2023-03-02-13:31
+)
+(/usr/local/texlive/2023/texmf-dist/tex/generic/tex4ht/html4-math.4ht
+version 2022-10-25-13:59
+))
+(/usr/local/texlive/2023/texmf-dist/tex/generic/tex4ht/amsopn.4ht
+version 2009-05-21-09:32
+
+(/usr/local/texlive/2023/texmf-dist/tex/generic/tex4ht/html4.4ht
+version 2023-03-02-13:31
+)
+(/usr/local/texlive/2023/texmf-dist/tex/generic/tex4ht/html4-math.4ht
+version 2022-10-25-13:59
+))
+(/usr/local/texlive/2023/texmf-dist/tex/generic/tex4ht/amssymb.4ht
+version 2009-05-21-09:32
+
+(/usr/local/texlive/2023/texmf-dist/tex/generic/tex4ht/html4.4ht
+version 2023-03-02-13:31
+)
+(/usr/local/texlive/2023/texmf-dist/tex/generic/tex4ht/html4-math.4ht
+version 2022-10-25-13:59
+))
+(/usr/local/texlive/2023/texmf-dist/tex/generic/tex4ht/amsfonts.4ht
+version 2009-05-21-09:32
+
+(/usr/local/texlive/2023/texmf-dist/tex/generic/tex4ht/html4.4ht
+version 2023-03-02-13:31
+)
+(/usr/local/texlive/2023/texmf-dist/tex/generic/tex4ht/html4-math.4ht
+version 2022-10-25-13:59
+))
+(/usr/local/texlive/2023/texmf-dist/tex/generic/tex4ht/amsthm.4ht
+version 2009-05-21-09:32
+
+(/usr/local/texlive/2023/texmf-dist/tex/generic/tex4ht/html4.4ht
+version 2023-03-02-13:31
+)
+(/usr/local/texlive/2023/texmf-dist/tex/generic/tex4ht/html4-math.4ht
+version 2022-10-25-13:59
+))
+(/usr/local/texlive/2023/texmf-dist/tex/generic/tex4ht/ifthen.4ht
+version 2022-06-08-14:13
+
+(/usr/local/texlive/2023/texmf-dist/tex/generic/tex4ht/html4.4ht
+version 2023-03-02-13:31
+)
+(/usr/local/texlive/2023/texmf-dist/tex/generic/tex4ht/html4-math.4ht
+version 2022-10-25-13:59
+))
+(/usr/local/texlive/2023/texmf-dist/tex/generic/tex4ht/graphicx.4ht
+version 2022-01-12-13:53
+
+(/usr/local/texlive/2023/texmf-dist/tex/generic/tex4ht/html4.4ht
+version 2023-03-02-13:31
+)
+(/usr/local/texlive/2023/texmf-dist/tex/generic/tex4ht/html4-math.4ht
+version 2022-10-25-13:59
+))
+(/usr/local/texlive/2023/texmf-dist/tex/generic/tex4ht/graphics.4ht
+version 2022-03-20-14:29
+
+(/usr/local/texlive/2023/texmf-dist/tex/generic/tex4ht/html4.4ht
+version 2023-03-02-13:31
+--------------------------------------
+--- Note --- if included graphics are of degraded quality, try the command line
+ options `graphics-num' or `graphics-'. The `num' should provide the density of
+ pixels in the bitmaps (e.g., 110). 
+--------------------------------------
+--------------------------------------
+--- Note --- for setting image dimensions, try the option `Gin-dim'; to use per
+cents instead of units, use `Gin-perecent'; for key dimensions when bounding bo
+x is unavailable try `Gin-dim+'; neither is recommended
+--------------------------------------
+)
+(/usr/local/texlive/2023/texmf-dist/tex/generic/tex4ht/html4-math.4ht
+version 2022-10-25-13:59
+))
+(/usr/local/texlive/2023/texmf-dist/tex/generic/tex4ht/dvips.4ht
+version 2009-05-21-09:32
+
+(/usr/local/texlive/2023/texmf-dist/tex/generic/tex4ht/html4.4ht
+version 2023-03-02-13:31
+)
+(/usr/local/texlive/2023/texmf-dist/tex/generic/tex4ht/html4-math.4ht
+version 2022-10-25-13:59
+))
+(/usr/local/texlive/2023/texmf-dist/tex/generic/tex4ht/html4.4ht
+version 2023-03-02-13:31
+)
+(/usr/local/texlive/2023/texmf-dist/tex/generic/tex4ht/html4-math.4ht
+version 2022-10-25-13:59
+))
+(/usr/local/texlive/2023/texmf-dist/tex/latex/l3backend/l3backend-dvips.def
+File: l3backend-dvips.def 2023-01-16 L3 backend support: dvips
+\l__pdf_internal_box=\box54
+\g__pdf_backend_object_int=\count278
+\l__pdf_backend_content_box=\box55
+\l__pdf_backend_model_box=\box56
+\g__pdf_backend_annotation_int=\count279
+\g__pdf_backend_link_int=\count280
+\g__pdf_backend_link_sf_int=\count281
+)
+(./main.aux)
+\openout1 = `main.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
+--- file main.css ---
+ [1
+
+] [2]
+LaTeX Font Info:    Trying to load font information for U+msa on input line 54.
+
+
+(/usr/local/texlive/2023/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 54.
+
+
+(/usr/local/texlive/2023/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+l. 59 Writing main.idv[1] (main0x.png)
+l. 59 Writing main.idv[2] (main1x.png)
+l. 59 Writing main.idv[3] (main2x.png)
+l. 59 Writing main.idv[4] (main3x.png)
+l. 59 Writing main.idv[5] (main4x.png)
+l. 59 Writing main.idv[6] (main5x.png)
+l. 59 Writing main.idv[7] (main6x.png)
+l. 59 Writing main.idv[8] (main7x.png)
+l. 59 Writing main.idv[9] (main8x.png)
+l. 59 Writing main.idv[10] (main9x.png)
+l. 59 Writing main.idv[11] (main10x.png)
+l. 59 Writing main.idv[12] (main11x.png)
+l. 59 Writing main.idv[13] (main12x.png)
+l. 59 Writing main.idv[14] (main13x.png)
+l. 59 Writing main.idv[15] (main14x.png)
+l. 59 Writing main.idv[16] (main15x.png)
+l. 59 Writing main.idv[17] (main16x.png)
+\openout3 = `asy/main-1.asy'.
+
+
+
+Package asymptote Warning: file `asy/main-1.tex' not found on input line 102.
+
+l. 108 Writing main.idv[18] (main17x.png)
+l. 108 Writing main.idv[19] (main18x.png)
+l. 108 Writing main.idv[20] (main19x.png)
+l. 108 Writing main.idv[21] (main20x.png)
+l. 108 Writing main.idv[22] (main21x.png)
+l. 108 Writing main.idv[23] (main22x.png)
+l. 108 Writing main.idv[24] (main23x.png)
+l. 110 Writing main.idv[25] (main24x.png)
+[3]
+l. 112 Writing main.idv[26] (main25x.png)
+l. 112 Writing main.idv[27] (main26x.png)
+l. 112 Writing main.idv[28] (main27x.png)
+l. 113 Writing main.idv[29] (main28x.png)
+l. 114 Writing main.idv[30] (main29x.png)
+\openout3 = `asy/main-2.asy'.
+
+
+
+Package asymptote Warning: file `asy/main-2.tex' not found on input line 168.
+
+l. 170 Writing main.idv[31] (main30x.png)
+l. 170 Writing main.idv[32] (main31x.png)
+l. 170 Writing main.idv[33] (main32x.png)
+l. 170 Writing main.idv[34] (main33x.png)
+l. 170 Writing main.idv[35] (main34x.png)
+l. 170 Writing main.idv[36] (main35x.png)
+l. 170 Writing main.idv[37] (main36x.png)
+l. 170 Writing main.idv[38] (main37x.png)
+l. 178 Writing main.idv[39] (main38x.png)
+l. 178 Writing main.idv[40] (main39x.png)
+l. 178 Writing main.idv[41] (main40x.png)
+l. 178 Writing main.idv[42] (main41x.png)
+[4]
+l. 181 Writing main.idv[43] (main42x.png)
+l. 182 Writing main.idv[44] (main43x.png)
+l. 182 Writing main.idv[45] (main44x.png)
+l. 182 Writing main.idv[46] (main45x.png)
+l. 182 Writing main.idv[47] (main46x.png)
+l. 182 Writing main.idv[48] (main47x.png)
+l. 182 Writing main.idv[49] (main48x.png)
+l. 182 Writing main.idv[50] (main49x.png)
+l. 183 Writing main.idv[51] (main50x.png)
+\openout3 = `asy/main-3.asy'.
+
+
+
+Package asymptote Warning: file `asy/main-3.tex' not found on input line 244.
+
+l. 247 Writing main.idv[52] (main51x.png)
+l. 248 Writing main.idv[53] (main52x.png)
+[5]
+l. 252 Writing main.idv[54] (main53x.png)
+l. 256 Writing main.idv[55] (main54x.png)
+l. 259 Writing main.idv[56] (main55x.png)
+l. 260 Writing main.idv[57] (main56x.png)
+l. 262 Writing main.idv[58] (main57x.png)
+ [6]
+l. 266 Writing main.idv[59] (main58x.png)
+l. 266 Writing main.idv[60] (main59x.png)
+l. 268 Writing main.idv[61] (main60x.png)
+l. 268 Writing main.idv[62] (main61x.png)
+l. 268 Writing main.idv[63] (main62x.png)
+l. 268 Writing main.idv[64] (main63x.png)
+l. 271 Writing main.idv[65] (main64x.png)
+\openout3 = `asy/main-4.asy'.
+
+
+
+Package asymptote Warning: file `asy/main-4.tex' not found on input line 309.
+
+l. 312 Writing main.idv[66] (main65x.png)
+l. 312 Writing main.idv[67] (main66x.png)
+l. 312 Writing main.idv[68] (main67x.png)
+l. 312 Writing main.idv[69] (main68x.png)
+l. 315 Writing main.idv[70] (main69x.png)
+l. 317 Writing main.idv[71] (main70x.png)
+l. 317 Writing main.idv[72] (main71x.png)
+l. 317 Writing main.idv[73] (main72x.png)
+[7]
+l. 326 Writing main.idv[74] (main73x.png)
+l. 326 Writing main.idv[75] (main74x.png)
+\openout3 = `asy/main-5.asy'.
+
+
+
+Package asymptote Warning: file `asy/main-5.tex' not found on input line 390.
+
+l. 394 Writing main.idv[76] (main75x.png)
+l. 399 Writing main.idv[77] (main76x.png)
+l. 399 Writing main.idv[78] (main77x.png)
+l. 399 Writing main.idv[79] (main78x.png)
+l. 399 Writing main.idv[80] (main79x.png)
+l. 399 Writing main.idv[81] (main80x.png)
+l. 399 Writing main.idv[82] (main81x.png)
+[8]
+\openout3 = `asy/main-6.asy'.
+
+
+
+Package asymptote Warning: file `asy/main-6.tex' not found on input line 474.
+
+l. 479 Writing main.idv[83] (main82x.png)
+l. 479 Writing main.idv[84] (main83x.png)
+l. 479 Writing main.idv[85] (main84x.png)
+l. 479 Writing main.idv[86] (main85x.png)
+l. 479 Writing main.idv[87] (main86x.png)
+l. 479 Writing main.idv[88] (main87x.png)
+l. 479 Writing main.idv[89] (main88x.png)
+l. 480 Writing main.idv[90] (main89x.png)
+
+LaTeX Warning: Command \textquoteright invalid in math mode on input line 483.
+
+
+LaTeX Warning: Command \textquoteright invalid in math mode on input line 483.
+
+l. 485 Writing main.idv[91] (main90x.png)
+l. 485 Writing main.idv[92] (main91x.png)
+l. 487 Writing main.idv[93] (main92x.png)
+l. 487 Writing main.idv[94] (main93x.png)
+l. 488 Writing main.idv[95] (main94x.png)
+
+LaTeX Warning: Command \textquoteright invalid in math mode on input line 488.
+
+l. 489 Writing main.idv[96] (main95x.png)
+l. 489 Writing main.idv[97] (main96x.png)
+l. 489 Writing main.idv[98] (main97x.png)
+[9]
+l. 491 Writing main.idv[99] (main98x.png)
+l. 491 Writing main.idv[100] (main99x.png)
+l. 493 Writing main.idv[101] (main100x.png)
+l. 493 Writing main.idv[102] (main101x.png)
+l. 493 Writing main.idv[103] (main102x.png)
+l. 493 Writing main.idv[104] (main103x.png)
+
+
+LaTeX Warning: Command \textquoteright invalid in math mode on input line 493.
+
+l. 493 Writing main.idv[105] (main104x.png)
+l. 493 Writing main.idv[106] (main105x.png)
+l. 493 Writing main.idv[107] (main106x.png)
+l. 495 Writing main.idv[108] (main107x.png)
+l. 495 Writing main.idv[109] (main108x.png)
+l. 495 Writing main.idv[110] (main109x.png)
+l. 499 Writing main.idv[111] (main110x.png)
+l. 499 Writing main.idv[112] (main111x.png)
+l. 499 Writing main.idv[113] (main112x.png)
+l. 499 Writing main.idv[114] (main113x.png)
+l. 499 Writing main.idv[115] (main114x.png)
+\openout3 = `asy/main-7.asy'.
+
+
+Package asymptote Warning: file `asy/main-7.tex' not found on input line 560.
+
+l. 563 Writing main.idv[116] (main115x.png)
+l. 563 Writing main.idv[117] (main116x.png)
+l. 564 Writing main.idv[118] (main117x.png)
+l. 565 Writing main.idv[119] (main118x.png)
+l. 565 Writing main.idv[120] (main119x.png)
+l. 565 Writing main.idv[121] (main120x.png)
+l. 565 Writing main.idv[122] (main121x.png)
+l. 565 Writing main.idv[123] (main122x.png)
+l. 565 Writing main.idv[124] (main123x.png)
+l. 565 Writing main.idv[125] (main124x.png)
+l. 565 Writing main.idv[126] (main125x.png)
+l. 565 Writing main.idv[127] (main126x.png)
+l. 565 Writing main.idv[128] (main127x.png)
+[10]
+l. 573 Writing main.idv[129] (main128x.png)
+l. 573 Writing main.idv[130] (main129x.png)
+l. 573 Writing main.idv[131] (main130x.png)
+l. 573 Writing main.idv[132] (main131x.png)
+l. 573 Writing main.idv[133] (main132x.png)
+l. 573 Writing main.idv[134] (main133x.png)
+l. 573 Writing main.idv[135] (main134x.png)
+l. 573 Writing main.idv[136] (main135x.png)
+l. 573 Writing main.idv[137] (main136x.png)
+l. 573 Writing main.idv[138] (main137x.png)
+l. 573 Writing main.idv[139] (main138x.png)
+l. 573 Writing main.idv[140] (main139x.png)
+l. 573 Writing main.idv[141] (main140x.png)
+l. 573 Writing main.idv[142] (main141x.png)
+l. 573 Writing main.idv[143] (main142x.png)
+l. 573 Writing main.idv[144] (main143x.png)
+l. 573 Writing main.idv[145] (main144x.png)
+l. 575 Writing main.idv[146] (main145x.png)
+l. 575 Writing main.idv[147] (main146x.png)
+l. 575 Writing main.idv[148] (main147x.png)
+l. 575 Writing main.idv[149] (main148x.png)
+\openout3 = `asy/main-8.asy'.
+
+
+
+Package asymptote Warning: file `asy/main-8.tex' not found on input line 629.
+
+l. 632 Writing main.idv[150] (main149x.png)
+l. 633 Writing main.idv[151] (main150x.png)
+[11]
+l. 634 Writing main.idv[152] (main151x.png)
+l. 634 Writing main.idv[153] (main152x.png)
+l. 639 Writing main.idv[154] (main153x.png)
+l. 644 Writing main.idv[155] (main154x.png)
+l. 644 Writing main.idv[156] (main155x.png)
+l. 644 Writing main.idv[157] (main156x.png)
+l. 644 Writing main.idv[158] (main157x.png)
+l. 644 Writing main.idv[159] (main158x.png)
+l. 644 Writing main.idv[160] (main159x.png)
+l. 644 Writing main.idv[161] (main160x.png)
+l. 644 Writing main.idv[162] (main161x.png)
+l. 644 Writing main.idv[163] (main162x.png)
+l. 644 Writing main.idv[164] (main163x.png)
+l. 644 Writing main.idv[165] (main164x.png)
+l. 644 Writing main.idv[166] (main165x.png)
+l. 644 Writing main.idv[167] (main166x.png)
+\openout3 = `asy/main-9.asy'.
+
+
+
+Package asymptote Warning: file `asy/main-9.tex' not found on input line 710.
+
+l. 714 Writing main.idv[168] (main167x.png)
+l. 714 Writing main.idv[169] (main168x.png)
+l. 714 Writing main.idv[170] (main169x.png)
+l. 714 Writing main.idv[171] (main170x.png)
+l. 714 Writing main.idv[172] (main171x.png)
+l. 714 Writing main.idv[173] (main172x.png)
+l. 714 Writing main.idv[174] (main173x.png)
+l. 714 Writing main.idv[175] (main174x.png)
+l. 714 Writing main.idv[176] (main175x.png)
+l. 714 Writing main.idv[177] (main176x.png)
+l. 714 Writing main.idv[178] (main177x.png)
+l. 714 Writing main.idv[179] (main178x.png)
+[12]
+l. 717 Writing main.idv[180] (main179x.png)
+l. 718 Writing main.idv[181] (main180x.png)
+l. 719 Writing main.idv[182] (main181x.png)
+l. 719 Writing main.idv[183] (main182x.png)
+l. 719 Writing main.idv[184] (main183x.png)
+l. 719 Writing main.idv[185] (main184x.png)
+l. 719 Writing main.idv[186] (main185x.png)
+l. 719 Writing main.idv[187] (main186x.png)
+l. 719 Writing main.idv[188] (main187x.png)
+l. 719 Writing main.idv[189] (main188x.png)
+ [13]
+\openout3 = `asy/main-10.asy'.
+
+
+
+Package asymptote Warning: file `asy/main-10.tex' not found on input line 776.
+
+l. 779 Writing main.idv[190] (main189x.png)
+l. 779 Writing main.idv[191] (main190x.png)
+l. 779 Writing main.idv[192] (main191x.png)
+l. 779 Writing main.idv[193] (main192x.png)
+\openout3 = `asy/main-11.asy'.
+
+
+Package asymptote Warning: file `asy/main-11.tex' not found on input line 850.
+
+l. 853 Writing main.idv[194] (main193x.png)
+l. 853 Writing main.idv[195] (main194x.png)
+l. 853 Writing main.idv[196] (main195x.png)
+l. 853 Writing main.idv[197] (main196x.png)
+l. 853 Writing main.idv[198] (main197x.png)
+l. 853 Writing main.idv[199] (main198x.png)
+l. 853 Writing main.idv[200] (main199x.png)
+l. 853 Writing main.idv[201] (main200x.png)
+l. 853 Writing main.idv[202] (main201x.png)
+l. 853 Writing main.idv[203] (main202x.png)
+l. 853 Writing main.idv[204] (main203x.png)
+[14]
+l. 855 Writing main.idv[205] (main204x.png)
+l. 857 Writing main.idv[206] (main205x.png)
+l. 857 Writing main.idv[207] (main206x.png)
+l. 857 Writing main.idv[208] (main207x.png)
+l. 857 Writing main.idv[209] (main208x.png)
+l. 857 Writing main.idv[210] (main209x.png)
+l. 857 Writing main.idv[211] (main210x.png)
+l. 857 Writing main.idv[212] (main211x.png)
+l. 857 Writing main.idv[213] (main212x.png)
+l. 857 Writing main.idv[214] (main213x.png)
+l. 857 Writing main.idv[215] (main214x.png)
+l. 857 Writing main.idv[216] (main215x.png)
+l. 859 Writing main.idv[217] (main216x.png)
+l. 859 Writing main.idv[218] (main217x.png)
+l. 859 Writing main.idv[219] (main218x.png)
+l. 859 Writing main.idv[220] (main219x.png)
+l. 864 Writing main.idv[221] (main220x.png)
+l. 864 Writing main.idv[222] (main221x.png)
+l. 864 Writing main.idv[223] (main222x.png)
+l. 864 Writing main.idv[224] (main223x.png)
+ [15] (./main.aux) ) 
+Here is how much of TeX's memory you used:
+ 7019 strings out of 476026
+ 95477 string characters out of 5790042
+ 1861385 words of memory out of 5000000
+ 27303 multiletter control sequences out of 15000+600000
+ 520664 words of font info for 65 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 76i,11n,92p,971b,516s stack positions out of 10000i,1000n,20000p,200000b,200000s
+
+Output written on main.dvi (15 pages, 91772 bytes).
