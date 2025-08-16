@@ -174,6 +174,8 @@ Css: img[src="main15x.png"]{vertical-align:-22.15193504143352%}
 --- needs --- main.idv[17] ==> main15x.png ---
 Css: img[src="main16x.png"]{vertical-align:-0%}
 --- needs --- main.idv[18] ==> main16x.png ---
+l. 62 --- needs --- "rungs -q -dNOPAUSE -dBATCH -dusecropbox -sDEVICE=pngalpha -r300  -sOutputFile="asy/doc-1_0-.png" "asy/doc-1_0.pdf" " ---
+File: asy/doc-1_0-.png
 Css: img[src="main17x.png"]{vertical-align:-0%}
 --- needs --- main.idv[19] ==> main17x.png ---
 Css: img[src="main18x.png"]{vertical-align:-0%}
@@ -199,6 +201,8 @@ Css: img[src="main27x.png"]{vertical-align:-21.87498927115985%}
 --- needs --- main.idv[30] ==> main28x.png ---
 Css: img[src="main29x.png"]{vertical-align:-0%}
 --- needs --- main.idv[31] ==> main29x.png ---
+l. 76 --- needs --- "rungs -q -dNOPAUSE -dBATCH -dusecropbox -sDEVICE=pngalpha -r300  -sOutputFile="asy/doc-2_0-.png" "asy/doc-2_0.pdf" " ---
+File: asy/doc-2_0-.png
 Css: img[src="main30x.png"]{vertical-align:-0%}
 --- needs --- main.idv[32] ==> main30x.png ---
 Css: img[src="main31x.png"]{vertical-align:-0%}
@@ -564,14 +568,86 @@ Css: img[src="main218x.png"]{vertical-align:-0%}
 --- needs --- main.idv[220] ==> main218x.png ---
 Css: img[src="main219x.png"]{vertical-align:-0%}
 --- needs --- main.idv[221] ==> main219x.png ---
-Css: img[src="main220x.png"]{vertical-align:-25%}
+Css: img[src="main220x.png"]{vertical-align:-0%}
 --- needs --- main.idv[222] ==> main220x.png ---
-Css: img[src="main221x.png"]{vertical-align:-0%}
+Css: img[src="main221x.png"]{vertical-align:-25%}
 --- needs --- main.idv[223] ==> main221x.png ---
 Css: img[src="main222x.png"]{vertical-align:-0%}
 --- needs --- main.idv[224] ==> main222x.png ---
 Css: img[src="main223x.png"]{vertical-align:-0%}
 --- needs --- main.idv[225] ==> main223x.png ---
+Css: img[src="main224x.png"]{vertical-align:-25%}
+--- needs --- main.idv[226] ==> main224x.png ---
+Css: img[src="main225x.png"]{vertical-align:-0%}
+--- needs --- main.idv[227] ==> main225x.png ---
+Css: img[src="main226x.png"]{vertical-align:-0%}
+--- needs --- main.idv[228] ==> main226x.png ---
+Css: img[src="main227x.png"]{vertical-align:-0%}
+--- needs --- main.idv[229] ==> main227x.png ---
+Css: img[src="main228x.png"]{vertical-align:-0%}
+--- needs --- main.idv[230] ==> main228x.png ---
+Css: img[src="main229x.png"]{vertical-align:-0%}
+--- needs --- main.idv[231] ==> main229x.png ---
+Css: img[src="main230x.png"]{vertical-align:-0%}
+--- needs --- main.idv[232] ==> main230x.png ---
+Css: img[src="main231x.png"]{vertical-align:-25%}
+--- needs --- main.idv[233] ==> main231x.png ---
+Css: img[src="main232x.png"]{vertical-align:-0%}
+--- needs --- main.idv[234] ==> main232x.png ---
+Css: img[src="main233x.png"]{vertical-align:-25%}
+--- needs --- main.idv[235] ==> main233x.png ---
+Css: img[src="main234x.png"]{vertical-align:-0%}
+--- needs --- main.idv[236] ==> main234x.png ---
+Css: img[src="main235x.png"]{vertical-align:-0%}
+--- needs --- main.idv[237] ==> main235x.png ---
+Css: img[src="main236x.png"]{vertical-align:-0%}
+--- needs --- main.idv[238] ==> main236x.png ---
+Css: img[src="main237x.png"]{vertical-align:-22.15193504143352%}
+--- needs --- main.idv[239] ==> main237x.png ---
+Css: img[src="main238x.png"]{vertical-align:-0%}
+--- needs --- main.idv[240] ==> main238x.png ---
+Css: img[src="main239x.png"]{vertical-align:-0%}
+--- needs --- main.idv[241] ==> main239x.png ---
+Css: img[src="main240x.png"]{vertical-align:-25%}
+--- needs --- main.idv[242] ==> main240x.png ---
+Css: img[src="main241x.png"]{vertical-align:-0%}
+--- needs --- main.idv[243] ==> main241x.png ---
+Css: img[src="main242x.png"]{vertical-align:-0%}
+--- needs --- main.idv[244] ==> main242x.png ---
+Css: img[src="main243x.png"]{vertical-align:-17.99989379837439%}
+--- needs --- main.idv[245] ==> main243x.png ---
+Css: img[src="main244x.png"]{vertical-align:-25%}
+--- needs --- main.idv[246] ==> main244x.png ---
+Css: img[src="main245x.png"]{vertical-align:-0%}
+--- needs --- main.idv[247] ==> main245x.png ---
+Css: img[src="main246x.png"]{vertical-align:-17.99989379837439%}
+--- needs --- main.idv[248] ==> main246x.png ---
+Css: img[src="main247x.png"]{vertical-align:-0%}
+--- needs --- main.idv[249] ==> main247x.png ---
+Css: img[src="main248x.png"]{vertical-align:-17.99989379837439%}
+--- needs --- main.idv[250] ==> main248x.png ---
+Css: img[src="main249x.png"]{vertical-align:-22.15193504143352%}
+--- needs --- main.idv[251] ==> main249x.png ---
+Css: img[src="main250x.png"]{vertical-align:-0%}
+--- needs --- main.idv[252] ==> main250x.png ---
+Css: img[src="main251x.png"]{vertical-align:-0%}
+--- needs --- main.idv[253] ==> main251x.png ---
+Css: img[src="main252x.png"]{vertical-align:-25%}
+--- needs --- main.idv[254] ==> main252x.png ---
+Css: img[src="main253x.png"]{vertical-align:-21.87498927115985%}
+--- needs --- main.idv[255] ==> main253x.png ---
+Css: img[src="main254x.png"]{vertical-align:-0%}
+--- needs --- main.idv[256] ==> main254x.png ---
+Css: img[src="main255x.png"]{vertical-align:-22.15193504143352%}
+--- needs --- main.idv[257] ==> main255x.png ---
+Css: img[src="main256x.png"]{vertical-align:-25%}
+--- needs --- main.idv[258] ==> main256x.png ---
+Css: img[src="main257x.png"]{vertical-align:-0%}
+--- needs --- main.idv[259] ==> main257x.png ---
+Css: img[src="main258x.png"]{vertical-align:-0%}
+--- needs --- main.idv[260] ==> main258x.png ---
+Css: img[src="main259x.png"]{vertical-align:-0%}
+--- needs --- main.idv[261] ==> main259x.png ---
 --- characters ---
 Font("cmr","5","5","100")
 Font("cmr","7","7","100")
@@ -585,3 +661,4 @@ Font("cmr","12","12","100")
 Font("cmti","10","10","100")
 Font("cmbx","10","10","100")
 Font("msam","10","10","100")
+Font("msbm","10","10","100")

@@ -59,47 +59,7 @@
   Given a triangle \(\triangle ABC\), let \(D\) be an arbitrary point on \(BC\), then let \(DE\) and \(DF\) be parallel to \(AC\) and \(AB\) respectively. Let \((AEF)\) intersect \((ABC)\) at \(G\), let \(GD\) intersect \((ABC)\) at \(X\). Prove, that if \(M\) is the midpoint of \(AC\), then \(A, X\) and \(M\) are colinear.
 \end{problem}
 \begin{center}
-  \begin{asy}
-    pair A = (4.,4.);
-pair C = (0.,0.);
-pair B = (5.,0.);
-pair D = (3.02442,0.);
-pair E = (4.60488,1.58045);
-pair F = (2.41954,2.41954);
-pair G = (5.12405,2.77056);
-pair X = (1.98630,-1.36986);
-pair M = (2.5,0.);
-
-import graph;
-size(8cm);
-pen zzttqq = rgb(0.6,0.2,0.);
-pen xfqqff = rgb(0.49803,0.,1.);
-pen lightgreen = rgb(247, 255, 247);
-pen lightpurple = rgb(245, 234, 252);
-draw(A--B--C--cycle, linewidth(0.6) + zzttqq);
-
-filldraw(circle((2.5,1.5), 2.91547), lightgreen, linewidth(0.6) + green);
-filldraw(circle((3.76393,2.65560), 1.36496), lightpurple, linewidth(0.6) + xfqqff);
-draw(circle((2.5,1.5), 2.91547), linewidth(0.6) + green);
-
-draw(A--B, linewidth(0.6) + zzttqq);
-draw(B--C, linewidth(0.6) + zzttqq);
-draw(C--A, linewidth(0.6) + zzttqq);
-draw(D--F, linewidth(0.6));
-draw(D--E, linewidth(0.6));
-draw(X--G, linewidth(0.6));
-draw(A--X, linewidth(0.6));
-
-dot("$A$", A, dir(66));
-dot("$C$", C, dir(213));
-dot("$B$", B, dir(285));
-dot("$D$", D, dir(-90));
-dot("$E$", E, dir(-10));
-dot("$F$", F, dir(196));
-dot("$G$", G, dir(39));
-dot("$X$", X, dir(229));
-dot("$M$", M, dir(120));
-  \end{asy}
+  \includegraphics[width=0.5\textwidth]{asy/doc-1_0.pdf}
 \end{center}
 
 This theorem can be proven in various ways, the first way and arguably most beautiful way is using the Butterfly theorem, (thanks @KrazyNumberMan)
@@ -113,59 +73,7 @@ This theorem can be proven in various ways, the first way and arguably most beau
   \[\measuredangle GMP = \measuredangle GBA = \measuredangle GYA\]
   thus implying the desired result. \(\square\)
   \begin{center}
-    \begin{asy}
-pair A = (4.,4.);
-pair C = (0.,0.);
-pair B = (5.,0.);
-pair D = (3.02442,0.);
-pair E = (4.60488,1.58045);
-pair F = (2.41954,2.41954);
-pair G = (5.12405,2.77056);
-pair X = (1.98630,-1.36986);
-pair M = (2.5,0.);
-pair P = (3.51221,2.);
-pair Y = (1.37373,-1.18914);
-pair K = (1.97557,0.);
-
-import graph;
-size(8.32144cm);
-pen zzttqq = rgb(0.6,0.2,0.);
-pen xfqqff = rgb(0.49803,0.,1.);
-pen lightgreen = rgb(247, 255, 247);
-pen lightpurple = rgb(245, 234, 252);
-
-draw(A--B--C--cycle, linewidth(0.6) + zzttqq);
-
-filldraw(circle((2.5,1.5), 2.91547), lightgreen, linewidth(0.6) + green);
-filldraw(circle((3.76393,2.65560), 1.36496), lightpurple, linewidth(0.6) + xfqqff);
-draw(circle((2.5,1.5), 2.91547), linewidth(0.6) + green);
-
-draw(A--B, linewidth(0.6) + zzttqq);
-draw(B--C, linewidth(0.6) + zzttqq);
-draw(C--A, linewidth(0.6) + zzttqq);
-draw(D--F, linewidth(0.6));
-draw(D--E, linewidth(0.6));
-draw(X--G, linewidth(0.6));
-draw(A--X, linewidth(0.6));
-draw(A--D, linewidth(0.6));
-draw(E--F, linewidth(0.6));
-draw(Y--G, linewidth(0.6));
-draw(A--Y, linewidth(0.6));
-draw(M--P, linewidth(0.6));
-
-dot("$A$", A, dir(68));
-dot("$C$", C, dir(213));
-dot("$B$", B, dir(284));
-dot("$D$", D, dir(-90));
-dot("$E$", E, dir(-10));
-dot("$F$", F, dir(160));
-dot("$G$", G, dir(34));
-dot("$X$", X, dir(231));
-dot("$M$", M, dir(120));
-dot("$P$", P, dir(32));
-dot("$Y$", Y, dir(225));
-dot("$K$", K, dir(120));
-    \end{asy}
+    \includegraphics[width=0.5\textwidth]{asy/doc-2_0.pdf}
   \end{center}
   Since \(P\) is the midpoint of \(AD\) and \(MP \parallel AK\) it must be that \(PM\) is the midline in \(\triangle{AKD}\), thus \(M\) is the midpoint of \(KD\). Thus, by the Butterfly theorem it must be that \(X, D, G\) are colinear.
 \end{proof}
@@ -857,6 +765,83 @@ dot("$T$", T, dir(62));
   indeed, since \(ABSC\) is harmonic, by projecting from \(T\) it must be that \(QBCX\) is harmonic, consequently projecting from \(D\) we obtain that \(Q\) goes to a point \(W\) on \((ABC)\) such that \(ABCW\) is harmonic, thus \(W = S\), thus \(Q, D, S\) are colinear. \(\square\)
 
   Now, by the Generalized Anchor Point Lemma since \(S, D, Q\) are colinear, it must be that \((AEF)\) passes through a fixed point lying on the isogonal line to \(AS\) in \(\angle{CAB}\) which is the median.
+\end{proof}
+
+\section{Advanced Anchor Point Lemma}
+
+The problem with the Anchor Point Lemma and its generalization that it assumes that the lines stay parallel with respect to each other. The motivation for this generalization is that this can be interpreted as a pencil of lines through some point at infinity, so what happens if we move that point into \(\mathbb{R}^2\)? It turns out not any two pairs of points will keep the theorem true, however each point given a point on \((ABC)\) has precicely one \textit{conjugate} (which will be referenced as the \textit{Anchor Point Conjugate} further on) which preserves this theorem.
+
+\begin{problem}[AoPS]
+  Let \(P\) be an arbitrary fixed point and \(X\) an abitrary fixed point on \((ABC)\). Let \(D\) be an abritrary point on \(BC\). Let \(PD\) intersect \(AC\)at \(E\). Let \(XD\) intersect \((ABC)\) at \(G\). Let \((AEG)\) intersect \(AB\) a second time at \(F\). Prove that the line \(DF\) passes through a constant point \(Q\) as \(D\) moves on \(BC\), and that \((AEF)\) passes through a fixed point \(W\).
+\end{problem}
+\begin{center}
+  \begin{asy}
+pair A = (3.24547,5.89923);
+pair C = (-0.11569,0.02755);
+pair B = (5.,0.);
+pair X = (1.62854,-0.98325);
+pair P = (-1.98327,5.16138);
+pair Q = (-3.94413,-3.18505);
+pair D = (2.50169,0.01345);
+pair E = (0.91727,1.83207);
+pair G = (5.75356,3.72552);
+pair F = (4.67522,1.09199);
+pair W = (2.44944,0.70195);
+
+import graph;
+size(8cm);
+pen zzttqq = rgb(0.6,0.2,0.);
+
+pen zzttqq = rgb(0.6,0.2,0.);
+pen xfqqff = rgb(0.49803,0.,1.);
+pen dcrutc = rgb(0.86274,0.07843,0.23529);
+
+pen lightgreen = rgb(247, 255, 247);
+pen lightpurple = rgb(245, 234, 252);
+pen lightblue = rgb(234, 237, 255);
+pen lightred = rgb(255, 234, 242);
+pen lightpink = rgb(255, 234, 255);
+
+filldraw(circle((2.45529,2.45369), 3.53498), lightgreen, linewidth(0.6)+green);
+filldraw(circle((3.14922,3.25437), 2.64660), lightpurple, linewidth(0.6)+xfqqff);
+draw(circle((2.45529,2.45369), 3.53498), linewidth(0.6)+green);
+
+draw(A--B--C--cycle, linewidth(0.6) + zzttqq);
+draw(A--B, linewidth(0.6) + zzttqq);
+draw(B--C, linewidth(0.6) + zzttqq);
+draw(C--A, linewidth(0.6) + zzttqq);
+draw(X--G, linewidth(0.6));
+draw(P--D, linewidth(0.6));
+draw(Q--F, linewidth(0.6));
+
+dot("$A$", A, dir(67));
+dot("$C$", C, dir(216));
+dot("$B$", B, dir(297));
+dot("$X$", X, dir(260));
+dot("$P$", P, dir(71));
+dot("$Q$", Q, dir(225));
+dot("$D$", D, dir(276));
+dot("$E$", E, dir(204));
+dot("$G$", G, dir(40));
+dot("$F$", F, dir(306));
+dot("$W$", W, dir(61));
+  \end{asy}
+\end{center}
+
+This theorem can trivially be proved via moving points, unfortunately, I do not possess any synthetic solution.
+
+The Generalized Anchor Point Lemma is simply a special case of the Advanced Anchor Point Lemma where \(P\) lies on the line at infinity, then it simply claims that the \textit{Anchor Point Conjugate} lies on the line at infinity as well.
+
+Interestingly,
+\begin{theorem}
+  The \textit{Anchor Point Conjugate} is projective, i.e. it preserves cross-ratios.
+\end{theorem}
+\begin{proof}
+  The map can be constructed like this, let \(D_1\) be on BC such that \(PD_1 \parallel AB\) and let \(k\) be the line through \(D_1\) parallel to \(AC\). Let \(D_2\) be on BC so \(A,X,D_2\) are colinear.
+
+  Then if \(E = PX \cap AC\) and \(F\) is such that \(EF \parallel BC\). Then, \(Q = k \cap FD_2\).
+
+  Consequently it must be that if \(P\) moves projectively, \(Q\) moves projectively as well.
 \end{proof}
 
 \section{Conclusion}

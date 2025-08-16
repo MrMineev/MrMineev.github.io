@@ -1,0 +1,82 @@
+if(!settings.multipleView) settings.batchView=false;
+settings.inlinetex=true;
+deletepreamble();
+defaultfilename="main-4";
+if(settings.render < 0) settings.render=4;
+settings.outformat="";
+settings.inlineimage=true;
+settings.embed=true;
+settings.toolbar=false;
+viewportmargin=(2,2);
+
+pair A = (3.65816,3.89754);
+pair C = (0.,0.);
+pair B = (5.,0.);
+pair D = (3.20834,0.);
+pair E = (4.51918,1.39661);
+pair F = (2.34733,2.50093);
+pair G = (5.09898,2.43047);
+pair X = (2.06215,-1.47346);
+pair M = (2.5,0.);
+pair P = (3.43325,1.94877);
+pair Y = (1.21712,-1.19969);
+pair K = (1.79165,0.);
+pair J = (1.49854,1.59660);
+pair I = (4.01535,2.86005);
+pair H = (3.09826,-0.95380);
+
+pair T = (1.0988188179927, 3.7739705487634);
+
+import graph;
+size(10cm);
+pen zzttqq = rgb(0.6,0.2,0.);
+pen xfqqff = rgb(0.49803,0.,1.);
+pen ffqqff = rgb(1.,0.,1.);
+pen lightgreen = rgb(247, 255, 247);
+pen lightpurple = rgb(245, 234, 252);
+pen lightblue = rgb(234, 237, 255);
+pen lightred = rgb(255, 234, 242);
+pen lightpink = rgb(255, 234, 255);
+
+draw(A--B--C--cycle, linewidth(0.6) + zzttqq);
+
+filldraw(circle((2.5,1.31906), 2.82664), lightgreen, linewidth(0.6) + green);
+filldraw(circle((3.67047,0.40856), 2.47562), lightpink, linewidth(0.6) + ffqqff);
+filldraw(circle((3.72459,2.52173), 1.37741), lightpurple, linewidth(0.6) + xfqqff);
+draw(circle((2.5,1.31906), 2.82664), linewidth(0.6) + green);
+draw(circle((3.67047,0.40856), 2.47562), linewidth(0.6) + ffqqff);
+
+draw(A--B, linewidth(0.6) + zzttqq);
+draw(B--C, linewidth(0.6) + zzttqq);
+draw(C--A, linewidth(0.6) + zzttqq);
+draw(D--F, linewidth(0.6));
+draw(D--E, linewidth(0.6));
+draw(X--G, linewidth(0.6));
+draw(A--X, linewidth(0.6));
+draw(A--D, linewidth(0.6));
+draw(E--F, linewidth(0.6));
+draw(M--P, linewidth(0.6));
+draw(Y--G, linewidth(0.6));
+draw(A--Y, linewidth(0.6));
+draw(X--B, linewidth(0.6));
+draw(H--J, linewidth(0.6));
+draw(A--H, linewidth(0.6));
+draw(J--X, linewidth(0.6));
+draw(X--T, linewidth(0.6));
+
+dot("$A$", A, dir(68));
+dot("$C$", C, dir(213));
+dot("$B$", B, dir(285));
+dot("$D$", D, dir(-80));
+dot("$E$", E, dir(310));
+dot("$F$", F, dir(190));
+dot("$G$", G, dir(279));
+dot("$X$", X, dir(230));
+dot("$M$", M, dir(184));
+dot("$P$", P, dir(20));
+dot("$Y$", Y, dir(222));
+dot("$K$", K, dir(139));
+dot("$J$", J, dir(146));
+dot("$I$", I, dir(62));
+dot("$W$", H, dir(-90));
+dot("$A'$", T, dir(120));

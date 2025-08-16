@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=latex 2023.10.12)  3 AUG 2025 22:33
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=latex 2023.10.12)  16 AUG 2025 22:50
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -621,310 +621,357 @@ l. 59 Writing main.idv[14] (main13x.png)
 l. 59 Writing main.idv[15] (main14x.png)
 l. 59 Writing main.idv[16] (main15x.png)
 l. 59 Writing main.idv[17] (main16x.png)
+
+
+LaTeX Warning: File `asy/doc-1_0.pdf' not found on input line 62.
+
+l.62 --- TeX4ht warning --- File `"asy/doc-1_0.xbb"' not found ---
+l.62 --- TeX4ht warning --- Cannot determine size of graphic in "asy/doc-1_0.xb
+b" (no BoundingBox) ---
+l. 62 --- needs --- asy/doc-1_0-.png ---
+l. 68 Writing main.idv[18] (main17x.png)
+l. 68 Writing main.idv[19] (main18x.png)
+l. 68 Writing main.idv[20] (main19x.png)
+l. 68 Writing main.idv[21] (main20x.png)
+l. 68 Writing main.idv[22] (main21x.png)
+l. 68 Writing main.idv[23] (main22x.png)
+l. 68 Writing main.idv[24] (main23x.png)
+l. 70 Writing main.idv[25] (main24x.png)
+[3]
+l. 72 Writing main.idv[26] (main25x.png)
+l. 72 Writing main.idv[27] (main26x.png)
+l. 72 Writing main.idv[28] (main27x.png)
+l. 73 Writing main.idv[29] (main28x.png)
+l. 74 Writing main.idv[30] (main29x.png)
+
+
+LaTeX Warning: File `asy/doc-2_0.pdf' not found on input line 76.
+
+l.76 --- TeX4ht warning --- File `"asy/doc-2_0.xbb"' not found ---
+l.76 --- TeX4ht warning --- Cannot determine size of graphic in "asy/doc-2_0.xb
+b" (no BoundingBox) ---
+l. 76 --- needs --- asy/doc-2_0-.png ---
+l. 78 Writing main.idv[31] (main30x.png)
+l. 78 Writing main.idv[32] (main31x.png)
+l. 78 Writing main.idv[33] (main32x.png)
+l. 78 Writing main.idv[34] (main33x.png)
+l. 78 Writing main.idv[35] (main34x.png)
+l. 78 Writing main.idv[36] (main35x.png)
+l. 78 Writing main.idv[37] (main36x.png)
+l. 78 Writing main.idv[38] (main37x.png)
+l. 86 Writing main.idv[39] (main38x.png)
+l. 86 Writing main.idv[40] (main39x.png)
+l. 86 Writing main.idv[41] (main40x.png)
+l. 86 Writing main.idv[42] (main41x.png)
+[4]
+l. 89 Writing main.idv[43] (main42x.png)
+l. 90 Writing main.idv[44] (main43x.png)
+l. 90 Writing main.idv[45] (main44x.png)
+l. 90 Writing main.idv[46] (main45x.png)
+l. 90 Writing main.idv[47] (main46x.png)
+l. 90 Writing main.idv[48] (main47x.png)
+l. 90 Writing main.idv[49] (main48x.png)
+l. 90 Writing main.idv[50] (main49x.png)
+l. 91 Writing main.idv[51] (main50x.png)
 \openout3 = `asy/main-1.asy'.
 
 
 
-Package asymptote Warning: file `asy/main-1.tex' not found on input line 102.
+Package asymptote Warning: file `asy/main-1.tex' not found on input line 152.
 
-l. 108 Writing main.idv[18] (main17x.png)
-l. 108 Writing main.idv[19] (main18x.png)
-l. 108 Writing main.idv[20] (main19x.png)
-l. 108 Writing main.idv[21] (main20x.png)
-l. 108 Writing main.idv[22] (main21x.png)
-l. 108 Writing main.idv[23] (main22x.png)
-l. 108 Writing main.idv[24] (main23x.png)
-l. 110 Writing main.idv[25] (main24x.png)
-[3]
-l. 112 Writing main.idv[26] (main25x.png)
-l. 112 Writing main.idv[27] (main26x.png)
-l. 112 Writing main.idv[28] (main27x.png)
-l. 113 Writing main.idv[29] (main28x.png)
-l. 114 Writing main.idv[30] (main29x.png)
+l. 155 Writing main.idv[52] (main51x.png)
+l. 156 Writing main.idv[53] (main52x.png)
+[5]
+l. 160 Writing main.idv[54] (main53x.png)
+l. 164 Writing main.idv[55] (main54x.png)
+l. 167 Writing main.idv[56] (main55x.png)
+l. 168 Writing main.idv[57] (main56x.png)
+l. 170 Writing main.idv[58] (main57x.png)
+ [6]
+l. 174 Writing main.idv[59] (main58x.png)
+l. 174 Writing main.idv[60] (main59x.png)
+l. 176 Writing main.idv[61] (main60x.png)
+l. 176 Writing main.idv[62] (main61x.png)
+l. 176 Writing main.idv[63] (main62x.png)
+l. 176 Writing main.idv[64] (main63x.png)
+l. 179 Writing main.idv[65] (main64x.png)
 \openout3 = `asy/main-2.asy'.
 
 
 
-Package asymptote Warning: file `asy/main-2.tex' not found on input line 168.
+Package asymptote Warning: file `asy/main-2.tex' not found on input line 217.
 
-l. 170 Writing main.idv[31] (main30x.png)
-l. 170 Writing main.idv[32] (main31x.png)
-l. 170 Writing main.idv[33] (main32x.png)
-l. 170 Writing main.idv[34] (main33x.png)
-l. 170 Writing main.idv[35] (main34x.png)
-l. 170 Writing main.idv[36] (main35x.png)
-l. 170 Writing main.idv[37] (main36x.png)
-l. 170 Writing main.idv[38] (main37x.png)
-l. 178 Writing main.idv[39] (main38x.png)
-l. 178 Writing main.idv[40] (main39x.png)
-l. 178 Writing main.idv[41] (main40x.png)
-l. 178 Writing main.idv[42] (main41x.png)
-[4]
-l. 181 Writing main.idv[43] (main42x.png)
-l. 182 Writing main.idv[44] (main43x.png)
-l. 182 Writing main.idv[45] (main44x.png)
-l. 182 Writing main.idv[46] (main45x.png)
-l. 182 Writing main.idv[47] (main46x.png)
-l. 182 Writing main.idv[48] (main47x.png)
-l. 182 Writing main.idv[49] (main48x.png)
-l. 182 Writing main.idv[50] (main49x.png)
-l. 183 Writing main.idv[51] (main50x.png)
+l. 220 Writing main.idv[66] (main65x.png)
+l. 220 Writing main.idv[67] (main66x.png)
+l. 220 Writing main.idv[68] (main67x.png)
+l. 220 Writing main.idv[69] (main68x.png)
+l. 223 Writing main.idv[70] (main69x.png)
+l. 225 Writing main.idv[71] (main70x.png)
+l. 225 Writing main.idv[72] (main71x.png)
+l. 225 Writing main.idv[73] (main72x.png)
+[7]
+l. 234 Writing main.idv[74] (main73x.png)
+l. 234 Writing main.idv[75] (main74x.png)
 \openout3 = `asy/main-3.asy'.
 
 
 
-Package asymptote Warning: file `asy/main-3.tex' not found on input line 244.
+Package asymptote Warning: file `asy/main-3.tex' not found on input line 298.
 
-l. 247 Writing main.idv[52] (main51x.png)
-l. 248 Writing main.idv[53] (main52x.png)
-[5]
-l. 252 Writing main.idv[54] (main53x.png)
-l. 256 Writing main.idv[55] (main54x.png)
-l. 259 Writing main.idv[56] (main55x.png)
-l. 260 Writing main.idv[57] (main56x.png)
-l. 262 Writing main.idv[58] (main57x.png)
- [6]
-l. 266 Writing main.idv[59] (main58x.png)
-l. 266 Writing main.idv[60] (main59x.png)
-l. 268 Writing main.idv[61] (main60x.png)
-l. 268 Writing main.idv[62] (main61x.png)
-l. 268 Writing main.idv[63] (main62x.png)
-l. 268 Writing main.idv[64] (main63x.png)
-l. 271 Writing main.idv[65] (main64x.png)
+l. 302 Writing main.idv[76] (main75x.png)
+l. 307 Writing main.idv[77] (main76x.png)
+l. 307 Writing main.idv[78] (main77x.png)
+l. 307 Writing main.idv[79] (main78x.png)
+l. 307 Writing main.idv[80] (main79x.png)
+l. 307 Writing main.idv[81] (main80x.png)
+l. 307 Writing main.idv[82] (main81x.png)
+[8]
 \openout3 = `asy/main-4.asy'.
 
 
 
-Package asymptote Warning: file `asy/main-4.tex' not found on input line 309.
+Package asymptote Warning: file `asy/main-4.tex' not found on input line 382.
 
-l. 312 Writing main.idv[66] (main65x.png)
-l. 312 Writing main.idv[67] (main66x.png)
-l. 312 Writing main.idv[68] (main67x.png)
-l. 312 Writing main.idv[69] (main68x.png)
-l. 315 Writing main.idv[70] (main69x.png)
-l. 317 Writing main.idv[71] (main70x.png)
-l. 317 Writing main.idv[72] (main71x.png)
-l. 317 Writing main.idv[73] (main72x.png)
-[7]
-l. 326 Writing main.idv[74] (main73x.png)
-l. 326 Writing main.idv[75] (main74x.png)
+l. 387 Writing main.idv[83] (main82x.png)
+l. 387 Writing main.idv[84] (main83x.png)
+l. 387 Writing main.idv[85] (main84x.png)
+l. 387 Writing main.idv[86] (main85x.png)
+l. 387 Writing main.idv[87] (main86x.png)
+l. 387 Writing main.idv[88] (main87x.png)
+l. 387 Writing main.idv[89] (main88x.png)
+l. 388 Writing main.idv[90] (main89x.png)
+
+LaTeX Warning: Command \textquoteright invalid in math mode on input line 391.
+
+
+LaTeX Warning: Command \textquoteright invalid in math mode on input line 391.
+
+l. 393 Writing main.idv[91] (main90x.png)
+l. 393 Writing main.idv[92] (main91x.png)
+l. 395 Writing main.idv[93] (main92x.png)
+l. 395 Writing main.idv[94] (main93x.png)
+l. 396 Writing main.idv[95] (main94x.png)
+
+LaTeX Warning: Command \textquoteright invalid in math mode on input line 396.
+
+l. 397 Writing main.idv[96] (main95x.png)
+l. 397 Writing main.idv[97] (main96x.png)
+l. 397 Writing main.idv[98] (main97x.png)
+[9]
+l. 399 Writing main.idv[99] (main98x.png)
+l. 399 Writing main.idv[100] (main99x.png)
+l. 401 Writing main.idv[101] (main100x.png)
+l. 401 Writing main.idv[102] (main101x.png)
+l. 401 Writing main.idv[103] (main102x.png)
+l. 401 Writing main.idv[104] (main103x.png)
+
+
+LaTeX Warning: Command \textquoteright invalid in math mode on input line 401.
+
+l. 401 Writing main.idv[105] (main104x.png)
+l. 401 Writing main.idv[106] (main105x.png)
+l. 401 Writing main.idv[107] (main106x.png)
+l. 403 Writing main.idv[108] (main107x.png)
+l. 403 Writing main.idv[109] (main108x.png)
+l. 403 Writing main.idv[110] (main109x.png)
+l. 407 Writing main.idv[111] (main110x.png)
+l. 407 Writing main.idv[112] (main111x.png)
+l. 407 Writing main.idv[113] (main112x.png)
+l. 407 Writing main.idv[114] (main113x.png)
+l. 407 Writing main.idv[115] (main114x.png)
 \openout3 = `asy/main-5.asy'.
 
 
+Package asymptote Warning: file `asy/main-5.tex' not found on input line 468.
 
-Package asymptote Warning: file `asy/main-5.tex' not found on input line 390.
-
-l. 394 Writing main.idv[76] (main75x.png)
-l. 399 Writing main.idv[77] (main76x.png)
-l. 399 Writing main.idv[78] (main77x.png)
-l. 399 Writing main.idv[79] (main78x.png)
-l. 399 Writing main.idv[80] (main79x.png)
-l. 399 Writing main.idv[81] (main80x.png)
-l. 399 Writing main.idv[82] (main81x.png)
-[8]
+l. 471 Writing main.idv[116] (main115x.png)
+l. 471 Writing main.idv[117] (main116x.png)
+l. 472 Writing main.idv[118] (main117x.png)
+l. 473 Writing main.idv[119] (main118x.png)
+l. 473 Writing main.idv[120] (main119x.png)
+l. 473 Writing main.idv[121] (main120x.png)
+l. 473 Writing main.idv[122] (main121x.png)
+l. 473 Writing main.idv[123] (main122x.png)
+l. 473 Writing main.idv[124] (main123x.png)
+l. 473 Writing main.idv[125] (main124x.png)
+l. 473 Writing main.idv[126] (main125x.png)
+l. 473 Writing main.idv[127] (main126x.png)
+l. 473 Writing main.idv[128] (main127x.png)
+[10]
+l. 481 Writing main.idv[129] (main128x.png)
+l. 481 Writing main.idv[130] (main129x.png)
+l. 481 Writing main.idv[131] (main130x.png)
+l. 481 Writing main.idv[132] (main131x.png)
+l. 481 Writing main.idv[133] (main132x.png)
+l. 481 Writing main.idv[134] (main133x.png)
+l. 481 Writing main.idv[135] (main134x.png)
+l. 481 Writing main.idv[136] (main135x.png)
+l. 481 Writing main.idv[137] (main136x.png)
+l. 481 Writing main.idv[138] (main137x.png)
+l. 481 Writing main.idv[139] (main138x.png)
+l. 481 Writing main.idv[140] (main139x.png)
+l. 481 Writing main.idv[141] (main140x.png)
+l. 481 Writing main.idv[142] (main141x.png)
+l. 481 Writing main.idv[143] (main142x.png)
+l. 481 Writing main.idv[144] (main143x.png)
+l. 481 Writing main.idv[145] (main144x.png)
+l. 483 Writing main.idv[146] (main145x.png)
+l. 483 Writing main.idv[147] (main146x.png)
+l. 483 Writing main.idv[148] (main147x.png)
+l. 483 Writing main.idv[149] (main148x.png)
 \openout3 = `asy/main-6.asy'.
 
 
 
-Package asymptote Warning: file `asy/main-6.tex' not found on input line 474.
+Package asymptote Warning: file `asy/main-6.tex' not found on input line 537.
 
-l. 479 Writing main.idv[83] (main82x.png)
-l. 479 Writing main.idv[84] (main83x.png)
-l. 479 Writing main.idv[85] (main84x.png)
-l. 479 Writing main.idv[86] (main85x.png)
-l. 479 Writing main.idv[87] (main86x.png)
-l. 479 Writing main.idv[88] (main87x.png)
-l. 479 Writing main.idv[89] (main88x.png)
-l. 480 Writing main.idv[90] (main89x.png)
-
-LaTeX Warning: Command \textquoteright invalid in math mode on input line 483.
-
-
-LaTeX Warning: Command \textquoteright invalid in math mode on input line 483.
-
-l. 485 Writing main.idv[91] (main90x.png)
-l. 485 Writing main.idv[92] (main91x.png)
-l. 487 Writing main.idv[93] (main92x.png)
-l. 487 Writing main.idv[94] (main93x.png)
-l. 488 Writing main.idv[95] (main94x.png)
-
-LaTeX Warning: Command \textquoteright invalid in math mode on input line 488.
-
-l. 489 Writing main.idv[96] (main95x.png)
-l. 489 Writing main.idv[97] (main96x.png)
-l. 489 Writing main.idv[98] (main97x.png)
-[9]
-l. 491 Writing main.idv[99] (main98x.png)
-l. 491 Writing main.idv[100] (main99x.png)
-l. 493 Writing main.idv[101] (main100x.png)
-l. 493 Writing main.idv[102] (main101x.png)
-l. 493 Writing main.idv[103] (main102x.png)
-l. 493 Writing main.idv[104] (main103x.png)
-
-
-LaTeX Warning: Command \textquoteright invalid in math mode on input line 493.
-
-l. 493 Writing main.idv[105] (main104x.png)
-l. 493 Writing main.idv[106] (main105x.png)
-l. 493 Writing main.idv[107] (main106x.png)
-l. 495 Writing main.idv[108] (main107x.png)
-l. 495 Writing main.idv[109] (main108x.png)
-l. 495 Writing main.idv[110] (main109x.png)
-l. 499 Writing main.idv[111] (main110x.png)
-l. 499 Writing main.idv[112] (main111x.png)
-l. 499 Writing main.idv[113] (main112x.png)
-l. 499 Writing main.idv[114] (main113x.png)
-l. 499 Writing main.idv[115] (main114x.png)
+l. 540 Writing main.idv[150] (main149x.png)
+l. 541 Writing main.idv[151] (main150x.png)
+[11]
+l. 542 Writing main.idv[152] (main151x.png)
+l. 542 Writing main.idv[153] (main152x.png)
+l. 547 Writing main.idv[154] (main153x.png)
+l. 552 Writing main.idv[155] (main154x.png)
+l. 552 Writing main.idv[156] (main155x.png)
+l. 552 Writing main.idv[157] (main156x.png)
+l. 552 Writing main.idv[158] (main157x.png)
+l. 552 Writing main.idv[159] (main158x.png)
+l. 552 Writing main.idv[160] (main159x.png)
+l. 552 Writing main.idv[161] (main160x.png)
+l. 552 Writing main.idv[162] (main161x.png)
+l. 552 Writing main.idv[163] (main162x.png)
+l. 552 Writing main.idv[164] (main163x.png)
+l. 552 Writing main.idv[165] (main164x.png)
+l. 552 Writing main.idv[166] (main165x.png)
+l. 552 Writing main.idv[167] (main166x.png)
 \openout3 = `asy/main-7.asy'.
 
 
-Package asymptote Warning: file `asy/main-7.tex' not found on input line 560.
 
-l. 563 Writing main.idv[116] (main115x.png)
-l. 563 Writing main.idv[117] (main116x.png)
-l. 564 Writing main.idv[118] (main117x.png)
-l. 565 Writing main.idv[119] (main118x.png)
-l. 565 Writing main.idv[120] (main119x.png)
-l. 565 Writing main.idv[121] (main120x.png)
-l. 565 Writing main.idv[122] (main121x.png)
-l. 565 Writing main.idv[123] (main122x.png)
-l. 565 Writing main.idv[124] (main123x.png)
-l. 565 Writing main.idv[125] (main124x.png)
-l. 565 Writing main.idv[126] (main125x.png)
-l. 565 Writing main.idv[127] (main126x.png)
-l. 565 Writing main.idv[128] (main127x.png)
-[10]
-l. 573 Writing main.idv[129] (main128x.png)
-l. 573 Writing main.idv[130] (main129x.png)
-l. 573 Writing main.idv[131] (main130x.png)
-l. 573 Writing main.idv[132] (main131x.png)
-l. 573 Writing main.idv[133] (main132x.png)
-l. 573 Writing main.idv[134] (main133x.png)
-l. 573 Writing main.idv[135] (main134x.png)
-l. 573 Writing main.idv[136] (main135x.png)
-l. 573 Writing main.idv[137] (main136x.png)
-l. 573 Writing main.idv[138] (main137x.png)
-l. 573 Writing main.idv[139] (main138x.png)
-l. 573 Writing main.idv[140] (main139x.png)
-l. 573 Writing main.idv[141] (main140x.png)
-l. 573 Writing main.idv[142] (main141x.png)
-l. 573 Writing main.idv[143] (main142x.png)
-l. 573 Writing main.idv[144] (main143x.png)
-l. 573 Writing main.idv[145] (main144x.png)
-l. 575 Writing main.idv[146] (main145x.png)
-l. 575 Writing main.idv[147] (main146x.png)
-l. 575 Writing main.idv[148] (main147x.png)
-l. 575 Writing main.idv[149] (main148x.png)
+Package asymptote Warning: file `asy/main-7.tex' not found on input line 618.
+
+l. 622 Writing main.idv[168] (main167x.png)
+l. 622 Writing main.idv[169] (main168x.png)
+l. 622 Writing main.idv[170] (main169x.png)
+l. 622 Writing main.idv[171] (main170x.png)
+l. 622 Writing main.idv[172] (main171x.png)
+l. 622 Writing main.idv[173] (main172x.png)
+l. 622 Writing main.idv[174] (main173x.png)
+l. 622 Writing main.idv[175] (main174x.png)
+l. 622 Writing main.idv[176] (main175x.png)
+l. 622 Writing main.idv[177] (main176x.png)
+l. 622 Writing main.idv[178] (main177x.png)
+l. 622 Writing main.idv[179] (main178x.png)
+[12]
+l. 625 Writing main.idv[180] (main179x.png)
+l. 626 Writing main.idv[181] (main180x.png)
+l. 627 Writing main.idv[182] (main181x.png)
+l. 627 Writing main.idv[183] (main182x.png)
+l. 627 Writing main.idv[184] (main183x.png)
+l. 627 Writing main.idv[185] (main184x.png)
+l. 627 Writing main.idv[186] (main185x.png)
+l. 627 Writing main.idv[187] (main186x.png)
+l. 627 Writing main.idv[188] (main187x.png)
+l. 627 Writing main.idv[189] (main188x.png)
+ [13]
 \openout3 = `asy/main-8.asy'.
 
 
 
-Package asymptote Warning: file `asy/main-8.tex' not found on input line 629.
+Package asymptote Warning: file `asy/main-8.tex' not found on input line 684.
 
-l. 632 Writing main.idv[150] (main149x.png)
-l. 633 Writing main.idv[151] (main150x.png)
-[11]
-l. 634 Writing main.idv[152] (main151x.png)
-l. 634 Writing main.idv[153] (main152x.png)
-l. 639 Writing main.idv[154] (main153x.png)
-l. 644 Writing main.idv[155] (main154x.png)
-l. 644 Writing main.idv[156] (main155x.png)
-l. 644 Writing main.idv[157] (main156x.png)
-l. 644 Writing main.idv[158] (main157x.png)
-l. 644 Writing main.idv[159] (main158x.png)
-l. 644 Writing main.idv[160] (main159x.png)
-l. 644 Writing main.idv[161] (main160x.png)
-l. 644 Writing main.idv[162] (main161x.png)
-l. 644 Writing main.idv[163] (main162x.png)
-l. 644 Writing main.idv[164] (main163x.png)
-l. 644 Writing main.idv[165] (main164x.png)
-l. 644 Writing main.idv[166] (main165x.png)
-l. 644 Writing main.idv[167] (main166x.png)
+l. 687 Writing main.idv[190] (main189x.png)
+l. 687 Writing main.idv[191] (main190x.png)
+l. 687 Writing main.idv[192] (main191x.png)
+l. 687 Writing main.idv[193] (main192x.png)
 \openout3 = `asy/main-9.asy'.
 
 
+Package asymptote Warning: file `asy/main-9.tex' not found on input line 758.
 
-Package asymptote Warning: file `asy/main-9.tex' not found on input line 710.
-
-l. 714 Writing main.idv[168] (main167x.png)
-l. 714 Writing main.idv[169] (main168x.png)
-l. 714 Writing main.idv[170] (main169x.png)
-l. 714 Writing main.idv[171] (main170x.png)
-l. 714 Writing main.idv[172] (main171x.png)
-l. 714 Writing main.idv[173] (main172x.png)
-l. 714 Writing main.idv[174] (main173x.png)
-l. 714 Writing main.idv[175] (main174x.png)
-l. 714 Writing main.idv[176] (main175x.png)
-l. 714 Writing main.idv[177] (main176x.png)
-l. 714 Writing main.idv[178] (main177x.png)
-l. 714 Writing main.idv[179] (main178x.png)
-[12]
-l. 717 Writing main.idv[180] (main179x.png)
-l. 718 Writing main.idv[181] (main180x.png)
-l. 719 Writing main.idv[182] (main181x.png)
-l. 719 Writing main.idv[183] (main182x.png)
-l. 719 Writing main.idv[184] (main183x.png)
-l. 719 Writing main.idv[185] (main184x.png)
-l. 719 Writing main.idv[186] (main185x.png)
-l. 719 Writing main.idv[187] (main186x.png)
-l. 719 Writing main.idv[188] (main187x.png)
-l. 719 Writing main.idv[189] (main188x.png)
- [13]
+l. 761 Writing main.idv[194] (main193x.png)
+l. 761 Writing main.idv[195] (main194x.png)
+l. 761 Writing main.idv[196] (main195x.png)
+l. 761 Writing main.idv[197] (main196x.png)
+l. 761 Writing main.idv[198] (main197x.png)
+l. 761 Writing main.idv[199] (main198x.png)
+l. 761 Writing main.idv[200] (main199x.png)
+l. 761 Writing main.idv[201] (main200x.png)
+l. 761 Writing main.idv[202] (main201x.png)
+l. 761 Writing main.idv[203] (main202x.png)
+l. 761 Writing main.idv[204] (main203x.png)
+[14]
+l. 763 Writing main.idv[205] (main204x.png)
+l. 765 Writing main.idv[206] (main205x.png)
+l. 765 Writing main.idv[207] (main206x.png)
+l. 765 Writing main.idv[208] (main207x.png)
+l. 765 Writing main.idv[209] (main208x.png)
+l. 765 Writing main.idv[210] (main209x.png)
+l. 765 Writing main.idv[211] (main210x.png)
+l. 765 Writing main.idv[212] (main211x.png)
+l. 765 Writing main.idv[213] (main212x.png)
+l. 765 Writing main.idv[214] (main213x.png)
+l. 765 Writing main.idv[215] (main214x.png)
+l. 765 Writing main.idv[216] (main215x.png)
+l. 767 Writing main.idv[217] (main216x.png)
+l. 767 Writing main.idv[218] (main217x.png)
+l. 767 Writing main.idv[219] (main218x.png)
+l. 767 Writing main.idv[220] (main219x.png)
+l. 772 Writing main.idv[221] (main220x.png)
+l. 772 Writing main.idv[222] (main221x.png)
+l. 775 Writing main.idv[223] (main222x.png)
+l. 775 Writing main.idv[224] (main223x.png)
+l. 775 Writing main.idv[225] (main224x.png)
+l. 775 Writing main.idv[226] (main225x.png)
+l. 775 Writing main.idv[227] (main226x.png)
+l. 775 Writing main.idv[228] (main227x.png)
+l. 775 Writing main.idv[229] (main228x.png)
+l. 775 Writing main.idv[230] (main229x.png)
+l. 775 Writing main.idv[231] (main230x.png)
+l. 775 Writing main.idv[232] (main231x.png)
+l. 775 Writing main.idv[233] (main232x.png)
+l. 775 Writing main.idv[234] (main233x.png)
+l. 775 Writing main.idv[235] (main234x.png)
+l. 775 Writing main.idv[236] (main235x.png)
+l. 775 Writing main.idv[237] (main236x.png)
+l. 775 Writing main.idv[238] (main237x.png)
+l. 775 Writing main.idv[239] (main238x.png)
+l. 775 Writing main.idv[240] (main239x.png)
+l. 775 Writing main.idv[241] (main240x.png)
+l. 775 Writing main.idv[242] (main241x.png)
+ [15]
 \openout3 = `asy/main-10.asy'.
 
 
 
-Package asymptote Warning: file `asy/main-10.tex' not found on input line 776.
+Package asymptote Warning: file `asy/main-10.tex' not found on input line 828.
 
-l. 779 Writing main.idv[190] (main189x.png)
-l. 779 Writing main.idv[191] (main190x.png)
-l. 779 Writing main.idv[192] (main191x.png)
-l. 779 Writing main.idv[193] (main192x.png)
-\openout3 = `asy/main-11.asy'.
-
-
-Package asymptote Warning: file `asy/main-11.tex' not found on input line 850.
-
-l. 853 Writing main.idv[194] (main193x.png)
-l. 853 Writing main.idv[195] (main194x.png)
-l. 853 Writing main.idv[196] (main195x.png)
-l. 853 Writing main.idv[197] (main196x.png)
-l. 853 Writing main.idv[198] (main197x.png)
-l. 853 Writing main.idv[199] (main198x.png)
-l. 853 Writing main.idv[200] (main199x.png)
-l. 853 Writing main.idv[201] (main200x.png)
-l. 853 Writing main.idv[202] (main201x.png)
-l. 853 Writing main.idv[203] (main202x.png)
-l. 853 Writing main.idv[204] (main203x.png)
-[14]
-l. 855 Writing main.idv[205] (main204x.png)
-l. 857 Writing main.idv[206] (main205x.png)
-l. 857 Writing main.idv[207] (main206x.png)
-l. 857 Writing main.idv[208] (main207x.png)
-l. 857 Writing main.idv[209] (main208x.png)
-l. 857 Writing main.idv[210] (main209x.png)
-l. 857 Writing main.idv[211] (main210x.png)
-l. 857 Writing main.idv[212] (main211x.png)
-l. 857 Writing main.idv[213] (main212x.png)
-l. 857 Writing main.idv[214] (main213x.png)
-l. 857 Writing main.idv[215] (main214x.png)
-l. 857 Writing main.idv[216] (main215x.png)
-l. 859 Writing main.idv[217] (main216x.png)
-l. 859 Writing main.idv[218] (main217x.png)
-l. 859 Writing main.idv[219] (main218x.png)
-l. 859 Writing main.idv[220] (main219x.png)
-l. 864 Writing main.idv[221] (main220x.png)
-l. 864 Writing main.idv[222] (main221x.png)
-l. 864 Writing main.idv[223] (main222x.png)
-l. 864 Writing main.idv[224] (main223x.png)
- [15] (./main.aux) ) 
+l. 833 Writing main.idv[243] (main242x.png)
+l. 840 Writing main.idv[244] (main243x.png)
+l. 840 Writing main.idv[245] (main244x.png)
+l. 840 Writing main.idv[246] (main245x.png)
+l. 840 Writing main.idv[247] (main246x.png)
+l. 840 Writing main.idv[248] (main247x.png)
+l. 840 Writing main.idv[249] (main248x.png)
+l. 840 Writing main.idv[250] (main249x.png)
+l. 842 Writing main.idv[251] (main250x.png)
+l. 842 Writing main.idv[252] (main251x.png)
+l. 842 Writing main.idv[253] (main252x.png)
+l. 842 Writing main.idv[254] (main253x.png)
+l. 844 Writing main.idv[255] (main254x.png)
+l. 844 Writing main.idv[256] (main255x.png)
+l. 849 Writing main.idv[257] (main256x.png)
+l. 849 Writing main.idv[258] (main257x.png)
+l. 849 Writing main.idv[259] (main258x.png)
+l. 849 Writing main.idv[260] (main259x.png)
+[16] [17] (./main.aux) ) 
 Here is how much of TeX's memory you used:
- 7019 strings out of 476026
- 95477 string characters out of 5790042
- 1861385 words of memory out of 5000000
- 27303 multiletter control sequences out of 15000+600000
+ 7069 strings out of 476026
+ 96386 string characters out of 5790042
+ 1864385 words of memory out of 5000000
+ 27341 multiletter control sequences out of 15000+600000
  520664 words of font info for 65 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 76i,11n,92p,971b,516s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 76i,11n,92p,1080b,516s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on main.dvi (15 pages, 91772 bytes).
+Output written on main.dvi (17 pages, 105360 bytes).
