@@ -1,0 +1,191 @@
+% # #######################################################################
+% # #                                                                     #
+% # #                                                                     #
+% # #                                                                     #
+% # #    __    __     ______                                              #
+% # #   /\ "-./  \   /\  == \                                             #
+% # #   \ \ \-./\ \  \ \  __<                                             #
+% # #    \ \_\ \ \_\  \ \_\ \_\                                           #
+% # #     \/_/  \/_/   \/_/ /_/                                           #
+% # #                                                                     #
+% # #    __    __     __     __   __     ______     ______     __   __    #
+% # #   /\ "-./  \   /\ \   /\ "-.\ \   /\  ___\   /\  ___\   /\ \ / /    #
+% # #   \ \ \-./\ \  \ \ \  \ \ \-.  \  \ \  __\   \ \  __\   \ \ \'/     #
+% # #    \ \_\ \ \_\  \ \_\  \ \_\\"\_\  \ \_____\  \ \_____\  \ \__|     #
+% # #     \/_/  \/_/   \/_/   \/_/ \/_/   \/_____/   \/_____/   \/_/      #
+% # #                                                                     #
+% # #                                                                     #
+% # #                                                                     #
+% # #######################################################################
+
+% Custom LaTeX package: cleaned, minimal, with styled theorem boxes
+\ProvidesPackage{mrmineev}[2025/05/30 v1.1 Custom macros and theorem styling]
+
+%%% Core dependencies
+\RequirePackage{amsmath,amssymb,amsthm}
+\RequirePackage{iftex}
+\RequirePackage[dvipsnames]{xcolor}
+\RequirePackage{mdframed}
+\RequirePackage{thmtools}
+\RequirePackage{xpatch}
+\RequirePackage{fancyhdr}
+\RequirePackage{titlesec}
+\RequirePackage{xcolor}
+\RequirePackage{stackengine}
+\RequirePackage{yhmath}
+\usepackage[inline]{asymptote}
+\usepackage[colorlinks=true, linkcolor=blue, urlcolor=blue]{hyperref}
+\def\asydir{asy}
+% ensure enough header height
+\setlength{\headheight}{14pt}
+
+%%% Page header/footer setup
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{\sffamily\bfseries Daniel Mineev -- \today}
+\rhead{\sffamily \href{https://mrmineev.com}{mrmineev.com}}
+\cfoot{\thepage}
+
+%%% Basic shortcuts
+\providecommand{\arc}[1]{\wideparen{#1}}
+
+\newcommand{\cbrt}[1]{\sqrt[3]{#1}}
+\newcommand{\floor}[1]{\left\lfloor #1 \right\rfloor}
+\newcommand{\ceiling}[1]{\left\lceil #1 \right\rceil}
+\newcommand{\ol}{\overline}
+\newcommand{\ul}{\underline}
+\newcommand{\wt}{\widetilde}
+\newcommand{\wh}{\widehat}
+\newcommand{\eps}{\varepsilon}
+
+%%% Common operators
+\DeclareMathOperator{\lcm}{lcm}
+\DeclareMathOperator*{\argmin}{argmin}
+\DeclareMathOperator*{\argmax}{argmax}
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\DeclareMathOperator{\cis}{cis}
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\rank}{rank}
+\newcommand{\defeq}{\overset{\mathrm{def}}{=}}
+\newcommand{\half}{\tfrac{1}{2}}
+
+%%% Define pastel color palette
+\definecolor{pmBlue}{RGB}{200,220,240}
+\definecolor{pmRed}{RGB}{240,200,200}
+\definecolor{pmGreen}{RGB}{200,240,200}
+\definecolor{pmPurple}{RGB}{230,200,240}
+\definecolor{pmGray}{RGB}{245,245,245}
+\definecolor{pmYellow}{RGB}{252, 252, 213} %{250, 249, 181}
+\definecolor{pmLine}{RGB}{180,180,180}
+\definecolor{pmOrange}{RGB}{255, 235, 200}  % Soft pastel orange
+
+%%% Base style for framed boxes
+\mdfdefinestyle{baseBox}{
+  roundcorner=4pt,
+  linewidth=1pt,
+  linecolor=pmLine,
+  backgroundcolor=pmGray,
+  innerleftmargin=8pt,
+  innerrightmargin=8pt,
+  innertopmargin=6pt,
+  innerbottommargin=6pt,
+  skipabove=10pt,
+  skipbelow=10pt,
+  splittopskip=10pt,
+  splitbottomskip=10pt
+}
+
+%%% Theorem box styles
+\declaretheoremstyle[
+  headfont=\sffamily\bfseries\color{MidnightBlue},
+  headformat=\NAME~\NUMBER,
+  headpunct={},
+  postheadspace=1em,
+  mdframed={style=baseBox,backgroundcolor=pmBlue,linecolor=pmLine,frametitlebackgroundcolor=pmBlue!30},
+  headindent=0pt,
+]{blueTheorem}
+
+\declaretheoremstyle[
+  headfont=\sffamily\bfseries\color{RawSienna},
+  headformat=\NAME~\NUMBER,
+  headpunct={},
+  postheadspace=1em,
+  mdframed={style=baseBox,backgroundcolor=pmRed,linecolor=pmLine,frametitlebackgroundcolor=pmRed!30},
+]{redExample}
+
+\declaretheoremstyle[
+  headfont=\sffamily\bfseries\color{ForestGreen!70!black},
+  headformat=\NAME~\NUMBER,
+  headpunct={},
+  postheadspace=1em,
+  mdframed={style=baseBox,backgroundcolor=pmGreen,linecolor=pmLine,frametitlebackgroundcolor=pmGreen!30},
+]{greenAlgo}
+
+\declaretheoremstyle[
+  headfont=\sffamily\bfseries\color{Purple!80!black},
+  headformat=\NAME~\NUMBER,
+  headpunct={},
+  postheadspace=1em,
+  mdframed={style=baseBox,backgroundcolor=pmPurple,linecolor=pmLine,frametitlebackgroundcolor=pmPurple!30},
+]{purpleDef}
+
+\declaretheoremstyle[
+  headfont=\sffamily\bfseries\color{OrangeRed!80!black},
+  headformat=\NAME~\NUMBER,
+  mdframed={style=baseBox,backgroundcolor=pmOrange,linecolor=pmLine},
+  postheadspace=1em
+]{orangeExercise}
+
+%%% Declare theorem-like environments
+\declaretheorem[style=blueTheorem,numberwithin=section]{theorem}
+\declaretheorem[style=blueTheorem,sibling=theorem]{lemma}
+\declaretheorem[style=blueTheorem,sibling=theorem]{proposition}
+\declaretheorem[style=blueTheorem,sibling=theorem]{corollary}
+
+\declaretheorem[style=redExample,sibling=theorem]{example}
+\declaretheorem[style=greenAlgo,sibling=theorem]{algorithm}
+\declaretheorem[style=purpleDef,sibling=theorem]{definition}
+\declaretheorem[style=redExample,sibling=theorem]{remark}
+\declaretheorem[style=orangeExercise]{exercise}
+
+%%% Add new problem environment
+\declaretheoremstyle[
+  headfont=\sffamily\bfseries\color{Black},
+  headformat=\NAME~\NUMBER\ifstrempty{\NOTE}{}{~\NOTE},
+  headpunct={\newline \newline},
+  postheadspace=2pt,
+  mdframed={style=baseBox,backgroundcolor=pmYellow,linecolor=pmLine,frametitlebackgroundcolor=pmGray!50},
+]{problemStyle}
+\declaretheorem[style=problemStyle,numberwithin=section,name=Problem]{problem}
+
+% Patch mdframed end bug
+\xpatchcmd{\endmdframed}{\aftergroup\endmdf@trivlist\color@endgroup}{\endmdf@trivlist\color@endgroup\@doendpe}{}{}
+
+% Section name format
+
+\titleformat{\section}
+  {\sffamily\bfseries\Large}                % Style for the whole title line
+  {\textcolor{red}{§\thesection}}           % Format for the section number only
+  {1em}                                     % Space between label and title
+  {}                                        % Code before the actual title text
+
+% casebasher
+
+%%% --------------------------------------------------------------------
+%%% casebash environment + plain \case command (no font or color changes)
+%%% --------------------------------------------------------------------
+\newenvironment{casebash}
+  {\par\medskip}   % vertical space before
+  {\par\medskip}   % vertical space after
+
+\newcommand{\case}[1]{%
+  \par\smallskip
+  \noindent
+  \textcolor{red!80!black}{Case~#1)}\quad
+}
+
+% End mrmineev.sty
+

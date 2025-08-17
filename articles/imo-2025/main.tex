@@ -1,0 +1,192 @@
+\documentclass{article}
+
+\usepackage{mrmineev}
+\usepackage{epigraph}
+
+\renewcommand{\epigraphsize}{\scriptsize}
+\renewcommand{\epigraphwidth}{60ex}
+
+\title{IMO 2025 Notes}
+\author{Daniel Mineev}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\epigraph{“Mathematics is the most beautiful and most powerful creation of the human spirit.”}{Stefan Banach}
+
+\section{Copenhagen}
+
+\subsection{Day 1}
+
+Four out of our team took the airplane from Oslo to Copenhagen, two others traveled from Trondheim to Copenhagen. Everyone arrived and meet up in Burger king at arround \(11:30\).
+
+\begin{center}
+\includegraphics[scale=0.2]{assets/soro.jpg}
+\end{center}
+
+We arrived to the university at around \(14:30\) and at \(16:00\) we had our first Combinatorics lecture, the topic of the lecture was the Probobalistic Method, most of the Norwegian team new the contents of the lecture, however the problems where relatively fun. One relatively simple, yet nice problem on the topic which was in sheet was the following,
+
+\begin{problem}[IMO Shortlist 1999]
+  Let \(A\) be a set of \(N\) residues modulo \(N^2\). Prove that there exists a set \(B\) of \(N\) residues modulo \(N^2\) such that \(A + B\) contains at least half of the residue classes modulo \(N^2\).
+\end{problem}
+\begin{proof}
+The solution proposed during the class was to generate \(B\) randomly element after element, then the chance that \(B\) is good \(\left( 1 - \frac{1}{n} \right)^n\) which is less than \(\frac{1}{e}\) which is less than \(\frac{1}{2}\), which proves the theorem.
+\end{proof}
+
+\subsection{Day 2}
+
+In the morning we had a \(5\) hour long geometry lecture where we where talking about polynomial moving points, group structures on cubics, etc, nobody really understood everything that happened but a huge portion of the lecture was definetly very insightful. Later on in the day we had a \(4\) hour long number theory lecture on LTE, the lecture in itself was boring since everything knew LTE, however the problems where quite nice.
+
+\subsection{Day 3}
+
+Today was the individual competition, we had \(4.5\) hours and three problems to solve. When I opened the problem sheet and saw NCG my first reaction was quite positive since this is not that bad of a combination.
+\begin{problem}[Individual Competition, P1]
+  Find all such \(n\) that for any divisor \(d\) of \(n\), either \(d + 1\) is a divisor of \(n\) as well or \(d + 1\) is prime.
+\end{problem}
+
+Looking at problem one for \(10\) minutes and quickly doing all the obvious steps (i.e. highlighting the smallest prime divisor, etc) I notice that the problem is very similar to a problem I solved on AoPS recently, thus I applied the same trick and obtained the exact form of the numbers described in the problem statement. Since, if we consider \[d = \frac{n}{2^{v_2(n)}} \implies d + 1 = \frac{n}{2^{v_2(n)}} + 1\] we obtain a number which does not have any common prime factors with \(n\), however it is also even, consequently not prime, thus it must be that \(n\) is of the form \(2^{\alpha}(2^{\beta} - 1) + 1\). From here solving the problem is trivial, however I somehow overlooked this trivial idea and moved on.
+
+I realized that it is simple to show by considering the smallest prime that \(n\) is not only even, but also divisible by \(4\). I assumed that \(8 \mid n\) and noticed that implies that \(9 \mid n \implies 3 \mid n\). Now I realized I can generate a lot of primes,
+\[\begin{cases}
+  8 \mid n \land 3 \mid n \implies 24 \mid n \implies 25 \mid n \implies 5 \mid n \\
+  3 \mid n \land 5 \mid n \implies 15 \mid n \implies 16 \mid n \\
+  16 \mid n \land 3 \mid n \implies 48 \mid n \implies 49 \mid n \implies 7 \mid n
+\end{cases}\]
+Now, this is where I noticed that \(5 \equiv 2 \pmod{3}\) and \(7 \equiv 1 \pmod{3}\). Consequently either \(5 \cdot 2^{v_2(n)} + 1\) or \(7 \cdot 2^{v_2(n)} + 1\) is divisible by \(3\), thus not prime. Since (it is simple to show by considering the \(2^{v_2(n)}\)) that \(2^{v_2(n)}\) must be larger than the largest odd divisor of \(n\) we obtain a contradiction! Careful analysis concludes four edge cases \(1, 2, 4, 12\). \(\blacksquare\)
+
+After solving the problem in this beautiful way I thought that the other contestants would find this problem difficult, however due to me missing a trivial idea after obtaining the form of \(n\) it lead to develop this interesting proof.
+
+\subsection{Day 4}
+Today was the team competition, a total of 20 problems in four topics has been distributed, I took responsibility of the Geometry problems. Sadly I chose the most difficult ones and left the simple ones to be solved by my friend and ended up not solving any geometry. I moved onto combinatorics and found this beatiful problem,
+\begin{problem}[Team Competition P14]
+  You have \(n\) bags with \(k\) coins each. Each coin weights \(a\) grams, except one bag has \(k\) counterfeit coins which weigh \(b\) coins each. You do not know \(a\) and \(b\) beforehand, just that \(0 \leq a < b\) and \(a, b \in \RR\). You have a scale which you can use \(m\) times. You must place an equal number of coins on each side, at which point the scale gives you the weight difference of the two sides. This calue is positive if the left side is heavier and negative if the right side is heavier. You must decide all weighings you will perform before performing any of them. For given values \(m, k\) what is the largest value of \(n\) for which we can always find the bag with counterfeit coins?
+\end{problem}
+The only problem is me and my teamate completely ignored the sentence "You do \textbf{NOT} know \(a\) and \(b\) beforehand". Surprisingly the resulting problem is still fairly interesting.
+
+The next day the traveling began and after \(24\) hours we arrived in Brisbane.
+\section{IMO}
+
+The flight to Australia was soooo looong... All that I could do was solve problems. During the flight me and my friend where toying with a configuration I wrote an article about. The lights were off for most of the flight so we were solving geometry in the dark...
+
+When we arrived in Australia the team decided to stay at another hotel to rest, since we didn't want to be jet-lagged during the competition.
+
+\begin{center}
+  \includegraphics[scale=0.15]{assets/geo-in-airplane.jpg}
+\includegraphics[scale=0.15]{assets/hotel-australia.jpg}
+\end{center}
+
+It was quite a nice hotel. In the morning I felt it... Quite the experience...
+
+\begin{center}
+  \includegraphics[scale=0.1]{assets/mornings.jpeg}
+\end{center}
+
+In this state we headed towards the IMO 2025 Hotel. I saw a Kangorooo!
+
+\begin{center}
+  \includegraphics[scale=0.15]{assets/kangoroo.jpg}
+  \includegraphics[scale=0.15]{assets/merch.jpg}
+\end{center}
+
+During the day we receieved so much merch! T-Shirts, backpacks, bottles, notepads, pens, plushies, merched towels...
+
+\subsection{Contest Analysis, IMO Day 1}
+
+Sadly I wake up in the morning with a stuffed nose and a soare throat, I drink some coffee at breakfast, along with some hot tea hoping to survive the exam.
+
+I open the envolope with the problem statements, exactly what I predicted, CGN! I read problem \(1\), looks interesting, seems to be a fairly original setting, problem \(2\) is a geometry with no wierd conditions seems to be a nice problem!
+
+I proceed to spend \(3\) hours on problem \(1\), I totally lost focus.
+
+\begin{problem}[IMO 2025 P1]
+  A line in the plane is called $sunny$ if it is not parallel to any of the $x$–axis, the $y$–axis, or the line $x+y=0$.
+
+Let $n\ge3$ be a given integer. Determine all nonnegative integers $k$ such that there exist $n$ distinct lines in the plane satisfying both of the following:
+for all positive integers $a$ and $b$ with $a+b\le n+1$, the point $(a,b)$ lies on at least one of the lines; and
+exactly $k$ of the $n$ lines are sunny.
+\end{problem}
+
+It is a nice problem with a relatively neet idea, it is quite simple, however I in the moment got side tracked into many other less useful ideas. The trick is induction, and noticing that we can consider the three "border" lines and then remove them if neccesary by induction. I solved it during the contest, but it took me way too much time.
+
+The geometry problem wasn't anything special either, I only managed to find some basic obversvations with my expectations being \(1-2\) points.
+
+Sadly due to many factors I was unable to take a good look at problem three, which turned out to be not as difficult as one may think.
+
+\subsection{Contest Analysis, IMO Day 2}
+
+As my team proceeded to breakfast it was clear just how nervous everyone was. After a quick meal we proceeded towards the Exam Hall, finding our seats carefully positioned across the venue, just as the day before.
+
+As the competition starts I look at the topic distributation, just as I predicted, again, \textbf{NAC}. I practically solved problem 4 in a matter of \(30\) minutes, however there is so much write-up and case work required (not in all solutions, but most) that it took me several more hours to figure out all the details and cases.
+
+For the rest of the competition I tried solving P5 and P6, with obtaining some trivial results in P5 and obtaining quite a strong construction on P6. Sadly the correct construction is quite far from what I have construction, thus I recieved zero points in the end...
+
+\subsection{Lectures}
+
+Probably one of the most memorable experiences from the IMO are lectures. There were four guest lecturers, one of whom was Terence Tao! Immedietly after his amazing lecture on \textbf{"The Equational Theories Project: advancing collaborative mathematical research at scale"} I rushed to grab a picture and signature which I am happy I managed to do! On top of that I managed to grab a selfie with Evan Chen himself!
+
+\begin{center}
+  \includegraphics[scale=0.15]{assets/terence.jpg}
+  \includegraphics[scale=0.1]{assets/evan-chen.jpeg}
+\end{center}
+
+We also had a short discussion with representatives from Google DeepMind, ByteDance, Stanford University, and Huawei about the potential impact of AI on mathematics. Most people agreed that it was nothing more than corporate propaganda.
+
+During the lectures I managed to also grab some selfies with Mathologer, Eddie Woo and Po-Shen Loh!
+
+\begin{center}
+  \includegraphics[scale=0.1]{assets/po.jpg}
+  \includegraphics[scale=0.08]{assets/mathologer.jpg}
+  \includegraphics[scale=0.07]{assets/eddie-woo.jpg}
+\end{center}
+
+\subsection{Results}
+
+During the ceremony our team was dressed in suits and while waiting to enter the hall we took a photo with team Argentina!
+
+\begin{center}
+  \includegraphics[scale=0.2]{assets/teams.jpg}
+\end{center}
+
+In the end I recieved \(15\) points with a score distribution of \(710700\) earning me an HM. Quite an unfortunate result since I was expecting Bronze, but I guess it is a nice learning experience that I hope I will be able to apply at IMO 2026.
+
+\section{Jane Street}
+
+After the IMO many teams went to a nice social event hosted by Jane Street. Mathologer came along and sat close to me next to my friend!
+
+The hotel was amazing to say the least, the internet claims it is the best hotel in Brisbane!
+
+\begin{center}
+  \includegraphics[scale=0.1]{assets/brisbane-hotel-jane.jpeg}
+  \includegraphics[scale=0.13]{assets/suit.jpg}
+    \includegraphics[scale=0.13]{assets/plushie.jpg}
+\end{center}
+
+During the first day of the event we went to an Arcade, where after 30+ attempts I managed to win a plushie! (of course using Jane Street money)
+
+During the event we also played a lot of board games, one of which was a company exclusive MegaGem!
+
+On Day 2 we went to a Koala sanctuary where I saw \textbf{A LOT} of kangoroos and koalas!
+
+\begin{center}
+  \includegraphics[scale=0.13]{assets/koala.jpeg}
+  \includegraphics[scale=0.13]{assets/kangoroo-many.jpg}
+\end{center}
+
+\section{Conclusion}
+
+I enjoyed my journey a lot, so many memories and new experiences. Though I am not so happy with the result of the competition itself I am sure it will serve me as a valuable lesson for next year. One thing is certain I will be much stronger during next years IMO!
+
+I want to express a big thank you to all of my teammates, my leader and deputy leader for reviewing my work, as well as to the IMO organizers, Jane Street, and all the Nordic countries for creating such a wonderful camp in Soro!
+
+\end{document}
+
+
+
+
+
+
+
+
+

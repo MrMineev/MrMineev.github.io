@@ -1,0 +1,333 @@
+htfcss: cmbx  font-weight: bold;
+htfcss: cmbxsl  font-weight: bold; font-style: oblique;
+htfcss: cmti  font-style: italic;
+htfcss: cmss   font-family: sans-serif;
+htfcss: cmssbx  font-family: sans-serif; font-weight: bold;
+htfcss: cmssbxo  font-family: sans-serif; font-style: oblique; font-weight: bold;
+htfcss: cmssdc  font-family: sans-serif;
+htfcss: cmssi  font-family: sans-serif; font-style: oblique;
+htfcss: cmss   font-family: sans-serif;
+htfcss: cmssbx  font-family: sans-serif; font-weight: bold;
+htfcss: cmssbxo  font-family: sans-serif; font-style: oblique; font-weight: bold;
+htfcss: cmssdc  font-family: sans-serif;
+htfcss: cmssi  font-family: sans-serif; font-style: oblique;
+htfcss: cmmi font-style: italic;
+htfcss: cmmib font-style: italic; font-weight: bold;
+File: main.html
+File: main.css
+File: main.tmp
+Css: p{margin-top:0;margin-bottom:0}
+Css: p.indent{text-indent:0;}
+Css: p + p{margin-top:1em;}
+Css: p + div, p + pre {margin-top:1em;}
+Css: div + p, pre + p {margin-top:1em;}
+Css: a { overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto; }
+Css: @media print {div.crosslinks {visibility:hidden;}}
+Css: table.tabular{border-collapse: collapse; border-spacing: 0;}
+Css: a img { border-top: 0; border-left: 0; border-right: 0; }
+Font_Css("4"): .small-caps{font-variant: small-caps; }
+Font_Css("10"): .htf-cmbx {font-weight: bold; font-style:normal;}
+Font_Css("12"): .htf-calligraphy {font-family:cursive}
+Font_Css("14"): .htf-italic {font-style: italic;}
+Font_Css("16"): .htf-bold {font-weight: bold;}
+Font_Css("12"): .htf-calligraphy-bold {font-family:cursive ; font-weight: bold; }
+Css: center { margin-top:1em; margin-bottom:1em; }
+Css: td center { margin-top:0em; margin-bottom:0em; }
+Css: .Canvas { position:relative; }
+Css: img.math{vertical-align:middle;}
+Css: div.par-math-display, div.math-display{text-align:center;}
+Css: li p.indent { text-indent: 0em }
+Css: li p:first-child{ margin-top:0em; }
+Css: li p:last-child, li div:last-child { margin-bottom:0.5em; }
+Css: li p:first-child{ margin-bottom:0; }
+Css: li p~ul:last-child, li p~ol:last-child{ margin-bottom:0.5em; }
+Css: .enumerate1 {list-style-type:decimal;}
+Css: .enumerate2 {list-style-type:lower-alpha;}
+Css: .enumerate3 {list-style-type:lower-roman;}
+Css: .enumerate4 {list-style-type:upper-alpha;}
+Css: div.newtheorem { margin-bottom: 2em; margin-top: 2em;}
+Css: div.newtheorem .head{font-weight: bold;}
+Css: .obeylines-h,.obeylines-v {white-space: nowrap; }
+Css: div.obeylines-v p { margin-top:0; margin-bottom:0; }
+Css: .overline{ text-decoration:overline; }
+Css: .overline img{ border-top: 1px solid black; }
+Css: td.displaylines {text-align:center; white-space:nowrap;}
+Css: .centerline {text-align:center;}
+Css: .rightline {text-align:right;}
+Css: pre.verbatim {font-family: monospace,monospace; text-align:left; clear:both; }
+Css: .fbox {padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+Css: div.fbox {display:table}
+Css: div.center div.fbox {text-align:center; clear:both; padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+Css: div.minipage{width:100%;}
+Css: div.center, div.center div.center {text-align: center; margin-left:1em; margin-right:1em;}
+Css: div.center div {text-align: left;}
+Css: div.flushright, div.flushright div.flushright {text-align: right;}
+Css: div.flushright div {text-align: left;}
+Css: div.flushleft {text-align: left;}
+Css: .underline{ text-decoration:underline; }
+Css: .underline img{ border-bottom: 1px solid black; margin-bottom:1pt; }
+Css: .framebox-c, .framebox-l, .framebox-r { padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+Css: .framebox-c {text-align:center;}
+Css: .framebox-l {text-align:left;}
+Css: .framebox-r {text-align:right;}
+Css: span.thank-mark{ vertical-align: super }
+Css: span.footnote-mark sup.textsuperscript, span.footnote-mark a sup.textsuperscript{ font-size:80%; }
+Css: div.tabular, div.center div.tabular {text-align: center; margin-top:0.5em; margin-bottom:0.5em; }
+Css: table.tabular td p{margin-top:0em;}
+Css: table.tabular {margin-left: auto; margin-right: auto;}
+Css: td p:first-child{ margin-top:0em; }
+Css: td p:last-child{ margin-bottom:0em; }
+Css: div.td00{ margin-left:0pt; margin-right:0pt; }
+Css: div.td01{ margin-left:0pt; margin-right:5pt; }
+Css: div.td10{ margin-left:5pt; margin-right:0pt; }
+Css: div.td11{ margin-left:5pt; margin-right:5pt; }
+Css: table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+Css: td.td00{ padding-left:0pt; padding-right:0pt; }
+Css: td.td01{ padding-left:0pt; padding-right:5pt; }
+Css: td.td10{ padding-left:5pt; padding-right:0pt; }
+Css: td.td11{ padding-left:5pt; padding-right:5pt; }
+Css: table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+Css: .hline hr, .cline hr{ height : 0px; margin:0px; }
+Css: .hline td, .cline td{ padding: 0; }
+Css: .hline hr, .cline hr{border:none;border-top:1px solid black;}
+Css: .hline {border-top: 1px solid black;}
+Css: .hline + .vspace:last-child{display:none;}
+Css: .hline:first-child{border-bottom:1px solid black;border-top:none;}
+Css: .tabbing-right {text-align:right;}
+Css: div.float, div.figure {margin-left: auto; margin-right: auto;}
+Css: div.float img {text-align:center;}
+Css: div.figure img {text-align:center;}
+Css: .marginpar,.reversemarginpar {width:20%; float:right; text-align:left; margin-left:auto; margin-top:0.5em; font-size:85%; text-decoration:underline;}
+Css: .marginpar p,.reversemarginpar p{margin-top:0.4em; margin-bottom:0.4em;}
+Css: .reversemarginpar{float:left;}
+Css: table.equation {width:100%;}
+Css: .equation td{text-align:center; }
+Css: td.equation { margin-top:1em; margin-bottom:1em; } 
+Css: td.equation-label { width:5%; text-align:center; }
+Css: td.eqnarray4 { width:5%; white-space: normal; }
+Css: td.eqnarray2 { width:5%; }
+Css: table.eqnarray-star, table.eqnarray {width:100%;}
+Css: div.eqnarray{text-align:center;}
+Css: div.array {text-align:center;}
+Css: div.pmatrix {text-align:center;}
+Css: table.pmatrix {width:100%;}
+Css: span.pmatrix img{vertical-align:middle;}
+Css: div.pmatrix {text-align:center;}
+Css: table.pmatrix {width:100%;}
+Css: span.bar-css {text-decoration:overline;}
+Css: img.cdots{vertical-align:middle;}
+Css: .partToc a, .partToc, .likepartToc a, .likepartToc {line-height: 200%; font-weight:bold; font-size:110%;}
+Css: .chapterToc a, .chapterToc, .likechapterToc a, .likechapterToc, .appendixToc a, .appendixToc {line-height: 200%; font-weight:bold;}
+Css: .index-item, .index-subitem, .index-subsubitem {display:block}
+Css: div.caption {text-indent:-2em; margin-left:3em; margin-right:1em; text-align:left;}
+Css: div.caption span.id{font-weight: bold; white-space: nowrap; }
+Css: h1.partHead{text-align: center}
+Css: p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+Css: p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+Css: .subsubsectionHead, .likesubsubsectionHead { font-size: 1em; }
+Css: .paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
+Css: .subparagraphHead, .likesubparagraphHead { font-weight: bold;}
+Css: .verse{white-space:nowrap; margin-left:2em}
+Css: div.maketitle {text-align:center;}
+Css: h2.titleHead{text-align:center;}
+Css: div.maketitle{ margin-bottom: 2em; }
+Css: div.author, div.date {text-align:center;}
+Css: div.thanks{text-align:left; margin-left:10%; font-size:85%; font-style:italic; }
+Css: div.author{white-space: nowrap;}
+Css: div.abstract p {margin-left:5%; margin-right:5%;}
+Css: div.abstract {width:100%;}
+Css: .abstracttitle{text-align:center;margin-bottom:1em;}
+Css: .equation td{text-align:center; }
+Css: .equation-star td{text-align:center; }
+Css: table.equation-star { width:100%; }
+Css: table.equation { width:100%; }
+Css: table.align, table.alignat, table.xalignat, table.xxalignat, table.flalign {width:95%; margin-left:5%; white-space: nowrap;}
+Css: table.align-star, table.alignat-star, table.xalignat-star, table.flalign-star {margin-left:auto; margin-right:auto; white-space: nowrap;}
+Css: td.align-label { width:5%; text-align:center; }
+Css: td.align-odd { text-align:right; padding-right:0.3em;}
+Css: td.align-even { text-align:left; padding-right:0.6em;}
+Css: table.multline, table.multline-star {width:100%;}
+Css: td.gather {text-align:center; }
+Css: table.gather {width:100%;}
+Css: div.gather-star {text-align:center;}
+Css: .mdframed{margin-top:1em;margin-bottom:1em;}
+Css: .rotatebox{display: inline-block;}
+Css: .epigraph, .epigraphhead, epigraphs {margin-left:60%}
+Css: .epigraphhead .epigraph {margin-left:0%}
+Css: .episource {text-align:right}
+Css: .epigraphs table { width:40% ;}
+Css: .epigraphs table div .episource { text-align:right; width:100%;}
+Css: img[src="main0x.png"]{vertical-align:-0%}
+--- needs --- main.idv[2] ==> main0x.png ---
+File: assets/soro.jpg
+Css: img[src="main1x.png"]{vertical-align:-0%}
+--- needs --- main.idv[3] ==> main1x.png ---
+Css: img[src="main2x.png"]{vertical-align:-0%}
+--- needs --- main.idv[4] ==> main2x.png ---
+Css: #mdframed-1{border:1.0pt solid #B4B4B4; background-color: #FCFCD5; color:#000000;}
+Css: img[src="main3x.png"]{vertical-align:-0%}
+--- needs --- main.idv[6] ==> main3x.png ---
+Css: img[src="main4x.png"]{vertical-align:-0%}
+--- needs --- main.idv[7] ==> main4x.png ---
+Css: img[src="main5x.png"]{vertical-align:-0%}
+--- needs --- main.idv[8] ==> main5x.png ---
+Css: img[src="main6x.png"]{vertical-align:-0%}
+--- needs --- main.idv[9] ==> main6x.png ---
+Css: img[src="main7x.png"]{vertical-align:-0%}
+--- needs --- main.idv[10] ==> main7x.png ---
+Css: img[src="main8x.png"]{vertical-align:-0%}
+--- needs --- main.idv[11] ==> main8x.png ---
+Css: img[src="main9x.png"]{vertical-align:-10.86953493046945%}
+--- needs --- main.idv[12] ==> main9x.png ---
+Css: img[src="main10x.png"]{vertical-align:-0%}
+--- needs --- main.idv[13] ==> main10x.png ---
+Css: img[src="main11x.png"]{vertical-align:-0%}
+--- needs --- main.idv[15] ==> main11x.png ---
+Css: img[src="main12x.png"]{vertical-align:-0%}
+--- needs --- main.idv[16] ==> main12x.png ---
+Css: img[src="main13x.png"]{vertical-align:-27.72363099276103%}
+--- needs --- main.idv[17] ==> main13x.png ---
+Css: img[src="main14x.png"]{vertical-align:-28.98594407128135%}
+--- needs --- main.idv[18] ==> main14x.png ---
+Css: img[src="main15x.png"]{vertical-align:-28.98594407128135%}
+--- needs --- main.idv[19] ==> main15x.png ---
+Css: img[src="main16x.png"]{vertical-align:-0%}
+--- needs --- main.idv[20] ==> main16x.png ---
+Css: img[src="main17x.png"]{vertical-align:-0%}
+--- needs --- main.idv[21] ==> main17x.png ---
+Css: img[src="main18x.png"]{vertical-align:-0%}
+--- needs --- main.idv[22] ==> main18x.png ---
+Css: #mdframed-2{border:1.0pt solid #B4B4B4; background-color: #FCFCD5; color:#000000;}
+Css: img[src="main19x.png"]{vertical-align:-0%}
+--- needs --- main.idv[24] ==> main19x.png ---
+Css: img[src="main20x.png"]{vertical-align:-0%}
+--- needs --- main.idv[25] ==> main20x.png ---
+Css: img[src="main21x.png"]{vertical-align:-0%}
+--- needs --- main.idv[26] ==> main21x.png ---
+Css: img[src="main22x.png"]{vertical-align:-10.71422966154232%}
+--- needs --- main.idv[27] ==> main22x.png ---
+Css: img[src="main23x.png"]{vertical-align:-0%}
+--- needs --- main.idv[28] ==> main23x.png ---
+Css: img[src="main24x.png"]{vertical-align:-10.71422966154232%}
+--- needs --- main.idv[29] ==> main24x.png ---
+Css: img[src="main25x.png"]{vertical-align:-0%}
+--- needs --- main.idv[31] ==> main25x.png ---
+--- needs --- main.idv[33] ==> main26x.png ---
+Css: img[src="main27x.png"]{vertical-align:-0%}
+--- needs --- main.idv[34] ==> main27x.png ---
+Css: img[src="main28x.png"]{vertical-align:-0%}
+--- needs --- main.idv[35] ==> main28x.png ---
+Css: img[src="main29x.png"]{vertical-align:-22.74790973034065%}
+--- needs --- main.idv[36] ==> main29x.png ---
+Css: img[src="main30x.png"]{vertical-align:-0%}
+--- needs --- main.idv[37] ==> main30x.png ---
+Css: img[src="main31x.png"]{vertical-align:-0%}
+--- needs --- main.idv[38] ==> main31x.png ---
+Css: img[src="main32x.png"]{vertical-align:-25%}
+--- needs --- main.idv[39] ==> main32x.png ---
+Css: img[src="main33x.png"]{vertical-align:-25%}
+--- needs --- main.idv[40] ==> main33x.png ---
+--- needs --- main.idv[41] ==> main34x.png ---
+Css: img[src="main35x.png"]{vertical-align:-25%}
+--- needs --- main.idv[42] ==> main35x.png ---
+Css: img[src="main36x.png"]{vertical-align:-25%}
+--- needs --- main.idv[43] ==> main36x.png ---
+Css: img[src="main37x.png"]{vertical-align:-8.580177281453948%}
+--- needs --- main.idv[44] ==> main37x.png ---
+Css: img[src="main38x.png"]{vertical-align:-8.580177281453948%}
+--- needs --- main.idv[45] ==> main38x.png ---
+Css: img[src="main39x.png"]{vertical-align:-0%}
+--- needs --- main.idv[46] ==> main39x.png ---
+Css: img[src="main40x.png"]{vertical-align:-0%}
+--- needs --- main.idv[47] ==> main40x.png ---
+Css: img[src="main41x.png"]{vertical-align:-0%}
+--- needs --- main.idv[48] ==> main41x.png ---
+Css: img[src="main42x.png"]{vertical-align:-0%}
+--- needs --- main.idv[49] ==> main42x.png ---
+Css: img[src="main43x.png"]{vertical-align:-23.17879710571981%}
+--- needs --- main.idv[50] ==> main43x.png ---
+Css: img[src="main44x.png"]{vertical-align:-0%}
+--- needs --- main.idv[51] ==> main44x.png ---
+Css: img[src="main45x.png"]{vertical-align:-0%}
+--- needs --- main.idv[52] ==> main45x.png ---
+Css: #mdframed-3{border:1.0pt solid #B4B4B4; background-color: #FCFCD5; color:#000000;}
+Css: img[src="main46x.png"]{vertical-align:-0%}
+--- needs --- main.idv[54] ==> main46x.png ---
+Css: img[src="main47x.png"]{vertical-align:-0%}
+--- needs --- main.idv[55] ==> main47x.png ---
+Css: img[src="main48x.png"]{vertical-align:-0%}
+--- needs --- main.idv[56] ==> main48x.png ---
+Css: img[src="main49x.png"]{vertical-align:-0%}
+--- needs --- main.idv[57] ==> main49x.png ---
+Css: img[src="main50x.png"]{vertical-align:-0%}
+--- needs --- main.idv[58] ==> main50x.png ---
+Css: img[src="main51x.png"]{vertical-align:-0%}
+--- needs --- main.idv[59] ==> main51x.png ---
+Css: img[src="main52x.png"]{vertical-align:-0%}
+--- needs --- main.idv[60] ==> main52x.png ---
+Css: img[src="main53x.png"]{vertical-align:-16.37386282411006%}
+--- needs --- main.idv[61] ==> main53x.png ---
+Css: img[src="main54x.png"]{vertical-align:-21.87498927115985%}
+--- needs --- main.idv[62] ==> main54x.png ---
+Css: img[src="main55x.png"]{vertical-align:-0%}
+--- needs --- main.idv[63] ==> main55x.png ---
+Css: img[src="main56x.png"]{vertical-align:-21.87498927115985%}
+--- needs --- main.idv[64] ==> main56x.png ---
+Css: img[src="main57x.png"]{vertical-align:-0%}
+--- needs --- main.idv[65] ==> main57x.png ---
+Css: img[src="main58x.png"]{vertical-align:-0%}
+--- needs --- main.idv[67] ==> main58x.png ---
+Css: img[src="main59x.png"]{vertical-align:-0%}
+--- needs --- main.idv[68] ==> main59x.png ---
+Css: img[src="main60x.png"]{vertical-align:-0%}
+--- needs --- main.idv[69] ==> main60x.png ---
+File: assets/geo-in-airplane.jpg
+File: assets/hotel-australia.jpg
+File: assets/mornings.jpeg
+File: assets/kangoroo.jpg
+File: assets/merch.jpg
+Css: img[src="main61x.png"]{vertical-align:-0%}
+--- needs --- main.idv[71] ==> main61x.png ---
+Css: img[src="main62x.png"]{vertical-align:-0%}
+--- needs --- main.idv[72] ==> main62x.png ---
+Css: img[src="main63x.png"]{vertical-align:-0%}
+--- needs --- main.idv[73] ==> main63x.png ---
+Css: img[src="main64x.png"]{vertical-align:-0%}
+--- needs --- main.idv[74] ==> main64x.png ---
+Css: #mdframed-4{border:1.0pt solid #B4B4B4; background-color: #FCFCD5; color:#000000;}
+Css: img[src="main65x.png"]{vertical-align:-11.45032246161071%}
+--- needs --- main.idv[76] ==> main65x.png ---
+Css: img[src="main66x.png"]{vertical-align:-0%}
+--- needs --- main.idv[77] ==> main66x.png ---
+File: assets/terence.jpg
+File: assets/evan-chen.jpeg
+File: assets/po.jpg
+File: assets/mathologer.jpg
+File: assets/eddie-woo.jpg
+File: assets/teams.jpg
+Css: img[src="main67x.png"]{vertical-align:-0%}
+--- needs --- main.idv[79] ==> main67x.png ---
+Css: img[src="main68x.png"]{vertical-align:-0%}
+--- needs --- main.idv[80] ==> main68x.png ---
+File: assets/brisbane-hotel-jane.jpeg
+File: assets/suit.jpg
+File: assets/plushie.jpg
+File: assets/koala.jpeg
+File: assets/kangoroo-many.jpg
+tex4ht.c error: 21
+--- characters ---
+Font("cmr","5","5","100")
+Font("cmr","7","7","100")
+Font("cmr","10","10","100")
+Font("cmmi","7","7","100")
+Font("cmmi","10","10","100")
+Font("cmsy","10","10","100")
+Font("cmr","17","17","100")
+Font("cmr","12","12","100")
+Font("msam","10","10","100")
+Font("msbm","10","10","100")
+Font("yhcmex","10","10","100")
+Font("cmss","10","10","100")
+Font("cmssbx","10","10","100")
+Font("cmti","10","10","100")
+Font("cmbx","10","10","100")
