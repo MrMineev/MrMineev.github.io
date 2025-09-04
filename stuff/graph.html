@@ -4,71 +4,151 @@
   <script src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
   <style>
     body {
-      display: flex;
-      font-family: Arial, sans-serif;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background: #f9f9f9;
+      color: #333;
     }
-    #sidebar {
-      width: 200px;
-      padding: 10px;
-      border-left: 1px solid #ccc;
-      margin-left: 10px;
-    }
-    #mynetwork { 
-      flex: 1;
-      height: 500px; 
-      border: 1px solid lightgray; 
-      margin-top: 10px;
-    }
+
     h3 {
       margin-top: 0;
+      font-size: 16px;
+      color: #555;
     }
+
+    label {
+      margin-right: 5px;
+      font-weight: 500;
+    }
+
+    select {
+      padding: 5px 8px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      background: #fff;
+      margin-bottom: 10px;
+      font-size: 14px;
+      cursor: pointer;
+    }
+
+    #controls {
+      margin-bottom: 15px;
+    }
+
+    #mynetwork { 
+      width: 100%; 
+      height: 400px; 
+      border-radius: 10px;
+      border: 1px solid #ddd;
+      background: #fff;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+      margin-bottom: 20px;
+    }
+
+    #listsContainer {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .listBlock {
+      display: flex;
+      flex-direction: column;
+    }
+
     ul {
-      padding-left: 20px;
+      border-radius: 10px;
+      border: 1px solid #ddd;
+      padding: 10px;
+      background: #fff;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+      width: 250px;
+      margin-bottom: 20px;
+      list-style: none;
     }
+
+    ul li {
+      padding: 5px 0;
+      border-bottom: 1px solid #f0f0f0;
+      font-size: 14px;
+    }
+
+    ul li:last-child {
+      border-bottom: none;
+    }
+
     .winner {
       background: #fffacd;
-      padding: 3px 6px;
+      padding: 2px 6px;
       border-radius: 6px;
-      display: inline-block;
+      font-weight: 600;
+      font-size: 13px;
     }
+
+    #statsPanel {
+      border-radius: 10px;
+      border: 1px solid #ddd;
+      padding: 10px;
+      width: 250px;
+      background: #fff;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+      font-size: 14px;
+    }
+
+    #statsPanel div {
+      margin-bottom: 8px;
+    }
+
   </style>
 </head>
 <body>
-  <div style="flex: 1; display: flex; flex-direction: column;">
-    <label for="dayFilter">Show Day:</label>
-    <select id="dayFilter" style="width: 120px; margin-bottom: 5px;">
+  <div id="controls">
+    <label for="graphDayFilter">Graph Day Filter:</label>
+    <select id="graphDayFilter">
       <option value="all">All</option>
     </select>
-
-    <div id="mynetwork"></div>
   </div>
 
-  <div id="sidebar">
-    <h3>🏆 Winners</h3>
-    <ul id="winnerList"></ul>
+  <div id="mynetwork"></div>
+
+  <div id="listsContainer">
+    <div class="listBlock">
+      <h3>🏆 Winners by Day</h3>
+      <ul id="winnerList"></ul>
+    </div>
+
+    <div class="listBlock">
+      <label for="dayNodeSelector">Select Day to View Nodes:</label>
+      <select id="dayNodeSelector">
+        <option value="">--Select Day--</option>
+      </select>
+      <h3>📄 Nodes in Selected Day (Line Order)</h3>
+      <ul id="dayNodeList"></ul>
+    </div>
+
+    <div class="listBlock">
+      <h3>📊 Statistics</h3>
+      <div id="statsPanel"></div>
+    </div>
   </div>
 
   <script>
     let allData = null;
     let network = null;
 
-    // color palette for days
     const dayColors = {
-      1: "#eaffea", // very light green
-      2: "#e0f0ff", // very light blue
-      3: "#fff0e0"  // very light orange
+      1: "#eaffea",
+      2: "#e0f0ff",
+      3: "#fff0e0"
     };
 
     function updateWinnerList() {
       const listEl = document.getElementById("winnerList");
       listEl.innerHTML = "";
-
-      // group winners by day
       const winnersByDay = {};
       allData.nodes.forEach(n => {
-        if (n.winner) {
-          winnersByDay[n.day] = n.label;
-        }
+        if (n.winner) winnersByDay[n.day] = n.label;
       });
 
       if (Object.keys(winnersByDay).length === 0) {
@@ -103,22 +183,17 @@
             color: {
               background: dayColors[n.day] || "#f5f5f5",
               border: "#999",
-              highlight: {
-                background: dayColors[n.day] || "#ddd",
-                border: "#555"
-              }
+              highlight: { background: dayColors[n.day] || "#ddd", border: "#555" }
             }
           };
-
           if (n.winner) {
             nodeStyle.font.size = 26;
             nodeStyle.color = {
-              background: "#fffacd", // light yellow
+              background: "#fffacd",
               border: "#e6d700",
               highlight: { background: "#fff799", border: "#b3a200" }
             };
           }
-
           return { ...n, ...nodeStyle };
         })
       );
@@ -141,28 +216,123 @@
         { nodes, edges },
         options
       );
+
+      updateStatistics();
+    }
+
+    function getLineOrderNodes(day) {
+      const nodesInDay = allData.nodes.filter(n => String(n.day) === String(day));
+      if (nodesInDay.length === 0) return [];
+
+      const adj = {};
+      nodesInDay.forEach(n => adj[n.id] = []);
+      allData.edges.forEach(e => {
+        if (adj[e.from] && adj[e.to]) adj[e.from].push(e.to);
+      });
+
+      const allTo = new Set(allData.edges.filter(e => adj[e.from]).map(e => e.to));
+      let startNode = nodesInDay.find(n => !allTo.has(n.id));
+      if (!startNode) startNode = nodesInDay[0];
+
+      const order = [];
+      let current = startNode;
+      while (current) {
+        order.push(current);
+        const nextId = adj[current.id][0];
+        current = nodesInDay.find(n => n.id === nextId);
+      }
+      return order;
+    }
+
+    function updateDayNodeList(selectedDay) {
+      const listEl = document.getElementById("dayNodeList");
+      listEl.innerHTML = "";
+
+      if (!selectedDay) {
+        listEl.innerHTML = "<li>Select a day to see its nodes</li>";
+        return;
+      }
+
+      const orderedNodes = getLineOrderNodes(selectedDay);
+      if (orderedNodes.length === 0) {
+        listEl.innerHTML = "<li>No nodes for this day</li>";
+        return;
+      }
+
+      orderedNodes.forEach(n => {
+        const li = document.createElement("li");
+        li.textContent = n.label + (n.winner ? " 🏆" : "");
+        listEl.appendChild(li);
+      });
+    }
+
+    // Compute statistics
+    function updateStatistics() {
+      const statsEl = document.getElementById("statsPanel");
+      statsEl.innerHTML = "";
+
+      const totalNodes = allData.nodes.length;
+      const totalDays = new Set(allData.nodes.map(n => n.day)).size;
+      const avgNodesPerDay = (totalNodes / totalDays).toFixed(1);
+
+      // Node degrees
+      const degrees = {};
+      allData.nodes.forEach(n => degrees[n.id] = 0);
+      allData.edges.forEach(e => {
+        if (degrees[e.from] !== undefined) degrees[e.from]++;
+        if (degrees[e.to] !== undefined) degrees[e.to]++;
+      });
+      const maxDegree = Math.max(...Object.values(degrees));
+      const mostInfluential = allData.nodes.filter(n => degrees[n.id] === maxDegree).map(n => n.label);
+
+      // Longest line per day
+      const days = [...new Set(allData.nodes.map(n => n.day))];
+      const longestLines = days.map(d => {
+        const len = getLineOrderNodes(d).length;
+        return `Day ${d}: ${len} nodes`;
+      });
+
+      statsEl.innerHTML = `
+        <div>Average nodes per day: <strong>${avgNodesPerDay}</strong></div>
+        <div>Total edges: <strong>${allData.edges.length}</strong></div>
+        <div>Most influential node(s) (degree ${maxDegree}): <strong>${mostInfluential.join(', ')}</strong></div>
+        <div>Longest line per day:</div>
+        <ul>${longestLines.map(l => `<li>${l}</li>`).join('')}</ul>
+      `;
     }
 
     fetch("data.txt")
-      .then(response => response.json())
+      .then(res => res.json())
       .then(data => {
         allData = data;
+        drawNetwork("all");
+        updateWinnerList();
 
-        // Dynamically populate day filter
+        // Populate graph day filter
+        const graphFilterEl = document.getElementById("graphDayFilter");
         const daySet = new Set(allData.nodes.map(n => n.day));
-        const filterEl = document.getElementById("dayFilter");
         daySet.forEach(d => {
           const opt = document.createElement("option");
           opt.value = d;
           opt.textContent = `Day ${d}`;
-          filterEl.appendChild(opt);
+          graphFilterEl.appendChild(opt);
         });
 
-        drawNetwork("all");
-        updateWinnerList();
-
-        filterEl.addEventListener("change", e => {
+        graphFilterEl.addEventListener("change", e => {
           drawNetwork(e.target.value);
+        });
+
+        // Populate day node selector
+        const dayNodeSelector = document.getElementById("dayNodeSelector");
+        daySet.forEach(d => {
+          const opt = document.createElement("option");
+          opt.value = d;
+          opt.textContent = `Day ${d}`;
+          dayNodeSelector.appendChild(opt);
+        });
+
+        dayNodeSelector.addEventListener("change", e => {
+          updateDayNodeList(e.target.value);
         });
       })
       .catch(err => console.error("Error loading data:", err));
