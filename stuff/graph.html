@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
+  <style>
+    body {
+      display: flex;
+      font-family: Arial, sans-serif;
+    }
+    #sidebar {
+      width: 200px;
+      padding: 10px;
+      border-left: 1px solid #ccc;
+      margin-left: 10px;
+    }
+    #mynetwork { 
+      flex: 1;
+      height: 500px; 
+      border: 1px solid lightgray; 
+      margin-top: 10px;
+    }
+    h3 {
+      margin-top: 0;
+    }
+    ul {
+      padding-left: 20px;
+    }
+    .winner {
+      background: #fffacd;
+      padding: 3px 6px;
+      border-radius: 6px;
+      display: inline-block;
+    }
+  </style>
+</head>
+<body>
+  <div style="flex: 1; display: flex; flex-direction: column;">
+    <label for="dayFilter">Show Day:</label>
+    <select id="dayFilter" style="width: 120px; margin-bottom: 5px;">
+      <option value="all">All</option>
+    </select>
+
+    <div id="mynetwork"></div>
+  </div>
+
+  <div id="sidebar">
+    <h3>🏆 Winners</h3>
+    <ul id="winnerList"></ul>
+  </div>
+
+  <script>
+    let allData = null;
+    let network = null;
+
+    // color palette for days
+    const dayColors = {
+      1: "#eaffea", // very light green
+      2: "#e0f0ff", // very light blue
+      3: "#fff0e0"  // very light orange
+    };
+
+    function updateWinnerList() {
+      const listEl = document.getElementById("winnerList");
+      listEl.innerHTML = "";
+
+      // group winners by day
+      const winnersByDay = {};
+      allData.nodes.forEach(n => {
+        if (n.winner) {
+          winnersByDay[n.day] = n.label;
+        }
+      });
+
+      if (Object.keys(winnersByDay).length === 0) {
+        listEl.innerHTML = "<li>No winners set</li>";
+      } else {
+        Object.entries(winnersByDay).forEach(([day, label]) => {
+          const li = document.createElement("li");
+          li.innerHTML = `Day ${day}: <span class="winner">${label}</span>`;
+          listEl.appendChild(li);
+        });
+      }
+    }
+
+    function drawNetwork(filteredDay) {
+      const filteredNodes = filteredDay === "all"
+        ? allData.nodes
+        : allData.nodes.filter(n => String(n.day) === filteredDay);
+
+      const filteredNodeIds = new Set(filteredNodes.map(n => n.id));
+      const filteredEdges = allData.edges.filter(
+        e => filteredNodeIds.has(e.from) && filteredNodeIds.has(e.to)
+      );
+
+      const nodes = new vis.DataSet(
+        filteredNodes.map(n => {
+          let nodeStyle = {
+            shape: "box",
+            font: { size: 20 },
+            margin: 10,
+            borderWidth: 2,
+            shapeProperties: { borderRadius: 10 },
+            color: {
+              background: dayColors[n.day] || "#f5f5f5",
+              border: "#999",
+              highlight: {
+                background: dayColors[n.day] || "#ddd",
+                border: "#555"
+              }
+            }
+          };
+
+          if (n.winner) {
+            nodeStyle.font.size = 26;
+            nodeStyle.color = {
+              background: "#fffacd", // light yellow
+              border: "#e6d700",
+              highlight: { background: "#fff799", border: "#b3a200" }
+            };
+          }
+
+          return { ...n, ...nodeStyle };
+        })
+      );
+
+      const edges = new vis.DataSet(
+        filteredEdges.map(e => ({ ...e, arrows: "to" }))
+      );
+
+      const options = {
+        edges: {
+          arrows: { to: { enabled: true } },
+          color: { color: "#888", highlight: "#555" },
+          font: { size: 0 }
+        },
+        physics: { enabled: true }
+      };
+
+      network = new vis.Network(
+        document.getElementById("mynetwork"),
+        { nodes, edges },
+        options
+      );
+    }
+
+    fetch("data.txt")
+      .then(response => response.json())
+      .then(data => {
+        allData = data;
+
+        // Dynamically populate day filter
+        const daySet = new Set(allData.nodes.map(n => n.day));
+        const filterEl = document.getElementById("dayFilter");
+        daySet.forEach(d => {
+          const opt = document.createElement("option");
+          opt.value = d;
+          opt.textContent = `Day ${d}`;
+          filterEl.appendChild(opt);
+        });
+
+        drawNetwork("all");
+        updateWinnerList();
+
+        filterEl.addEventListener("change", e => {
+          drawNetwork(e.target.value);
+        });
+      })
+      .catch(err => console.error("Error loading data:", err));
+  </script>
+</body>
+</html>

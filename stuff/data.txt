@@ -1,0 +1,232 @@
+{
+  "nodes": [
+    {
+      "id": 1,
+      "label": "table",
+      "day": 1,
+      "winner": false
+    },
+    {
+      "id": 2,
+      "label": "cat",
+      "day": 1,
+      "winner": false
+    },
+    {
+      "id": 3,
+      "label": "book",
+      "day": 1,
+      "winner": false
+    },
+    {
+      "id": 4,
+      "label": "gg f off",
+      "day": 1,
+      "winner": false
+    },
+    {
+      "id": 5,
+      "label": "fortnite",
+      "day": 1,
+      "winner": false
+    },
+    {
+      "id": 6,
+      "label": "food",
+      "day": 1,
+      "winner": false
+    },
+    {
+      "id": 7,
+      "label": "roller coaster",
+      "day": 1,
+      "winner": false
+    },
+    {
+      "id": 8,
+      "label": "no school",
+      "day": 1,
+      "winner": false
+    },
+    {
+      "id": 9,
+      "label": "sleep",
+      "day": 1,
+      "winner": false
+    },
+    {
+      "id": 10,
+      "label": "my guitar",
+      "day": 1,
+      "winner": false
+    },
+    {
+      "id": 11,
+      "label": "pillows",
+      "day": 1,
+      "winner": false
+    },
+    {
+      "id": 12,
+      "label": "ssri's",
+      "day": 1,
+      "winner": false
+    },
+    {
+      "id": 13,
+      "label": "crochetting",
+      "day": 1,
+      "winner": false
+    },
+    {
+      "id": 14,
+      "label": "hetalia",
+      "day": 1,
+      "winner": false
+    },
+    {
+      "id": 15,
+      "label": "jinx",
+      "day": 1,
+      "winner": false
+    },
+    {
+      "id": 16,
+      "label": "no science",
+      "day": 1,
+      "winner": false
+    },
+    {
+      "id": 17,
+      "label": "leaving the campus",
+      "day": 1,
+      "winner": false
+    },
+    {
+      "id": 18,
+      "label": "graduating",
+      "day": 1,
+      "winner": false
+    },
+    {
+      "id": 19,
+      "label": "money",
+      "day": 1,
+      "winner": false
+    },
+    {
+      "id": 20,
+      "label": "wings",
+      "day": 1,
+      "winner": false
+    },
+    {
+      "id": 21,
+      "label": "chocolate milk",
+      "day": 1,
+      "winner": false
+    },
+    {
+      "id": 22,
+      "label": "candy",
+      "day": 1,
+      "winner": false
+    },
+    {
+      "id": 23,
+      "label": "chocolate",
+      "day": 1,
+      "winner": true
+    }
+  ],
+  "edges": [
+    {
+      "from": 2,
+      "to": 1
+    },
+    {
+      "from": 3,
+      "to": 2
+    },
+    {
+      "from": 4,
+      "to": 3
+    },
+    {
+      "from": 5,
+      "to": 4
+    },
+    {
+      "from": 6,
+      "to": 5
+    },
+    {
+      "from": 7,
+      "to": 6
+    },
+    {
+      "from": 8,
+      "to": 7
+    },
+    {
+      "from": 9,
+      "to": 8
+    },
+    {
+      "from": 10,
+      "to": 9
+    },
+    {
+      "from": 11,
+      "to": 10
+    },
+    {
+      "from": 12,
+      "to": 11
+    },
+    {
+      "from": 13,
+      "to": 12
+    },
+    {
+      "from": 14,
+      "to": 13
+    },
+    {
+      "from": 15,
+      "to": 14
+    },
+    {
+      "from": 16,
+      "to": 15
+    },
+    {
+      "from": 17,
+      "to": 16
+    },
+    {
+      "from": 18,
+      "to": 17
+    },
+    {
+      "from": 19,
+      "to": 18
+    },
+    {
+      "from": 20,
+      "to": 19
+    },
+    {
+      "from": 21,
+      "to": 20
+    },
+    {
+      "from": 22,
+      "to": 21
+    },
+    {
+      "from": 23,
+      "to": 22
+    }
+  ]
+}
