@@ -64,10 +64,11 @@
       3: "#fff0e0"
     };
 
-    // ✅ Fixed: allow multiple winners per day
+    // ✅ Winners: just scan all nodes
     function updateWinnerList() {
       const listEl = document.getElementById("winnerList");
       listEl.innerHTML = "";
+
       const winnersByDay = {};
       allData.nodes.forEach(n => {
         if (n.winner) {
@@ -147,14 +148,12 @@
       updateStatistics();
     }
 
-    // ✅ Fixed: record all edges, don’t drop cross-day ones
     function getLineOrderNodes(day) {
       const nodesInDay = allData.nodes.filter(n => String(n.day) === String(day));
       if (nodesInDay.length === 0) return [];
 
       const adj = {};
       nodesInDay.forEach(n => adj[n.id] = []);
-
       allData.edges.forEach(e => {
         if (adj[e.from] !== undefined) adj[e.from].push(e.to);
       });
