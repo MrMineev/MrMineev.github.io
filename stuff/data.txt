@@ -137,6 +137,96 @@
       "label": "chocolate",
       "day": 1,
       "winner": true
+    },
+    {
+      "id": 24,
+      "label": "tiktok",
+      "day": 2,
+      "winner": false
+    },
+    {
+      "id": 25,
+      "label": "living",
+      "day": 2,
+      "winner": false
+    },
+    {
+      "id": 26,
+      "label": "football",
+      "day": 2,
+      "winner": false
+    },
+    {
+      "id": 27,
+      "label": "internet",
+      "day": 2,
+      "winner": false
+    },
+    {
+      "id": 28,
+      "label": "miles edgeworth",
+      "day": 2,
+      "winner": false
+    },
+    {
+      "id": 29,
+      "label": "vacation",
+      "day": 2,
+      "winner": false
+    },
+    {
+      "id": 30,
+      "label": "gym",
+      "day": 2,
+      "winner": false
+    },
+    {
+      "id": 31,
+      "label": "deltarune chapter 4",
+      "day": 2,
+      "winner": false
+    },
+    {
+      "id": 32,
+      "label": "computer",
+      "day": 2,
+      "winner": false
+    },
+    {
+      "id": 33,
+      "label": "chicken pizza",
+      "day": 2,
+      "winner": false
+    },
+    {
+      "id": 34,
+      "label": "piano",
+      "day": 2,
+      "winner": false
+    },
+    {
+      "id": 35,
+      "label": "shopping",
+      "day": 2,
+      "winner": false
+    },
+    {
+      "id": 36,
+      "label": "taco",
+      "day": 2,
+      "winner": false
+    },
+    {
+      "id": 37,
+      "label": "sushi",
+      "day": 2,
+      "winner": false
+    },
+    {
+      "id": 38,
+      "label": "fish",
+      "day": 2,
+      "winner": false
     }
   ],
   "edges": [
@@ -227,6 +317,74 @@
     {
       "from": 23,
       "to": 22
+    },
+    {
+      "from": 24,
+      "to": 25
+    },
+    {
+      "from": 25,
+      "to": 9
+    },
+    {
+      "from": 9,
+      "to": 26
+    },
+    {
+      "from": 26,
+      "to": 27
+    },
+    {
+      "from": 27,
+      "to": 28
+    },
+    {
+      "from": 28,
+      "to": 29
+    },
+    {
+      "from": 29,
+      "to": 30
+    },
+    {
+      "from": 30,
+      "to": 31
+    },
+    {
+      "from": 31,
+      "to": 32
+    },
+    {
+      "from": 32,
+      "to": 33
+    },
+    {
+      "from": 33,
+      "to": 34
+    },
+    {
+      "from": 36,
+      "to": 37
+    },
+    {
+      "from": 34,
+      "to": 10
+    },
+    {
+      "from": 10,
+      "to": 35
+    },
+    {
+      "from": 35,
+      "to": 23
+    },
+    {
+      "from": 23,
+      "to": 36
+    },
+    {
+      "from": 38,
+      "to": 23
     }
   ]
 }
