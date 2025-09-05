@@ -136,13 +136,13 @@
       "id": 23,
       "label": "chocolate",
       "day": 1,
-      "winner": true
+      "winner": false
     },
     {
       "id": 24,
       "label": "tiktok",
       "day": 2,
-      "winner": false
+      "winner": true
     },
     {
       "id": 25,
@@ -385,6 +385,10 @@
     {
       "from": 38,
       "to": 23
+    },
+    {
+      "from": 37,
+      "to": 38
     }
   ]
 }
