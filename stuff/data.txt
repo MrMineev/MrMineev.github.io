@@ -136,7 +136,7 @@
       "id": 23,
       "label": "chocolate",
       "day": 1,
-      "winner": false
+      "winner": true
     },
     {
       "id": 24,
