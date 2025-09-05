@@ -3,103 +3,20 @@
 <head>
   <script src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
   <style>
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      margin: 0;
-      padding: 20px;
-      background: #f9f9f9;
-      color: #333;
-    }
-
-    h3 {
-      margin-top: 0;
-      font-size: 16px;
-      color: #555;
-    }
-
-    label {
-      margin-right: 5px;
-      font-weight: 500;
-    }
-
-    select {
-      padding: 5px 8px;
-      border-radius: 6px;
-      border: 1px solid #ccc;
-      background: #fff;
-      margin-bottom: 10px;
-      font-size: 14px;
-      cursor: pointer;
-    }
-
-    #controls {
-      margin-bottom: 15px;
-    }
-
-    #mynetwork { 
-      width: 100%; 
-      height: 400px; 
-      border-radius: 10px;
-      border: 1px solid #ddd;
-      background: #fff;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-      margin-bottom: 20px;
-    }
-
-    #listsContainer {
-      display: flex;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
-
-    .listBlock {
-      display: flex;
-      flex-direction: column;
-    }
-
-    ul {
-      border-radius: 10px;
-      border: 1px solid #ddd;
-      padding: 10px;
-      background: #fff;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.03);
-      width: 250px;
-      margin-bottom: 20px;
-      list-style: none;
-    }
-
-    ul li {
-      padding: 5px 0;
-      border-bottom: 1px solid #f0f0f0;
-      font-size: 14px;
-    }
-
-    ul li:last-child {
-      border-bottom: none;
-    }
-
-    .winner {
-      background: #fffacd;
-      padding: 2px 6px;
-      border-radius: 6px;
-      font-weight: 600;
-      font-size: 13px;
-    }
-
-    #statsPanel {
-      border-radius: 10px;
-      border: 1px solid #ddd;
-      padding: 10px;
-      width: 250px;
-      background: #fff;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.03);
-      font-size: 14px;
-    }
-
-    #statsPanel div {
-      margin-bottom: 8px;
-    }
-
+    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 20px; background: #f9f9f9; color: #333; }
+    h3 { margin-top: 0; font-size: 16px; color: #555; }
+    label { margin-right: 5px; font-weight: 500; }
+    select { padding: 5px 8px; border-radius: 6px; border: 1px solid #ccc; background: #fff; margin-bottom: 10px; font-size: 14px; cursor: pointer; }
+    #controls { margin-bottom: 15px; }
+    #mynetwork { width: 100%; height: 400px; border-radius: 10px; border: 1px solid #ddd; background: #fff; box-shadow: 0 2px 6px rgba(0,0,0,0.05); margin-bottom: 20px; }
+    #listsContainer { display: flex; gap: 20px; flex-wrap: wrap; }
+    .listBlock { display: flex; flex-direction: column; }
+    ul { border-radius: 10px; border: 1px solid #ddd; padding: 10px; background: #fff; box-shadow: 0 2px 6px rgba(0,0,0,0.03); width: 250px; margin-bottom: 20px; list-style: none; }
+    ul li { padding: 5px 0; border-bottom: 1px solid #f0f0f0; font-size: 14px; }
+    ul li:last-child { border-bottom: none; }
+    .winner { background: #fffacd; padding: 2px 6px; border-radius: 6px; font-weight: 600; font-size: 13px; }
+    #statsPanel { border-radius: 10px; border: 1px solid #ddd; padding: 10px; width: 250px; background: #fff; box-shadow: 0 2px 6px rgba(0,0,0,0.03); font-size: 14px; }
+    #statsPanel div { margin-bottom: 8px; }
   </style>
 </head>
 <body>
@@ -147,20 +64,24 @@
       3: "#fff0e0"
     };
 
+    // ✅ Fixed: allow multiple winners per day
     function updateWinnerList() {
       const listEl = document.getElementById("winnerList");
       listEl.innerHTML = "";
       const winnersByDay = {};
       allData.nodes.forEach(n => {
-        if (n.winner) winnersByDay[n.day] = n.label;
+        if (n.winner) {
+          if (!winnersByDay[n.day]) winnersByDay[n.day] = [];
+          winnersByDay[n.day].push(n.label);
+        }
       });
 
       if (Object.keys(winnersByDay).length === 0) {
         listEl.innerHTML = "<li>No winners set</li>";
       } else {
-        Object.entries(winnersByDay).forEach(([day, label]) => {
+        Object.entries(winnersByDay).forEach(([day, labels]) => {
           const li = document.createElement("li");
-          li.innerHTML = `Day ${day}: <span class="winner">${label}</span>`;
+          li.innerHTML = `Day ${day}: ${labels.map(l => `<span class="winner">${l}</span>`).join(", ")}`;
           listEl.appendChild(li);
         });
       }
@@ -172,9 +93,11 @@
         : allData.nodes.filter(n => String(n.day) === filteredDay);
 
       const filteredNodeIds = new Set(filteredNodes.map(n => n.id));
-      const filteredEdges = allData.edges.filter(
-        e => filteredNodeIds.has(e.from) && filteredNodeIds.has(e.to)
-      );
+      const filteredEdges = filteredDay === "all"
+        ? allData.edges
+        : allData.edges.filter(
+            e => filteredNodeIds.has(e.from) && filteredNodeIds.has(e.to)
+          );
 
       const nodes = new vis.DataSet(
         filteredNodes.map(n => {
@@ -224,17 +147,19 @@
       updateStatistics();
     }
 
+    // ✅ Fixed: record all edges, don’t drop cross-day ones
     function getLineOrderNodes(day) {
       const nodesInDay = allData.nodes.filter(n => String(n.day) === String(day));
       if (nodesInDay.length === 0) return [];
 
       const adj = {};
       nodesInDay.forEach(n => adj[n.id] = []);
+
       allData.edges.forEach(e => {
-        if (adj[e.from] && adj[e.to]) adj[e.from].push(e.to);
+        if (adj[e.from] !== undefined) adj[e.from].push(e.to);
       });
 
-      const allTo = new Set(allData.edges.filter(e => adj[e.from]).map(e => e.to));
+      const allTo = new Set(allData.edges.map(e => e.to));
       let startNode = nodesInDay.find(n => !allTo.has(n.id));
       if (!startNode) startNode = nodesInDay[0];
 
@@ -270,7 +195,6 @@
       });
     }
 
-    // Compute statistics
     function updateStatistics() {
       const statsEl = document.getElementById("statsPanel");
       statsEl.innerHTML = "";
@@ -279,7 +203,6 @@
       const totalDays = new Set(allData.nodes.map(n => n.day)).size;
       const avgNodesPerDay = (totalNodes / totalDays).toFixed(1);
 
-      // Node degrees
       const degrees = {};
       allData.nodes.forEach(n => degrees[n.id] = 0);
       allData.edges.forEach(e => {
@@ -289,7 +212,6 @@
       const maxDegree = Math.max(...Object.values(degrees));
       const mostInfluential = allData.nodes.filter(n => degrees[n.id] === maxDegree).map(n => n.label);
 
-      // Longest line per day
       const days = [...new Set(allData.nodes.map(n => n.day))];
       const longestLines = days.map(d => {
         const len = getLineOrderNodes(d).length;
@@ -312,7 +234,6 @@
         drawNetwork("all");
         updateWinnerList();
 
-        // Populate graph day filter
         const graphFilterEl = document.getElementById("graphDayFilter");
         const daySet = new Set(allData.nodes.map(n => n.day));
         daySet.forEach(d => {
@@ -321,12 +242,10 @@
           opt.textContent = `Day ${d}`;
           graphFilterEl.appendChild(opt);
         });
-
         graphFilterEl.addEventListener("change", e => {
           drawNetwork(e.target.value);
         });
 
-        // Populate day node selector
         const dayNodeSelector = document.getElementById("dayNodeSelector");
         daySet.forEach(d => {
           const opt = document.createElement("option");
@@ -334,7 +253,6 @@
           opt.textContent = `Day ${d}`;
           dayNodeSelector.appendChild(opt);
         });
-
         dayNodeSelector.addEventListener("change", e => {
           updateDayNodeList(e.target.value);
         });
