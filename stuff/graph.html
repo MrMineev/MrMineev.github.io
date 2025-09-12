@@ -1,105 +1,24 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta charset="utf-8" />
   <script src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
   <style>
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      margin: 0;
-      padding: 20px;
-      background: #f9f9f9;
-      color: #333;
-    }
-
-    h3 {
-      margin-top: 0;
-      font-size: 16px;
-      color: #555;
-    }
-
-    label {
-      margin-right: 5px;
-      font-weight: 500;
-    }
-
-    select {
-      padding: 5px 8px;
-      border-radius: 6px;
-      border: 1px solid #ccc;
-      background: #fff;
-      margin-bottom: 10px;
-      font-size: 14px;
-      cursor: pointer;
-    }
-
-    #controls {
-      margin-bottom: 15px;
-    }
-
-    #mynetwork { 
-      width: 100%; 
-      height: 400px; 
-      border-radius: 10px;
-      border: 1px solid #ddd;
-      background: #fff;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-      margin-bottom: 20px;
-    }
-
-    #listsContainer {
-      display: flex;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
-
-    .listBlock {
-      display: flex;
-      flex-direction: column;
-    }
-
-    ul {
-      border-radius: 10px;
-      border: 1px solid #ddd;
-      padding: 10px;
-      background: #fff;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.03);
-      width: 250px;
-      margin-bottom: 20px;
-      list-style: none;
-    }
-
-    ul li {
-      padding: 5px 0;
-      border-bottom: 1px solid #f0f0f0;
-      font-size: 14px;
-    }
-
-    ul li:last-child {
-      border-bottom: none;
-    }
-
-    .winner {
-      background: #fffacd;
-      padding: 2px 6px;
-      border-radius: 6px;
-      font-weight: 600;
-      font-size: 13px;
-    }
-
-    #statsPanel {
-      border-radius: 10px;
-      border: 1px solid #ddd;
-      padding: 10px;
-      width: 250px;
-      background: #fff;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.03);
-      font-size: 14px;
-    }
-
-    #statsPanel div {
-      margin-bottom: 8px;
-    }
-
+    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 20px; background: #f9f9f9; color: #333; }
+    h3 { margin-top: 0; font-size: 16px; color: #555; }
+    label { margin-right: 5px; font-weight: 500; }
+    select { padding: 5px 8px; border-radius: 6px; border: 1px solid #ccc; background: #fff; margin-bottom: 10px; font-size: 14px; cursor: pointer; }
+    #controls { margin-bottom: 15px; }
+    #mynetwork { width: 100%; height: 400px; border-radius: 10px; border: 1px solid #ddd; background: #fff; box-shadow: 0 2px 6px rgba(0,0,0,0.05); margin-bottom: 20px; }
+    #listsContainer { display: flex; gap: 20px; flex-wrap: wrap; }
+    .listBlock { display: flex; flex-direction: column; }
+    ul { border-radius: 10px; border: 1px solid #ddd; padding: 10px; background: #fff; box-shadow: 0 2px 6px rgba(0,0,0,0.03); width: 280px; margin-bottom: 20px; list-style: none; }
+    ul li { padding: 5px 0; border-bottom: 1px solid #f0f0f0; font-size: 14px; }
+    ul li:last-child { border-bottom: none; }
+    .winner { background: #fffacd; padding: 2px 6px; border-radius: 6px; font-weight: 600; font-size: 13px; }
+    #statsPanel { border-radius: 10px; border: 1px solid #ddd; padding: 10px; width: 280px; background: #fff; box-shadow: 0 2px 6px rgba(0,0,0,0.03); font-size: 14px; }
+    #statsPanel div { margin-bottom: 8px; }
+    em { color: #888; font-style: italic; }
   </style>
 </head>
 <body>
@@ -141,44 +60,78 @@
     let allData = null;
     let network = null;
 
-    const dayColors = {
-      1: "#eaffea",
-      2: "#e0f0ff",
-      3: "#fff0e0"
-    };
+    const dayColors = { 1: "#eaffea", 2: "#e0f0ff", 3: "#fff0e0" };
 
+    // Normalize data so day is number and winner is boolean (handles "true" strings)
+    function normalizeData(raw) {
+      return {
+        nodes: (raw.nodes || []).map(n => ({
+          ...n,
+          id: Number(n.id),
+          day: Number(n.day),
+          winner: (n.winner === true) || (String(n.winner).toLowerCase() === "true")
+        })),
+        edges: (raw.edges || []).map(e => ({ from: Number(e.from), to: Number(e.to) }))
+      };
+    }
+
+    // === SCAN ALL NODES for winners (no traversal) ===
     function updateWinnerList() {
       const listEl = document.getElementById("winnerList");
       listEl.innerHTML = "";
+
+      // Group winners by day (only scanning nodes)
       const winnersByDay = {};
       allData.nodes.forEach(n => {
-        if (n.winner) winnersByDay[n.day] = n.label;
+        if (n.winner) {
+          if (!winnersByDay[n.day]) winnersByDay[n.day] = [];
+          winnersByDay[n.day].push(n.label);
+        }
       });
 
-      if (Object.keys(winnersByDay).length === 0) {
-        listEl.innerHTML = "<li>No winners set</li>";
-      } else {
-        Object.entries(winnersByDay).forEach(([day, label]) => {
-          const li = document.createElement("li");
-          li.innerHTML = `Day ${day}: <span class="winner">${label}</span>`;
-          listEl.appendChild(li);
-        });
+      // Always show every day present in data (so empty-day is visible)
+      const days = Array.from(new Set(allData.nodes.map(n => n.day))).sort((a,b) => a - b);
+
+      if (days.length === 0) {
+        listEl.innerHTML = "<li>No days / nodes present</li>";
+        console.log("No nodes loaded.");
+        return;
       }
+
+      days.forEach(day => {
+        const labels = winnersByDay[day] || [];
+        const li = document.createElement("li");
+        if (labels.length > 0) {
+          li.innerHTML = `Day ${day}: ${labels.map(l => `<span class="winner">${escapeHtml(l)}</span>`).join(", ")}`;
+        } else {
+          li.innerHTML = `Day ${day}: <em>No winner</em>`;
+        }
+        listEl.appendChild(li);
+      });
+
+      // Debug output to help you verify what's being detected
+      console.log("All nodes (normalized):", allData.nodes);
+      console.log("Winners by day:", winnersByDay);
+    }
+
+    // Small HTML escape to prevent odd labels breaking markup
+    function escapeHtml(s) {
+      return String(s).replace(/[&<>"']/g, function(m) { return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]); });
     }
 
     function drawNetwork(filteredDay) {
       const filteredNodes = filteredDay === "all"
         ? allData.nodes
-        : allData.nodes.filter(n => String(n.day) === filteredDay);
+        : allData.nodes.filter(n => String(n.day) === String(filteredDay));
 
       const filteredNodeIds = new Set(filteredNodes.map(n => n.id));
-      const filteredEdges = allData.edges.filter(
-        e => filteredNodeIds.has(e.from) && filteredNodeIds.has(e.to)
-      );
+      const filteredEdges = filteredDay === "all"
+        ? allData.edges
+        : allData.edges.filter(e => filteredNodeIds.has(e.from) && filteredNodeIds.has(e.to));
 
       const nodes = new vis.DataSet(
         filteredNodes.map(n => {
-          let nodeStyle = {
+          const nodeStyle = {
             shape: "box",
             font: { size: 20 },
             margin: 10,
@@ -202,9 +155,7 @@
         })
       );
 
-      const edges = new vis.DataSet(
-        filteredEdges.map(e => ({ ...e, arrows: "to" }))
-      );
+      const edges = new vis.DataSet(filteredEdges.map(e => ({ ...e, arrows: "to" })));
 
       const options = {
         edges: {
@@ -215,34 +166,33 @@
         physics: { enabled: true }
       };
 
-      network = new vis.Network(
-        document.getElementById("mynetwork"),
-        { nodes, edges },
-        options
-      );
-
+      network = new vis.Network(document.getElementById("mynetwork"), { nodes, edges }, options);
       updateStatistics();
     }
 
+    // Builds adjacency using only nodes from the selected day, but edges come from allData
     function getLineOrderNodes(day) {
       const nodesInDay = allData.nodes.filter(n => String(n.day) === String(day));
       if (nodesInDay.length === 0) return [];
 
       const adj = {};
       nodesInDay.forEach(n => adj[n.id] = []);
+      // record outgoing edges from nodes in this day (even if they point outside)
       allData.edges.forEach(e => {
-        if (adj[e.from] && adj[e.to]) adj[e.from].push(e.to);
+        if (adj[e.from] !== undefined) adj[e.from].push(e.to);
       });
 
-      const allTo = new Set(allData.edges.filter(e => adj[e.from]).map(e => e.to));
+      const allTo = new Set(allData.edges.map(e => e.to));
       let startNode = nodesInDay.find(n => !allTo.has(n.id));
       if (!startNode) startNode = nodesInDay[0];
 
       const order = [];
       let current = startNode;
-      while (current) {
+      const visited = new Set();
+      while (current && !visited.has(current.id)) {
+        visited.add(current.id);
         order.push(current);
-        const nextId = adj[current.id][0];
+        const nextId = adj[current.id] && adj[current.id][0];
         current = nodesInDay.find(n => n.id === nextId);
       }
       return order;
@@ -270,76 +220,61 @@
       });
     }
 
-    // Compute statistics
     function updateStatistics() {
       const statsEl = document.getElementById("statsPanel");
       statsEl.innerHTML = "";
 
       const totalNodes = allData.nodes.length;
       const totalDays = new Set(allData.nodes.map(n => n.day)).size;
-      const avgNodesPerDay = (totalNodes / totalDays).toFixed(1);
+      const avgNodesPerDay = totalDays === 0 ? 0 : (totalNodes / totalDays).toFixed(1);
 
-      // Node degrees
       const degrees = {};
       allData.nodes.forEach(n => degrees[n.id] = 0);
       allData.edges.forEach(e => {
         if (degrees[e.from] !== undefined) degrees[e.from]++;
         if (degrees[e.to] !== undefined) degrees[e.to]++;
       });
-      const maxDegree = Math.max(...Object.values(degrees));
+      const maxDegree = Object.keys(degrees).length ? Math.max(...Object.values(degrees)) : 0;
       const mostInfluential = allData.nodes.filter(n => degrees[n.id] === maxDegree).map(n => n.label);
 
-      // Longest line per day
-      const days = [...new Set(allData.nodes.map(n => n.day))];
-      const longestLines = days.map(d => {
-        const len = getLineOrderNodes(d).length;
-        return `Day ${d}: ${len} nodes`;
-      });
+      const days = [...new Set(allData.nodes.map(n => n.day))].sort((a,b)=>a-b);
+      const longestLines = days.map(d => `Day ${d}: ${getLineOrderNodes(d).length} nodes`);
 
       statsEl.innerHTML = `
         <div>Average nodes per day: <strong>${avgNodesPerDay}</strong></div>
         <div>Total edges: <strong>${allData.edges.length}</strong></div>
-        <div>Most influential node(s) (degree ${maxDegree}): <strong>${mostInfluential.join(', ')}</strong></div>
+        <div>Most influential node(s) (degree ${maxDegree}): <strong>${mostInfluential.join(', ') || '—'}</strong></div>
         <div>Longest line per day:</div>
         <ul>${longestLines.map(l => `<li>${l}</li>`).join('')}</ul>
       `;
     }
 
+    // Load and initialize
     fetch("data.txt")
       .then(res => res.json())
-      .then(data => {
-        allData = data;
+      .then(raw => {
+        allData = normalizeData(raw);
+        console.info("Loaded data (normalized):", allData);
         drawNetwork("all");
         updateWinnerList();
 
-        // Populate graph day filter
+        // populate filters / selectors
         const graphFilterEl = document.getElementById("graphDayFilter");
-        const daySet = new Set(allData.nodes.map(n => n.day));
-        daySet.forEach(d => {
-          const opt = document.createElement("option");
-          opt.value = d;
-          opt.textContent = `Day ${d}`;
-          graphFilterEl.appendChild(opt);
-        });
-
-        graphFilterEl.addEventListener("change", e => {
-          drawNetwork(e.target.value);
-        });
-
-        // Populate day node selector
         const dayNodeSelector = document.getElementById("dayNodeSelector");
+        const daySet = Array.from(new Set(allData.nodes.map(n => n.day))).sort((a,b)=>a-b);
+
         daySet.forEach(d => {
-          const opt = document.createElement("option");
-          opt.value = d;
-          opt.textContent = `Day ${d}`;
-          dayNodeSelector.appendChild(opt);
+          const opt1 = document.createElement("option"); opt1.value = d; opt1.textContent = `Day ${d}`; graphFilterEl.appendChild(opt1);
+          const opt2 = document.createElement("option"); opt2.value = d; opt2.textContent = `Day ${d}`; dayNodeSelector.appendChild(opt2);
         });
 
-        dayNodeSelector.addEventListener("change", e => {
-          updateDayNodeList(e.target.value);
-        });
+        graphFilterEl.addEventListener("change", e => drawNetwork(e.target.value));
+        dayNodeSelector.addEventListener("change", e => updateDayNodeList(e.target.value));
       })
-      .catch(err => console.error("Error loading data:", err));
+      .catch(err => {
+        console.error("Error loading/parsing data.txt:", err);
+        document.getElementById("winnerList").innerHTML = "<li style='color:red'>Failed to load data.txt (see console)</li>";
+      });
   </script>
 </body>
 </html>
