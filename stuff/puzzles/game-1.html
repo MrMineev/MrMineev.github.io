@@ -1,0 +1,469 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Patchwork</title>
+<style>
+  :root{
+    --cell-size:52px;
+    --gap:8px;
+    --err-color: #ff6666;
+  }
+  body { font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; padding:22px; background:#f2f6fb; color:#111; }
+  h1 { margin:0 0 6px 0; font-size:20px; }
+  .meta { margin-bottom:10px; color:#444; font-size:13px; }
+  .wrapper { display:flex; gap:18px; align-items:flex-start; }
+  .board-area { background:white; border-radius:10px; padding:14px; box-shadow:0 8px 30px rgba(20,30,60,0.06); position:relative; }
+  .grid {
+    display: grid;
+    grid-template-columns: 36px repeat(5, var(--cell-size));
+    grid-auto-rows: var(--cell-size);
+    gap: var(--gap);
+    align-items: center;
+    position: relative;
+  }
+  .col-clue { height:22px; display:flex; align-items:center; justify-content:center; font-weight:700; color:#222; }
+  .row-clue { width:36px; height:var(--cell-size); display:flex; align-items:center; justify-content:center; font-weight:700; color:#222; }
+  .cell {
+    width:var(--cell-size); height:var(--cell-size); border-radius:8px; position:relative; cursor:pointer;
+    box-sizing:border-box; border:1px solid rgba(20,30,50,0.06);
+    display:flex; align-items:center; justify-content:center; user-select:none;
+    transition: transform .07s linear, box-shadow .08s linear;
+    font-weight:700;
+    overflow:visible;
+  }
+  .cell:active { transform:translateY(1px); }
+
+  .part-label { position:absolute; left:8px; top:8px; font-size:12px; color:rgba(0,0,0,0.55); font-weight:700; text-shadow: 0 1px 0 rgba(255,255,255,0.6); pointer-events:none; }
+  .cell.selected .part-label { color: rgba(255,255,255,0.92); text-shadow: 0 1px 2px rgba(0,0,0,0.4); }
+
+  /* Markers: drawn with pseudo-element so background color remains visible */
+  .cell.selected::after {
+    content: '';
+    position: absolute;
+    pointer-events: none; /* clicks pass through */
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  /* Circle marker */
+  .marker-circle.cell.selected::after {
+    width: 36%;
+    height: 36%;
+    border-radius: 50%;
+    background: rgba(0,0,0,0.92);
+    box-shadow: 0 0 0 2px rgba(255,255,255,0.85) inset;
+    opacity: 0.95;
+  }
+
+  /* Cross marker using background gradients */
+  .marker-cross.cell.selected::after {
+    width: 46%;
+    height: 46%;
+    background-image:
+      linear-gradient(90deg, rgba(0,0,0,0.92) 45%, rgba(0,0,0,0.92) 55%),
+      linear-gradient(0deg, rgba(0,0,0,0.92) 45%, rgba(0,0,0,0.92) 55%);
+    background-size: 100% 18%, 18% 100%;
+    background-position: center center, center center;
+    background-repeat: no-repeat;
+    border-radius: 2px;
+  }
+
+  .cell.selected { z-index: 2; }
+
+  .intersection-layer { position: absolute; left: 0; top: 0; pointer-events: none; }
+  .intersection-badge {
+    position: absolute; transform: translate(-50%, -50%);
+    min-width:22px; height:22px; line-height:22px; border-radius:11px;
+    font-size:13px; text-align:center; background:rgba(0,0,0,0.07); color:#060606;
+    pointer-events: auto; box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+  }
+  .intersection-badge.unknown { background: rgba(0,0,0,0.03); color: rgba(0,0,0,0.18); }
+
+  .controls { margin-top:12px; display:flex; gap:10px; align-items:center; }
+  .marker-toggle { display:flex; gap:6px; align-items:center; background: #f7f9fc; padding:6px; border-radius:10px; border:1px solid rgba(0,0,0,0.04); }
+  .marker-toggle button { padding:6px 10px; border-radius:8px; border:none; background:transparent; cursor:pointer; font-weight:700; }
+  .marker-toggle button.active { background:linear-gradient(180deg,#0078df,#0061c2); color:white; box-shadow: 0 6px 18px rgba(0,100,200,0.08); }
+
+  button { padding:9px 14px; border-radius:10px; border:1px solid rgba(10,20,40,0.06); background:white; cursor:pointer; font-weight:700; }
+  button.primary { background:linear-gradient(180deg,#0078df,#0061c2); color:white; border:none; box-shadow: 0 6px 18px rgba(0,100,200,0.08); }
+  .message { margin-top:12px; font-weight:800; }
+  .fail { color: var(--err-color); }
+  .ok { color: #179946; }
+  .hint { margin-top:8px; color:#555; font-size:13px; }
+  .clue-wrong { color:var(--err-color); }
+  .small { font-size:13px; color:#444; }
+  footer { margin-top:18px; color:#666; font-size:13px; }
+
+  /* Right column */
+  .side { width:80%; display:flex; flex-direction:column; gap:12px; }
+  .card { background:white; padding:12px; border-radius:10px; box-shadow:0 8px 22px rgba(20,30,60,0.04); }
+  .rules h2 { margin:0 0 8px 0; font-size:16px; }
+  .rules ol { margin:6px 0 0 18px; color:#333; }
+  .rules li { margin:8px 0; font-size:14px; line-height:1.35; }
+  .rules .note { color:#555; font-size:13px; margin-top:8px; }
+  .legend { display:flex; gap:8px; align-items:center; margin-top:8px; font-size:13px; color:#555; flex-wrap:wrap; }
+  .legend .sw { width:20px;height:20px;border-radius:5px;border:1px solid rgba(0,0,0,0.06)} 
+  pre.small { white-space:pre-wrap; font-size:13px; color:#444; margin:0; }
+</style>
+</head>
+<body>
+  <h1>Patchwork</h1>
+  <p></p>
+  <p></p>
+  <p></p>
+
+  <img src="assets/undecidable.png" height="300px" alt="Description of image">
+
+  <p></p>
+  <p></p>
+  <p></p>
+  <p></p>
+  <p></p>
+  <p></p>
+
+  <div class="meta">Click squares to toggle selection. Row/column clues count distinct parts with at least one selection. 2×2 clues are shown at intersections. Use a marker (circle or cross) to indicate selected cells so the part color remains visible.</div>
+
+  <div class="wrapper">
+    <div class="board-area" style="min-width:380px;">
+      <div id="grid" class="grid" aria-label="Puzzle grid"></div>
+      <div id="intersectionLayer" class="intersection-layer"></div>
+
+      <div class="controls">
+        <button id="btnCheck" class="primary">Check</button>
+        <button id="btnReset">Reset</button>
+
+        <div style="flex:1"></div>
+
+        <div class="marker-toggle" title="Choose marker">
+          <div style="font-weight:700; color:#444; padding:0 6px;">Marker:</div>
+          <button id="btnCircle" class="active">● Circle</button>
+          <button id="btnCross">✕ Cross</button>
+        </div>
+      </div>
+
+      <div id="message" class="message" role="status" aria-live="polite"></div>
+      <div id="hint" class="hint" aria-live="polite"></div>
+    </div>
+
+    <div class="side">
+      <div class="card rules" aria-labelledby="rules-title">
+        <h2 id="rules-title">Rules — step by step</h2>
+        <ol>
+          <li><strong>Goal:</strong> Identify all selected squares on the 5×5 board so every given clue is satisfied.</li>
+          <li><strong>Board parts:</strong> Each square belongs to a "part" (a number printed in the top-left of the cell). Parts can repeat across the board.</li>
+          <li><strong>Row clues (left of each row):</strong> If a number is shown, it equals the number of <em>distinct parts</em> in that row that contain at least one selected square. (If a part appears multiple times in the row, it counts only once if any of its squares are selected.)</li>
+          <li><strong>Column clues (above each column):</strong> Same as rows, but applied top→bottom in each column: the clue counts distinct parts that have at least one selected square in that column.</li>
+          <li><strong>2×2 intersection clues:</strong> A clue placed at a grid intersection (between four cells) shows how many squares are selected inside the 2×2 block whose top-left corner is that intersection. A dash (empty badge) means there's no clue for that 2×2.</li>
+          <li><strong>Marking selections:</strong> Click a cell to toggle selection. Selected cells show a centered marker (circle or cross) so the part color remains visible. Switch marker style with the Marker buttons.</li>
+          <li><strong>Verify & reset:</strong> Press <em>Check</em> to verify your current markings against the clues. Press <em>Reset</em> to clear all selections.</li>
+          <li><strong>Winning:</strong> You win when all visible row, column and 2×2 clues match the current selections.</li>
+        </ol>
+        <div class="note"><strong>Notes:</strong> A clue value of <code>-1</code> (rendered as “-”) means no clue is given for that row/column or intersection. Use markers to keep the part color visible while indicating selections.</div>
+      </div>
+
+      <div class="card">
+        <strong>Game data used</strong>
+        <pre id="raw" class="small"></pre>
+        <div class="legend" id="legend" aria-hidden="true"></div>
+      </div>
+    </div>
+  </div>
+
+<script>
+/* Puzzle data (same layout as before) */
+const board = [
+    [0,1,1,1,2],
+    [0,0,3,1,2],
+    [4,4,3,1,2],
+    [4,3,3,1,5],
+    [4,3,5,5,5]
+];
+
+const column_clues   = [1,1,1,2,1];   // rows top->bottom
+const row_clues = [1,1,1,1,2]; // columns left->right
+
+const grid_clues = [
+    [1, -1, 1, -1],
+    [-1, 0, -1, 1],
+    [0, -1, 2, -1],
+    [-1, 1, -1, 3]
+];
+
+const SIZE = board.length;
+
+/* visible part colors */
+const PART_COLORS = [
+  "#ffd27a", // warm yellow
+  "#ff9aa2", // coral pink
+  "#9be7b3", // mint green
+  "#89b4ff", // sky blue
+  "#d8b4ff", // lavender
+  "#ffd6e0"  // pale pink
+];
+
+let sel = Array.from({length:SIZE}, ()=> Array(SIZE).fill(0));
+let markerStyle = 'circle'; // 'circle' or 'cross'
+
+/* DOM refs */
+const gridEl = document.getElementById('grid');
+const rawEl = document.getElementById('raw');
+const msgEl = document.getElementById('message');
+const hintEl = document.getElementById('hint');
+const legendEl = document.getElementById('legend');
+const intersectionLayer = document.getElementById('intersectionLayer');
+
+rawEl.textContent = [
+  "board = " + JSON.stringify(board),
+  "row_clues = " + JSON.stringify(row_clues),
+  "column_clues = " + JSON.stringify(column_clues),
+  "grid_clues = " + JSON.stringify(grid_clues),
+].join("\n\n");
+
+/* render legend */
+(function renderLegend(){
+  const maxPart = Math.max(...board.flat());
+  legendEl.innerHTML = '';
+  for(let p=0;p<=maxPart;p++){
+    const el = document.createElement('div');
+    el.style.display='flex'; el.style.alignItems='center'; el.style.gap='8px';
+    const sw = document.createElement('div'); sw.className='sw'; sw.style.background=PART_COLORS[p%PART_COLORS.length];
+    const lbl = document.createElement('div'); lbl.textContent = `part ${p}`;
+    el.appendChild(sw); el.appendChild(lbl); legendEl.appendChild(el);
+  }
+})();
+
+function clueText(v){ return v === -1 ? '-' : String(v); }
+
+/* build grid */
+function makeGrid(){
+  gridEl.innerHTML = '';
+  gridEl.appendChild(document.createElement('div')); // corner placeholder
+  for(let c=0;c<SIZE;c++){
+    const cc = document.createElement('div');
+    cc.className='col-clue';
+    cc.textContent = clueText(column_clues[c]);
+    cc.dataset.col = c;
+    gridEl.appendChild(cc);
+  }
+
+  for(let r=0;r<SIZE;r++){
+    const rc = document.createElement('div');
+    rc.className='row-clue';
+    rc.textContent = clueText(row_clues[r]);
+    rc.dataset.row = r;
+    gridEl.appendChild(rc);
+
+    for(let c=0;c<SIZE;c++){
+      const cell = document.createElement('div');
+      const part = board[r][c];
+      const color = PART_COLORS[part % PART_COLORS.length];
+      cell.className = 'cell';
+      cell.style.background = color;
+      cell.dataset.part = part;
+      cell.dataset.color = color;
+      cell.dataset.r = r;
+      cell.dataset.c = c;
+
+      const pl = document.createElement('div');
+      pl.className = 'part-label';
+      pl.textContent = part;
+      cell.appendChild(pl);
+
+      cell.addEventListener('click', ()=> {
+        sel[r][c] = sel[r][c] ? 0 : 1;
+        renderSelections();
+      });
+
+      gridEl.appendChild(cell);
+    }
+  }
+
+  createIntersectionBadges();
+}
+
+/* Apply selection classes and marker style */
+function renderSelections(){
+  const cells = gridEl.querySelectorAll('.cell');
+  cells.forEach(cell=>{
+    const r = parseInt(cell.dataset.r), c = parseInt(cell.dataset.c);
+    if (sel[r][c]) {
+      cell.classList.add('selected');
+      if (markerStyle === 'circle') {
+        cell.classList.add('marker-circle');
+        cell.classList.remove('marker-cross');
+      } else {
+        cell.classList.add('marker-cross');
+        cell.classList.remove('marker-circle');
+      }
+    } else {
+      cell.classList.remove('selected','marker-circle','marker-cross');
+    }
+    cell.style.boxShadow = '';
+  });
+  clearFeedback();
+}
+
+function clearFeedback(){
+  msgEl.textContent = '';
+  msgEl.className = 'message';
+  hintEl.textContent = '';
+  gridEl.querySelectorAll('.col-clue').forEach(el=> el.classList.remove('clue-wrong'));
+  gridEl.querySelectorAll('.row-clue').forEach(el=> el.classList.remove('clue-wrong'));
+  intersectionLayer.querySelectorAll('.intersection-badge').forEach(b => b.classList.remove('clue-wrong'));
+}
+
+/* verification (same logic as Game.verify) */
+function verifySolution() {
+  clearFeedback();
+  const maxPart = Math.max(...board.flat());
+  for(let i=0;i<SIZE;i++){
+    if (row_clues[i] === -1) continue;
+    const seen = new Array(maxPart+1).fill(0);
+    for(let j=0;j<SIZE;j++){
+      if (sel[i][j] === 1) seen[ board[i][j] ] = 1;
+    }
+    const cnt = seen.reduce((a,b)=>a+b,0);
+    if (cnt !== row_clues[i]) {
+      const rcEl = gridEl.querySelector('.row-clue[data-row="'+i+'"]');
+      if (rcEl) rcEl.classList.add('clue-wrong');
+      msgEl.textContent = `Incorrect: row ${i+1} expects ${row_clues[i]} distinct part(s), found ${cnt}.`;
+      msgEl.classList.add('fail');
+      hintEl.textContent = "Tip: adjust selections in that row to match number of distinct parts.";
+      return false;
+    }
+  }
+
+  for(let i=0;i<SIZE;i++){
+    if (column_clues[i] === -1) continue;
+    const seen = new Array(Math.max(...board.flat())+1).fill(0);
+    for(let j=0;j<SIZE;j++){
+      if (sel[j][i] === 1) seen[ board[j][i] ] = 1;
+    }
+    const cnt = seen.reduce((a,b)=>a+b,0);
+    if (cnt !== column_clues[i]) {
+      const ccEl = gridEl.querySelector('.col-clue[data-col="'+i+'"]');
+      if (ccEl) ccEl.classList.add('clue-wrong');
+      msgEl.textContent = `Incorrect: column ${i+1} expects ${column_clues[i]} distinct part(s), found ${cnt}.`;
+      msgEl.classList.add('fail');
+      hintEl.textContent = "Tip: columns count distinct parts that contain at least one selected cell.";
+      return false;
+    }
+  }
+
+  for(let i=0;i<SIZE-1;i++){
+    for(let j=0;j<SIZE-1;j++){
+      const clue = grid_clues[i] ? grid_clues[i][j] : -1;
+      if (clue === -1) continue;
+      let cnt = 0;
+      if (sel[i][j]) cnt++;
+      if (sel[i+1][j]) cnt++;
+      if (sel[i][j+1]) cnt++;
+      if (sel[i+1][j+1]) cnt++;
+      if (cnt !== clue) {
+        const badge = intersectionLayer.querySelector('.intersection-badge[data-r="'+i+'"][data-c="'+j+'"]');
+        if (badge) badge.classList.add('clue-wrong');
+        ['['+i+','+j+']', '['+(i+1)+','+j+']', '['+i+','+(j+1)+']', '['+(i+1)+','+(j+1)+']'].forEach(pair=>{
+          const parts = pair.replace(/\[|\]/g,'').split(',');
+          const r = parts[0], c = parts[1];
+          const cell = gridEl.querySelector('.cell[data-r="'+r+'"][data-c="'+c+'"]');
+          if (cell) cell.style.boxShadow = '0 0 0 4px rgba(255,102,102,0.10)';
+        });
+        msgEl.textContent = `Incorrect: 2×2 box at top-left (${i+1},${j+1}) expects ${clue}, found ${cnt}.`;
+        msgEl.classList.add('fail');
+        hintEl.textContent = "Tip: toggle the four cells in that 2×2 block to satisfy the count.";
+        return false;
+      }
+    }
+  }
+
+  msgEl.textContent = "Correct — solution satisfies all given clues. 🎉";
+  msgEl.classList.add('ok');
+  hintEl.textContent = '';
+  return true;
+}
+
+/* intersection badges (2x2 clues on intersections) */
+function createIntersectionBadges(){
+  intersectionLayer.innerHTML = '';
+  positionIntersectionLayer();
+  for(let r=0; r<SIZE-1; r++){
+    for(let c=0; c<SIZE-1; c++){
+      const clue = (grid_clues[r] && typeof grid_clues[r][c] !== 'undefined') ? grid_clues[r][c] : -1;
+      const badge = document.createElement('div');
+      badge.className = 'intersection-badge ' + (clue === -1 ? 'unknown' : '');
+      badge.textContent = clue === -1 ? '' : String(clue);
+      badge.dataset.r = r;
+      badge.dataset.c = c;
+      intersectionLayer.appendChild(badge);
+      badge.addEventListener('click', (e)=>{
+        e.stopPropagation();
+        msgEl.textContent = clue === -1 ? 'This 2×2 box has no clue.' : `2×2 clue: ${clue}`;
+        msgEl.className = 'message';
+      });
+    }
+  }
+  placeBadges();
+}
+
+function positionIntersectionLayer(){
+  const gridRect = gridEl.getBoundingClientRect();
+  const parentRect = gridEl.parentElement.getBoundingClientRect();
+  const left = gridRect.left - parentRect.left;
+  const top = gridRect.top - parentRect.top;
+  intersectionLayer.style.left = left + 'px';
+  intersectionLayer.style.top = top + 'px';
+  intersectionLayer.style.width = gridRect.width + 'px';
+  intersectionLayer.style.height = gridRect.height + 'px';
+}
+
+function placeBadges(){
+  const badges = intersectionLayer.querySelectorAll('.intersection-badge');
+  badges.forEach(badge => {
+    const r = parseInt(badge.dataset.r), c = parseInt(badge.dataset.c);
+    const cell = gridEl.querySelector('.cell[data-r="'+r+'"][data-c="'+c+'"]');
+    if (!cell) return;
+    const cellRect = cell.getBoundingClientRect();
+    const gridRect = gridEl.getBoundingClientRect();
+    const centerX = (cellRect.left - gridRect.left) + cellRect.width;
+    const centerY = (cellRect.top - gridRect.top) + cellRect.height;
+    badge.style.left = centerX + 'px';
+    badge.style.top = centerY + 'px';
+  });
+}
+
+/* reset */
+function resetBoard(){
+  sel = Array.from({length:SIZE}, ()=> Array(SIZE).fill(0));
+  renderSelections();
+}
+
+/* marker toggle handlers */
+document.getElementById('btnCircle').addEventListener('click', ()=>{
+  markerStyle = 'circle';
+  document.getElementById('btnCircle').classList.add('active');
+  document.getElementById('btnCross').classList.remove('active');
+  renderSelections();
+});
+document.getElementById('btnCross').addEventListener('click', ()=>{
+  markerStyle = 'cross';
+  document.getElementById('btnCross').classList.add('active');
+  document.getElementById('btnCircle').classList.remove('active');
+  renderSelections();
+});
+
+/* wire buttons */
+document.getElementById('btnCheck').addEventListener('click', ()=> verifySolution());
+document.getElementById('btnReset').addEventListener('click', ()=> { resetBoard(); msgEl.textContent=''; hintEl.textContent=''; });
+
+/* init and responsive handling */
+makeGrid();
+renderSelections();
+window.addEventListener('resize', ()=> { positionIntersectionLayer(); requestAnimationFrame(placeBadges); });
+window.addEventListener('scroll', ()=> { positionIntersectionLayer(); requestAnimationFrame(placeBadges); });
+</script>
+</body>
+</html>
+
