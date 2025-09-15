@@ -366,3 +366,96 @@
   }
 }
 
+@media only screen and (min-width: 769px) {
+/* Make sure the wrapper takes full width or fits under sidebar */
+.latest-from-posts {
+  display: block;           /* stack vertically */
+  width: 100%;              /* or match sidebar width if needed */
+  max-width: 250px;         /* optional, same width as sidebar */
+  margin: 1em 0 0 auto;     /* pushes it under the sidebar, aligned right */
+  box-sizing: border-box;
+  background-color: #e6fff0; /* greenish background like Daniel Mineev box */
+  border-radius: 8px;
+  padding: 10px;
+  text-align: left;
+}
+
+.latest-from-posts img {
+  width: 100%;      /* scale image to fit container */
+  height: auto;     /* maintain aspect ratio */
+  display: block;
+  margin: 8px 0;
+  border-radius: 8px;
+}
+
+.latest-from-posts .latest-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+.latest-from-posts .latest-title {
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.latest-from-posts .latest-desc {
+  font-size: 0.9em;
+  margin-bottom: 4px;
+}
+
+.latest-from-posts .latest-date {
+  font-size: 0.8em;
+  color: #555;
+}
+
+.latest-from-posts .latest-badge {
+  background-color: #4caf50;
+  color: white;
+  font-size: 0.7em;
+  padding: 2px 6px;
+  border-radius: 4px;
+  display: inline-block;
+  margin-top: 6px;
+}
+
+
+/* ADDED FOR STACKING */
+
+/* Sidebar wrapper */
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  width: 30%;         /* sidebar width relative to page */
+  margin-left: 2%;    /* spacing between articles and sidebar */
+  margin-right: 30px;
+  gap: 1.5rem;        /* spacing between stacked boxes */
+  box-sizing: border-box;
+}
+
+/* Stack boxes vertically and take full width */
+.desktop-only {
+  display: flex;
+  flex-direction: column;
+  width: 100%;        /* fill the sidebar */
+  gap: 1.5rem;        /* spacing between Daniel Mineev box and latest posts */
+}
+
+/* Daniel Mineev box */
+.info-container {
+  width: 100%;        /* fill parent width */
+  height: auto;       /* grow with content */
+  overflow: visible;  /* prevent cutting off content */
+  box-sizing: border-box;
+  padding: 1rem;      /* optional internal padding */
+}
+
+/* Latest From Posts box */
+.latest-from-posts {
+  width: 100%;        /* fill parent width */
+  max-width: none;    /* remove old 250px restriction */
+  margin: 0;          /* reset any leftover margin */
+  box-sizing: border-box;
+  padding: 1rem;      /* optional padding */
+}
+}

@@ -361,6 +361,8 @@
           -->
         </div>
 
+        
+
         <br>
         <br>
         <br>
@@ -381,20 +383,32 @@
         <br>
       </div>
 
-      <div class="info-container desktop-only">
-        <nav id="info-links-desktop" class="info-links">
-          <h2>Daniel Mineev</h2>
-          <ul>
-            <!--<li><a href="main.pdf">Olympiad Solutions Archive</a></li>-->
-            <li><a href="https://artofproblemsolving.com/community/user/1159306">RANDOM__USER (AoPS)</a></li>
-            <li><a href="https://github.com/MrMineev">MrMineev (GitHub)</a></li>
-            <li><a href="myprob.html">My Olympiad Problems</a></li>
-            <li><a href="assets/docs/uni/main.pdf">Uni Notes (Courses from Universitetet i Oslo)</a></li>
-            <li><a href="stuff/puzzles/levels.html">Puzzles</a></li>
-          </ul>
-        </nav>
-      </div>
-    </div>
+      <div class="sidebar">
+          <div class="info-container desktop-only">
+          <nav id="info-links-desktop" class="info-links" style="height: 400px;">
+              <h2>Daniel Mineev</h2>
+              <ul>
+                <!--<li><a href="main.pdf">Olympiad Solutions Archive</a></li>-->
+                <li><a href="https://artofproblemsolving.com/community/user/1159306">RANDOM__USER (AoPS)</a></li>
+                <li><a href="https://github.com/MrMineev">MrMineev (GitHub)</a></li>
+                <li><a href="myprob.html">My Olympiad Problems</a></li>
+                <li><a href="assets/docs/uni/main.pdf">Uni Notes (Courses from Universitetet i Oslo)</a></li>
+                <li><a href="stuff/puzzles/levels.html">Puzzles</a></li>
+              </ul>
+            </nav>
+          </div>
+
+          <br>
+          <br>
+          <br>
+
+          <!-- LATEST POST FROM posts.html (populated by JS) -->
+          <div class="desktop-only" id="latestFromPostsPlaceholder" aria-live="polite"></div>
+        </div>
+
+
+          </div>
+
 
     <script>
       // Get all articles
@@ -432,6 +446,159 @@
       });
     </script>
 
+
+    <script>
+(function(){
+  const placeholder = document.getElementById('latestFromPostsPlaceholder');
+  if (!placeholder) return;
+
+  // prefer to insert next to the non-mobile info container if it exists,
+  // otherwise keep the placeholder where it already is (usually under mobile block).
+  const desktopInfo = document.querySelector('.info-container:not(.mobile-only)');
+  const mobileInfo = document.querySelector('.info-container.mobile-only');
+
+  // If we found a desktop info container, insert placeholder right after it (so sidebar order is natural).
+  if (desktopInfo && desktopInfo.parentNode) {
+    if (desktopInfo.nextSibling !== placeholder) {
+      desktopInfo.parentNode.insertBefore(placeholder, desktopInfo.nextSibling);
+    }
+  } else if (mobileInfo && mobileInfo.parentNode) {
+    // else keep under the mobile block
+    if (mobileInfo.nextSibling !== placeholder) {
+      mobileInfo.parentNode.insertBefore(placeholder, mobileInfo.nextSibling);
+    }
+  }
+
+  fetch('posts.html').then(r => {
+    if (!r.ok) throw new Error('Failed to fetch posts.html: ' + r.status);
+    return r.text();
+  }).then(text => {
+    const doc = new DOMParser().parseFromString(text, 'text/html');
+    const nodes = Array.from(doc.querySelectorAll('div.content-text.definition-box'));
+    if (!nodes.length) return;
+
+    // parse date helper: expected format like "🗓️ September 12, 2025" (robust)
+    function parseDateFromSpan(el) {
+      const span = el.querySelector('span.publication-date');
+      if (!span) return null;
+      const raw = span.textContent.replace(/^[^\dA-Za-z]*/, '').trim();
+      // Try Date parsing; also try swapping day/month if needed
+      const d = new Date(raw);
+      return isNaN(d.getTime()) ? null : d;
+    }
+
+    // find node with latest date
+    let latestNode = null;
+    let latestDate = new Date(0);
+    nodes.forEach(n => {
+      const d = parseDateFromSpan(n);
+      if (d && d > latestDate) {
+        latestDate = d;
+        latestNode = n;
+      }
+    });
+    if (!latestNode) latestNode = nodes[0]; // fallback
+
+    // Extract simple title/desc
+    function extractTitle(n) {
+      // prefer first text node inside the div (exclude publication-date)
+      const clone = n.cloneNode(true);
+      // remove publication date and images/solutions to simplify
+      clone.querySelectorAll('span.publication-date, img, button, .solutionBox, script, a').forEach(x => x.remove());
+      const text = clone.textContent || '';
+      const lines = text.split(/\r?\n/).map(s => s.trim()).filter(Boolean);
+      return lines.length ? lines[0].slice(0, 120) : 'Latest Post';
+    }
+    function extractDesc(n) {
+      const clone = n.cloneNode(true);
+      clone.querySelectorAll('span.publication-date, img, button, .solutionBox, script').forEach(x => x.remove());
+      const text = clone.textContent || '';
+      const lines = text.split(/\r?\n/).map(s => s.trim()).filter(Boolean);
+      if (lines.length > 1) {
+        lines.shift(); // remove title
+        return lines.join(' ').slice(0, 220);
+      }
+      return '';
+    }
+
+    const title = extractTitle(latestNode);
+    const desc = extractDesc(latestNode);
+    const dateSpan = latestNode.querySelector('span.publication-date');
+    const dateText = dateSpan ? dateSpan.textContent.trim() : '';
+
+    // image: first <img> if present, resolve relative to posts.html
+    const imgEl = latestNode.querySelector('img');
+    let imgSrc = '';
+    if (imgEl) {
+      try {
+        const base = new URL('posts.html', location.href);
+        imgSrc = new URL(imgEl.getAttribute('src'), base).href;
+      } catch(e) {
+        imgSrc = imgEl.getAttribute('src') || '';
+      }
+    }
+
+    // Build the box DOM (with badge INSIDE)
+    const wrapper = document.createElement('aside');
+    wrapper.className = 'latest-from-posts';
+    wrapper.setAttribute('role', 'complementary');
+    wrapper.setAttribute('aria-label', 'Latest post');
+
+    const link = document.createElement('a');
+    link.className = 'latest-link';
+    link.href = 'posts.html'; // link to posts page (change if you add anchors)
+    link.setAttribute('aria-label', 'Open latest post: ' + title);
+
+    const imgCol = document.createElement('div');
+    imgCol.className = 'latest-image';
+    if (imgSrc) {
+      const im = document.createElement('img');
+      im.src = imgSrc;
+      im.alt = title;
+      imgCol.appendChild(im);
+    } else {
+      // small decorative SVG fallback (keeps visual balance)
+      imgCol.innerHTML = '<svg width="100%" height="100%" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="0" y="0" width="24" height="24" rx="3" fill="#f3fff6"/></svg>';
+    }
+
+    const content = document.createElement('div');
+    content.className = 'latest-content';
+
+    const t = document.createElement('div');
+    t.className = 'latest-title';
+    t.textContent = title;
+
+    const p = document.createElement('div');
+    p.className = 'latest-desc';
+    p.textContent = desc;
+
+    const d = document.createElement('div');
+    d.className = 'latest-date';
+    d.textContent = dateText;
+
+    // badge inside
+    const badge = document.createElement('div');
+    badge.className = 'latest-badge';
+    badge.textContent = 'Latest Post';
+
+    content.appendChild(t);
+    if (desc) content.appendChild(p);
+    content.appendChild(d);
+
+    link.appendChild(content);
+    link.appendChild(imgCol); // keep image on the right to match side-box look
+    wrapper.appendChild(link);
+    wrapper.appendChild(badge);
+
+    // replace placeholder contents
+    placeholder.innerHTML = '';
+    placeholder.appendChild(wrapper);
+
+  }).catch(err => {
+    console.warn('latest-from-posts: could not load posts.html', err);
+  });
+})();
+</script>
     <script src="main.js"></script>
   </body>
 </html>
