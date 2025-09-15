@@ -1128,7 +1128,281 @@ Simply knowing about the existence of Novak numbers provides an intuitive answer
       });
 
       document.getElementById('articleList').appendChild(linksDiv);
+
+      // Replace previous paginator with this version.
+// It paginates .content-text.definition-box elements (5 per page),
+// hides the consecutive <br> nodes after each article to avoid growing gaps,
+// and injects Prev / numeric / Next controls.
+
+(function () {
+  const PER_PAGE = 5;
+  const articles = Array.from(document.querySelectorAll('.content-text.definition-box'));
+  if (!articles.length) return;
+
+  const totalPages = Math.max(1, Math.ceil(articles.length / PER_PAGE));
+
+  // Helper: collect consecutive following <br> nodes for an article
+  function collectFollowingBreaks(node) {
+    const breaks = [];
+    let n = node.nextSibling;
+    while (n && (n.nodeType === Node.ELEMENT_NODE && n.tagName === 'BR' ||
+                 n.nodeType === Node.TEXT_NODE && n.textContent.trim() === '')) {
+      // include only <br> elements and plain whitespace text nodes between them
+      if (n.nodeType === Node.ELEMENT_NODE && n.tagName === 'BR') breaks.push(n);
+      n = n.nextSibling;
+    }
+    return breaks;
+  }
+
+  // Map each article to its following breaks (array may be empty)
+  const articleMeta = articles.map(a => ({ el: a, breaks: collectFollowingBreaks(a) }));
+
+  // Create pagination container
+  const paginationContainer = document.createElement('div');
+  paginationContainer.id = 'pagination-container';
+  paginationContainer.setAttribute('role', 'navigation');
+  paginationContainer.style.display = 'flex';
+  paginationContainer.style.flexWrap = 'wrap';
+  paginationContainer.style.justifyContent = 'center';
+  paginationContainer.style.gap = '6px';
+  paginationContainer.style.margin = '20px 0';
+  paginationContainer.style.alignItems = 'center';
+  paginationContainer.style.fontFamily = 'inherit';
+
+  // Minimal styling for buttons
+  const style = document.createElement('style');
+  style.textContent = `
+    #pagination-container button.page-btn {
+      min-width: 38px;
+      padding: 6px 10px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      background: white;
+      cursor: pointer;
+      font-size: 14px;
+    }
+    #pagination-container button.page-btn[aria-current="true"] {
+      background: #222;
+      color: #fff;
+      border-color: #222;
+      font-weight: 600;
+    }
+    #pagination-container button.page-btn:disabled {
+      opacity: 0.5;
+      cursor: default;
+    }
+  `;
+  document.head.appendChild(style);
+
+  // Prev button
+  const prevBtn = document.createElement('button');
+  prevBtn.className = 'page-btn';
+  prevBtn.textContent = 'Prev';
+  prevBtn.style.marginRight = '8px';
+  paginationContainer.appendChild(prevBtn);
+
+  // Numeric buttons wrapper
+  const numsWrap = document.createElement('div');
+  numsWrap.style.display = 'flex';
+  numsWrap.style.gap = '6px';
+  numsWrap.style.flexWrap = 'wrap';
+  numsWrap.style.justifyContent = 'center';
+  numsWrap.style.alignItems = 'center';
+  paginationContainer.appendChild(numsWrap);
+
+  // Page buttons
+  const pageButtons = [];
+  for (let i = 1; i <= totalPages; i++) {
+    const btn = document.createElement('button');
+    btn.className = 'page-btn';
+    btn.textContent = String(i);
+    btn.setAttribute('aria-label', 'Go to page ' + i);
+    numsWrap.appendChild(btn);
+    pageButtons.push(btn);
+  }
+
+  // Next button
+  const nextBtn = document.createElement('button');
+  nextBtn.className = 'page-btn';
+  nextBtn.textContent = 'Next';
+  nextBtn.style.marginLeft = '8px';
+  paginationContainer.appendChild(nextBtn);
+
+  // Insert pagination after the #articleList if present, otherwise at end of body
+  const articleListDiv = document.getElementById('articleList');
+  if (articleListDiv && articleListDiv.parentNode) {
+    articleListDiv.parentNode.insertBefore(paginationContainer, articleListDiv.nextSibling);
+  } else {
+    document.body.appendChild(paginationContainer);
+  }
+
+  // Hide all articles + their following breaks initially
+  function hideMeta(meta) {
+    meta.el.style.display = 'none';
+    for (const b of meta.breaks) b.style.display = 'none';
+  }
+  function showMeta(meta) {
+    meta.el.style.display = '';
+    for (const b of meta.breaks) b.style.display = '';
+  }
+  articleMeta.forEach(hideMeta);
+
+  // Pagination state
+  let currentPage = 1;
+  (function readInitialPage() {
+    const hash = (location.hash || '').match(/#page-(\d+)/);
+    if (hash && +hash[1] >= 1 && +hash[1] <= totalPages) {
+      currentPage = +hash[1];
+      return;
+    }
+    const params = new URLSearchParams(location.search);
+    const q = parseInt(params.get('page'), 10);
+    if (q >= 1 && q <= totalPages) currentPage = q;
+  })();
+
+  // Render specified page: hide all, show slice (and their breaks)
+  function renderPage(page) {
+    page = Math.max(1, Math.min(totalPages, page));
+    const start = (page - 1) * PER_PAGE;
+    const end = start + PER_PAGE;
+
+    // hide all
+    articleMeta.forEach(hideMeta);
+    // show that page's slice
+    articleMeta.slice(start, end).forEach(showMeta);
+
+    // update button states
+    pageButtons.forEach((btn, idx) => {
+      const p = idx + 1;
+      if (p === page) btn.setAttribute('aria-current', 'true');
+      else btn.removeAttribute('aria-current');
+    });
+    prevBtn.disabled = page === 1;
+    nextBtn.disabled = page === totalPages;
+
+    // update URL hash without pushing history
+    try {
+      history.replaceState ? history.replaceState(null, '', '#page-' + page) : (location.hash = 'page-' + page);
+    } catch (e) {
+      location.hash = 'page-' + page;
+    }
+  }
+
+  // goToPage with smooth scroll to pagination (so gap does not appear)
+  function goToPage(page) {
+    page = Math.max(1, Math.min(totalPages, page));
+    currentPage = page;
+    renderPage(page);
+
+    // Scroll the pagination into view (so controls + posts are visually close)
+    try {
+      paginationContainer.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    } catch (_) {
+      paginationContainer.scrollIntoView();
+    }
+
+    // Optionally focus the first visible article for accessibility
+    const firstMeta = articleMeta[(page - 1) * PER_PAGE];
+    if (firstMeta && firstMeta.el) {
+      try { firstMeta.el.focus && firstMeta.el.focus(); } catch (_) {}
+    }
+  }
+
+  // Wire up buttons
+  prevBtn.addEventListener('click', () => goToPage(currentPage - 1));
+  nextBtn.addEventListener('click', () => goToPage(currentPage + 1));
+  pageButtons.forEach((btn, i) => btn.addEventListener('click', () => goToPage(i + 1)));
+
+  // Hashchange support
+  window.addEventListener('hashchange', () => {
+    const m = (location.hash || '').match(/#page-(\d+)/);
+    if (m) {
+      const p = Number(m[1]);
+      if (!Number.isNaN(p) && p >= 1 && p <= totalPages) goToPage(p);
+    }
+  });
+
+  // Initial render
+  renderPage(currentPage);
+
+  // Expose small API to console
+  window.__postsPaginator = {
+    goToPage,
+    get totalPages() { return totalPages; },
+    get currentPage() { return currentPage; },
+  };
+})();
+
+      // Paste this after the paginator code (or at the end of the same <script>)
+// Assumes 5 posts per page (PER_PAGE = 5). If you changed PER_PAGE, update the value below.
+
+(function () {
+  const PER_PAGE = 5; // <-- keep in sync with your paginator's PER_PAGE
+  function gotoArticleById(articleId) {
+    const m = String(articleId).match(/^article-(\d+)$/);
+    if (!m) return;
+    const idx = Number(m[1]); // 1-based index of article
+    const articles = Array.from(document.querySelectorAll('.content-text.definition-box'));
+    if (idx < 1 || idx > articles.length) return;
+
+    const page = Math.floor((idx - 1) / PER_PAGE) + 1;
+
+    // Use paginator API if available, otherwise set the page-hash directly
+    if (window.__postsPaginator && typeof window.__postsPaginator.goToPage === 'function') {
+      window.__postsPaginator.goToPage(page);
+    } else {
+      try { history.replaceState && history.replaceState(null, '', '#page-' + page); } catch (e) { location.hash = 'page-' + page; }
+    }
+
+    // After the paginator shows the article, scroll to it.
+    // Use a small timeout to allow the paginator to update visibility.
+    setTimeout(() => {
+      const el = document.getElementById(articleId);
+      if (el) {
+        try {
+          el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        } catch (_) {
+          el.scrollIntoView();
+        }
+      }
+      // also update the URL hash to the article anchor so links remain shareable
+      try { history.replaceState ? history.replaceState(null, '', '#' + articleId) : (location.hash = articleId); } catch (e) { location.hash = articleId; }
+    }, 120);
+  }
+
+  // Intercept clicks on anchors that point to #article-*
+  document.addEventListener('click', function (ev) {
+    const a = ev.target.closest && ev.target.closest('a[href^="#article-"]');
+    if (!a) return;
+    ev.preventDefault();
+    const href = a.getAttribute('href') || '';
+    const id = href.startsWith('#') ? href.slice(1) : href;
+    gotoArticleById(id);
+  });
+
+  // If the user navigates via address bar / bookmarks / back button to #article-N:
+  window.addEventListener('hashchange', () => {
+    const h = (location.hash || '').replace(/^#/, '');
+    if (h.startsWith('article-')) gotoArticleById(h);
+  });
+
+  // If page loaded with a hash like #article-7, act on it immediately
+  (function onLoadHash() {
+    const h = (location.hash || '').replace(/^#/, '');
+    if (h.startsWith('article-')) gotoArticleById(h);
+  })();
+})();
     </script>
   </body>
 </html>
+
+
+
+
+
+
+
+
+
+
 
