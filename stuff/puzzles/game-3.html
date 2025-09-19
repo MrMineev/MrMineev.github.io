@@ -1,0 +1,351 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>6x6 Color+Number Puzzle</title>
+  <style>
+    :root{ --size:56px; --gap:6px; }
+    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,'Helvetica Neue',Arial;margin:16px;background:#f5f7fb;color:#1b2230}
+    h1{font-size:18px;margin:0 0 12px}
+    .app{display:flex;gap:18px}
+    .left{min-width:calc(var(--size)*6 + var(--gap)*5);}
+
+    /* board wrapper */
+    .board-wrap{position:relative}
+
+    .grid{display:grid;grid-template-columns:repeat(6, var(--size));grid-template-rows:repeat(6,var(--size));gap:var(--gap);padding:8px;background:#fff;border-radius:12px;box-shadow:0 6px 18px rgba(20,30,60,0.06);}
+    .cell{position:relative;border-radius:8px;box-shadow:inset 0 0 0 1px rgba(16,24,40,0.03);cursor:pointer;display:flex;align-items:center;justify-content:center;font-weight:700}
+
+    /* big centered numbers like sudoku */
+    .cell .num{position:static;font-size:22px;font-weight:800;color:rgba(5,10,20,0.95);}
+    .cell .lock{position:absolute;left:6px;bottom:6px;font-size:12px;opacity:0.7}
+
+    .controls{width:360px;padding:12px;background:#fff;border-radius:12px;box-shadow:0 6px 18px rgba(20,30,60,0.06)}
+    .palette{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:8px}
+    .swatch{width:36px;height:36px;border-radius:8px;cursor:pointer;border:2px solid transparent;box-shadow:0 4px 10px rgba(10,10,20,0.04)}
+    .swatch.selected{outline:3px solid rgba(0,0,0,0.06)}
+    .toolbuttons{display:flex;gap:8px;margin-bottom:10px;flex-wrap:wrap}
+    button, .tool{background:#fff;border:1px solid #e6eef6;padding:8px 10px;border-radius:8px;cursor:pointer}
+    .tool.selected{background:#eef6ff;border-color:#cfe8ff}
+    .hint{font-size:13px;color:#56606f;margin-top:8px}
+    .footer{margin-top:14px;display:flex;gap:8px}
+    .ok{background:#e6fff1;border-color:#b6f0cf}
+    .bad{background:#fff2f2;border-color:#ffd6d6}
+    .grid-clues{display:grid;grid-template-columns:repeat(5, auto);gap:6px;margin-top:10px}
+    .clue{width:46px;height:30px;background:#fff;border-radius:6px;display:flex;align-items:center;justify-content:center;border:1px dashed #e6eef6}
+    .cell.error{outline:3px solid rgba(255,0,64,0.25)}
+    .cell.locked{outline:3px solid rgba(0,0,0,0.04);cursor:default}
+    .result{padding:8px;border-radius:8px}
+    .small{font-size:13px;color:#4a5568}
+
+    /* intersection clues that sit on the grid lines - lighter & smaller to blend */
+    .intersections{position:absolute;left:8px;top:8px;pointer-events:none}
+    .intersection{position:absolute;width:20px;height:20px;border-radius:4px;display:flex;align-items:center;justify-content:center;font-weight:700;background:rgba(255,255,255,0.85);border:1px solid rgba(16,24,40,0.04);box-shadow:0 1px 4px rgba(20,30,40,0.04);font-size:11px;color:rgba(0,0,0,0.6)}
+  </style>
+</head>
+<body>
+  <br>
+  <br>
+  <a href="assets/puzzle_6x6.pdf">Download PDF version</a>
+  <br>
+  <br>
+  <br>
+  <h1>6×6 Color+Number Puzzle — interactive prototype</h1>
+  <div class="app">
+    <div class="left">
+      <div class="board-wrap">
+        <div id="board" class="grid" aria-label="puzzle-board"></div>
+        <div id="intersections" class="intersections"></div>
+      </div>
+
+      <div style="margin-top:10px">
+        <strong>2×2 intersection clues (sum of numbers in surrounding 2×2):</strong>
+        <div id="clues" class="grid-clues" style="display:none"></div>
+      </div>
+    </div>
+
+    <div class="controls">
+      <div style="display:flex;justify-content:space-between;align-items:center">
+        <div><strong>Tools</strong></div>
+        <div class="small">Click a tool then click a cell</div>
+      </div>
+
+      <div style="margin-top:8px">
+        <div class="palette" id="palette" aria-hidden="false"></div>
+      </div>
+
+      <div class="toolbuttons">
+        <button class="tool selected" id="colorCellTool">Color (single cell)</button>
+        <button class="tool" id="numTool">Number (place 1/2/3)</button>
+        <button class="tool" id="eraseTool">Eraser</button>
+      </div>
+
+      <div id="numOptions" style="display:none;margin-bottom:8px">
+        <button class="tool selected" data-num="1">1</button>
+        <button class="tool" data-num="2">2</button>
+        <button class="tool" data-num="3">3</button>
+        <button class="tool" data-num="0">clear</button>
+      </div>
+
+      <div class="hint">Players choose all cell colors (except the locked initial hints). The solution must satisfy: row/column numbers (one 1,2,3 each), each color occupies exactly 6 connected cells, and each color contains exactly one 1,2,3. 2×2 clues give the sum of numbers in that 2×2 block.</div>
+
+      <div class="footer">
+        <button id="checkBtn">Check solution</button>
+        <button id="resetBtn">Reset</button>
+      </div>
+
+      <div id="resultArea" style="margin-top:12px"></div>
+
+    </div>
+  </div>
+
+  <script>
+    // Configuration: 6x6 board, 6 colors
+    const N = 6;
+    const COLORS = ['#ffe6ee','#fff7d9','#c8ffe8','#dceeff','#f4f5f6','#ede0ff'];
+
+    // UPDATED: grid clues provided by user
+    const gridClues = [
+      [5, -1, -1, -1, 2],
+      [-1, -1, -1, -1, -1],
+      [3, -1, -1, -1, -1],
+      [-1, -1, -1, 7, -1],
+      [4, -1, -1, -1, -1]
+    ];
+
+    // INITIAL COLOR HINTS (these are the locked initial colors)
+    const initialHints = [
+      [0, -1, -1, 1, -1, -1],
+      [-1, -1, -1, -1, -1, 1],
+      [-1, 2, -1, 0, -1, -1],
+      [-1, -1, -1, -1, -1, 3],
+      [2, -1, 4, -1, -1, 3],
+      [-1, -1, 5, -1, -1, -1]
+    ];
+
+    // state arrays: start colors from initial hints; -1 means empty
+    let colors = initialHints.map(row=>row.slice());
+    let numbers = Array.from({length:N},()=>Array(N).fill(-1));
+
+    // locked cells (true where initial hint was provided) — these cannot be changed by the user
+    let locked = Array.from({length:N},(_,i)=>Array.from({length:N},(_,j)=> initialHints[i][j] !== -1));
+
+    // build UI references
+    const board = document.getElementById('board');
+    const palette = document.getElementById('palette');
+    const intersections = document.getElementById('intersections');
+    const resultArea = document.getElementById('resultArea');
+
+    // create palette
+    let selectedColor = 0;
+    for(let i=0;i<COLORS.length;i++){
+      const s = document.createElement('div');
+      s.className='swatch'+(i===0? ' selected':'');
+      s.style.background = COLORS[i];
+      s.title = 'Color '+(i+1);
+      s.dataset.color = i;
+      s.addEventListener('click', ()=>{
+        document.querySelectorAll('.swatch').forEach(x=>x.classList.remove('selected'));
+        s.classList.add('selected');
+        selectedColor = i;
+      });
+      palette.appendChild(s);
+    }
+
+    // tools
+    let tool = 'colorCell';
+    document.getElementById('colorCellTool').addEventListener('click', ()=>selectTool('colorCell'));
+    document.getElementById('numTool').addEventListener('click', ()=>selectTool('num'));
+    document.getElementById('eraseTool').addEventListener('click', ()=>selectTool('erase'));
+    function selectTool(t){
+      tool=t;
+      document.querySelectorAll('.tool').forEach(x=>x.classList.remove('selected'));
+      if(t==='colorCell') document.getElementById('colorCellTool').classList.add('selected');
+      else if(t==='num') document.getElementById('numTool').classList.add('selected');
+      else document.getElementById('eraseTool').classList.add('selected');
+      document.getElementById('numOptions').style.display = (t==='num')? 'block':'none';
+    }
+
+    // number option buttons
+    let selectedNum = 1;
+    document.querySelectorAll('#numOptions .tool').forEach(btn=>{
+      btn.addEventListener('click', ()=>{
+        document.querySelectorAll('#numOptions .tool').forEach(x=>x.classList.remove('selected'));
+        btn.classList.add('selected');
+        selectedNum = parseInt(btn.dataset.num,10);
+      });
+    });
+
+    // render board cells
+    function renderBoard(){
+      board.innerHTML='';
+      for(let r=0;r<N;r++){
+        for(let c=0;c<N;c++){
+          const div = document.createElement('div');
+          div.className='cell'+(locked[r][c]? ' locked':'');
+          div.dataset.r = r; div.dataset.c = c;
+          div.style.background = colors[r][c]===-1? '#ffffff' : COLORS[colors[r][c]];
+          const num = document.createElement('div'); num.className='num'; num.textContent = numbers[r][c]===-1? '': numbers[r][c]; div.appendChild(num);
+          if(locked[r][c]){ const lock = document.createElement('div'); lock.className='lock'; lock.textContent='🔒'; div.appendChild(lock); }
+
+          div.addEventListener('click', ()=>onCellClick(r,c,div));
+          board.appendChild(div);
+        }
+      }
+      renderIntersections();
+    }
+
+    // place intersection clues as absolutely positioned items on top of the grid lines
+    function renderIntersections(){
+      intersections.innerHTML='';
+      if(board.children.length===0) return;
+      const firstCellRect = board.children[0].getBoundingClientRect();
+      const boardRect = board.getBoundingClientRect();
+      const cellW = firstCellRect.width;
+      const cellH = firstCellRect.height;
+      // gap between cells from computed style
+      const style = getComputedStyle(board);
+      const gap = parseFloat(style.gap) || parseFloat(style.columnGap) || 6;
+
+      const clueSize = 20; // smaller so they blend into the board
+      for(let i=0;i<N-1;i++){
+        for(let j=0;j<N-1;j++){
+          const val = gridClues[i][j];
+          if(val===-1) continue;
+          const el = document.createElement('div'); el.className='intersection'; el.textContent = val;
+          // position: (j+1)th vertical grid line, (i+1)th horizontal
+          const left = (cellW + gap) * (j+1) - (gap/2) - (clueSize/2);
+          const top  = (cellH + gap) * (i+1) - (gap/2) - (clueSize/2);
+          el.style.left = left + 'px'; el.style.top = top + 'px';
+          intersections.appendChild(el);
+        }
+      }
+    }
+
+    // handler for clicks
+    function onCellClick(r,c,divEl){
+      // respect locked initial hints
+      if(locked[r][c]){
+        // small feedback: flash lock
+        divEl.animate([{transform:'scale(1)'},{transform:'scale(0.96)'},{transform:'scale(1)'}],{duration:160});
+        return;
+      }
+
+      if(tool==='colorCell'){
+        colors[r][c] = selectedColor;
+      } else if(tool==='num'){
+        if(selectedNum===0) numbers[r][c] = -1; else numbers[r][c] = selectedNum;
+      } else if(tool==='erase'){
+        colors[r][c] = -1; numbers[r][c] = -1;
+      }
+      renderBoard();
+    }
+
+    // check function: verifies initial hints, row/col numbers, color counts & connectivity, color-number balance, and 2x2 clues
+    function checkSolution(){
+      clearHighlights();
+      const errors = [];
+
+      // ensure initial hints weren't altered (defensive check)
+      for(let i=0;i<N;i++) for(let j=0;j<N;j++){
+        if(initialHints[i][j]!==-1 && colors[i][j]!==initialHints[i][j]){
+          errors.push({type:'initial-hint',cell:[i,j],expected:initialHints[i][j],found:colors[i][j]});
+        }
+      }
+
+      // 1) rows and columns: exactly one of each 1,2,3
+      for(let i=0;i<N;i++){
+        const cnt = [0,0,0];
+        for(let j=0;j<N;j++) if(numbers[i][j]!==-1) cnt[numbers[i][j]-1]++;
+        for(let k=0;k<3;k++) if(cnt[k]!==1) errors.push({type:'row',row:i,expected:k+1,found:cnt[k]});
+      }
+      for(let j=0;j<N;j++){
+        const cnt = [0,0,0];
+        for(let i=0;i<N;i++) if(numbers[i][j]!==-1) cnt[numbers[i][j]-1]++;
+        for(let k=0;k<3;k++) if(cnt[k]!==1) errors.push({type:'col',col:j,expected:k+1,found:cnt[k]});
+      }
+
+      // 2) each color must occupy exactly 6 cells and be connected
+      for(let colorId=0;colorId<6;colorId++){
+        const cells = [];
+        for(let i=0;i<N;i++) for(let j=0;j<N;j++) if(colors[i][j]===colorId) cells.push([i,j]);
+        if(cells.length!==6) errors.push({type:'color-count',color:colorId,count:cells.length});
+        else{
+          // connectivity BFS
+          const seen = Array.from({length:N},()=>Array(N).fill(false));
+          const q = [cells[0]]; seen[cells[0][0]][cells[0][1]] = true; let idx=0; let seenCount=1;
+          while(idx<q.length){ const [x,y]=q[idx++]; const ns=[[1,0],[-1,0],[0,1],[0,-1]]; for(const [dx,dy] of ns){ const nx=x+dx, ny=y+dy; if(nx>=0&&nx<N&&ny>=0&&ny<N && !seen[nx][ny] && colors[nx][ny]===colorId){ seen[nx][ny]=true; q.push([nx,ny]); seenCount++; } } }
+          if(seenCount!==6) errors.push({type:'color-connected',color:colorId});
+        }
+      }
+
+      // 3) each color must have exactly one of each number 1..3
+      for(let colorId=0;colorId<6;colorId++){
+        const cnt = [0,0,0];
+        for(let i=0;i<N;i++) for(let j=0;j<N;j++) if(colors[i][j]===colorId && numbers[i][j]!==-1) cnt[numbers[i][j]-1]++;
+        for(let k=0;k<3;k++) if(cnt[k]!==1) errors.push({type:'color-number',color:colorId,number:k+1,found:cnt[k]});
+      }
+
+      // 4) grid clues: sum of numbers in 2x2 equals clue (treat empty as 0)
+      for(let i=0;i<N-1;i++) for(let j=0;j<N-1;j++){
+        const clue = gridClues[i][j];
+        if(clue!==-1){
+          let s=0; for(const [di,dj] of [[0,0],[0,1],[1,0],[1,1]]){ const v = numbers[i+di][j+dj]; s += v===-1? 0 : v; }
+          if(s!==clue) errors.push({type:'clue',i,j,found:s,expected:clue});
+        }
+      }
+
+      // produce feedback
+      if(errors.length===0){ resultArea.innerHTML = '<div class="result ok">🎉 All checks passed — nice solution!</div>'; }
+      else{
+        const lines = errors.slice(0,50).map(e=> formatError(e));
+        resultArea.innerHTML = '<div class="result bad"><strong>Problems found:</strong><ul>' + lines.map(l=>'<li>'+l+'</li>').join('') + '</ul></div>';
+        errors.forEach(e=>highlightError(e));
+      }
+    }
+
+    function formatError(e){
+      switch(e.type){
+        case 'initial-hint': return `Initial color hint at (${e.cell[0]+1},${e.cell[1]+1}) was changed or removed.`;
+        case 'row': return `Row ${e.row+1} must contain exactly one '${e.expected}' but found ${e.found}.`;
+        case 'col': return `Column ${e.col+1} must contain exactly one '${e.expected}' but found ${e.found}.`;
+        case 'color-count': return `Color ${e.color+1} has ${e.count} cells (must be 6).`;
+        case 'color-connected': return `Color ${e.color+1} is not connected.`;
+        case 'color-number': return `Color ${e.color+1} has ${e.found} copies of number ${e.number} (must be exactly 1).`;
+        case 'clue': return `2×2 clue at (${e.i+1},${e.j+1}) expects ${e.expected} but found ${e.found}.`;
+        default: return JSON.stringify(e);
+      }
+    }
+
+    function highlightError(e){
+      const all = board.children;
+      function markCell(i,j){ const idx = i*6 + j; if(all[idx]) all[idx].classList.add('error'); }
+      switch(e.type){
+        case 'initial-hint': markCell(e.cell[0], e.cell[1]); break;
+        case 'row': for(let j=0;j<N;j++) markCell(e.row,j); break;
+        case 'col': for(let i=0;i<N;i++) markCell(i,e.col); break;
+        case 'color-count': for(let i=0;i<N;i++) for(let j=0;j<N;j++) if(colors[i][j]===e.color) markCell(i,j); break;
+        case 'color-connected': for(let i=0;i<N;i++) for(let j=0;j<N;j++) if(colors[i][j]===e.color) markCell(i,j); break;
+        case 'color-number': for(let i=0;i<N;i++) for(let j=0;j<N;j++) if(colors[i][j]===e.color) markCell(i,j); break;
+        case 'clue': for(const [di,dj] of [[0,0],[0,1],[1,0],[1,1]]) markCell(e.i+di,e.j+dj); break;
+      }
+    }
+
+    function clearHighlights(){ for(const el of board.children) el.classList.remove('error'); }
+
+    document.getElementById('checkBtn').addEventListener('click', checkSolution);
+    document.getElementById('resetBtn').addEventListener('click', ()=>{
+      // reset to initial provided board
+      colors = initialHints.map(row=>row.slice());
+      numbers = Array.from({length:N},()=>Array(N).fill(-1)); renderBoard(); resultArea.innerHTML='';
+    });
+
+    // initial render
+    renderBoard();
+    // reposition clues on resize
+    window.addEventListener('resize', renderIntersections);
+  </script>
+</body>
+</html>
+
