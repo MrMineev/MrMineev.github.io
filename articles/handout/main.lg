@@ -1,0 +1,667 @@
+htfcss: cmmi font-style: italic;
+htfcss: cmmib font-style: italic; font-weight: bold;
+htfcss: lati font-style: italic;
+htfcss: labx font-weight: bold;
+htfcss: lass font-family: monospace,monospace;
+File: main.html
+File: main.css
+File: main.tmp
+Font_Class(1,"1"): <img  src="" alt="" class="%s-%dx-x-%x" />
+Css: p{margin-top:0;margin-bottom:0}
+Css: p.indent{text-indent:0;}
+Css: p + p{margin-top:1em;}
+Css: p + div, p + pre {margin-top:1em;}
+Css: div + p, pre + p {margin-top:1em;}
+Css: a { overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto; }
+Css: @media print {div.crosslinks {visibility:hidden;}}
+Css: table.tabular{border-collapse: collapse; border-spacing: 0;}
+Css: a img { border-top: 0; border-left: 0; border-right: 0; }
+Font_Css("4"): .small-caps{font-variant: small-caps; }
+Font_Css("10"): .htf-cmbx {font-weight: bold; font-style:normal;}
+Font_Css("12"): .htf-calligraphy {font-family:cursive}
+Font_Css("14"): .htf-italic {font-style: italic;}
+Font_Css("16"): .htf-bold {font-weight: bold;}
+Font_Css("12"): .htf-calligraphy-bold {font-family:cursive ; font-weight: bold; }
+Css: center { margin-top:1em; margin-bottom:1em; }
+Css: td center { margin-top:0em; margin-bottom:0em; }
+Css: .Canvas { position:relative; }
+Css: img.math{vertical-align:middle;}
+Css: div.par-math-display, div.math-display{text-align:center;}
+Css: li p.indent { text-indent: 0em }
+Css: li p:first-child{ margin-top:0em; }
+Css: li p:last-child, li div:last-child { margin-bottom:0.5em; }
+Css: li p:first-child{ margin-bottom:0; }
+Css: li p~ul:last-child, li p~ol:last-child{ margin-bottom:0.5em; }
+Css: .enumerate1 {list-style-type:decimal;}
+Css: .enumerate2 {list-style-type:lower-alpha;}
+Css: .enumerate3 {list-style-type:lower-roman;}
+Css: .enumerate4 {list-style-type:upper-alpha;}
+Css: div.newtheorem { margin-bottom: 2em; margin-top: 2em;}
+Css: div.newtheorem .head{font-weight: bold;}
+Css: .obeylines-h,.obeylines-v {white-space: nowrap; }
+Css: div.obeylines-v p { margin-top:0; margin-bottom:0; }
+Css: .overline{ text-decoration:overline; }
+Css: .overline img{ border-top: 1px solid black; }
+Css: td.displaylines {text-align:center; white-space:nowrap;}
+Css: .centerline {text-align:center;}
+Css: .rightline {text-align:right;}
+Css: pre.verbatim {font-family: monospace,monospace; text-align:left; clear:both; }
+Css: .fbox {padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+Css: div.fbox {display:table}
+Css: div.center div.fbox {text-align:center; clear:both; padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+Css: div.minipage{width:100%;}
+Css: div.center, div.center div.center {text-align: center; margin-left:1em; margin-right:1em;}
+Css: div.center div {text-align: left;}
+Css: div.flushright, div.flushright div.flushright {text-align: right;}
+Css: div.flushright div {text-align: left;}
+Css: div.flushleft {text-align: left;}
+Css: .underline{ text-decoration:underline; }
+Css: .underline img{ border-bottom: 1px solid black; margin-bottom:1pt; }
+Css: .framebox-c, .framebox-l, .framebox-r { padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+Css: .framebox-c {text-align:center;}
+Css: .framebox-l {text-align:left;}
+Css: .framebox-r {text-align:right;}
+Css: span.thank-mark{ vertical-align: super }
+Css: span.footnote-mark sup.textsuperscript, span.footnote-mark a sup.textsuperscript{ font-size:80%; }
+Css: div.tabular, div.center div.tabular {text-align: center; margin-top:0.5em; margin-bottom:0.5em; }
+Css: table.tabular td p{margin-top:0em;}
+Css: table.tabular {margin-left: auto; margin-right: auto;}
+Css: td p:first-child{ margin-top:0em; }
+Css: td p:last-child{ margin-bottom:0em; }
+Css: div.td00{ margin-left:0pt; margin-right:0pt; }
+Css: div.td01{ margin-left:0pt; margin-right:5pt; }
+Css: div.td10{ margin-left:5pt; margin-right:0pt; }
+Css: div.td11{ margin-left:5pt; margin-right:5pt; }
+Css: table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+Css: td.td00{ padding-left:0pt; padding-right:0pt; }
+Css: td.td01{ padding-left:0pt; padding-right:5pt; }
+Css: td.td10{ padding-left:5pt; padding-right:0pt; }
+Css: td.td11{ padding-left:5pt; padding-right:5pt; }
+Css: table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+Css: .hline hr, .cline hr{ height : 0px; margin:0px; }
+Css: .hline td, .cline td{ padding: 0; }
+Css: .hline hr, .cline hr{border:none;border-top:1px solid black;}
+Css: .hline {border-top: 1px solid black;}
+Css: .hline + .vspace:last-child{display:none;}
+Css: .hline:first-child{border-bottom:1px solid black;border-top:none;}
+Css: .tabbing-right {text-align:right;}
+Css: div.float, div.figure {margin-left: auto; margin-right: auto;}
+Css: div.float img {text-align:center;}
+Css: div.figure img {text-align:center;}
+Css: .marginpar,.reversemarginpar {width:20%; float:right; text-align:left; margin-left:auto; margin-top:0.5em; font-size:85%; text-decoration:underline;}
+Css: .marginpar p,.reversemarginpar p{margin-top:0.4em; margin-bottom:0.4em;}
+Css: .reversemarginpar{float:left;}
+Css: table.equation {width:100%;}
+Css: .equation td{text-align:center; }
+Css: td.equation { margin-top:1em; margin-bottom:1em; } 
+Css: td.equation-label { width:5%; text-align:center; }
+Css: td.eqnarray4 { width:5%; white-space: normal; }
+Css: td.eqnarray2 { width:5%; }
+Css: table.eqnarray-star, table.eqnarray {width:100%;}
+Css: div.eqnarray{text-align:center;}
+Css: div.array {text-align:center;}
+Css: div.pmatrix {text-align:center;}
+Css: table.pmatrix {width:100%;}
+Css: span.pmatrix img{vertical-align:middle;}
+Css: div.pmatrix {text-align:center;}
+Css: table.pmatrix {width:100%;}
+Css: span.bar-css {text-decoration:overline;}
+Css: img.cdots{vertical-align:middle;}
+Css: .partToc a, .partToc, .likepartToc a, .likepartToc {line-height: 200%; font-weight:bold; font-size:110%;}
+Css: .index-item, .index-subitem, .index-subsubitem {display:block}
+Css: div.caption {text-indent:-2em; margin-left:3em; margin-right:1em; text-align:left;}
+Css: div.caption span.id{font-weight: bold; white-space: nowrap; }
+Css: h1.partHead{text-align: center}
+Css: p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+Css: p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+Css: .subsubsectionHead, .likesubsubsectionHead { font-size: 1em; }
+Css: .paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
+Css: .subparagraphHead, .likesubparagraphHead { font-weight: bold;}
+Css: .verse{white-space:nowrap; margin-left:2em}
+Css: div.maketitle {text-align:center;}
+Css: h2.titleHead{text-align:center;}
+Css: div.maketitle{ margin-bottom: 2em; }
+Css: div.author, div.date {text-align:center;}
+Css: div.thanks{text-align:left; margin-left:10%; font-size:85%; font-style:italic; }
+Css: div.author{white-space: nowrap;}
+Css: div.abstract p {margin-left:5%; margin-right:5%;}
+Css: div.abstract {width:100%;}
+Css: .abstracttitle{text-align:center;margin-bottom:1em;}
+Css: span.footnote-mark sup.textsuperscript, span.footnote-mark a sup.textsuperscript{ font-size:80%; }
+Css: dl.enumerate-enumitem{display:grid; grid-template-columns: 3ch 1fr; align-items: top; row-gap:1ch;}
+Css: .mdframed{margin-top:1em;margin-bottom:1em;}
+Css: .rotatebox{display: inline-block;}
+Css: .equation td{text-align:center; }
+Css: .equation-star td{text-align:center; }
+Css: table.equation-star { width:100%; }
+Css: table.equation { width:100%; }
+Css: table.align, table.alignat, table.xalignat, table.xxalignat, table.flalign {width:95%; margin-left:5%; white-space: nowrap;}
+Css: table.align-star, table.alignat-star, table.xalignat-star, table.flalign-star {margin-left:auto; margin-right:auto; white-space: nowrap;}
+Css: td.align-label { width:5%; text-align:center; }
+Css: td.align-odd { text-align:right; padding-right:0.3em;}
+Css: td.align-even { text-align:left; padding-right:0.6em;}
+Css: table.multline, table.multline-star {width:100%;}
+Css: td.gather {text-align:center; }
+Css: table.gather {width:100%;}
+Css: div.gather-star {text-align:center;}
+Css: code.lstinline{font-family:monospace,monospace;}
+Css: pre.listings{font-family: monospace,monospace; white-space: pre-wrap; margin-top:0.5em; margin-bottom:0.5em; }
+Css: .lstlisting .label{margin-right:0.5em; }
+Css: pre.lstlisting{font-family: monospace,monospace; white-space: pre-wrap; margin-top:0.5em; margin-bottom:0.5em; }
+Css: pre.lstinputlisting{ font-family: monospace,monospace; white-space: pre-wrap; }
+Css: .lstinputlisting .label{margin-right:0.5em;}
+Css: .epigraph, .epigraphhead, epigraphs {margin-left:60%}
+Css: .epigraphhead .epigraph {margin-left:0%}
+Css: .episource {text-align:right}
+Css: .epigraphs table { width:40% ;}
+Css: .epigraphs table div .episource { text-align:right; width:100%;}
+Css: img[src="main0x.svg"]{vertical-align:-21.87498927115985%}
+--- needs --- main.idv[2] ==> main0x.svg ---
+Css: img[src="main1x.svg"]{vertical-align:-0%}
+--- needs --- main.idv[3] ==> main1x.svg ---
+Css: img[src="main2x.svg"]{vertical-align:-0%}
+--- needs --- main.idv[4] ==> main2x.svg ---
+Css: img[src="main3x.svg"]{vertical-align:-0%}
+--- needs --- main.idv[5] ==> main3x.svg ---
+Css: img[src="main4x.svg"]{vertical-align:-0%}
+--- needs --- main.idv[6] ==> main4x.svg ---
+Css: img[src="main5x.svg"]{vertical-align:-0%}
+--- needs --- main.idv[7] ==> main5x.svg ---
+Css: img[src="main6x.svg"]{vertical-align:-0%}
+--- needs --- main.idv[8] ==> main6x.svg ---
+Css: img[src="main7x.svg"]{vertical-align:-25%}
+--- needs --- main.idv[9] ==> main7x.svg ---
+Css: img[src="main8x.svg"]{vertical-align:-25%}
+--- needs --- main.idv[10] ==> main8x.svg ---
+Css: img[src="main9x.svg"]{vertical-align:-0%}
+--- needs --- main.idv[11] ==> main9x.svg ---
+Css: img[src="main10x.svg"]{vertical-align:-0%}
+--- needs --- main.idv[12] ==> main10x.svg ---
+Css: img[src="main11x.svg"]{vertical-align:-25%}
+--- needs --- main.idv[13] ==> main11x.svg ---
+Css: img[src="main12x.svg"]{vertical-align:-0%}
+--- needs --- main.idv[14] ==> main12x.svg ---
+Css: img[src="main13x.svg"]{vertical-align:-0%}
+--- needs --- main.idv[15] ==> main13x.svg ---
+Css: img[src="main14x.svg"]{vertical-align:-0%}
+--- needs --- main.idv[16] ==> main14x.svg ---
+Css: img[src="main15x.svg"]{vertical-align:-22.15193504143352%}
+--- needs --- main.idv[17] ==> main15x.svg ---
+Css: img[src="main16x.svg"]{vertical-align:-0%}
+--- needs --- main.idv[18] ==> main16x.svg ---
+Css: img[src="main17x.svg"]{vertical-align:-0%}
+--- needs --- main.idv[19] ==> main17x.svg ---
+Css: img[src="main18x.svg"]{vertical-align:-0%}
+--- needs --- main.idv[20] ==> main18x.svg ---
+Css: img[src="main19x.svg"]{vertical-align:-21.87498927115985%}
+--- needs --- main.idv[21] ==> main19x.svg ---
+Css: img[src="main20x.svg"]{vertical-align:-17.76301286198037%}
+--- needs --- main.idv[22] ==> main20x.svg ---
+Css: img[src="main21x.svg"]{vertical-align:-17.76301286198037%}
+--- needs --- main.idv[23] ==> main21x.svg ---
+Css: img[src="main22x.svg"]{vertical-align:-0%}
+--- needs --- main.idv[24] ==> main22x.svg ---
+Css: img[src="main23x.svg"]{vertical-align:-0%}
+--- needs --- main.idv[25] ==> main23x.svg ---
+Css: img[src="main24x.svg"]{vertical-align:-0%}
+--- needs --- main.idv[26] ==> main24x.svg ---
+Css: img[src="main25x.svg"]{vertical-align:-17.76301286198037%}
+--- needs --- main.idv[27] ==> main25x.svg ---
+Css: img[src="main26x.svg"]{vertical-align:-17.76301286198037%}
+--- needs --- main.idv[28] ==> main26x.svg ---
+Css: img[src="main27x.svg"]{vertical-align:-0%}
+--- needs --- main.idv[29] ==> main27x.svg ---
+Css: img[src="main28x.svg"]{vertical-align:-0%}
+--- needs --- main.idv[30] ==> main28x.svg ---
+Css: img[src="main29x.svg"]{vertical-align:-0%}
+--- needs --- main.idv[31] ==> main29x.svg ---
+Css: img[src="main30x.svg"]{vertical-align:-25%}
+--- needs --- main.idv[32] ==> main30x.svg ---
+Css: img[src="main31x.svg"]{vertical-align:-25%}
+--- needs --- main.idv[33] ==> main31x.svg ---
+Css: img[src="main32x.svg"]{vertical-align:-0%}
+--- needs --- main.idv[34] ==> main32x.svg ---
+Css: img[src="main33x.svg"]{vertical-align:-25%}
+--- needs --- main.idv[35] ==> main33x.svg ---
+Css: img[src="main34x.svg"]{vertical-align:-25%}
+--- needs --- main.idv[36] ==> main34x.svg ---
+Css: img[src="main35x.svg"]{vertical-align:-0%}
+--- needs --- main.idv[37] ==> main35x.svg ---
+Css: img[src="main36x.svg"]{vertical-align:-0%}
+--- needs --- main.idv[38] ==> main36x.svg ---
+Css: img[src="main37x.svg"]{vertical-align:-25%}
+--- needs --- main.idv[39] ==> main37x.svg ---
+Css: #mdframed-1{border:1.0pt solid #B4B4B4; background-color: #F0C8C8; color:#000000;}
+Css: img[src="main38x.svg"]{vertical-align:-0%}
+--- needs --- main.idv[41] ==> main38x.svg ---
+Css: img[src="main39x.svg"]{vertical-align:-0%}
+--- needs --- main.idv[42] ==> main39x.svg ---
+Css: img[src="main40x.svg"]{vertical-align:-25%}
+--- needs --- main.idv[43] ==> main40x.svg ---
+Css: img[src="main41x.svg"]{vertical-align:-0%}
+--- needs --- main.idv[44] ==> main41x.svg ---
+Css: img[src="main42x.svg"]{vertical-align:-0%}
+--- needs --- main.idv[45] ==> main42x.svg ---
+Css: img[src="main43x.svg"]{vertical-align:-0%}
+--- needs --- main.idv[46] ==> main43x.svg ---
+Css: img[src="main44x.svg"]{vertical-align:-0%}
+--- needs --- main.idv[47] ==> main44x.svg ---
+Css: img[src="main45x.svg"]{vertical-align:-0%}
+--- needs --- main.idv[48] ==> main45x.svg ---
+Css: img[src="main46x.svg"]{vertical-align:-0%}
+--- needs --- main.idv[49] ==> main46x.svg ---
+Css: img[src="main47x.svg"]{vertical-align:-25%}
+--- needs --- main.idv[50] ==> main47x.svg ---
+Css: img[src="main48x.svg"]{vertical-align:-0%}
+--- needs --- main.idv[51] ==> main48x.svg ---
+Css: img[src="main49x.svg"]{vertical-align:-25%}
+--- needs --- main.idv[52] ==> main49x.svg ---
+Css: img[src="main50x.svg"]{vertical-align:-0%}
+--- needs --- main.idv[53] ==> main50x.svg ---
+Css: img[src="main51x.svg"]{vertical-align:-0%}
+--- needs --- main.idv[54] ==> main51x.svg ---
+Css: img[src="main52x.svg"]{vertical-align:-0%}
+--- needs --- main.idv[55] ==> main52x.svg ---
+Css: img[src="main53x.svg"]{vertical-align:-22.15193504143352%}
+--- needs --- main.idv[56] ==> main53x.svg ---
+Css: img[src="main54x.svg"]{vertical-align:-0%}
+--- needs --- main.idv[57] ==> main54x.svg ---
+Css: img[src="main55x.svg"]{vertical-align:-0%}
+--- needs --- main.idv[58] ==> main55x.svg ---
+Css: img[src="main56x.svg"]{vertical-align:-25%}
+--- needs --- main.idv[59] ==> main56x.svg ---
+Css: img[src="main57x.svg"]{vertical-align:-0%}
+--- needs --- main.idv[60] ==> main57x.svg ---
+Css: #mdframed-2{border:1.0pt solid #B4B4B4; background-color: #F0C8C8; color:#000000;}
+Css: img[src="main58x.svg"]{vertical-align:-0%}
+--- needs --- main.idv[62] ==> main58x.svg ---
+Css: img[src="main59x.svg"]{vertical-align:-0%}
+--- needs --- main.idv[63] ==> main59x.svg ---
+Css: img[src="main60x.svg"]{vertical-align:-0%}
+--- needs --- main.idv[64] ==> main60x.svg ---
+Css: img[src="main61x.svg"]{vertical-align:-0%}
+--- needs --- main.idv[65] ==> main61x.svg ---
+Css: img[src="main62x.svg"]{vertical-align:-0%}
+--- needs --- main.idv[66] ==> main62x.svg ---
+Css: img[src="main63x.svg"]{vertical-align:-0%}
+--- needs --- main.idv[67] ==> main63x.svg ---
+Css: img[src="main64x.svg"]{vertical-align:-0%}
+--- needs --- main.idv[68] ==> main64x.svg ---
+Css: img[src="main65x.svg"]{vertical-align:-0%}
+--- needs --- main.idv[69] ==> main65x.svg ---
+Css: img[src="main66x.svg"]{vertical-align:-0%}
+--- needs --- main.idv[70] ==> main66x.svg ---
+Css: img[src="main67x.svg"]{vertical-align:-0%}
+--- needs --- main.idv[71] ==> main67x.svg ---
+Css: img[src="main68x.svg"]{vertical-align:-25%}
+--- needs --- main.idv[72] ==> main68x.svg ---
+Css: img[src="main69x.svg"]{vertical-align:-21.87498927115985%}
+--- needs --- main.idv[73] ==> main69x.svg ---
+Css: img[src="main70x.svg"]{vertical-align:-22.15193504143352%}
+--- needs --- main.idv[74] ==> main70x.svg ---
+Css: img[src="main71x.svg"]{vertical-align:-25%}
+--- needs --- main.idv[75] ==> main71x.svg ---
+Css: img[src="main72x.svg"]{vertical-align:-22.15193504143352%}
+--- needs --- main.idv[76] ==> main72x.svg ---
+Css: img[src="main73x.svg"]{vertical-align:-0%}
+--- needs --- main.idv[77] ==> main73x.svg ---
+Css: img[src="main74x.svg"]{vertical-align:-0%}
+--- needs --- main.idv[78] ==> main74x.svg ---
+Css: img[src="main75x.svg"]{vertical-align:-25%}
+--- needs --- main.idv[79] ==> main75x.svg ---
+Css: img[src="main76x.svg"]{vertical-align:-25%}
+--- needs --- main.idv[80] ==> main76x.svg ---
+Css: img[src="main77x.svg"]{vertical-align:-0%}
+--- needs --- main.idv[81] ==> main77x.svg ---
+Css: img[src="main78x.svg"]{vertical-align:-0%}
+--- needs --- main.idv[82] ==> main78x.svg ---
+Css: img[src="main79x.svg"]{vertical-align:-22.15193504143352%}
+--- needs --- main.idv[83] ==> main79x.svg ---
+Css: img[src="main80x.svg"]{vertical-align:-0%}
+--- needs --- main.idv[84] ==> main80x.svg ---
+--- needs --- main.idv[86] ==> main81x.svg ---
+--- needs --- main.idv[87] ==> main82x.svg ---
+Css: img[src="main83x.svg"]{vertical-align:-0%}
+--- needs --- main.idv[89] ==> main83x.svg ---
+Css: img[src="main84x.svg"]{vertical-align:-0%}
+--- needs --- main.idv[90] ==> main84x.svg ---
+Css: img[src="main85x.svg"]{vertical-align:-21.87498927115985%}
+--- needs --- main.idv[91] ==> main85x.svg ---
+Css: img[src="main86x.svg"]{vertical-align:-0%}
+--- needs --- main.idv[92] ==> main86x.svg ---
+Css: img[src="main87x.svg"]{vertical-align:-0%}
+--- needs --- main.idv[93] ==> main87x.svg ---
+Css: img[src="main88x.svg"]{vertical-align:-0%}
+--- needs --- main.idv[94] ==> main88x.svg ---
+Css: img[src="main89x.svg"]{vertical-align:-0%}
+--- needs --- main.idv[95] ==> main89x.svg ---
+Css: img[src="main90x.svg"]{vertical-align:-0%}
+--- needs --- main.idv[96] ==> main90x.svg ---
+Css: img[src="main91x.svg"]{vertical-align:-0%}
+--- needs --- main.idv[97] ==> main91x.svg ---
+Css: img[src="main92x.svg"]{vertical-align:-0%}
+--- needs --- main.idv[98] ==> main92x.svg ---
+Css: img[src="main93x.svg"]{vertical-align:-0%}
+--- needs --- main.idv[99] ==> main93x.svg ---
+Css: img[src="main94x.svg"]{vertical-align:-0%}
+--- needs --- main.idv[100] ==> main94x.svg ---
+Css: img[src="main95x.svg"]{vertical-align:-0%}
+--- needs --- main.idv[101] ==> main95x.svg ---
+Css: img[src="main96x.svg"]{vertical-align:-0%}
+--- needs --- main.idv[102] ==> main96x.svg ---
+Css: img[src="main97x.svg"]{vertical-align:-0%}
+--- needs --- main.idv[103] ==> main97x.svg ---
+Css: img[src="main98x.svg"]{vertical-align:-0%}
+--- needs --- main.idv[104] ==> main98x.svg ---
+Css: img[src="main99x.svg"]{vertical-align:-0%}
+--- needs --- main.idv[105] ==> main99x.svg ---
+Css: img[src="main100x.svg"]{vertical-align:-0%}
+--- needs --- main.idv[106] ==> main100x.svg ---
+Css: img[src="main101x.svg"]{vertical-align:-0%}
+--- needs --- main.idv[107] ==> main101x.svg ---
+Css: img[src="main102x.svg"]{vertical-align:-0%}
+--- needs --- main.idv[108] ==> main102x.svg ---
+Css: img[src="main103x.svg"]{vertical-align:-0%}
+--- needs --- main.idv[109] ==> main103x.svg ---
+Css: img[src="main104x.svg"]{vertical-align:-0%}
+--- needs --- main.idv[110] ==> main104x.svg ---
+Css: img[src="main105x.svg"]{vertical-align:-0%}
+--- needs --- main.idv[112] ==> main105x.svg ---
+Css: img[src="main106x.svg"]{vertical-align:-0%}
+--- needs --- main.idv[113] ==> main106x.svg ---
+Css: img[src="main107x.svg"]{vertical-align:-21.87498927115985%}
+--- needs --- main.idv[114] ==> main107x.svg ---
+Css: img[src="main108x.svg"]{vertical-align:-0%}
+--- needs --- main.idv[115] ==> main108x.svg ---
+Css: img[src="main109x.svg"]{vertical-align:-0%}
+--- needs --- main.idv[116] ==> main109x.svg ---
+Css: img[src="main110x.svg"]{vertical-align:-0%}
+--- needs --- main.idv[117] ==> main110x.svg ---
+Css: img[src="main111x.svg"]{vertical-align:-0%}
+--- needs --- main.idv[118] ==> main111x.svg ---
+Css: img[src="main112x.svg"]{vertical-align:-0%}
+--- needs --- main.idv[119] ==> main112x.svg ---
+Css: img[src="main113x.svg"]{vertical-align:-0%}
+--- needs --- main.idv[120] ==> main113x.svg ---
+Css: img[src="main114x.svg"]{vertical-align:-0%}
+--- needs --- main.idv[121] ==> main114x.svg ---
+Css: img[src="main115x.svg"]{vertical-align:-0%}
+--- needs --- main.idv[122] ==> main115x.svg ---
+Css: img[src="main116x.svg"]{vertical-align:-25%}
+--- needs --- main.idv[123] ==> main116x.svg ---
+Css: img[src="main117x.svg"]{vertical-align:-25%}
+--- needs --- main.idv[124] ==> main117x.svg ---
+Css: img[src="main118x.svg"]{vertical-align:-0%}
+--- needs --- main.idv[125] ==> main118x.svg ---
+Css: img[src="main119x.svg"]{vertical-align:-0%}
+--- needs --- main.idv[126] ==> main119x.svg ---
+Css: img[src="main120x.svg"]{vertical-align:-0%}
+--- needs --- main.idv[127] ==> main120x.svg ---
+Css: img[src="main121x.svg"]{vertical-align:-0%}
+--- needs --- main.idv[128] ==> main121x.svg ---
+Css: img[src="main122x.svg"]{vertical-align:-25%}
+--- needs --- main.idv[129] ==> main122x.svg ---
+Css: img[src="main123x.svg"]{vertical-align:-0%}
+--- needs --- main.idv[130] ==> main123x.svg ---
+Css: img[src="main124x.svg"]{vertical-align:-25%}
+--- needs --- main.idv[131] ==> main124x.svg ---
+Css: img[src="main125x.svg"]{vertical-align:-0%}
+--- needs --- main.idv[132] ==> main125x.svg ---
+Css: img[src="main126x.svg"]{vertical-align:-0%}
+--- needs --- main.idv[133] ==> main126x.svg ---
+Css: img[src="main127x.svg"]{vertical-align:-0%}
+--- needs --- main.idv[134] ==> main127x.svg ---
+Css: img[src="main128x.svg"]{vertical-align:-0%}
+--- needs --- main.idv[136] ==> main128x.svg ---
+Css: img[src="main129x.svg"]{vertical-align:-0%}
+--- needs --- main.idv[137] ==> main129x.svg ---
+Css: img[src="main130x.svg"]{vertical-align:-21.87498927115985%}
+--- needs --- main.idv[138] ==> main130x.svg ---
+Css: img[src="main131x.svg"]{vertical-align:-0%}
+--- needs --- main.idv[139] ==> main131x.svg ---
+Css: img[src="main132x.svg"]{vertical-align:-0%}
+--- needs --- main.idv[140] ==> main132x.svg ---
+Css: img[src="main133x.svg"]{vertical-align:-0%}
+--- needs --- main.idv[141] ==> main133x.svg ---
+Css: img[src="main134x.svg"]{vertical-align:-0%}
+--- needs --- main.idv[142] ==> main134x.svg ---
+Css: img[src="main135x.svg"]{vertical-align:-0%}
+--- needs --- main.idv[143] ==> main135x.svg ---
+Css: img[src="main136x.svg"]{vertical-align:-0%}
+--- needs --- main.idv[144] ==> main136x.svg ---
+Css: img[src="main137x.svg"]{vertical-align:-0%}
+--- needs --- main.idv[145] ==> main137x.svg ---
+Css: img[src="main138x.svg"]{vertical-align:-0%}
+--- needs --- main.idv[146] ==> main138x.svg ---
+Css: img[src="main139x.svg"]{vertical-align:-25%}
+--- needs --- main.idv[147] ==> main139x.svg ---
+Css: img[src="main140x.svg"]{vertical-align:-25%}
+--- needs --- main.idv[148] ==> main140x.svg ---
+Css: img[src="main141x.svg"]{vertical-align:-0%}
+--- needs --- main.idv[149] ==> main141x.svg ---
+Css: img[src="main142x.svg"]{vertical-align:-0%}
+--- needs --- main.idv[150] ==> main142x.svg ---
+Css: img[src="main143x.svg"]{vertical-align:-0%}
+--- needs --- main.idv[151] ==> main143x.svg ---
+Css: img[src="main144x.svg"]{vertical-align:-0%}
+--- needs --- main.idv[152] ==> main144x.svg ---
+Css: img[src="main145x.svg"]{vertical-align:-25%}
+--- needs --- main.idv[153] ==> main145x.svg ---
+Css: img[src="main146x.svg"]{vertical-align:-0%}
+--- needs --- main.idv[154] ==> main146x.svg ---
+Css: img[src="main147x.svg"]{vertical-align:-25%}
+--- needs --- main.idv[155] ==> main147x.svg ---
+Css: img[src="main148x.svg"]{vertical-align:-0%}
+--- needs --- main.idv[156] ==> main148x.svg ---
+Css: img[src="main149x.svg"]{vertical-align:-0%}
+--- needs --- main.idv[157] ==> main149x.svg ---
+Css: img[src="main150x.svg"]{vertical-align:-0%}
+--- needs --- main.idv[158] ==> main150x.svg ---
+Css: img[src="main151x.svg"]{vertical-align:-0%}
+--- needs --- main.idv[159] ==> main151x.svg ---
+Css: img[src="main152x.svg"]{vertical-align:-0%}
+--- needs --- main.idv[160] ==> main152x.svg ---
+Css: #mdframed-3{border:1.0pt solid #B4B4B4; background-color: #C8DCF0; color:#000000;}
+Css: img[src="main153x.svg"]{vertical-align:-25%}
+--- needs --- main.idv[162] ==> main153x.svg ---
+Css: img[src="main154x.svg"]{vertical-align:-0%}
+--- needs --- main.idv[163] ==> main154x.svg ---
+Css: img[src="main155x.svg"]{vertical-align:-0%}
+--- needs --- main.idv[164] ==> main155x.svg ---
+Css: img[src="main156x.svg"]{vertical-align:-0%}
+--- needs --- main.idv[165] ==> main156x.svg ---
+Css: img[src="main157x.svg"]{vertical-align:-0%}
+--- needs --- main.idv[166] ==> main157x.svg ---
+Css: img[src="main158x.svg"]{vertical-align:-0%}
+--- needs --- main.idv[167] ==> main158x.svg ---
+Css: img[src="main159x.svg"]{vertical-align:-0%}
+--- needs --- main.idv[168] ==> main159x.svg ---
+Css: img[src="main160x.svg"]{vertical-align:-0%}
+--- needs --- main.idv[169] ==> main160x.svg ---
+Css: img[src="main161x.svg"]{vertical-align:-0%}
+--- needs --- main.idv[170] ==> main161x.svg ---
+Css: img[src="main162x.svg"]{vertical-align:-0%}
+--- needs --- main.idv[171] ==> main162x.svg ---
+Css: img[src="main163x.svg"]{vertical-align:-22.15193504143352%}
+--- needs --- main.idv[172] ==> main163x.svg ---
+Css: img[src="main164x.svg"]{vertical-align:-0%}
+--- needs --- main.idv[173] ==> main164x.svg ---
+Css: img[src="main165x.svg"]{vertical-align:-25%}
+--- needs --- main.idv[174] ==> main165x.svg ---
+--- needs --- main.idv[175] ==> main166x.svg ---
+Css: img[src="main167x.svg"]{vertical-align:-0%}
+--- needs --- main.idv[176] ==> main167x.svg ---
+Css: img[src="main168x.svg"]{vertical-align:-0%}
+--- needs --- main.idv[177] ==> main168x.svg ---
+Css: img[src="main169x.svg"]{vertical-align:-0%}
+--- needs --- main.idv[178] ==> main169x.svg ---
+--- needs --- main.idv[180] ==> main170x.svg ---
+Css: #mdframed-4{border:1.0pt solid #B4B4B4; background-color: #FCFCD5; color:#000000;}
+Css: img[src="main171x.svg"]{vertical-align:-25%}
+--- needs --- main.idv[182] ==> main171x.svg ---
+Css: img[src="main172x.svg"]{vertical-align:-21.87498927115985%}
+--- needs --- main.idv[183] ==> main172x.svg ---
+Css: img[src="main173x.svg"]{vertical-align:-22.15193504143352%}
+--- needs --- main.idv[184] ==> main173x.svg ---
+Css: img[src="main174x.svg"]{vertical-align:-25%}
+--- needs --- main.idv[185] ==> main174x.svg ---
+Css: img[src="main175x.svg"]{vertical-align:-22.15193504143352%}
+--- needs --- main.idv[186] ==> main175x.svg ---
+Css: img[src="main176x.svg"]{vertical-align:-0%}
+--- needs --- main.idv[187] ==> main176x.svg ---
+Css: img[src="main177x.svg"]{vertical-align:-0%}
+--- needs --- main.idv[188] ==> main177x.svg ---
+Css: img[src="main178x.svg"]{vertical-align:-25%}
+--- needs --- main.idv[189] ==> main178x.svg ---
+Css: img[src="main179x.svg"]{vertical-align:-25%}
+--- needs --- main.idv[190] ==> main179x.svg ---
+Css: img[src="main180x.svg"]{vertical-align:-0%}
+--- needs --- main.idv[191] ==> main180x.svg ---
+Css: img[src="main181x.svg"]{vertical-align:-0%}
+--- needs --- main.idv[192] ==> main181x.svg ---
+Css: img[src="main182x.svg"]{vertical-align:-22.15193504143352%}
+--- needs --- main.idv[193] ==> main182x.svg ---
+Css: img[src="main183x.svg"]{vertical-align:-0%}
+--- needs --- main.idv[194] ==> main183x.svg ---
+Css: img[src="main184x.svg"]{vertical-align:-0%}
+--- needs --- main.idv[196] ==> main184x.svg ---
+Css: img[src="main185x.svg"]{vertical-align:-0%}
+--- needs --- main.idv[197] ==> main185x.svg ---
+Css: img[src="main186x.svg"]{vertical-align:-0%}
+--- needs --- main.idv[198] ==> main186x.svg ---
+Css: img[src="main187x.svg"]{vertical-align:-0%}
+--- needs --- main.idv[199] ==> main187x.svg ---
+Css: img[src="main188x.svg"]{vertical-align:-0%}
+--- needs --- main.idv[200] ==> main188x.svg ---
+Css: img[src="main189x.svg"]{vertical-align:-0%}
+--- needs --- main.idv[201] ==> main189x.svg ---
+Css: img[src="main190x.svg"]{vertical-align:-0%}
+--- needs --- main.idv[202] ==> main190x.svg ---
+Css: img[src="main191x.svg"]{vertical-align:-0%}
+--- needs --- main.idv[203] ==> main191x.svg ---
+Css: img[src="main192x.svg"]{vertical-align:-0%}
+--- needs --- main.idv[204] ==> main192x.svg ---
+Css: img[src="main193x.svg"]{vertical-align:-0%}
+--- needs --- main.idv[205] ==> main193x.svg ---
+Css: img[src="main194x.svg"]{vertical-align:-0%}
+--- needs --- main.idv[206] ==> main194x.svg ---
+Css: img[src="main195x.svg"]{vertical-align:-0%}
+--- needs --- main.idv[207] ==> main195x.svg ---
+--- needs --- main.idv[208] ==> main196x.svg ---
+--- needs --- main.idv[209] ==> main197x.svg ---
+Css: img[src="main198x.svg"]{vertical-align:-10.74468943237867%}
+--- needs --- main.idv[210] ==> main198x.svg ---
+Css: img[src="main199x.svg"]{vertical-align:-0%}
+--- needs --- main.idv[211] ==> main199x.svg ---
+Css: img[src="main200x.svg"]{vertical-align:-0%}
+--- needs --- main.idv[212] ==> main200x.svg ---
+Css: img[src="main201x.svg"]{vertical-align:-0%}
+--- needs --- main.idv[213] ==> main201x.svg ---
+Css: img[src="main202x.svg"]{vertical-align:-0%}
+--- needs --- main.idv[214] ==> main202x.svg ---
+Css: img[src="main203x.svg"]{vertical-align:-25%}
+--- needs --- main.idv[215] ==> main203x.svg ---
+Css: img[src="main204x.svg"]{vertical-align:-0%}
+--- needs --- main.idv[216] ==> main204x.svg ---
+Css: img[src="main205x.svg"]{vertical-align:-0%}
+--- needs --- main.idv[217] ==> main205x.svg ---
+Css: #mdframed-5{border:1.0pt solid #B4B4B4; background-color: #FCFCD5; color:#000000;}
+Css: img[src="main206x.svg"]{vertical-align:-0%}
+--- needs --- main.idv[219] ==> main206x.svg ---
+Css: img[src="main207x.svg"]{vertical-align:-0%}
+--- needs --- main.idv[220] ==> main207x.svg ---
+Css: img[src="main208x.svg"]{vertical-align:-0%}
+--- needs --- main.idv[221] ==> main208x.svg ---
+Css: img[src="main209x.svg"]{vertical-align:-25%}
+--- needs --- main.idv[222] ==> main209x.svg ---
+Css: #mdframed-6{border:1.0pt solid #B4B4B4; background-color: #FCFCD5; color:#000000;}
+Css: img[src="main210x.svg"]{vertical-align:-0%}
+--- needs --- main.idv[224] ==> main210x.svg ---
+Css: img[src="main211x.svg"]{vertical-align:-0%}
+--- needs --- main.idv[225] ==> main211x.svg ---
+Css: img[src="main212x.svg"]{vertical-align:-0%}
+--- needs --- main.idv[226] ==> main212x.svg ---
+Css: img[src="main213x.svg"]{vertical-align:-0%}
+--- needs --- main.idv[227] ==> main213x.svg ---
+Css: img[src="main214x.svg"]{vertical-align:-25%}
+--- needs --- main.idv[228] ==> main214x.svg ---
+Css: img[src="main215x.svg"]{vertical-align:-0%}
+--- needs --- main.idv[229] ==> main215x.svg ---
+Css: img[src="main216x.svg"]{vertical-align:-0%}
+--- needs --- main.idv[230] ==> main216x.svg ---
+Css: img[src="main217x.svg"]{vertical-align:-0%}
+--- needs --- main.idv[231] ==> main217x.svg ---
+Css: img[src="main218x.svg"]{vertical-align:-0%}
+--- needs --- main.idv[232] ==> main218x.svg ---
+Css: img[src="main219x.svg"]{vertical-align:-0%}
+--- needs --- main.idv[233] ==> main219x.svg ---
+Css: img[src="main220x.svg"]{vertical-align:-25%}
+--- needs --- main.idv[234] ==> main220x.svg ---
+Css: #mdframed-7{border:1.0pt solid #B4B4B4; background-color: #C8DCF0; color:#000000;}
+Css: img[src="main221x.svg"]{vertical-align:-22.15193504143352%}
+--- needs --- main.idv[236] ==> main221x.svg ---
+Css: img[src="main222x.svg"]{vertical-align:-0%}
+--- needs --- main.idv[238] ==> main222x.svg ---
+Css: img[src="main223x.svg"]{vertical-align:-0%}
+--- needs --- main.idv[239] ==> main223x.svg ---
+Css: img[src="main224x.svg"]{vertical-align:-22.15193504143352%}
+--- needs --- main.idv[240] ==> main224x.svg ---
+Css: img[src="main225x.svg"]{vertical-align:-0%}
+--- needs --- main.idv[241] ==> main225x.svg ---
+Css: img[src="main226x.svg"]{vertical-align:-22.15193504143352%}
+--- needs --- main.idv[242] ==> main226x.svg ---
+Css: img[src="main227x.svg"]{vertical-align:-0%}
+--- needs --- main.idv[243] ==> main227x.svg ---
+Css: img[src="main228x.svg"]{vertical-align:-25%}
+--- needs --- main.idv[244] ==> main228x.svg ---
+Css: img[src="main229x.svg"]{vertical-align:-0%}
+--- needs --- main.idv[245] ==> main229x.svg ---
+Css: img[src="main230x.svg"]{vertical-align:-0%}
+--- needs --- main.idv[246] ==> main230x.svg ---
+Css: img[src="main231x.svg"]{vertical-align:-22.15193504143352%}
+--- needs --- main.idv[247] ==> main231x.svg ---
+Css: img[src="main232x.svg"]{vertical-align:-0%}
+--- needs --- main.idv[248] ==> main232x.svg ---
+Css: img[src="main233x.svg"]{vertical-align:-22.15193504143352%}
+--- needs --- main.idv[249] ==> main233x.svg ---
+Css: img[src="main234x.svg"]{vertical-align:-25%}
+--- needs --- main.idv[250] ==> main234x.svg ---
+Css: img[src="main235x.svg"]{vertical-align:-0%}
+--- needs --- main.idv[251] ==> main235x.svg ---
+Css: img[src="main236x.svg"]{vertical-align:-0%}
+--- needs --- main.idv[252] ==> main236x.svg ---
+Css: #mdframed-8{border:1.0pt solid #B4B4B4; background-color: #FCFCD5; color:#000000;}
+Css: #mdframed-9{border:1.0pt solid #B4B4B4; background-color: #FCFCD5; color:#000000;}
+Css: #mdframed-10{border:1.0pt solid #B4B4B4; background-color: #C8DCF0; color:#000000;}
+--- needs --- main.idv[254] ==> main237x.svg ---
+--- needs --- main.idv[255] ==> main238x.svg ---
+Css: #mdframed-11{border:1.0pt solid #B4B4B4; background-color: #FCFCD5; color:#000000;}
+--- needs --- main.idv[257] ==> main239x.svg ---
+--- needs --- main.idv[258] ==> main240x.svg ---
+Css: #mdframed-12{border:1.0pt solid #B4B4B4; background-color: #F0C8C8; color:#000000;}
+Css: #mdframed-13{border:1.0pt solid #B4B4B4; background-color: #FCFCD5; color:#000000;}
+--- needs --- main.idv[260] ==> main241x.svg ---
+Css: #mdframed-14{border:1.0pt solid #B4B4B4; background-color: #FCFCD5; color:#000000;}
+Css: #mdframed-15{border:1.0pt solid #B4B4B4; background-color: #C8DCF0; color:#000000;}
+Css: #mdframed-16{border:1.0pt solid #B4B4B4; background-color: #C8DCF0; color:#000000;}
+--- needs --- main.idv[262] ==> main242x.svg ---
+--- needs --- main.idv[264] ==> main243x.svg ---
+tex4ht.c error: 21
+--- characters ---
+Font("cmex","10","10","100")
+Font("cmr","7","7","100")
+Font("cmr","10","10","100")
+Font("cmmi","7","7","100")
+Font("cmmi","10","10","100")
+Font("cmsy","7","7","100")
+Font("cmsy","10","10","100")
+--- needs --- main.idv[266] ==> cmsy10-4c.png ---
+Font("larm","1000","10","100")
+Font("lass","1000","10","100")
+Font("lasx","1000","10","100")
+Font("lasx","2074","20","100")
+Font("larm","1440","14","100")
+Font("msam","10","10","100")
+Font("labx","1000","10","100")
+Font("lati","1000","10","100")
+Font("cmmi","12","12","100")

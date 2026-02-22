@@ -1,0 +1,47 @@
+if(!settings.multipleView) settings.batchView=false;
+settings.inlinetex=true;
+deletepreamble();
+defaultfilename="main-1";
+if(settings.render < 0) settings.render=4;
+settings.outformat="";
+settings.inlineimage=true;
+settings.embed=true;
+settings.toolbar=false;
+viewportmargin=(2,2);
+
+pair A = (4.29046,2.03982);
+pair B = (5.02836,0.44417);
+pair C = (2.64199,0.45348);
+pair D = (3.62767,0.67406);
+pair F = (3.26640,-0.26479);
+pair A_B = (3.08556,1.54488);
+pair A_C = (2.28445,-0.25798);
+pair B_A = (3.84273,0.55590);
+pair B_C = (2.92548,0.18682);
+pair C_A = (3.32755,0.83896);
+pair C_B = (4.02316,0.03877);
+
+import graph;
+size(9.71355cm);
+pen zzttqq = rgb(0.6,0.2,0.);
+pen ffqqff = rgb(1.,0.,1.);
+draw(A--B--C--cycle, linewidth(0.6) + zzttqq);
+draw(A--B, linewidth(0.6) + zzttqq);
+draw(B--C, linewidth(0.6) + zzttqq);
+draw(C--A, linewidth(0.6) + zzttqq);
+draw(circle((3.83678,0.86158), 1.26256), linewidth(0.6));
+draw(D--A_C, linewidth(0.6) + ffqqff);
+draw(C_B--A_B, linewidth(0.6) + ffqqff);
+draw(C_A--B_A, linewidth(0.6) + ffqqff);
+
+dot("$A$", A, dir(122));
+dot("$B$", B, dir(280));
+dot("$C$", C, dir(231));
+dot("$D$", D, dir(69));
+dot("$F$", F, dir(234));
+dot("$A_B$", A_B, dir(129), red);
+dot("$A_C$", A_C, dir(229), red);
+dot("$B_A$", B_A, dir(48), blue);
+dot("$B_C$", B_C, dir(278), blue);
+dot("$C_A$", C_A, dir(203), green);
+dot("$C_B$", C_B, dir(278), green);

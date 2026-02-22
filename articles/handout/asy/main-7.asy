@@ -1,0 +1,52 @@
+if(!settings.multipleView) settings.batchView=false;
+settings.inlinetex=true;
+deletepreamble();
+defaultfilename="main-7";
+if(settings.render < 0) settings.render=4;
+settings.outformat="";
+settings.inlineimage=true;
+settings.embed=true;
+settings.toolbar=false;
+viewportmargin=(2,2);
+
+pair C = (-0.19322,0.);
+pair A = (3.56323,3.67242);
+pair B = (5.,0.);
+pair H = (3.56323,1.46963);
+pair M = (2.40338,0.);
+pair D = (3.56323,0.);
+pair T = (4.63447,2.82699);
+pair F = (2.93063,-1.66942);
+pair X = (2.46212,2.59594);
+pair Y = (4.31063,1.76204);
+pair K = (2.93063,1.66942);
+
+import graph;
+size(10cm);
+
+draw(A--B--C--cycle, linewidth(0.6));
+draw((3.68714,0.)--(3.68714,0.12390)--(3.56323,0.12390)--D--cycle, linewidth(0.6));
+draw(circle((2.40338,1.10139), 2.82054), linewidth(0.6));
+draw(A--B, linewidth(0.6));
+draw(B--C, linewidth(0.6));
+draw(C--A, linewidth(0.6));
+draw(A--D, linewidth(0.6));
+draw(circle((2.98331,1.83621), 1.92561), linewidth(0.6));
+draw(M--T, linewidth(0.6));
+draw(T--F, linewidth(0.6));
+draw(circle((3.56323,2.57103), 1.10139), linewidth(0.6));
+draw(X--B, linewidth(0.6));
+draw(C--Y, linewidth(0.6));
+draw(A--M, linewidth(0.6));
+
+dot("$C$", C, dir(221));
+dot("$A$", A, dir(86));
+dot("$B$", B, dir(295));
+dot("$H$", H, dir(274));
+dot("$M$", M, dir(286));
+dot("$D$", D, dir(-60));
+dot("$T$", T, dir(65));
+dot("$F$", F, dir(271));
+dot("$X$", X, dir(176));
+dot("$Y$", Y, dir(0));
+dot("$K$", K, dir(208));

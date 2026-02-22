@@ -1,0 +1,932 @@
+\documentclass[10pt]{scrartcl}
+
+\usepackage[a4paper, left=1.5cm, right=1.5cm, top=2cm]{geometry}
+
+\usepackage[usenames,dvipsnames,svgnames]{xcolor}
+\usepackage[shortlabels]{enumitem}
+\usepackage[framemethod=TikZ]{mdframed}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[colorlinks]{hyperref}
+\usepackage{microtype}
+\usepackage{mathtools}
+\usepackage[headsepline]{scrlayer-scrpage}
+\usepackage{thmtools}
+\usepackage{listings}
+\usepackage{derivative}
+
+\usepackage[inline]{asymptote}
+\def\asydir{asy}
+
+\usepackage[T2A]{fontenc}   % Cyrillic encoding
+\usepackage[utf8]{inputenc} % UTF-8 input
+\usepackage[russian,english]{babel} % Language support
+
+\usepackage{epigraph}
+\renewcommand{\epigraphsize}{\scriptsize}
+\renewcommand{\epigraphwidth}{60ex}
+
+\addtolength{\textheight}{3.14cm}
+\ihead{\footnotesize\textbf{The Anchor Point Lemma}}
+\ohead{\footnotesize Daniel Alex Mineev}
+\providecommand{\clubs}[1]{$#1\clubsuit$}
+\providecommand{\clubg}[1]{\bgroup\color{green!40!black}[$#1\clubsuit$]\egroup}
+
+\providecommand{\ol}{\overline}
+\providecommand{\eps}{\varepsilon}
+\providecommand{\half}{\frac{1}{2}}
+\providecommand{\dang}{\measuredangle} %% Directed angle
+\providecommand{\CC}{\mathbb C}
+\providecommand{\FF}{\mathbb F}
+\providecommand{\NN}{\mathbb N}
+\providecommand{\QQ}{\mathbb Q}
+\providecommand{\RR}{\mathbb R}
+\providecommand{\ZZ}{\mathbb Z}
+\providecommand{\dg}{^\circ}
+\providecommand{\ii}{\item}
+\providecommand{\alert}{\textbf}
+\providecommand{\opname}{\operatorname}
+\providecommand{\ts}{\textsuperscript}
+\DeclareMathOperator{\sign}{sign}
+% hacks for arc
+\providecommand{\tarc}{\mbox{\large$\frown$}}
+\providecommand{\arc}[1]{\stackrel{\tarc}{#1}}
+\reversemarginpar
+\providecommand{\printpuid}[1]{\marginpar{\href{https://otis.evanchen.cc/arch/#1}{\ttfamily\footnotesize\color{green!40!black}#1}}}
+
+\renewcommand{\qedsymbol}{$\blacksquare$}
+
+%%% Define pastel color palette
+\definecolor{pmBlue}{RGB}{200,220,240}
+\definecolor{pmRed}{RGB}{240,200,200}
+\definecolor{pmGreen}{RGB}{200,240,200}
+\definecolor{pmPurple}{RGB}{230,200,240}
+\definecolor{pmGray}{RGB}{245,245,245}
+\definecolor{pmYellow}{RGB}{252, 252, 213} %{250, 249, 181}
+\definecolor{pmLine}{RGB}{180,180,180}
+\definecolor{pmOrange}{RGB}{255, 235, 200}  % Soft pastel orange
+
+%%% Base style for framed boxes
+\mdfdefinestyle{baseBox}{
+  roundcorner=4pt,
+  linewidth=1pt,
+  linecolor=pmLine,
+  backgroundcolor=pmGray,
+  innerleftmargin=8pt,
+  innerrightmargin=8pt,
+  innertopmargin=6pt,
+  innerbottommargin=6pt,
+  skipabove=10pt,
+  skipbelow=10pt,
+  splittopskip=10pt,
+  splitbottomskip=10pt
+}
+
+%%% Theorem box styles
+\declaretheoremstyle[
+  headfont=\sffamily\bfseries\color{MidnightBlue},
+  headformat=\NAME~\NUMBER,
+  headpunct={},
+  postheadspace=1em,
+  mdframed={style=baseBox,backgroundcolor=pmBlue,linecolor=pmLine,frametitlebackgroundcolor=pmBlue!30},
+  headindent=0pt,
+]{blueTheorem}
+
+\declaretheoremstyle[
+  headfont=\sffamily\bfseries\color{RawSienna},
+  headformat=\NAME~\NUMBER,
+  headpunct={},
+  postheadspace=1em,
+  mdframed={style=baseBox,backgroundcolor=pmRed,linecolor=pmLine,frametitlebackgroundcolor=pmRed!30},
+]{redExample}
+
+\declaretheoremstyle[
+  headfont=\sffamily\bfseries\color{ForestGreen!70!black},
+  headformat=\NAME~\NUMBER,
+  headpunct={},
+  postheadspace=1em,
+  mdframed={style=baseBox,backgroundcolor=pmGreen,linecolor=pmLine,frametitlebackgroundcolor=pmGreen!30},
+]{greenAlgo}
+
+\declaretheoremstyle[
+  headfont=\sffamily\bfseries\color{Purple!80!black},
+  headformat=\NAME~\NUMBER,
+  headpunct={},
+  postheadspace=1em,
+  mdframed={style=baseBox,backgroundcolor=pmPurple,linecolor=pmLine,frametitlebackgroundcolor=pmPurple!30},
+]{purpleDef}
+
+\declaretheoremstyle[
+  headfont=\sffamily\bfseries\color{OrangeRed!80!black},
+  headformat=\NAME~\NUMBER,
+  mdframed={style=baseBox,backgroundcolor=pmOrange,linecolor=pmLine},
+  postheadspace=1em
+]{orangeExercise}
+
+%%% Declare theorem-like environments
+\declaretheorem[style=blueTheorem,numberwithin=section]{theorem}
+\declaretheorem[style=blueTheorem,sibling=theorem]{lemma}
+\declaretheorem[style=blueTheorem,sibling=theorem]{proposition}
+\declaretheorem[style=blueTheorem,sibling=theorem]{corollary}
+
+\declaretheorem[style=redExample,sibling=theorem]{example}
+\declaretheorem[style=greenAlgo,sibling=theorem]{algorithm}
+\declaretheorem[style=purpleDef,sibling=theorem]{definition}
+\declaretheorem[style=redExample,sibling=theorem]{remark}
+
+%%% Add new problem environment
+\declaretheoremstyle[
+  headfont=\sffamily\bfseries\color{Black},
+  headformat=\NAME~\NUMBER\ifstrempty{\NOTE}{}{~\NOTE},
+  headpunct={\newline \newline},
+  postheadspace=2pt,
+  mdframed={style=baseBox,backgroundcolor=pmYellow,linecolor=pmLine,frametitlebackgroundcolor=pmGray!50},
+]{problemStyle}
+\declaretheorem[style=problemStyle,numberwithin=section,name=Problem]{problem}
+
+% Patch mdframed end bug
+\xpatchcmd{\endmdframed}{\aftergroup\endmdf@trivlist\color@endgroup}{\endmdf@trivlist\color@endgroup\@doendpe}{}{}
+
+%%% --------------------------------------------------------------------
+%%% casebash environment + plain \case command (no font or color changes)
+%%% --------------------------------------------------------------------
+\newenvironment{casebash}
+  {\par\medskip}   % vertical space before
+  {\par\medskip}   % vertical space after
+
+\newcommand{\case}[1]{%
+  \par\smallskip
+  \noindent
+  \textcolor{red!80!black}{Case~#1}\quad
+}
+%%% ---- END CASEBASH -----
+
+\newenvironment{walkthrough}{\noindent\textbf{\color{green!40!black}Walkthrough.}}{}
+\newlist{walk}{enumerate}{3}
+\setlist[walk]{label=\bfseries (\alph*)}
+
+\usepackage{hyperref}
+
+\title{The Anchor Point Lemma}
+\author{Daniel Alex Mineev, \href{https://artofproblemsolving.com/community/user/1159306}{RANDOM\_\_USER}}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\section{Theory}
+
+The Anchor Point Lemma is a series of configurations surrounding circles passing through $D$ with well-defined intersections with sides of a triangle.
+\begin{enumerate}
+  \item \textbf{(Anchor Point Lemma)} Given a triangle \(\triangle ABC\), let \(D\) be an arbitrary point on \(BC\), then let \(DE\) and \(DF\) be parallel to \(AC\) and \(AB\) respectively. Let \((AEF)\) intersect \((ABC)\) at \(G\), let \(GD\) intersect \((ABC)\) at \(X\). Prove, that if \(M\) is the midpoint of \(AC\), then \(A, X\) and \(M\) are colinear.
+  \item \textbf{(Generalized Anchor Point Lemma)} Let \(D\) be an arbitrary point on \(BC\) in \(\triangle{ABC}\). Let there be two fixed directions \(l_1\) and \(l_2\). Let \(E\) and \(F\) be the intersection of two lines through \(D\) parallel to \(l_1\) and \(l_2\) with \(AB\) and \(AC\). Let \(G\) be the intersection of \((AFE)\) and \((ABC)\). Prove that \(DG\) passes through a constant point $X$ on \((ABC)\).
+
+  Also prove that the circles \((AFE)\) are all coaxial and the second constant point is the intersection of the circle with the line isogonal to \(AX\) in \(\angle{CAB}\) with \((AFE)\).
+
+  \begin{remark}
+    The circle $(AGD)$ passes through a fixed point $K$ on $BC$ such that $AK$ is isogonal to $AX$. If $P = CE \cap BF$ then the line $DP$ passes through a fixed point.
+  \end{remark}
+
+  \item \textbf{(Advanced Anchor Point Lemma)} Let \(P\) be an arbitrary fixed point and \(X\) an abitrary fixed point on \((ABC)\). Let \(D\) be an abritrary point on \(BC\). Let \(PD\) intersect \(AC\)at \(E\). Let \(XD\) intersect \((ABC)\) at \(G\). Let \((AEG)\) intersect \(AB\) a second time at \(F\). Prove that the line \(DF\) passes through a constant point \(Q\) as \(D\) moves on \(BC\), and that \((AEF)\) passes through a fixed point \(W\).
+
+    \begin{remark}
+      Similarly the to the previous lemma if $P = CE \cap BF$ then the line $DP$ passes through a fixed point.
+    \end{remark}
+\end{enumerate}
+
+\textit{Note:} More details about this method can be found at $\href{https://mrmineev.com/articles/anchor-point/main.html}{https://mrmineev.com/articles/anchor-point/main.html}$
+
+\section{More Advanced Theory}
+
+Let $\text{Anchor}^{ABC}_{P}(E)$ be the Anchor Point conjugate of point $P$ where $E$ is the parameter. Notice,
+\begin{enumerate}
+    \item $\text{Anchor}_{E}^{\triangle{ABC}}(AC)$ is a line which passes through $C$ and the intersection of $AE$ with the line through $B$ parallel to $AC$.
+    \item $\text{Anchor}_{E}^{\triangle{ABC}}(AB)$ is a line which passes through $B$ and the intersection of $AE$ with the line through $B$ parallel to $AC$.
+    \item $\text{Anchor}_{(ABC)}^{\triangle{ABC}}(P)$ is a line parallel to $AC$ which passes through the intersection of the line through $P$ parallel to $AB$ with $BC$.
+    \item Let $\cal{L}$ be an arbitrary line in the plane then $\text{Anchor}_{E}^{\triangle{ABC}}(\cal{L})$ is a line which passes through $\cal{L} \cap \textit{BC}$.
+\end{enumerate}
+In addition to these properties the cross-ratio is preserved.
+
+\section{Problems}
+
+\begin{enumerate}
+  \item \textbf{(The Shooting Lemma)} Consider the chord \(BC\) in the circle \(\Omega\). Let the circle \(\omega\) touch \(BC\) at a point \(D\) and the circle \(\Omega\) at a point \(E\). Prove that the line \(DE\) passes through \(M\), the middle of the larger arc \(\arc{BC}\).
+  \item \textbf{(Sharky-Devil Config)} Let \((I)\) be the incircle of \(\triangle{ABC}\), let \(D, E, F\) be the tangency points of \((I)\) with \(BC, AB\) and \(AC\), respectively. Let \(G\) be the second intersection of \((AFE)\) with \((ABC)\). Let \(S\) be the midpoint of the arc \(BC\). Prove that \(S, D\) and \(G\) are colinear.
+  \item \href{https://artofproblemsolving.com/community/c6h224628p1247506}{(USA TST 2008 P7)} Let $ ABC$ be a triangle with $ G$ as its centroid. Let $ P$ be a variable point on segment $ BC$. Points $ Q$ and $ R$ lie on sides $ AC$ and $ AB$ respectively, such that $ PQ \parallel AB$ and $ PR \parallel AC$. Prove that, as $ P$ varies along segment $ BC$, the circumcircle of triangle $ AQR$ passes through a fixed point $ X$ such that $ \angle BAG = \angle CAX$.
+  \item \href{https://artofproblemsolving.com/community/c6h550606p3195787}{(USA TST 2012 P1)} In acute triangle $ABC$, $\angle{A}<\angle{B}$ and $\angle{A}<\angle{C}$. Let $P$ be a variable point on side $BC$. Points $D$ and $E$ lie on sides $AB$ and $AC$, respectively, such that $BP=PD$ and $CP=PE$. Prove that as $P$ moves along side $BC$, the circumcircle of triangle $ADE$ passes through a fixed point other than $A$.
+  \item \href{https://artofproblemsolving.com/community/c6h545085p3151962}{(ELMO 2013 Shortlist G3)} Given $\triangle ABC$, a point $D$ lies on line $BC$. The circumcircle of $ABD$ meets $AC$ at $F$ (other than $A$), and the circumcircle of $ADC$ meets $AB$ at $E$ (other than $A$). Prove that as $D$ varies, the circumcircle of $AEF$ always passes through a fixed point other than $A$, and that this point lies on the median from $A$ to $BC$.
+  \item \href{https://artofproblemsolving.com/community/c6h472952p2648114}{(APMO 2012 P4)} Let $ ABC $ be an acute triangle. Denote by $ D $ the foot of the perpendicular line drawn from the point $ A $ to the side $ BC $, by $M$ the midpoint of $ BC $, and by $ H $ the orthocenter of $ ABC $. Let $ E $ be the point of intersection of the circumcircle $ \Gamma $ of the triangle $ ABC $ and the half line $ MH $, and $ F $ be the point of intersection (other than $E$) of the line $ ED $ and the circle $ \Gamma $. Prove that $ \tfrac{BF}{CF} = \tfrac{AB}{AC} $ must hold.
+  \item \textbf{(based on Moscow Mathematical Olympiad 2015)} Let $\triangle{ABC}$ be an isoseles triangle. Let $P$ and $Q$ be points on sides $AB$ and $AC$, respectively, such that $BP = AQ$. Let $X$ be a point on $BC$ such that $PX = PB$ and $T$ be the second intersection of $(APQ)$ with $(ABC)$. Prove that $\angle{ATX} = 90$.
+  \item \href{https://artofproblemsolving.com/community/c6h1480699p8639270}{(IMO Shortlist 2016 G2)} Let $ABC$ be a triangle with circumcircle $\Gamma$ and incenter $I$ and let $M$ be the midpoint of $\overline{BC}$. The points $D$, $E$, $F$ are selected on sides $\overline{BC}$, $\overline{CA}$, $\overline{AB}$ such that $\overline{ID} \perp \overline{BC}$, $\overline{IE}\perp \overline{AI}$, and $\overline{IF}\perp \overline{AI}$. Suppose that the circumcircle of $\triangle AEF$ intersects $\Gamma$ at a point $X$ other than $A$. Prove that lines $XD$ and $AM$ meet on $\Gamma$.
+  \item \href{https://artofproblemsolving.com/community/c6h1874807p12732428}{(BMO Shortlist 2017 G5)} Let $ABC$ be an acute angled triangle with orthocenter $H$. centroid $G$ and circumcircle $\omega$. Let $D$ and $M$ respectively be the intersection of lines $AH$ and $AG$ with side $BC$. Rays $MH$ and $DG$ interect $ \omega$ again at $P$ and $Q$ respectively. Prove that $PD$ and $QM$ intersect on $\omega$.
+    \item \textbf{(APMO 2022 P2)} Let $ABC$ be a right triangle with $\angle B=90^{\circ}$. Point $D$ lies on the line $CB$ such that $B$ is between $D$ and $C$. Let $E$ be the midpoint of $AD$ and let $F$ be the seconf intersection point of the circumcircle of $\triangle ACD$ and the circumcircle of $\triangle BDE$. Prove that as $D$ varies, the line $EF$ passes through a fixed point.
+    % \item \href{https://aops.com/community/p12760836}{(India TST 2019/8)} Let $ABC$ be an acute-angled scalene triangle with circumcircle $\Gamma$ and circumcenter $O$. Suppose $AB < AC$. Let $H$ be the orthocenter and $I$ be the incenter of triangle $ABC$. Let $F$ be the midpoint of the arc $BC$ of the circumcircle of triangle $BHC$, containing $H$.
+
+Let $X$ be a point on the arc $AB$ of $\Gamma$ not containing $C$, such that $\angle AXH = \angle AFH$. Let $K$ be the circumcenter of triangle $XIA$. Prove that the lines $AO$ and $KI$ meet on $\Gamma$.
+\item \href{https://artofproblemsolving.com/community/c6h89098p519896}{(IMO Shortlist 2005 G5)} Let $\triangle ABC$ be an acute-angled triangle with $AB \not= AC$. Let $H$ be the orthocenter of triangle $ABC$, and let $M$ be the midpoint of the side $BC$. Let $D$ be a point on the side $AB$ and $E$ a point on the side $AC$ such that $AE=AD$ and the points $D$, $H$, $E$ are on the same line. Prove that the line $HM$ is perpendicular to the common chord of the circumscribed circles of triangle $\triangle ABC$ and triangle $\triangle ADE$.
+    \item \href{https://artofproblemsolving.com/community/u1159306h3701006p36276200}{(by @SBYT)} Given a triangle $\bigtriangleup ABC$ with an incenter $I$, let $D$ be a point on segment $BC$. Let the perpendicular line from $D$ to $CI$ meet $BI$ at $E$ and the perpendicular line from $D$ to $BI$ meet $CI$ at $F$. Let the perpendicular line from $D$ to $BC$ meet $EF$ at $G$. Prove that the circles $(ABC)$ and the circle centered at $G$ with radius $GD$ are tangent.
+\end{enumerate}
+
+\section{Some of my Own}
+
+\begin{enumerate}
+  \item \href{https://artofproblemsolving.com/community/u1159306h3606729p35292972}{(AoPS)} Let \( D \) be an arbitrary point on the side \( BC \) of triangle \( \triangle ABC \). Let \( E \) and \( F \) be the intersections of the lines through \( D \), parallel to \( AC \) and \( AB \), with \( AB \) and \( AC \), respectively. Let \( G \) be the intersection point of the circumcircle of triangle \( AFE \) with the circumcircle of triangle \( ABC \). Let \( M \) be the midpoint of \( BC \), and let \( X \) be the second intersection point of line \( AM \) with the circumcircle of triangle \( ABC \). Prove that lines \( EF \), \( AD \), and the tangent to the circumcircle of triangle \( XMG \) at point \( M \) are concurrent.
+  \item \href{https://artofproblemsolving.com/community/u1159306h3608123p35309903}{(AoPS)} Let \(D\) be an arbitrary point on the side \(BC\) in a triangle \(\triangle{ABC}\). Let \(E\) and \(F\) be the intersection of the lines parallel to \(AC\) and \(AB\) through \(D\) with \(AB\) and \(AC\). Let \(G\) be the intersection of \((AFE)\) with \((ABC)\). Let \(M\) be the midpoint of \(BC\) and \(X\) the intersection of \(AM\) with \((ABC)\). Let \(H\) be the intersection of \((XMG)\) with \(BC\). Prove that \(EF\) is parallel to \(AH\).
+  \item \href{https://artofproblemsolving.com/community/u1159306h3608869p35319880}{(AoPS)} Let \(D\) be an arbitrary point on the side \(BC\) in a triangle \(\triangle{ABC}\). Let \(E\) and \(F\) be the intersection of the lines parallel to \(AC\) and \(AB\) through \(D\) with \(AB\) and \(AC\). Let \(G\) be the intersection of \((AFE)\) with \((ABC)\). Let \(M\) be the midpoint of \(BC\) and \(X\) the intersection of \(AM\) with \((ABC)\). Let \(J\) be the intersection of \((XFG)\) with \(AC\). Prove that \(XB\), \(AD\) and \(JM\) are concurrent at \(P\).
+
+\end{enumerate}
+
+\section{A bit more theory...}
+
+The Anchor Point Conjugate Theorem can be reformulated as,
+\begin{theorem}
+  Fix a point \(F \in (ABC)\) and an arbitrary point \(D\) in the plane. Let \(\omega\) be a circle passing through \(A\) and \(D\). Let \(X\) and \(Y\) be the second intersection points of \(\omega\) with \(AC\) and \(AB\), respectively. Let \(Q\) be the second intersection of \(\omega\) with the circumcircle \((ABC)\), and define
+\[
+P = FQ \cap BC.
+\]Then, as \(\omega\) varies, the lines \(PX\) and \(PY\) each pass through a fixed point.
+\end{theorem}
+Let these two points be called the \textit{Evil Anchor Point} conjugates of $D$ in $\triangle{ABC}$ with respect to $F$, which will be denoted as $\text{Evil}^{\triangle{ABC}}_{F, W}(D)$ were $W$ is either $B$ or $C$ depending on whether it is the point which lies on $PX$ or $PY$.
+
+\begin{center}
+  \begin{asy}
+    pair A = (4.29046,2.03982);
+    pair B = (5.02836,0.44417);
+    pair C = (2.64199,0.45348);
+    pair D = (3.62767,0.67406);
+    pair F = (3.26640,-0.26479);
+    pair A_B = (3.08556,1.54488);
+    pair A_C = (2.28445,-0.25798);
+    pair B_A = (3.84273,0.55590);
+    pair B_C = (2.92548,0.18682);
+    pair C_A = (3.32755,0.83896);
+    pair C_B = (4.02316,0.03877);
+
+    import graph;
+    size(9.71355cm);
+    pen zzttqq = rgb(0.6,0.2,0.);
+    pen ffqqff = rgb(1.,0.,1.);
+    draw(A--B--C--cycle, linewidth(0.6) + zzttqq);
+    draw(A--B, linewidth(0.6) + zzttqq);
+    draw(B--C, linewidth(0.6) + zzttqq);
+    draw(C--A, linewidth(0.6) + zzttqq);
+    draw(circle((3.83678,0.86158), 1.26256), linewidth(0.6));
+    draw(D--A_C, linewidth(0.6) + ffqqff);
+    draw(C_B--A_B, linewidth(0.6) + ffqqff);
+    draw(C_A--B_A, linewidth(0.6) + ffqqff);
+
+    dot("$A$", A, dir(122));
+    dot("$B$", B, dir(280));
+    dot("$C$", C, dir(231));
+    dot("$D$", D, dir(69));
+    dot("$F$", F, dir(234));
+    dot("$A_B$", A_B, dir(129), red);
+    dot("$A_C$", A_C, dir(229), red);
+    dot("$B_A$", B_A, dir(48), blue);
+    dot("$B_C$", B_C, dir(278), blue);
+    dot("$C_A$", C_A, dir(203), green);
+    dot("$C_B$", C_B, dir(278), green);
+  \end{asy}
+\end{center}
+\normalcolor
+
+\begin{enumerate}
+  \item \textbf{(Evil Characterization)} Let $(ABD)$ meet lines $AC$ and $AF$ at $X$ and $Y$, respectively, then $\text{Evil}^{\triangle{ABC}}_{F, B}(D) = BX \cap DY$.
+  \item (\href{https://artofproblemsolving.com/community/c6t48f6h3745146_evil_anchor_point_conjugates}{AoPS}) Prove that,
+\[
+    \begin{cases}
+      D \in \text{Evil}^{\triangle{ABC}}_{F, B}(D) \text{Evil}^{\triangle{CBA}}_{F, B}(D) \\
+      D \in \text{Evil}^{\triangle{BAC}}_{F,A}(D) \text{Evil}^{\triangle{CAB}}_{F,A}(D) \\
+    D \in \text{Evil}^{\triangle{ABC}}_{F,C}(D) \text{Evil}^{\triangle{BAC}}_{F,C}(D)
+    \end{cases}
+  \]
+\end{enumerate}
+
+\section{Extra (Unsolved)}
+
+\begin{enumerate}
+    % \item \textbf{(ELMO 2019 Shortlist G4)} Let triangle $ABC$ have altitudes $BE$ and $CF$ which meet at $H$. The reflection of $A$ over $BC$ is $A'$. Let $(ABC)$ meet $(AA'E)$ at $P$ and $(AA'F)$ at $Q$. Let $BC$ meet $PQ$ at $R$. Prove that $EF \parallel HR$.
+  \item \textbf{(USEMO 2025 P2)} Let $ABC$ be a fixed triangle with circumcircle $\omega$. Consider $P$ a variable point inside $ABC$. Ray $BP$ meets side $AC$ at $Y$ while ray $CP$ meets side $AB$ at $X$. Let $Q$ be the second intersection of $\omega$ and the circumcircle of triangle $AXY$. Let $K$ be the second interesction of ray $AP$ and $\omega$.
+
+Prove that as $P$ varies, the circumcircles of triangle $QPK$ all have a common radical center.
+  
+  % \item \textbf{(China TST 2018 P3)} In isosceles $\triangle ABC$, $AB=AC$, points $D,E,F$ lie on segments $BC,AC,AB$ such that $DE\parallel AB$, $DF\parallel AC$. The circumcircle of $\triangle ABC$ $\omega_1$ and the circumcircle of $\triangle AEF$ $\omega_2$ intersect at $A,G$. Let $DE$ meet $\omega_2$ at $K\neq E$. Points $L,M$ lie on $\omega_1,\omega_2$ respectively such that $LG\perp KG, MG\perp CG$. Let $P,Q$ be the circumcenters of $\triangle DGL$ and $\triangle DGM$ respectively. Prove that $A,G,P,Q$ are concyclic.
+\end{enumerate}
+
+\newpage
+
+\section{Proposed Solutions to Some Problems}
+
+\begin{problem}[Sharky-Devil Configuration]
+  Let \((I)\) be the incircle of \(\triangle{ABC}\), let \(D, E, F\) be the tangency points of \((I)\) with \(BC, AB\) and \(AC\), respectively. Let \(G\) be the second intersection of \((AFE)\) with \((ABC)\). Let \(S\) be the midpoint of the arc \(BC\). Prove that \(S, D\) and \(G\) are colinear.
+\end{problem}
+
+\begin{center}
+  \begin{asy}
+pair A = (3.46564,4.17696);
+pair B = (5.,0.);
+pair C = (0.,0.);
+pair I = (2.98881,1.40379);
+pair E = (4.30652,1.88784);
+pair F = (1.90846,2.30017);
+pair G = (4.26084,3.74489);
+pair D = (2.98881,0.);
+pair S = (2.5,-1.43909);
+pair M = (2.5,0.);
+pair W = (2.5,4.34300);
+pair X = (4.13797,2.34668);
+pair Y = (1.59633,1.92398);
+
+import graph;
+size(8cm);
+
+pen zzttqq = rgb(0.6,0.2,0.);
+pen xfqqff = rgb(0.49803,0.,1.);
+pen dcrutc = rgb(0.86274,0.07843,0.23529);
+
+pen lightgreen = rgb(247, 255, 247);
+pen lightpurple = rgb(245, 234, 252);
+pen lightblue = rgb(234, 237, 255);
+pen lightred = rgb(255, 234, 242);
+pen lightpink = rgb(255, 234, 255);
+
+
+draw(A--B--C--cycle, linewidth(0.6) + zzttqq);
+
+filldraw(circle((2.5,1.45195), 2.89105), lightgreen, linewidth(0.6) + green);
+filldraw(circle((2.74440,2.87340), 1.48978), lightred, linewidth(0.6) + dcrutc);
+filldraw(circle((3.22723,2.79038), 1.40693), lightpurple, linewidth(0.6) + xfqqff);
+draw(circle((2.5,1.45195), 2.89105), linewidth(0.6) + green);
+draw(circle((2.74440,2.87340), 1.48978), linewidth(0.6) + dcrutc);
+
+draw(A--B, linewidth(0.6) + zzttqq);
+draw(B--C, linewidth(0.6) + zzttqq);
+draw(C--A, linewidth(0.6) + zzttqq);
+draw(circle(I, 1.40379), linewidth(0.6) + blue);
+draw(S--G, linewidth(0.6));
+draw(D--F, linewidth(0.6));
+draw(D--E, linewidth(0.6));
+draw(S--W, linewidth(0.6));
+draw(M--X, linewidth(0.6));
+draw(M--Y, linewidth(0.6));
+
+
+dot("$A$", A, dir(88));
+dot("$B$", B, dir(287));
+dot("$C$", C, dir(217));
+dot("$I$", I, dir(249));
+dot("$E$", E, dir(316));
+dot("$F$", F, dir(182));
+dot("$G$", G, dir(65));
+dot("$D$", D, dir(276));
+dot("$S$", S, dir(254));
+dot("$M$", M, dir(215));
+dot("$W$", W, dir(150));
+dot("$X$", X, dir(327));
+dot("$Y$", Y, dir(192));
+  \end{asy}
+\end{center}
+
+\begin{proof}
+  Let us introduce \(M\) the midpoint of \(BC\) and \(W\) the midpoint of the larger arc \(BC\). Then, let \(X\) and \(Y\) be the intersections of the lines through \(M\) parallel to \(DE\) and \(DF\) with \(AB\) and \(AC\), respectively. By the Generalized Anchor Point Lemma all that is left to prove is that \(AWXY\) is cyclic.
+
+  Notice, since,
+  \[\measuredangle WXY = \measuredangle WAC\]
+  \[\measuredangle XYW = \measuredangle XAW\]
+  which implies that \(\angle{WAC} = 180 - \angle{BAW}\), however this is only true for \(W\) being the midpoint of the larger arrc \(BC\). Thus \(WAXY\) is cyclic which proves one of the properties of the Sharky-Devil point. (Amusingly \(I\) lies on this circle as well due to \(I \in (AFE)\) and \(I\) lying on the angle bisector of \(\angle{CAB}\)).
+\end{proof}
+
+\newpage
+
+\begin{problem}[USA TST 2012 P1]
+  In acute triangle $ABC$, $\angle{A}<\angle{B}$ and $\angle{A}<\angle{C}$. Let $P$ be a variable point on side $BC$. Points $D$ and $E$ lie on sides $AB$ and $AC$, respectively, such that $BP=PD$ and $CP=PE$. Prove that as $P$ moves along side $BC$, the circumcircle of triangle $ADE$ passes through a fixed point other than $A$.
+\end{problem}
+\begin{center}
+  \begin{asy}
+pair A = (3.88338,4.25899);
+pair C = (0.,0.);
+pair B = (5.49721,-0.08825);
+pair P = (3.10681,-0.04987);
+pair D = (4.89312,1.53901);
+pair E = (2.77111,3.03915);
+
+import graph;
+size(8.48494cm);
+pen zzttqq = rgb(0.6,0.2,0.);
+pen qqwuqq = rgb(0.,0.39215,0.);
+
+pen xfqqff = rgb(0.49803,0.,1.);
+
+pen lightgreen = rgb(247, 255, 247);
+pen lightpurple = rgb(245, 234, 252);
+pen lightblue = rgb(234, 237, 255);
+pen lightred = rgb(255, 234, 242);
+pen lightpink = rgb(255, 234, 255);
+
+filldraw(circle((2.77135,1.37300), 3.09282), lightgreen, linewidth(0.6)+green);
+filldraw(circle((4.21884,2.83611), 1.46189), lightpurple, linewidth(0.6)+xfqqff);
+draw(circle((2.77135,1.37300), 3.09282), linewidth(0.6)+green);
+
+draw(A--B--C--cycle, linewidth(0.6) + zzttqq);
+draw(A--B, linewidth(0.6) + zzttqq);
+draw(B--C, linewidth(0.6) + zzttqq);
+draw(C--A, linewidth(0.6) + zzttqq);
+
+draw(C--P, linewidth(0.6) + blue);
+draw((1.55414,0.02063)--(1.55267,-0.07051), linewidth(0.6) + blue);
+draw(P--E, linewidth(0.6) + blue);
+draw((2.89365,1.48971)--(2.98427,1.49956), linewidth(0.6) + blue);
+draw(P--D, linewidth(0.6) + qqwuqq);
+draw((3.95549,0.76600)--(4.01607,0.69789), linewidth(0.6) + qqwuqq);
+draw((3.98386,0.79124)--(4.04445,0.72313), linewidth(0.6) + qqwuqq);
+draw(P--B, linewidth(0.6) + qqwuqq);
+draw((4.28375,-0.02319)--(4.28229,-0.11433), linewidth(0.6) + qqwuqq);
+draw((4.32173,-0.02380)--(4.32027,-0.11494), linewidth(0.6) + qqwuqq);
+
+
+dot("$A$", A, dir(70));
+dot("$C$", C, dir(210));
+dot("$B$", B, dir(297));
+dot("$P$", P, dir(275));
+dot("$D$", D, dir(309));
+dot("$E$", E, dir(178));
+  \end{asy}
+\end{center}
+\begin{proof}
+  Since as we move \(P\) the lines \(EP\) and \(PD\) are parallel to two fixed directions, thus by the Generalized Anchor Point Lemma it must be that \((AED)\) passes through a fixed point.
+\end{proof}
+
+\newpage
+
+\begin{problem}[ELMO 2013 Shortlist G3]
+  n $\triangle ABC$, a point $D$ lies on line $BC$. The circumcircle of $ABD$ meets $AC$ at $F$ (other than $A$), and the circumcircle of $ADC$ meets $AB$ at $E$ (other than $A$). Prove that as $D$ varies, the circumcircle of $AEF$ always passes through a fixed point other than $A$, and that this point lies on the median from $A$ to $BC$.
+\end{problem}
+\begin{center}
+  \begin{asy}
+pair A = (4.11001,4.40276);
+pair C = (-0.00759,-0.01519);
+pair B = (5.39307,-0.06971);
+pair D = (4.06500,-0.05630);
+pair E = (4.96795,1.41218);
+pair F = (2.47574,2.64928);
+pair Q = (5.70239,2.56419);
+pair S = (3.13737,-1.54089);
+pair X = (4.05275,-1.26927);
+pair T = (8.00644,-0.09609);
+
+import graph;
+size(12.92041cm);
+pen zzttqq = rgb(0.6,0.2,0.);
+pen xfqqff = rgb(0.49803,0.,1.);
+pen dcrutc = rgb(0.86274,0.07843,0.23529);
+
+pen lightgreen = rgb(247, 255, 247);
+pen lightpurple = rgb(245, 234, 252);
+pen lightblue = rgb(234, 237, 255);
+pen lightred = rgb(255, 234, 242);
+pen lightpink = rgb(255, 234, 255);
+
+
+draw(A--B, linewidth(0.6) + zzttqq);
+draw(B--C, linewidth(0.6) + zzttqq);
+draw(C--A, linewidth(0.6) + zzttqq);
+
+filldraw(circle((4.75154,2.16652), 2.32643), lightpink, linewidth(0.6));
+filldraw(circle((2.05121,2.19378), 3.01964), lightpink, linewidth(0.6));
+
+filldraw(circle((2.70912,1.58059), 3.15073), lightgreen, linewidth(0.6)+green);
+
+filldraw(circle((4.09363,2.77971), 1.62313), lightpurple, linewidth(0.6)+xfqqff);
+
+draw(circle((4.75154,2.16652), 2.32643), linewidth(0.6)+dcrutc);
+draw(circle((2.05121,2.19378), 3.01964), linewidth(0.6)+dcrutc);
+
+draw(circle((2.70912,1.58059), 3.15073), linewidth(0.6)+green);
+
+
+draw(A--B--C--cycle, linewidth(0.6) + zzttqq);
+
+draw(A--D, linewidth(0.6));
+draw(D--F, linewidth(0.6));
+draw(D--E, linewidth(0.6));
+draw(Q--S, linewidth(0.6));
+draw(A--S, linewidth(0.6));
+draw(A--X, linewidth(0.6));
+draw(T--A, linewidth(0.6));
+draw(T--S, linewidth(0.6));
+draw(B--T, linewidth(0.6));
+
+dot("$A$", A, dir(90));
+dot("$C$", C, dir(210));
+dot("$B$", B, dir(298));
+dot("$D$", D, dir(276));
+dot("$E$", E, dir(308));
+dot("$F$", F, dir(162));
+dot("$Q$", Q, dir(61));
+dot("$S$", S, dir(265));
+dot("$X$", X, dir(289));
+dot("$T$", T, dir(62));
+  \end{asy}
+\end{center}
+\begin{proof}
+  Notice, \(FD\) and \(DE\) point in constant directions, since \(\angle{CDF} = \angle{A} = \angle{EDB}\). Thus, by the Generalized Anchor Point Lemma all we need to do is show for one position of \(D\) that \((AFE)\) passes through some fixed point on the median. Let us fix \(D\) to be the foot of the altitude from \(A\) to \(BC\). Let \(S\) be the intersection of the symmedian from \(A\) with \((ABC)\), then, (it is well known, however the proof is outlined below)
+  \begin{lemma}
+    \(S, D, Q\) are colinear.
+  \end{lemma}
+  indeed, since \(ABSC\) is harmonic, by projecting from \(T\) it must be that \(QBCX\) is harmonic, consequently projecting from \(D\) we obtain that \(Q\) goes to a point \(W\) on \((ABC)\) such that \(ABCW\) is harmonic, thus \(W = S\), thus \(Q, D, S\) are colinear. \(\square\)
+
+  Now, by the Generalized Anchor Point Lemma since \(S, D, Q\) are colinear, it must be that \((AEF)\) passes through a fixed point lying on the isogonal line to \(AS\) in \(\angle{CAB}\) which is the median.
+\end{proof}
+
+\newpage
+
+\begin{problem}[IMO Shortlist 2016 G2]
+  Let $ABC$ be a triangle with circumcircle $\Gamma$ and incenter $I$ and let $M$ be the midpoint of $\overline{BC}$. The points $D$, $E$, $F$ are selected on sides $\overline{BC}$, $\overline{CA}$, $\overline{AB}$ such that $\overline{ID} \perp \overline{BC}$, $\overline{IE}\perp \overline{AI}$, and $\overline{IF}\perp \overline{AI}$. Suppose that the circumcircle of $\triangle AEF$ intersects $\Gamma$ at a point $X$ other than $A$. Prove that lines $XD$ and $AM$ meet on $\Gamma$.
+\end{problem}
+
+\begin{center}
+  \begin{asy}
+    /*
+Converted from GeoGebra by User:Azjps using Evan's magic cleaner
+https://github.com/vEnhance/dotfiles/blob/main/py-scripts/export-ggb-clean-asy.py
+*/
+pair C = (-0.19322,0.);
+pair A = (3.73820,3.56260);
+pair B = (5.,0.);
+pair I = (3.16640,1.29578);
+pair M = (2.40338,0.);
+pair D = (3.16640,0.);
+pair E = (1.65689,1.67654);
+pair F = (4.67592,0.91501);
+pair K = (1.78158,-1.65957);
+pair X = (4.99237,2.18824);
+pair P = (2.35012,2.30474);
+pair Q = (4.55449,1.25786);
+pair L = (0.88432,-1.28393);
+pair R = (1.64036,0.);
+pair G = (3.45230,1.78130);
+
+import graph;
+size(10cm);
+
+draw(A--B--C--cycle, linewidth(0.6));
+draw((3.16640,0.12390)--(3.04250,0.12390)--(3.04250,0.)--D--cycle, linewidth(0.6));
+draw((3.19671,1.41592)--(3.07657,1.44623)--(3.04626,1.32608)--I--cycle, linewidth(0.6));
+draw(circle((2.40338,1.08508), 2.81421), linewidth(0.6));
+draw(A--B, linewidth(0.6));
+draw(B--C, linewidth(0.6));
+draw(C--A, linewidth(0.6));
+draw(E--F, linewidth(0.6));
+draw(circle((3.32552,1.92658), 1.68726), linewidth(0.6));
+draw(I--D, linewidth(0.6));
+draw(A--I, linewidth(0.6));
+draw(K--A, linewidth(0.6));
+draw(K--X, linewidth(0.6) + linetype("4 4"));
+draw(P--D, linewidth(0.6));
+draw(D--Q, linewidth(0.6));
+draw(L--X, linewidth(0.6));
+draw(A--L, linewidth(0.6));
+draw(D--A, linewidth(0.6));
+draw(M--G, linewidth(0.6));  /* locus construction */
+
+draw(Q--P, linewidth(0.6));
+
+dot("$C$", C, dir(221));
+dot("$A$", A, dir(85));
+dot("$B$", B, dir(295));
+dot("$I$", I, dir(222));
+dot("$M$", M, dir(-60));
+dot("$D$", D, dir(265));
+dot("$E$", E, dir(187));
+dot("$F$", F, dir(0));
+dot("$K$", K, dir(238));
+dot("$X$", X, dir(62));
+dot("$P$", P, dir(160));
+dot("$Q$", Q, dir(60));
+dot("$L$", L, dir(230));
+dot("$R$", R, dir(140));
+dot("$G$", G, dir(36));
+  \end{asy}
+\end{center}
+\begin{proof}
+  Let $K = AM \cap (ABC)$. Let $P$ and $Q$ be the intersections of parallel lines through $D$ with respect to $AB$ and $AC$ with $AC$ and $AB$, respectively.
+
+  Let $L = MX \cap (ABC)$, $R = AL \cap BC$ and $G = PQ \cap AD$. From the Anchor Point lemma we know that $GM \parallel AL$, however it is a well known lemma that $M, I$ and $G$ are collinear. Thus we see that $MI \parallel AR$ and the reflection of $D$ over $I$ lies on $AR$, consequntly it must be that $M$ is the midpoint of $RD$.
+
+  Concluding by Butterly theorem we see that $K, D$ and $X$ are collinear.
+\end{proof}
+
+\newpage
+
+\begin{problem}[SBYT]
+  Given a triangle $\bigtriangleup ABC$ with an incenter $I$, let $D$ be a point on segment $BC$. Let the perpendicular line from $D$ to $CI$ meet $BI$ at $E$ and the perpendicular line from $D$ to $BI$ meet $CI$ at $F$. Let the perpendicular line from $D$ to $BC$ meet $EF$ at $G$. Prove that the circles $(ABC)$ and the circle centered at $G$ with radius $GD$ are tangent.
+\end{problem}
+
+\begin{center}
+\begin{asy}
+pair A = (3.72673,5.39722);
+pair B = (5.,0.);
+pair C = (0.,0.);
+pair D = (1.32643,0.);
+pair I = (3.00673,1.57774);
+pair E = (-1.28334,4.97351);
+pair F = (2.26876,1.19050);
+pair P = (0.75368,1.09151);
+pair Q = (4.15651,3.57541);
+pair G = (1.32643,2.19409);
+pair T = (-0.86430,2.07288);
+pair W = (2.5,-1.11042);
+pair O = (2.5,2.25902);
+
+import graph;
+size(10cm);
+
+draw(A--B--C--cycle, linewidth(0.6));
+draw(A--B, linewidth(0.6));
+draw(B--C, linewidth(0.6));
+draw(C--A, linewidth(0.6));
+draw(circle(O, 3.36944), linewidth(0.6));
+draw(C--F, linewidth(0.6));
+draw(B--E, linewidth(0.6));
+draw(D--E, linewidth(0.6));
+draw(D--F, linewidth(0.6));
+draw(F--Q, linewidth(0.6));
+draw(D--G, linewidth(0.6));
+draw(E--F, linewidth(0.6));
+draw(circle((1.33286,3.87088), 2.83907), linewidth(0.6));
+draw(T--W, linewidth(0.6));
+draw(A--W, linewidth(0.6));
+draw(I--F, linewidth(0.6));
+draw(T--G, linewidth(0.6));
+draw(G--O, linewidth(0.6));
+
+dot("$A$", A, dir(65));
+dot("$B$", B, dir(289));
+dot("$C$", C, dir(224));
+dot("$D$", D, dir(241));
+dot("$I$", I, dir(277));
+dot("$E$", E, dir(152));
+dot("$F$", F, dir(280));
+dot("$P$", P, dir(97));
+dot("$Q$", Q, dir(16));
+dot("$G$", G, dir(64));
+dot("$T$", T, dir(206));
+dot("$W$", W, dir(258));
+dot("$O$", O, dir(62));
+\end{asy}
+\end{center}
+
+\begin{proof}
+Let $P = DE \cap AC$, $Q = DF \cap AB$ and $T = DW \cap (ABC)$, then notice that,
+
+\begin{lemma}
+  $AEQFPI$ is cyclic
+\end{lemma}
+
+Indeed, since $P$ and $Q$ are the reflections of $D$ over $CI$ and $BI$ we know that,
+\[
+    \angle{FPD} = \angle{FDP} = \angle{EQF}
+  \]and,
+\[
+    \angle{PFD} = \frac{180 - 2\angle{QDP}}{2} = \angle{A}
+  \]consequently $APQEF$ is cyclic. By the Anchor Point Lemma we know that since as $D$ moves $PD$ and $QD$ have constant directions and when $D$ is the projection of $I$ onto $BC$ by Sharky-Devil we know that $TD$ passes through $W$ the midpoint of the arc $BC$. Thus $TD$ always passes through $W$, but Anchor Point then tells us that the circle passes through a constant point lying on the isogonal conjugate of $AW$ in $\angle{CAB}$ which implies that since $I$ lies on the circle when $D$ is the projection that $I$ always lies on the circle. $\square$
+
+Thus, since $TD$ passes through $W$ all we have to show to prove that $(GD)$ is tangent to $(ABC)$ is that $T, G, O$ are collinear, where $O$ is the circumcenter of $\triangle{ABC}$.
+
+If $D$ moves with degree $1$ on $BC$ then $T$ moves with degree $2$, similarly points $F$ and $E$ move with degree $1$. Thus, the line $EF$ moves with degree $2$ and the line $l$ (perpendicular from $D$ to $BC$) moves with degree $1$. Thus, $G$ moves with degree $3$. Thus, to show that $T, G, O$ are collinear it sufficies to consider $2 + 3 + 1 = 6$ cases.
+
+Consider $D$ being equal to $B$, $C$, the midpoint of $BC$, the projection of $I$ onto $BC$ (then one needs to prove that the reflection of $D$ over $G$ lies on $(APQ)$ which is trivial by angle chase), $AI \cap BC$ and finally $\infty_{BC}$.
+
+Consequently since $T, G, O$ are collinear and $T, D, W$ are collinear it must be that $(GD)$ is tangent to $(ABC)$.
+\end{proof}
+
+\newpage
+
+\begin{problem}[APMO 2012 P4]
+  Let $ ABC $ be an acute triangle. Denote by $ D $ the foot of the perpendicular line drawn from the point $ A $ to the side $ BC $, by $M$ the midpoint of $ BC $, and by $ H $ the orthocenter of $ ABC $. Let $ E $ be the point of intersection of the circumcircle $ \Gamma $ of the triangle $ ABC $ and the half line $ MH $, and $ F $ be the point of intersection (other than $E$) of the line $ ED $ and the circle $ \Gamma $. Prove that $ \tfrac{BF}{CF} = \tfrac{AB}{AC} $ must hold.
+\end{problem}
+\begin{center}
+  \begin{asy}
+    pair C = (-0.19322,0.);
+    pair A = (3.56323,3.67242);
+    pair B = (5.,0.);
+    pair H = (3.56323,1.46963);
+    pair M = (2.40338,0.);
+    pair D = (3.56323,0.);
+    pair T = (4.63447,2.82699);
+    pair F = (2.93063,-1.66942);
+    pair X = (2.46212,2.59594);
+    pair Y = (4.31063,1.76204);
+    pair K = (2.93063,1.66942);
+
+    import graph;
+    size(10cm);
+
+    draw(A--B--C--cycle, linewidth(0.6));
+    draw((3.68714,0.)--(3.68714,0.12390)--(3.56323,0.12390)--D--cycle, linewidth(0.6));
+    draw(circle((2.40338,1.10139), 2.82054), linewidth(0.6));
+    draw(A--B, linewidth(0.6));
+    draw(B--C, linewidth(0.6));
+    draw(C--A, linewidth(0.6));
+    draw(A--D, linewidth(0.6));
+    draw(circle((2.98331,1.83621), 1.92561), linewidth(0.6));
+    draw(M--T, linewidth(0.6));
+    draw(T--F, linewidth(0.6));
+    draw(circle((3.56323,2.57103), 1.10139), linewidth(0.6));
+    draw(X--B, linewidth(0.6));
+    draw(C--Y, linewidth(0.6));
+    draw(A--M, linewidth(0.6));
+
+    dot("$C$", C, dir(221));
+    dot("$A$", A, dir(86));
+    dot("$B$", B, dir(295));
+    dot("$H$", H, dir(274));
+    dot("$M$", M, dir(286));
+    dot("$D$", D, dir(-60));
+    dot("$T$", T, dir(65));
+    dot("$F$", F, dir(271));
+    dot("$X$", X, dir(176));
+    dot("$Y$", Y, dir(0));
+    dot("$K$", K, dir(208));
+  \end{asy}
+\end{center}
+\begin{proof}
+  Notice, it is well know that $T$ is the $A$-Queue point of $\triangle{ABC}$. Thus, if $X$ and $Y$ are the feet of the altitudes from $B$ and $C$ it must be that $AXHYT$ is cyclic. Notice, by \textbf{ELMO 2013 Shortlist G3} we obtain that since $AYDC$ and $AXDB$ are cyclic, consequently we know that $(AXY)$ passes through a fixed point on the median, by Generalized Anchor Point we know that $DT$ passes through the point $F$ on $(ABC)$ such that $AF$ is the symmedian, thus $ABFC$ is harmonic and the problem statement follows.
+\end{proof}
+\begin{remark}
+  The problem can also be solved by noticing that by Generalized Anchor Point since $ATMD$ is cyclic (since $\angle{ATM} = \angle{ADM} = 90$) it must be that $TD$ passes through a point on $(ABC)$ isogonal to $AM$ w.r.t. $\angle{CAB}$.
+\end{remark}
+
+\newpage
+
+\begin{problem}[APMO 2022 P2]
+  Let $ABC$ be a right triangle with $\angle B=90^{\circ}$. Point $D$ lies on the line $CB$ such that $B$ is between $D$ and $C$. Let $E$ be the midpoint of $AD$ and let $F$ be the seconf intersection point of the circumcircle of $\triangle ACD$ and the circumcircle of $\triangle BDE$. Prove that as $D$ varies, the line $EF$ passes through a fixed point.
+\end{problem}
+
+\begin{center}
+  \begin{asy}
+    /*
+Converted from GeoGebra by User:Azjps using Evan's magic cleaner
+https://github.com/vEnhance/dotfiles/blob/main/py-scripts/export-ggb-clean-asy.py
+*/
+pair B = (6.,4.);
+pair C = (0.,0.);
+pair A = (8.66429,0.00356);
+pair D = (8.21025,5.47350);
+pair E = (8.43727,2.73853);
+pair F = (9.10185,3.71998);
+pair G = (12.,8.);
+pair K = (4.87454,-2.52293);
+pair N = (6.58474,0.00270);
+pair P = (7.12457,-3.68749);
+
+import graph;
+size(12cm);
+draw(A--B--C--cycle, linewidth(0.6));
+draw(A--B, linewidth(0.6));
+draw(B--C, linewidth(0.6));
+draw(C--A, linewidth(0.6));
+draw(B--D, linewidth(0.6));
+draw(circle((4.33116,2.39769), 4.95054), linewidth(0.6));
+draw(A--D, linewidth(0.6));
+draw(circle((7.56746,4.04324), 1.56806), linewidth(0.6));
+draw(G--K, linewidth(0.6));
+draw(D--G, linewidth(0.6));
+draw(P--G, linewidth(0.6));
+draw(P--B, linewidth(0.6));
+draw(P--C, linewidth(0.6));
+draw(K--A, linewidth(0.6));
+
+dot("$B$", B, dir(173));
+dot("$C$", C, dir(216));
+dot("$A$", A, dir(279));
+dot("$D$", D, dir(117));
+dot("$E$", E, dir(295));
+dot("$F$", F, dir(311));
+dot("$G$", G, dir(66));
+dot("$K$", K, dir(256));
+dot("$N$", N, dir(288));
+dot("$P$", P, dir(271));
+  \end{asy}
+\end{center}
+\begin{proof}
+  Let $K$ be such that $CDAK$ is a trapezoid.
+
+  Let $G$ be the reflection of $C$ over $B$. Then let $P = \text{Anchor}^{\triangle{ABC}}_{K} (G)$ then is known that the Anchor Point conjugates of points on $CD$ will lie on $CK$, thus $P \in CK$. However, it is also known that the Anchor Point transformation preserves cross-ratios which in the case of lines, implies the preservation of ratios thus since,
+  \[
+    \begin{cases}
+      \text{Anchor}^{\triangle{ABC}}_{K}(D) = K \\
+      \text{Anchor}^{\triangle{ABC}}_{K}(C) = C
+    \end{cases}
+  \]
+  thus we know that from the preservation of ratios that $DK \parallel GP$, however $AG \parallel DK$, thus $G, A$ and $P$ are collinear and $K, E, G$ are collinear.
+
+  Then let $N = PB \cap AC$, trivially $N \in KG$, however now due to the definition of the Anchor Point conjugate $K \in NF$ which implies that $G \in EF$.
+\end{proof}
+
+\newpage
+
+\begin{problem}[IMO Shortlist 2005 G5]
+  Let $\triangle ABC$ be an acute-angled triangle with $AB \not= AC$. Let $H$ be the orthocenter of triangle $ABC$, and let $M$ be the midpoint of the side $BC$. Let $D$ be a point on the side $AB$ and $E$ a point on the side $AC$ such that $AE=AD$ and the points $D$, $H$, $E$ are on the same line. Prove that the line $HM$ is perpendicular to the common chord of the circumscribed circles of triangle $\triangle ABC$ and triangle $\triangle ADE$.
+\end{problem}
+\begin{center}
+  \begin{asy}
+    pair A = (3.95481,3.94525);
+    pair C = (-0.02427,-0.00809);
+    pair B = (4.97572,-0.00809);
+    pair H = (3.95481,1.01947);
+    pair D = (4.76802,0.79619);
+    pair E = (1.64758,1.65295);
+    pair G = (5.32575,1.97190);
+    pair M = (2.47572,-0.00809);
+    pair F = (3.95481,0.32983);
+    pair X = (3.31944,3.31399);
+
+    import graph;
+    size(12cm);
+    pen qqwuqq = rgb(0.,0.39215,0.);
+
+    
+    pen lightgreen = rgb(203, 255, 171);
+
+    filldraw(F--D--B--cycle, lightgreen, linewidth(0.6) + qqwuqq);
+    filldraw(E--F--X--cycle, lightgreen, linewidth(0.6) + qqwuqq);
+
+    pen ffxfqq = rgb(1.,0.49803,0.);
+    pen xfqqff = rgb(0.49803,0.,1.);
+    pen ffqqff = rgb(1.,0.,1.);
+    draw(A--B--C--cycle, linewidth(0.8));
+    draw(E--F--X--cycle, linewidth(0.8) + qqwuqq);
+    draw(F--D--B--cycle, linewidth(0.8) + qqwuqq);
+    draw(A--B, linewidth(0.8));
+    draw(B--C, linewidth(0.8));
+    draw(C--A, linewidth(0.8));
+    draw(circle((2.47572,1.45480), 2.89655), linewidth(0.8) + ffxfqq);
+    draw(E--D, linewidth(0.8));
+    draw(circle((3.45847,2.13754), 1.87460), linewidth(0.8) + xfqqff);
+    draw(M--G, linewidth(0.8));
+    draw(A--G, linewidth(0.8));
+    draw(A--F, linewidth(0.8));
+    draw(circle((5.11955,2.13754), 2.15045), linewidth(0.8) + ffqqff);
+    draw(C--H, linewidth(0.8));
+    draw(H--B, linewidth(0.8));
+    draw(E--F, linewidth(0.8) + qqwuqq);
+    draw(F--X, linewidth(0.8) + qqwuqq);
+    draw(X--E, linewidth(0.8) + qqwuqq);
+    draw(F--D, linewidth(0.8) + qqwuqq);
+    draw(D--B, linewidth(0.8) + qqwuqq);
+    draw(B--F, linewidth(0.8) + qqwuqq);
+
+
+    dot("$A$", A, dir(114));
+    dot("$C$", C, dir(223));
+    dot("$B$", B, dir(290));
+    dot("$H$", H, dir(110));
+    dot("$D$", D, dir(-20));
+    dot("$E$", E, dir(175));
+    dot("$G$", G, dir(339));
+    dot("$M$", M, dir(242));
+    dot("$F$", F, dir(258));
+    dot("$X$", X, dir(158));
+  \end{asy}
+\end{center}
+\begin{proof}
+  Let $X = (AFB) \cap AC$ and $F = AH \cap (AED)$. Since $AF$ is the isogonal line of $AA'$ (where $A'$ is the antipode), then we know that the Evil Anchor Point conjugates of $F$ with respect to $A'$ are some infinity points.
+
+  Thus, by the \textit{Evil Anchor Point characterization} theorem we must only show that $BX \parallel EM$, which is equivalent to $E$ is the midpoint of $CX$. Notice,
+  \begin{lemma}
+    $\triangle{DFB} \sim \triangle{EFX}$
+  \end{lemma}
+  Indeed since $\angle{EXF} = \angle{ABF}$ and $\angle{XEF} = \angle{FDB}$. $\square$
+
+  Similarly,
+  \begin{lemma}
+    $\triangle{CEH} \sim \triangle{BDH}$
+  \end{lemma}
+  Indeed, since $\angle{CEH} = \angle{HDB}$ and $\angle{ACH} = \angle{ABH}$. $\square$
+
+  Consequently we know that,
+  \[
+    \begin{cases}
+      \frac{BD}{DF} = \frac{EX}{EF} \\
+      \frac{CE}{EH} = \frac{DB}{DH} \\
+      \frac{EH}{HD} = \frac{EF}{FD}
+    \end{cases}
+  \]
+  the desired result now trivially follows,
+  \[
+    EX = \frac{BD}{DF} \cdot EF = BD \cdot \frac{EH}{HD} = EH \cdot \frac{CE}{EH} = CE \]
+    thus $CE = EX$.
+\end{proof}
+
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
