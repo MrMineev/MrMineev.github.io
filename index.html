@@ -395,7 +395,7 @@
 
       <div class="sidebar">
           <div class="info-container desktop-only">
-          <nav id="info-links-desktop" class="info-links" style="height: 400px;">
+          <nav id="info-links-desktop" class="info-links" style="max-height: 5000px; overflow: hidden;">
               <h2>Daniel Mineev</h2>
               <ul>
                 <!--<li><a href="main.pdf">Olympiad Solutions Archive</a></li>-->
@@ -404,6 +404,28 @@
                 <li><a href="myprob.html">My Olympiad Problems</a></li>
                 <li><a href="assets/docs/uni/main.pdf">Uni Notes (Courses from Universitetet i Oslo)</a></li>
                 <li><a href="stuff/puzzles/levels.html">Puzzles</a></li>
+
+                <li>
+            <button
+              class="submenu-toggle"
+              aria-expanded="false"
+              data-controls="various-writeups-submenu"
+            >
+              Various Write-ups ▾
+            </button>
+
+            <ul id="various-writeups-submenu" class="submenu" aria-hidden="true">
+              <li><a href="https://mrmineev.com/assets/papers/P220/main.pdf">Geometry Marathon S220</a></li>
+              <li><a href="https://mrmineev.com/assets/papers/R(5,%205).pdf">Counterexamples to 5-th Ramsey number</a></li>
+              <li><a href="https://mrmineev.com/assets/papers/pascal_analysis.pdf">Pascal Triangle Asymptotic Observations</a></li>
+              <li><a href="https://mrmineev.com/assets/n-dimentional-pressure-law.pdf">Pressue Law in many dimensions</a></li>
+
+              <!-- add as many <li> items as you want -->
+              <p></p>
+              <p></p>
+              <p></p>
+            </ul>
+          </li>
               </ul>
             </nav>
           </div>
@@ -608,6 +630,39 @@
     console.warn('latest-from-posts: could not load posts.html', err);
   });
 })();
+</script>
+<script>
+  // simple accessible toggle for submenus + expand parent box
+document.querySelectorAll('.submenu-toggle').forEach(btn => {
+  const submenuId = btn.dataset.controls;
+  const submenu = document.getElementById(submenuId);
+  if (!submenu) return;
+
+  // find the closest .info-links that contains this button
+  const infoLinks = btn.closest('.info-links');
+
+  btn.addEventListener('click', () => {
+    const isOpen = btn.getAttribute('aria-expanded') === 'true';
+    const newState = !isOpen;
+
+    // toggle aria + submenu open state
+    btn.setAttribute('aria-expanded', String(newState));
+    submenu.classList.toggle('open', newState);
+    submenu.setAttribute('aria-hidden', String(!newState));
+
+    // toggle parent box expansion so it grows/shrinks
+    if (infoLinks) {
+      infoLinks.classList.toggle('expanded-submenu', newState);
+    }
+  });
+
+  btn.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      btn.click();
+    }
+  });
+});
 </script>
     <script src="main.js"></script>
   </body>

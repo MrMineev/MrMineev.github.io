@@ -284,7 +284,7 @@
     width: 25%;         /* sidebar width on desktop */
     margin-left: 0;     /* spacing handled by .page-content’s margin */
     margin-right: 5%;   /* small right margin off the edge */
-    max-height: 500px;
+    max-height: 5000px;
     background-color: rgb(227, 255, 214);
   }
 
@@ -420,6 +420,8 @@
 }
 
 
+
+
 /* ADDED FOR STACKING */
 
 /* Sidebar wrapper */
@@ -458,4 +460,92 @@
   box-sizing: border-box;
   padding: 1rem;      /* optional padding */
 }
+}
+
+
+
+
+
+
+
+
+
+
+/* ============== ADDED VALUE ============= */
+
+/* ---------- submenu visuals (matches .info-links look) ---------- */
+.submenu-toggle {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 0.5rem 0.75rem;
+  margin: 0;
+  border: none;
+  background-color: #eafff3; /* same base as your links */
+  color: #315587;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 1px 1px 2px rgba(0,0,0,0.08);
+  box-sizing: border-box;
+}
+
+/* hover/focus states consistent with .info-links a */
+.submenu-toggle:hover,
+.submenu-toggle:focus {
+  background-color: #72c488;
+  color: white;
+  outline: none;
+}
+.submenu-toggle:focus {
+  outline: 3px solid rgba(49,85,135,0.15);
+}
+
+/* hidden by default: smooth collapse via max-height */
+.submenu {
+  list-style: none;
+  margin: 0;
+  padding-left: 0.5rem;         /* indent submenu items */
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 250ms ease, opacity 200ms ease;
+  opacity: 0;
+}
+
+/* opened state */
+.submenu.open {
+  max-height: 3000px; /* large enough for many items; alternative: compute dynamically in JS */
+  opacity: 1;
+}
+
+/* submenu links inherit the main link styling but slightly indented */
+.submenu li a {
+  display: block;
+  padding: 0.4rem 0.75rem;
+  border-radius: 8px;
+  text-decoration: none;
+  background-color: transparent; /* keep it subtle */
+  color: #315587;
+  font-size: 0.95rem;
+}
+.submenu li + li { margin-top: 0.4rem; }
+
+.submenu li a:hover {
+  background-color: #72c488;
+  color: white;
+}
+
+
+/* allow info-links to expand smoothly when submenu opens */
+.info-links {
+  max-height: 5000px;            /* initial collapsed height */
+  overflow: hidden;
+  transition: max-height 300ms ease, padding 200ms ease;
+}
+
+/* when expanded, grow the containing box to fit submenu */
+.info-links.expanded-submenu {
+  max-height: 5000px;           /* large enough for your expanded content */
+  padding-bottom: 0.75rem;      /* optional spacing */
 }
