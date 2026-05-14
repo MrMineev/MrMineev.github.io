@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Comments | MrMineev</title>
+  <link rel="stylesheet" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <style>
+    #postHost {
+      max-width: 900px;
+      margin: 30px auto;
+      padding: 0 16px;
+    }
+    .back-link {
+      display: inline-block;
+      margin: 20px 0 0 20px;
+      text-decoration: none;
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+  <a class="back-link" href="posts.html">← Back to posts</a>
+
+  <div id="postHost"></div>
+
+  <div style="max-width: 900px; margin: 40px auto; padding: 0 16px;">
+    <div class="section-name" style="text-align: center;">
+      <h2 style="display: inline;" class="symbol-change">§</h2>
+      <h2 style="display: inline;"> 💬 Comments</h2>
+    </div>
+
+    <script src="https://utteranc.es/client.js"
+      repo="MrMineev/MrMineev.github.io"
+      issue-term="url"
+      label="WEBSITE_COMMENT"
+      theme="github-light"
+      crossorigin="anonymous"
+      async>
+    </script>
+  </div>
+  <script>
+    async function loadPost() {
+      const postId =
+        decodeURIComponent(location.hash.replace(/^#/, '')) ||
+        new URLSearchParams(location.search).get('post');
+  
+      const host = document.getElementById('postHost');
+  
+      if (!postId) {
+        host.textContent = 'No post selected.';
+        return;
+      }
+  
+      const res = await fetch('posts.html');
+      const html = await res.text();
+      const doc = new DOMParser().parseFromString(html, 'text/html');
+
+      const posts = Array.from(doc.querySelectorAll('.content-text.definition-box'));
+      posts.forEach((post, index) => {
+        if (!post.id) post.id = `article-${index + 1}`;
+      });
+  
+      const post = doc.getElementById(postId);
+      if (!post) {
+        host.textContent = 'Post not found.';
+        return;
+      }
+  
+      const clone = post.cloneNode(true);
+      clone.querySelectorAll('.comment-btn').forEach(btn => btn.remove());
+      clone.style.outline = '3px solid #333';
+      clone.style.borderRadius = '12px';
+      clone.style.padding = '12px';
+  
+      host.appendChild(clone);
+    }
+  
+    loadPost();
+  </script>
+</body>
+</html>
