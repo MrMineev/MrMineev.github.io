@@ -1,0 +1,531 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>USA TSTST 2022 P1 — Rectangle Covering</title>
+<style>
+  :root{
+    --ink:#111;
+    --faint:#777;
+    --line:#d9d9d9;
+  }
+  *{ box-sizing:border-box; }
+  body{ font-family:Georgia,'Times New Roman',Times,serif; background:#fff; color:var(--ink); margin:0; padding:26px 22px 60px; }
+  .page{ max-width:1180px; margin:0 auto; }
+  h1{ font-size:21px; font-weight:normal; letter-spacing:.04em; margin:0 0 4px; }
+  .sub{ color:#555; font-style:italic; font-size:14px; margin-bottom:14px; }
+  .rule{ border-top:2px solid var(--ink); margin:12px 0 0; }
+
+  .problem{ border:1px solid var(--ink); padding:4px 18px 10px; margin:16px 0 20px; background:#fff; }
+  .problem p{ line-height:1.55; margin:10px 0; }
+  .problem .phead{ font-variant:small-caps; letter-spacing:.06em; }
+  .problem em{ font-style:italic; }
+  .conds{ margin:2px 0 8px 24px; padding:0; }
+  .conds li{ margin:3px 0; }
+  a{ color:var(--ink); }
+  a:hover{ color:#555; }
+
+  .wrap{ display:flex; gap:26px; align-items:flex-start; flex-wrap:wrap; }
+  svg{ display:block; background:#fff; touch-action:none; user-select:none; -webkit-user-select:none; }
+
+  .controls{ margin-top:12px; display:flex; gap:8px; align-items:center; flex-wrap:wrap; max-width:612px; }
+  button, select, input[type=number]{ font:inherit; font-size:14px; color:var(--ink); background:#fff; border:1px solid var(--ink); padding:6px 12px; border-radius:0; }
+  button{ cursor:pointer; }
+  button:hover{ background:var(--ink); color:#fff; }
+  button.solid{ background:var(--ink); color:#fff; }
+  button.solid:hover{ background:#3a3a3a; }
+  input[type=number]{ width:58px; }
+  label{ font-size:14px; color:#333; }
+  .sep{ width:1px; height:22px; background:#bbb; margin:0 2px; }
+
+  .status{ margin-top:10px; font-size:14px; color:#333; max-width:612px; }
+  .msg{ margin-top:6px; font-size:14px; line-height:1.55; max-width:612px; min-height:22px; }
+  .msg .ok{ font-weight:bold; }
+  .msg .bad{ font-weight:bold; background:#ececec; padding:0 4px; }
+  .msg ul{ margin:4px 0 0 18px; padding:0; font-weight:normal; }
+
+  .side{ flex:1; min-width:280px; max-width:430px; }
+  .card{ border:1px solid #bbb; padding:12px 16px 14px; margin-bottom:16px; background:#fff; }
+  .card h2{ font-size:15px; font-variant:small-caps; letter-spacing:.06em; margin:0 0 8px; border-bottom:1px solid var(--line); padding-bottom:5px; font-weight:normal; }
+  .card ol, .card ul{ margin:4px 0 4px 20px; padding:0; font-size:14px; }
+  .card li{ margin:6px 0; line-height:1.45; }
+  .small{ font-size:13px; color:#555; line-height:1.5; }
+  kbd{ border:1px solid #999; padding:0 5px; font-size:12px; font-family:inherit; background:#f4f4f4; }
+
+  footer{ margin-top:26px; font-size:13px; color:#666; border-top:1px solid var(--line); padding-top:10px; max-width:1180px; }
+</style>
+</head>
+<body>
+<div class="page">
+  <h1>USA TSTST 2022, Problem 1</h1>
+  <div class="sub">An interactive covering exercise — place rectangles so that they swallow the whole square except the marked points.</div>
+  <div class="rule"></div>
+
+  <div class="problem">
+    <p><span class="phead">Problem</span> (<a href="https://artofproblemsolving.com/community/c6h2872303p25516960">USA TSTST 2022 P1</a>).&ensp;<em>Let n be a positive integer. Find the smallest positive integer k such that for any set S of n points in the interior of the unit square, there exists a set of k rectangles such that the following hold:</em></p>
+    <ul class="conds">
+      <li><em>The sides of each rectangle are parallel to the sides of the unit square.</em></li>
+      <li><em>Each point in S is not in the interior of any rectangle.</em></li>
+      <li><em>Each point in the interior of the unit square but not in S is in the interior of at least one of the k rectangles.</em></li>
+    </ul>
+    <p><em>(The interior of a polygon does not contain its boundary.)</em></p>
+  </div>
+
+  <div class="wrap">
+    <div class="boardbox">
+      <svg id="board" viewBox="-44 -34 608 620" width="608" height="620" aria-label="unit square board"></svg>
+
+      <div class="controls">
+        <label>n = <input type="number" id="nIn" value="8" min="1" max="30"></label>
+        <select id="modeSel">
+          <option value="mixed">Mixed (occasional collinear)</option>
+          <option value="general">General position</option>
+          <option value="diag">Diagonal (extremal)</option>
+        </select>
+        <button id="btnGen" class="solid">Generate points</button>
+        <span class="sep"></span>
+        <button id="btnCheck">Check</button>
+        <button id="btnUndo">Undo</button>
+        <button id="btnDel">Delete selected</button>
+        <button id="btnClear">Clear</button>
+        <label><input type="checkbox" id="showLines" checked> guide lines</label>
+      </div>
+
+      <div class="status" id="status">Rectangles placed: 0</div>
+      <div class="msg" id="msg" role="status" aria-live="polite"></div>
+    </div>
+
+    <div class="side">
+      <div class="card">
+        <h2>How to play</h2>
+        <ol>
+          <li>Choose <em>n</em> and a distribution, then press <strong>Generate points</strong>. The points of <em>S</em> appear as black dots inside the unit square.</li>
+          <li><strong>Drag on empty space</strong> to draw a rectangle. While dragging, each edge <em>zips</em> to the nearest vertical or horizontal line through a point of <em>S</em>, the boundary of the square, or an edge of an existing rectangle.</li>
+          <li>Click a rectangle to select it. Drag its <strong>body</strong> to move it, or its small <strong>handles</strong> to resize it — edges still snap. Press <kbd>Delete</kbd>/<kbd>Backspace</kbd> or the button to remove it.</li>
+          <li>Press <strong>Check</strong>. You win when (i) no marked point lies in the interior of a rectangle — so every point must sit on rectangle boundaries — and (ii) every other interior point of the square is covered by some rectangle's interior.</li>
+          <li>Use as few rectangles as you can. The theoretical answer is <em>k</em> = 2<em>n</em> + 2; try not to exceed it.</li>
+        </ol>
+        <div class="small">Note: collinear points (sharing an <em>x</em>- or <em>y</em>-coordinate) are exactly where naive strip constructions fail — this is what makes the olympiad problem tricky.</div>
+      </div>
+
+      <div class="card">
+        <h2>About the problem</h2>
+        <div class="small">
+          The answer is <em>k</em> = 2<em>n</em> + 2: a counting argument (every point must be "bracketed" by rectangle edges on all four sides, and the extremal rectangles can border at most one or two points) gives the lower bound for points on a diagonal, while an induction or strip-plus-patch construction gives the upper bound.<br><br>
+          Only 8 of 63 TSTST contestants solved it; the author's account and solutions are in the
+          <a href="https://artofproblemsolving.com/community/c6h2872303p25516960">AoPS thread</a>.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    Rectangles are open sets: their boundaries are allowed to pass through points of <em>S</em>, but no point of <em>S</em> may lie strictly inside one. Coordinates are measured in unit-square coordinates.
+  </footer>
+</div>
+
+<script>
+'use strict';
+/* ================= geometry ================= */
+const NS   = 'http://www.w3.org/2000/svg';
+const SIZE = 560;                       // unit square in px
+const VB   = {x:-44, y:-34, w:608, h:620};
+const SNAP = 12 / SIZE;                 // snap radius in unit coords
+const MINR = 4  / SIZE;                 // minimum rectangle side
+const EPS  = 1e-9;
+
+const svg = document.getElementById('board');
+const msgEl = document.getElementById('msg');
+const statusEl = document.getElementById('status');
+
+let points   = [];   // [{x,y}] in unit coords (y measured downward on screen)
+let rects    = [];   // [{x0,y0,x1,y1}]
+let selected = -1;
+let drag     = null; // active gesture
+let marks    = [];   // checker annotations
+let bestK    = null; // best rectangle count for the current point set
+
+function clamp(v,a,b){ return Math.min(b, Math.max(a,v)); }
+function mk(name, attrs, parent){
+  const e = document.createElementNS(NS, name);
+  for(const k in attrs) e.setAttribute(k, attrs[k]);
+  parent.appendChild(e);
+  return e;
+}
+function toUnit(e){
+  const r = svg.getBoundingClientRect();
+  const sx = (e.clientX - r.left) / r.width  * VB.w + VB.x;
+  const sy = (e.clientY - r.top ) / r.height * VB.h + VB.y;
+  return { x: clamp(sx / SIZE, 0, 1), y: clamp(sy / SIZE, 0, 1) };
+}
+
+/* ================= static drawing ================= */
+const gGrid    = mk('g', {}, svg);
+const gLines   = mk('g', {}, svg);
+const gRects   = mk('g', {}, svg);
+const gGuides  = mk('g', {}, svg);
+const gMarks   = mk('g', {}, svg);
+const gPoints  = mk('g', {}, svg);
+const gHandles = mk('g', {}, svg);
+
+(function buildGrid(){
+  for(let t = 0; t <= 10; t++){
+    const p = t / 10 * SIZE;
+    mk('line', {x1:p, y1:0, x2:p, y2:SIZE, stroke:'#f0f0f0', 'stroke-width':1}, gGrid);
+    mk('line', {x1:0, y1:p, x2:SIZE, y2:p, stroke:'#f0f0f0', 'stroke-width':1}, gGrid);
+  }
+  mk('rect', {x:0, y:0, width:SIZE, height:SIZE, fill:'none', stroke:'#111', 'stroke-width':1.6}, gGrid);
+  for(let t = 0; t <= 10; t++){
+    const p = t / 10 * SIZE;
+    mk('line', {x1:p, y1:SIZE, x2:p, y2:SIZE+5, stroke:'#111', 'stroke-width':1}, gGrid);
+    mk('line', {x1:-5, y1:p, x2:0, y2:p, stroke:'#111', 'stroke-width':1}, gGrid);
+    const bx = mk('text', {x:p, y:SIZE+20, 'text-anchor':'middle', 'font-size':11, fill:'#666'}, gGrid);
+    bx.textContent = (t/10).toFixed(1);
+    const ly = mk('text', {x:-10, y:p+4, 'text-anchor':'end', 'font-size':11, fill:'#666'}, gGrid);
+    ly.textContent = (1 - t/10).toFixed(1);   // displayed y grows upward
+  }
+})();
+
+/* ================= snapping ================= */
+function snapCandidates(exclude){
+  const xs = [0,1], ys = [0,1];
+  for(const p of points){ xs.push(p.x); ys.push(p.y); }
+  rects.forEach((r,i)=>{
+    if(i === exclude) return;
+    xs.push(r.x0, r.x1); ys.push(r.y0, r.y1);
+  });
+  return {xs, ys};
+}
+function snapVal(v, cands){
+  let best = v, bd = SNAP;
+  for(const c of cands){ const d = Math.abs(c - v); if(d <= bd){ bd = d; best = c; } }
+  return {v:best, snapped:best !== v};
+}
+
+/* ================= rendering ================= */
+function clear(g){ while(g.firstChild) g.removeChild(g.firstChild); }
+
+function render(){
+  clear(gRects); clear(gGuides); clear(gPoints); clear(gHandles); clear(gMarks); clear(gLines);
+
+  // guide lines through all point coordinates
+  if(document.getElementById('showLines').checked){
+    const seenX = new Set(), seenY = new Set();
+    for(const p of points){
+      if(!seenX.has(p.x)){ seenX.add(p.x);
+        mk('line',{x1:p.x*SIZE,y1:0,x2:p.x*SIZE,y2:SIZE,stroke:'#e3e3e3','stroke-width':1,'stroke-dasharray':'3 5'},gLines); }
+      if(!seenY.has(p.y)){ seenY.add(p.y);
+        mk('line',{x1:0,y1:p.y*SIZE,x2:SIZE,y2:p.y*SIZE,stroke:'#e3e3e3','stroke-width':1,'stroke-dasharray':'3 5'},gLines); }
+    }
+  }
+
+  // rectangles
+  rects.forEach((r,i)=>{
+    const e = mk('rect',{
+      x:r.x0*SIZE, y:r.y0*SIZE, width:(r.x1-r.x0)*SIZE, height:(r.y1-r.y0)*SIZE,
+      fill:'rgba(17,17,17,0.06)', stroke:'#222',
+      'stroke-width': i===selected ? 2 : 1,
+      'class':'rect','data-i':i, cursor:'move'
+    }, gRects);
+  });
+
+  // in-progress rectangle
+  if(drag && drag.type === 'create'){
+    const x0 = Math.min(drag.ax, drag.bx), x1 = Math.max(drag.ax, drag.bx);
+    const y0 = Math.min(drag.ay, drag.by), y1 = Math.max(drag.ay, drag.by);
+    if(x1 > x0 && y1 > y0)
+      mk('rect',{x:x0*SIZE,y:y0*SIZE,width:(x1-x0)*SIZE,height:(y1-y0)*SIZE,
+        fill:'rgba(17,17,17,0.04)',stroke:'#555','stroke-width':1,'stroke-dasharray':'5 4'},gGuides);
+  }
+
+  // snap guides
+  if(drag){
+    if(drag.gx != null)
+      mk('line',{x1:drag.gx*SIZE,y1:0,x2:drag.gx*SIZE,y2:SIZE,stroke:'#888','stroke-width':1,'stroke-dasharray':'7 5'},gGuides);
+    if(drag.gy != null)
+      mk('line',{x1:0,y1:drag.gy*SIZE,x2:SIZE,y2:drag.gy*SIZE,stroke:'#888','stroke-width':1,'stroke-dasharray':'7 5'},gGuides);
+  }
+
+  // checker marks
+  for(const m of marks){
+    const X = m.x*SIZE, Y = m.y*SIZE;
+    if(m.kind === 'hole'){
+      mk('line',{x1:X-5,y1:Y-5,x2:X+5,y2:Y+5,stroke:'#555','stroke-width':1.6},gMarks);
+      mk('line',{x1:X-5,y1:Y+5,x2:X+5,y2:Y-5,stroke:'#555','stroke-width':1.6},gMarks);
+    } else if(m.kind === 'pt'){
+      mk('circle',{cx:X,cy:Y,r:9,fill:'none',stroke:'#000','stroke-width':1.6,'stroke-dasharray':'3 3'},gMarks);
+    }
+  }
+
+  // points
+  points.forEach((p,i)=>{
+    mk('circle',{cx:p.x*SIZE, cy:p.y*SIZE, r:4.6, fill:'#111', stroke:'#fff','stroke-width':1.6},gPoints);
+    const t = mk('text',{x:p.x*SIZE+8, y:p.y*SIZE-7,'font-size':10,fill:'#555'},gPoints);
+    t.textContent = 'p' + (i+1);
+  });
+
+  // handles of selected rect
+  if(selected >= 0 && rects[selected]){
+    const r = rects[selected];
+    const xm = (r.x0+r.x1)/2, ym = (r.y0+r.y1)/2;
+    const hs = [
+      [r.x0,r.y0,'nwse-resize','NW'], [xm,r.y0,'ns-resize','N'], [r.x1,r.y0,'nesw-resize','NE'],
+      [r.x1,ym,'ew-resize','E'],     [r.x1,r.y1,'nwse-resize','SE'], [xm,r.y1,'ns-resize','S'],
+      [r.x0,r.y1,'nesw-resize','SW'],[r.x0,ym,'ew-resize','W']
+    ];
+    for(const [hx,hy,cur,h] of hs)
+      mk('rect',{x:hx*SIZE-3.5,y:hy*SIZE-3.5,width:7,height:7,fill:'#fff',stroke:'#111',
+        'stroke-width':1,'class':'handle','data-h':h,cursor:cur},gHandles);
+  }
+
+  statusEl.textContent = 'Rectangles placed: ' + rects.length +
+    (bestK != null ? '   ·   best so far: ' + bestK : '');
+}
+
+/* ================= interaction ================= */
+svg.addEventListener('pointerdown', e=>{
+  if(e.button !== 0) return;
+  e.preventDefault();
+  svg.setPointerCapture(e.pointerId);
+  marks = []; msgEl.innerHTML = '';
+  const p = toUnit(e);
+  const t = e.target;
+
+  if(t.classList && t.classList.contains('handle') && selected >= 0){
+    const h = t.getAttribute('data-h');
+    const r = rects[selected];
+    const fixed = {NW:[r.x1,r.y1], N:[null,r.y1], NE:[r.x0,r.y1], E:[r.x0,null],
+                   SE:[r.x0,r.y0], S:[null,r.y0], SW:[r.x1,r.y0], W:[r.x1,null]}[h];
+    drag = {type:'resize', i:selected, ax:fixed[0], ay:fixed[1], gx:null, gy:null};
+  }
+  else if(t.classList && t.classList.contains('rect')){
+    const i = +t.getAttribute('data-i');
+    selected = i;
+    drag = {type:'move', i, sx:p.x, sy:p.y, orig:{...rects[i]}, gx:null, gy:null};
+  }
+  else{
+    selected = -1;
+    const c = snapCandidates(-1);
+    const sx = snapVal(p.x, c.xs), sy = snapVal(p.y, c.ys);
+    drag = {type:'create', ax:sx.v, ay:sy.v, bx:sx.v, by:sy.v,
+            gx:sx.snapped?sx.v:null, gy:sy.snapped?sy.v:null};
+  }
+  render();
+});
+
+svg.addEventListener('pointermove', e=>{
+  if(!drag) return;
+  const p = toUnit(e);
+  const c = snapCandidates(drag.type === 'create' ? -1 : drag.i);
+  drag.gx = drag.gy = null;
+
+  if(drag.type === 'create'){
+    const sx = snapVal(p.x, c.xs), sy = snapVal(p.y, c.ys);
+    drag.bx = sx.v; drag.by = sy.v;
+    drag.gx = sx.snapped ? sx.v : null;
+    drag.gy = sy.snapped ? sy.v : null;
+  }
+  else if(drag.type === 'resize'){
+    const r = rects[drag.i];
+    if(drag.ax != null){
+      const s = snapVal(p.x, c.xs);
+      if(Math.abs(s.v - drag.ax) >= MINR){ r.x0 = Math.min(drag.ax, s.v); r.x1 = Math.max(drag.ax, s.v); }
+      drag.gx = s.snapped ? s.v : null;
+    }
+    if(drag.ay != null){
+      const s = snapVal(p.y, c.ys);
+      if(Math.abs(s.v - drag.ay) >= MINR){ r.y0 = Math.min(drag.ay, s.v); r.y1 = Math.max(drag.ay, s.v); }
+      drag.gy = s.snapped ? s.v : null;
+    }
+  }
+  else if(drag.type === 'move'){
+    const o = drag.orig, r = rects[drag.i];
+    let dx = clamp(p.x - drag.sx, -o.x0, 1 - o.x1);
+    let dy = clamp(p.y - drag.sy, -o.y0, 1 - o.y1);
+    let sdx = null, sdy = null, bdx = SNAP, bdy = SNAP;
+    for(const cv of c.xs){
+      for(const d of [cv - o.x0, cv - o.x1]){
+        if(d >= -o.x0 - EPS && d <= 1 - o.x1 + EPS && Math.abs(d - dx) <= bdx){ bdx = Math.abs(d - dx); sdx = d; }
+      }
+    }
+    for(const cv of c.ys){
+      for(const d of [cv - o.y0, cv - o.y1]){
+        if(d >= -o.y0 - EPS && d <= 1 - o.y1 + EPS && Math.abs(d - dy) <= bdy){ bdy = Math.abs(d - dy); sdy = d; }
+      }
+    }
+    if(sdx !== null) dx = sdx;
+    if(sdy !== null) dy = sdy;
+    r.x0 = o.x0 + dx; r.x1 = o.x1 + dx;
+    r.y0 = o.y0 + dy; r.y1 = o.y1 + dy;
+    for(const cv of c.xs){
+      if(Math.abs(r.x0 - cv) < 1e-9){ drag.gx = r.x0; break; }
+      if(Math.abs(r.x1 - cv) < 1e-9){ drag.gx = r.x1; break; }
+    }
+    for(const cv of c.ys){
+      if(Math.abs(r.y0 - cv) < 1e-9){ drag.gy = r.y0; break; }
+      if(Math.abs(r.y1 - cv) < 1e-9){ drag.gy = r.y1; break; }
+    }
+  }
+  render();
+});
+
+svg.addEventListener('pointerup', e=>{
+  if(!drag) return;
+  if(drag.type === 'create'){
+    const x0 = Math.min(drag.ax, drag.bx), x1 = Math.max(drag.ax, drag.bx);
+    const y0 = Math.min(drag.ay, drag.by), y1 = Math.max(drag.ay, drag.by);
+    if(x1 - x0 >= MINR && y1 - y0 >= MINR){
+      rects.push({x0, y0, x1, y1});
+      selected = rects.length - 1;
+    }
+  }
+  drag = null;
+  render();
+});
+svg.addEventListener('pointercancel', ()=>{ drag = null; render(); });
+
+window.addEventListener('keydown', e=>{
+  const tag = document.activeElement && document.activeElement.tagName;
+  if(tag === 'INPUT' || tag === 'SELECT' || tag === 'TEXTAREA') return;
+  if((e.key === 'Delete' || e.key === 'Backspace') && selected >= 0){
+    rects.splice(selected, 1); selected = -1; marks = [];
+    msgEl.innerHTML = ''; render(); e.preventDefault();
+  }
+  if(e.key === 'Escape'){ selected = -1; render(); }
+});
+
+/* ================= point generation ================= */
+const randc = () => 0.08 + Math.random() * 0.84;
+const tooClose = (v, arr, d) => arr.some(u => Math.abs(u - v) < d);
+
+function genPoints(){
+  const n = clamp(parseInt(document.getElementById('nIn').value, 10) || 8, 1, 30);
+  const mode = document.getElementById('modeSel').value;
+  points = []; rects = []; selected = -1; marks = []; bestK = null;
+  msgEl.innerHTML = '';
+
+  if(mode === 'diag'){
+    for(let i = 0; i < n; i++){
+      const v = n === 1 ? 0.5 : 0.12 + 0.76 * i / (n - 1);
+      points.push({x:v, y:v});
+    }
+  } else {
+    const xs = [], ys = [];
+    let guard = 0;
+    while(points.length < n && guard++ < 8000){
+      const reuseX = mode === 'mixed' && xs.length > 0 && Math.random() < 0.38;
+      const reuseY = mode === 'mixed' && ys.length > 0 && Math.random() < 0.38;
+      const x = reuseX ? xs[(Math.random() * xs.length) | 0] : randc();
+      const y = reuseY ? ys[(Math.random() * ys.length) | 0] : randc();
+      if(points.some(p => p.x === x && p.y === y)) continue;
+      if(!reuseX && tooClose(x, xs, 0.03)) continue;
+      if(!reuseY && tooClose(y, ys, 0.03)) continue;
+      points.push({x, y});
+      if(!xs.includes(x)) xs.push(x);
+      if(!ys.includes(y)) ys.push(y);
+    }
+  }
+  render();
+}
+
+/* ================= checker =================
+ * The rectangle edges induce a grid on the open square: every "piece"
+ * (open cell, open edge segment, grid vertex) is either entirely inside
+ * some rectangle's interior or entirely outside all interiors, because
+ * no rectangle edge coordinate can fall strictly inside a piece.
+ * Hence sampling one representative point per piece is an exact test.
+ */
+function inOpen(x, y, r){ return x > r.x0+EPS && x < r.x1-EPS && y > r.y0+EPS && y < r.y1-EPS; }
+function uniqSorted(arr){
+  const s = [...arr].sort((a,b) => a-b), out = [];
+  for(const v of s) if(!out.length || v - out[out.length-1] > 1e-7) out.push(v);
+  return out;
+}
+
+function check(){
+  marks = [];
+  if(points.length === 0){ msgEl.innerHTML = 'Generate a point set first.'; return; }
+
+  // (i) no point of S inside a rectangle interior
+  const badPts = [];
+  points.forEach((p,i)=>{
+    if(rects.some(r => inOpen(p.x, p.y, r))) badPts.push(i);
+  });
+  if(badPts.length){
+    for(const i of badPts) marks.push({kind:'pt', x:points[i].x, y:points[i].y});
+    msgEl.innerHTML = '<span class="bad">✗ Invalid.</span> Point' +
+      (badPts.length > 1 ? 's' : '') + ' ' +
+      badPts.map(i => 'p'+(i+1)).join(', ') +
+      ' lie' + (badPts.length > 1 ? '' : 's') +
+      ' in the interior of a rectangle. Points may only touch boundaries.';
+    render();
+    return;
+  }
+
+  // (ii) coverage of the open square minus S
+  const xs = uniqSorted([0,1].concat(rects.flatMap(r => [r.x0, r.x1])));
+  const ys = uniqSorted([0,1].concat(rects.flatMap(r => [r.y0, r.y1])));
+  const covered = (x,y) => rects.some(r => inOpen(x, y, r));
+  const isPt    = (x,y) => points.some(p => Math.abs(p.x-x) < 1e-6 && Math.abs(p.y-y) < 1e-6);
+  const holes = [];
+
+  for(let i = 0; i < xs.length-1; i++)
+    for(let j = 0; j < ys.length-1; j++){
+      const mx = (xs[i]+xs[i+1])/2, my = (ys[j]+ys[j+1])/2;
+      if(!covered(mx, my)) holes.push({x:mx, y:my});
+    }
+  for(let i = 1; i < xs.length-1; i++)
+    for(let j = 0; j < ys.length-1; j++){
+      const my = (ys[j]+ys[j+1])/2;
+      if(!covered(xs[i], my)) holes.push({x:xs[i], y:my});
+    }
+  for(let j = 1; j < ys.length-1; j++)
+    for(let i = 0; i < xs.length-1; i++){
+      const mx = (xs[i]+xs[i+1])/2;
+      if(!covered(mx, ys[j])) holes.push({x:mx, y:ys[j]});
+    }
+  for(let i = 1; i < xs.length-1; i++)
+    for(let j = 1; j < ys.length-1; j++)
+      if(!covered(xs[i], ys[j]) && !isPt(xs[i], ys[j])) holes.push({x:xs[i], y:ys[j]});
+
+  if(holes.length){
+    for(const h of holes.slice(0, 60)) marks.push({kind:'hole', x:h.x, y:h.y});
+    const show = holes.slice(0, 6).map(h =>
+      '(' + h.x.toFixed(2) + ', ' + (1 - h.y).toFixed(2) + ')').join(',  ');
+    msgEl.innerHTML = '<span class="bad">✗ Not covered.</span> ' + holes.length +
+      ' region(s) of the square remain uncovered, e.g. near ' + show +
+      (holes.length > 6 ? ', …' : '') +
+      '.<ul><li>Remember: every point of S must sit on the boundary of your rectangles, so each point needs rectangle edges on its left/right and top/bottom.</li></ul>';
+    render();
+    return;
+  }
+
+  const k = rects.length, bound = 2*points.length + 2;
+  if(bestK === null || k < bestK) bestK = k;
+  let extra = '';
+  if(k <= bound) extra = ' This is within the guaranteed bound 2n+2 = ' + bound + '.';
+  else extra = ' The bound 2n+2 = ' + bound + ' is always achievable — try to use fewer.';
+  msgEl.innerHTML = '<span class="ok">✓ Valid covering.</span> Every interior point outside S is inside some rectangle, and no point of S is inside any rectangle. You used k = ' + k + ' rectangle' + (k === 1 ? '' : 's') + '.' + extra;
+  render();
+}
+
+/* ================= buttons ================= */
+document.getElementById('btnGen').addEventListener('click', genPoints);
+document.getElementById('btnCheck').addEventListener('click', check);
+document.getElementById('btnUndo').addEventListener('click', ()=>{
+  rects.pop(); if(selected >= rects.length) selected = -1; marks = []; msgEl.innerHTML=''; render();
+});
+document.getElementById('btnClear').addEventListener('click', ()=>{
+  rects = []; selected = -1; marks = []; msgEl.innerHTML=''; render();
+});
+document.getElementById('btnDel').addEventListener('click', ()=>{
+  if(selected >= 0){ rects.splice(selected,1); selected = -1; marks = []; msgEl.innerHTML=''; render(); }
+});
+document.getElementById('showLines').addEventListener('change', render);
+
+/* ================= init ================= */
+genPoints();
+</script>
+</body>
+</html>
