@@ -1,0 +1,192 @@
+/* Port of mrmineev.sty to CSS — pastel theorem boxes for Mathematical Notes */
+
+:root {
+  --pmBlue:   rgb(200, 220, 240);
+  --pmRed:    rgb(240, 200, 200);
+  --pmGreen:  rgb(200, 240, 200);
+  --pmPurple: rgb(230, 200, 240);
+  --pmGray:   rgb(245, 245, 245);
+  --pmYellow: rgb(252, 252, 213);
+  --pmOrange: rgb(255, 235, 200);
+  --pmLine:   rgb(180, 180, 180);
+}
+
+/* Note page body — centered readable column, serif like the PDF */
+.note-body {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 1rem 1.5rem 4rem;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 1.05rem;
+  line-height: 1.65;
+}
+
+.note-body p {
+  margin: 0.7em 0;
+}
+
+.note-title {
+  font-family: 'Trebuchet MS', 'Open Sans', sans-serif;
+  text-align: center;
+  margin-bottom: 0.2em;
+}
+
+.note-meta {
+  text-align: center;
+  color: #555;
+  font-family: Georgia, serif;
+  margin-bottom: 2em;
+}
+
+/* Section headers — \titleformat{\section}: sans-serif bold, red § number */
+.pm-section {
+  font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+  font-weight: bold;
+  font-size: 1.5rem;
+  margin: 1.4em 0 0.6em;
+}
+.pm-section .secnum {
+  color: red;
+  margin-right: 1em;
+}
+.pm-subsection {
+  font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin: 1.2em 0 0.5em;
+}
+.pm-subsection .secnum {
+  color: red;
+  margin-right: 0.8em;
+}
+
+/* Base box — mdframed baseBox: 4pt round corner, 1pt gray line */
+.pm-box {
+  border: 1px solid var(--pmLine);
+  border-radius: 5px;
+  padding: 6pt 8pt;
+  margin: 10pt 0;
+  background-color: var(--pmGray);
+  box-sizing: border-box;
+}
+.pm-box p {
+  margin: 0.4em 0;
+}
+.pm-box .pm-head {
+  font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+  font-weight: bold;
+  margin-top: 0;
+}
+
+/* Theorem / lemma / proposition / corollary — blue, MidnightBlue head */
+.pm-theorem, .pm-lemma, .pm-proposition, .pm-corollary {
+  background-color: var(--pmBlue);
+}
+.pm-theorem .pm-head, .pm-lemma .pm-head,
+.pm-proposition .pm-head, .pm-corollary .pm-head {
+  color: MidnightBlue;
+}
+
+/* Example / remark — red, RawSienna head */
+.pm-example, .pm-remark {
+  background-color: var(--pmRed);
+}
+.pm-example .pm-head, .pm-remark .pm-head {
+  color: rgb(199, 97, 20);
+}
+
+/* Algorithm — green, ForestGreen!70!black head */
+.pm-algorithm {
+  background-color: var(--pmGreen);
+}
+.pm-algorithm .pm-head {
+  color: rgb(0, 109, 23);
+}
+
+/* Definition — purple, Purple!80!black head */
+.pm-definition {
+  background-color: var(--pmPurple);
+}
+.pm-definition .pm-head {
+  color: rgb(127, 25, 191);
+}
+
+/* Exercise — orange, OrangeRed!80!black head */
+.pm-exercise {
+  background-color: var(--pmOrange);
+}
+.pm-exercise .pm-head {
+  color: rgb(204, 51, 0);
+}
+
+/* Problem — yellow, black head */
+.pm-problem {
+  background-color: var(--pmYellow);
+}
+.pm-problem .pm-head {
+  color: black;
+}
+
+/* Proof — amsthm proof: italic "Proof." head, ■ flush right on last line */
+.pm-proof {
+  margin: 0.9em 0;
+  display: flow-root; /* contain the floated ■ inside the proof block */
+}
+.pm-proof .pm-head {
+  font-style: italic;
+  font-weight: normal;
+}
+/* ■ is generated inside the last line's text so it floats to that line's
+   right edge (like \qedhere), instead of dropping below the block */
+.pm-proof > :last-child::after {
+  content: "\25A0"; /* \blacksquare — \qedsymbol */
+  float: right;
+}
+
+/* Case labels — \case{1} → red!80!black "Case 1)" */
+.pm-case {
+  color: rgb(204, 0, 0);
+}
+.pm-case::after {
+  content: ")\00a0\00a0";
+}
+
+/* Comments section header — matches article-style.css */
+.section-name {
+  font-family: 'Roboto', sans-serif;
+}
+.symbol-change {
+  color: gray;
+}
+.symbol-change:hover {
+  color: black;
+}
+
+/* ---------- notes.html index ---------- */
+.notes-index {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+.note-entry {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  font-family: Georgia, serif;
+}
+.note-entry:hover {
+  filter: brightness(0.96);
+}
+.note-entry .pm-head {
+  font-size: 1.1rem;
+}
+.note-desc {
+  margin: 0.3em 0;
+  color: #333;
+}
+.note-date {
+  display: block;
+  text-align: right;
+  font-size: 0.9em;
+  color: #555;
+}

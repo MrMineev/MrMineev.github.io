@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Euler Characteristic | MrMineev</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="notes-style.css">
+
+    <link rel="icon" href="../assets/website-logo.png">
+
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <script src="mathjax-config.js"></script>
+    <script type="text/javascript" id="MathJax-script" async
+      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+    </script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+    <h1 id="global-name">MrMineev</h1>
+    <div id="global-name-line"></div>
+
+    <br>
+
+    <div style="text-align: center;">
+      <button class="button-link" onclick="window.location.href='../notes.html'">
+        Mathematical Notes
+      </button>
+    </div>
+
+    <div class="note-body">
+      <h2 class="note-title">Euler Characteristic</h2>
+      <div class="note-meta">Algebraic Topology &middot; 🗓️ October 14, 2026</div>
+
+      <p>
+        Given a space \(X\) with a CW structure, let us define the <i>Euler Characteristic</i> of the space as,
+        \[
+          \chi(X) = \sum_{i} (-1)^i n_i(X)
+        \]
+        where \(n_i(X)\) counts the number of \(i\)-cells of \(X\).
+      </p>
+
+      <div class="pm-box pm-theorem">
+        <p class="pm-head">Theorem 1.1</p>
+        <p>
+          \(\chi(X) = \sum_{i} (-1)^i \rank H_i(X)\)
+        </p>
+      </div>
+
+      <div class="pm-proof">
+        <p>
+          <span class="pm-head">Proof.</span>
+          Let us start by looking at the cellular chain complex,
+          \[
+            \ldots \longrightarrow C_{n + 1} \overset{\delta_{n + 1}}{\longrightarrow} C_{n} \overset{\delta_{n}}{\longrightarrow} C_{n - 1} \longrightarrow \ldots \longrightarrow C_0 \longrightarrow 0
+          \]
+          where \(C_n = H_n(X^n, X^{n - 1})\). Let \(A_n = \ker \delta_n\) and \(B_n = \im \delta_{n}\), then by the fundamental isomorphism theorem and the definition of a homology we have two exact short sequences (since we know that the cellular homology is isomorphic to the singular homology for CW-complexes),
+          \[
+            \begin{cases}
+              0 \longrightarrow A_n \longrightarrow C_n \longrightarrow B_{n} \longrightarrow 0 \\
+              0 \longrightarrow B_{n + 1} \longrightarrow A_n \longrightarrow H_n \longrightarrow 0
+            \end{cases}
+          \]
+          now taking the ranks of the two equations we obtain that (since the rank is <i>additive</i>),
+          \[
+            \rank C_n = \rank A_n + \rank B_n = \rank B_{n + 1} + \rank B_n + \rank H_n
+          \]
+          Thus,
+          \[
+            \begin{multline*}
+              \sum_{i} (-1)^i \rank H_n = \sum_{i} (-1)^i \biggl( \rank \im \delta_{n + 1} + \rank \im \delta_n + \rank H_n \biggr)
+              \\ = \sum_{i} (-1)^i \rank C_n = \sum_{i} (-1)^i n_i(X)
+            \end{multline*}
+          \]
+          since \(\rank \im \delta_0 = \rank 0 = 0\) and the last equality is due to \(C_k \cong H_k(X^k, X^{k - 1})\) which is isomorphic to the \(k\)-homology of the wedge sum of \(n_k\) \(k\)-spheres and thus a rank of \(n_k\)!
+        </p>
+      </div>
+
+      <div class="pm-box pm-remark">
+        <p class="pm-head">Remark 1.2</p>
+        <p>
+          Note that the \(\rank C_n\) argument in the end can be more directly written as,
+          \[
+            \begin{multline*}
+              \rank H_k(X^k, X^{k - 1}) = \rank H_k \left( \bigvee_{i = 1}^{n_k(X)} S^k \right)
+              \\ = \rank \bigoplus_{i = 1}^{n_k(X)} H_k(S^k) = \rank \mathbb{Z}^{n_k(X)} = n_k(X)
+            \end{multline*}
+          \]
+        </p>
+      </div>
+
+      <p>
+        The remarkable aspect is that the homology groups do not depend on the CW structure imposed on \(X\), since singular homology is the same as simplicial for CW complexes.
+      </p>
+
+      <br>
+
+      <div class="section-name" style="text-align: center;">
+        <h2 style="display: inline;" class="symbol-change">§</h2><h2 style="display: inline;"> 💬 Comments</h2>
+      </div>
+
+      <br>
+
+      <script src="https://utteranc.es/client.js"
+          repo="MrMineev/MrMineev.github.io"
+          issue-term="pathname"
+          label="WEBSITE_COMMENT"
+          theme="github-light"
+          crossorigin="anonymous"
+          async>
+      </script>
+    </div>
+  </body>
+</html>

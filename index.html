@@ -47,6 +47,9 @@
       <button class="button-link" onclick="window.location.href='posts.html'">
         Go to Posts
       </button>
+      <button class="button-link" onclick="window.location.href='notes.html'">
+        Mathematical Notes
+      </button>
     </div>
 
     <div class="flex justify-center items-center">
@@ -432,12 +435,24 @@
             </nav>
           </div>
 
-          <br>
-          <br>
-          <br>
-
           <!-- LATEST POST FROM posts.html (populated by JS) -->
           <div class="desktop-only" id="latestFromPostsPlaceholder" aria-live="polite"></div>
+
+          <!-- IOAI 2026 silver highlight box (same style as latest posts, orange) -->
+          <div class="desktop-only">
+            <aside class="latest-from-posts ioai-silver" role="complementary" aria-label="IOAI 2026 silver post">
+              <a class="latest-link" href="posts.html" aria-label="Open post: IOAI 2026 - Silver">
+                <div class="latest-content">
+                  <div class="latest-title">🥈 IOAI 2026 - Silver</div>
+                  <div class="latest-date">🗓️ August 17, 2026</div>
+                </div>
+                <div class="latest-image">
+                  <img src="assets/IOAI-2026.jpg" alt="IOAI 2026 - Silver">
+                </div>
+              </a>
+              <div class="latest-badge">IOAI 2026</div>
+            </aside>
+          </div>
         </div>
 
 

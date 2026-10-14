@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+
+<!--
+  Template for a new Mathematical Note.
+  1. Copy this file to notes/<note-name>.html
+  2. Fill in title/meta and write the body — LaTeX math goes in \( \) and \[ \]
+  3. mrmineev.sty macros already work (\rank, \im, \RR, \eps, \defeq, ...)
+  4. Boxes: <div class="pm-box pm-theorem|pm-definition|pm-example|pm-remark|pm-algorithm|pm-problem|pm-exercise">
+       <p class="pm-head">Theorem 1.1</p> ... </div>
+     Proof:  <div class="pm-proof"><span class="pm-head">Proof.</span> ... </div>
+     Section: <h2 class="pm-section"><span class="secnum">§1</span> Title</h2>
+     Case:   <span class="pm-case">Case 1</span>
+  5. Add an entry in ../notes.html
+-->
+
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>TITLE | MrMineev</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="notes-style.css">
+
+    <link rel="icon" href="../assets/website-logo.png">
+
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <script src="mathjax-config.js"></script>
+    <script type="text/javascript" id="MathJax-script" async
+      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+    </script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+    <h1 id="global-name">MrMineev</h1>
+    <div id="global-name-line"></div>
+
+    <br>
+
+    <div style="text-align: center;">
+      <button class="button-link" onclick="window.location.href='../notes.html'">
+        Mathematical Notes
+      </button>
+    </div>
+
+    <div class="note-body">
+      <h2 class="note-title">TITLE</h2>
+      <div class="note-meta">TOPIC &middot; 🗓️ DATE</div>
+
+      <p>Content...</p>
+
+      <div class="pm-box pm-theorem">
+        <p class="pm-head">Theorem 1.1</p>
+        <p>Statement...</p>
+      </div>
+
+      <div class="pm-proof">
+        <span class="pm-head">Proof.</span>
+        Proof text...
+      </div>
+
+      <br>
+
+      <div class="section-name" style="text-align: center;">
+        <h2 style="display: inline;" class="symbol-change">§</h2><h2 style="display: inline;"> 💬 Comments</h2>
+      </div>
+
+      <br>
+
+      <script src="https://utteranc.es/client.js"
+          repo="MrMineev/MrMineev.github.io"
+          issue-term="pathname"
+          label="WEBSITE_COMMENT"
+          theme="github-light"
+          crossorigin="anonymous"
+          async>
+      </script>
+    </div>
+  </body>
+</html>
