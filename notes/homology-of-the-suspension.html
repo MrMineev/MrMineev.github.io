@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Homology of the Suspension | MrMineev</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="notes-style.css">
+
+    <link rel="icon" href="../assets/website-logo.png">
+
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <script src="mathjax-config.js"></script>
+    <script type="text/javascript" id="MathJax-script" async
+      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+    </script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+    <h1 id="global-name">MrMineev</h1>
+    <div id="global-name-line"></div>
+
+    <br>
+
+    <div style="text-align: center;">
+      <button class="button-link" onclick="window.location.href='../notes.html'">
+        Mathematical Notes
+      </button>
+    </div>
+
+    <div class="note-body">
+      <h2 class="note-title">Homology of the Suspension (Hatcher 2.1.20)</h2>
+      <div class="note-meta">Algebraic Topology &middot; 🗓️ October 15, 2026</div>
+
+      <p>
+        Let us first show the following result,
+      </p>
+
+      <div class="pm-box pm-theorem">
+        <p class="pm-head">Theorem 1.1</p>
+        <p>
+          \(\tilde{H}_n(SX) \cong \tilde{H}_{n - 1}(X)\)
+        </p>
+      </div>
+
+      <div class="pm-proof">
+        <p>
+          <span class="pm-head">Proof.</span>
+          Observe,
+        </p>
+
+        <div class="pm-box pm-lemma">
+          <p class="pm-head">Lemma 1.2</p>
+          <p>
+            \(H_n(X, A) \cong \tilde{H}_n(X \cup CA)\)
+          </p>
+        </div>
+
+        <div class="pm-proof">
+          <p>
+            This follows from Excision since,
+            \[
+              \tilde{H}_n(X \cup CA) \cong H_n(X \cup CA, CA) \cong H_n(X \cup CA \setminus \{p\}, CA \setminus\{p\}) \cong H_n(X, A)
+            \]
+            where the first isomorphism follows from \(CA\) being contractible!
+          </p>
+        </div>
+
+        <p>
+          Observe that since \(SX = CX \bigcup_{X} CX\), thus by the lemma we know that \(\tilde{H}_n(SX) \cong H_n(CX, X)\) and by the long reduced homology chain,
+          \[
+            \ldots \longrightarrow \tilde{H}_n(CX) \longrightarrow H_n(CX, X) \longrightarrow \tilde{H}_{n - 1}(X) \longrightarrow \tilde{H}_{n - 1}(CX) \longrightarrow \ldots
+          \]
+          and since \(\tilde{H}_n(CX)\) is zero (since \(CX\) is contractible) we conclude the desired result!
+        </p>
+      </div>
+
+      <p>
+        Now let us explore the problem more generally, let \(C^kX\) be \(k\) copies of \(CX\) glued over \(X\).
+      </p>
+
+      <div class="pm-box pm-theorem">
+        <p class="pm-head">Theorem 1.3</p>
+        <p>
+          \(\tilde{H}_n(C^kX) \cong \bigoplus_{i = 1}^{k - 1} \tilde{H}_{n - 1}(X)\)
+        </p>
+      </div>
+
+      <div class="pm-proof">
+        <p>
+          <span class="pm-head">Proof.</span>
+          Let us decompose \(C^kX = CX \cup C^{k - 1}X\), then \(CX \cap C^{k - 1}X = X\), thus by the Mayer–Vietoris sequence we obtain,
+          \[
+            \ldots \longrightarrow \tilde{H}_n(X) \longrightarrow \tilde{H}_n(C^{k - 1}X) \oplus \tilde{H}_n(CX) \longrightarrow \tilde{H}_n(C^kX) \longrightarrow \tilde{H}_{n - 1}(X) \longrightarrow \ldots
+          \]
+          since \(CX\) is contractible the \(\tilde{H}_n(CX)\) term disappears. Let us closely look at the map \(\tilde{H}_n(X) \longrightarrow \tilde{H}_n(C^{k - 1}X)\), clearly this induces the zero map (via the inclusion \(X \hookrightarrow C^{k - 1}X\)) since every cycle in \(X\) becomes contractible in \(C^{k - 1}X\), thus we obtain the short exact sequence,
+          \[
+            0 \longrightarrow \tilde{H}_n(C^{k - 1}X) \longrightarrow \tilde{H}_n(C^kX) \longrightarrow \tilde{H}_{n - 1}(X) \longrightarrow 0
+          \]
+          now to apply the <i>Split Lemma</i> we try to construct the inverse map which we can do since for the first map simply consider the map that maps the last cone into the first one. Thus,
+          \[
+            \tilde{H}_n(C^kX) \cong \tilde{H}_n(C^{k - 1}X) \oplus \tilde{H}_{n - 1}(X)
+          \]
+          thus by induction we obtain the desired result!
+        </p>
+      </div>
+
+      <div class="pm-box pm-remark">
+        <p class="pm-head">Remark 1.4</p>
+        <p>
+          A much simpler approach can be obtained by observing that \(C^k X \simeq C^kX / C_1X\) (choosing an arbitrary cone \(C_1X\)) thus when collapsed will collapse \(X\) and thus \(C^k X \simeq \bigvee_{i = 1}^{k - 1} SX\), thus by the previous lemma we obtain the desired result.
+        </p>
+      </div>
+
+      <br>
+
+      <div class="section-name" style="text-align: center;">
+        <h2 style="display: inline;" class="symbol-change">§</h2><h2 style="display: inline;"> 💬 Comments</h2>
+      </div>
+
+      <br>
+
+      <script src="https://utteranc.es/client.js"
+          repo="MrMineev/MrMineev.github.io"
+          issue-term="pathname"
+          label="WEBSITE_COMMENT"
+          theme="github-light"
+          crossorigin="anonymous"
+          async>
+      </script>
+    </div>
+  </body>
+</html>

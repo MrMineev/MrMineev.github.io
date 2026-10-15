@@ -25,6 +25,11 @@
   margin: 0.7em 0;
 }
 
+/* keep wide display math scrollable instead of overflowing the column */
+.note-body mjx-container[display="true"] {
+  overflow-x: auto;
+}
+
 .note-title {
   font-family: 'Trebuchet MS', 'Open Sans', sans-serif;
   text-align: center;
@@ -78,13 +83,21 @@
   margin-top: 0;
 }
 
-/* Theorem / lemma / proposition / corollary — blue, MidnightBlue head */
-.pm-theorem, .pm-lemma, .pm-proposition, .pm-corollary {
+/* Theorem / proposition / corollary — blue, MidnightBlue head */
+.pm-theorem, .pm-proposition, .pm-corollary {
   background-color: var(--pmBlue);
 }
-.pm-theorem .pm-head, .pm-lemma .pm-head,
+.pm-theorem .pm-head,
 .pm-proposition .pm-head, .pm-corollary .pm-head {
   color: MidnightBlue;
+}
+
+/* Lemma — orange (website style, distinct from theorems) */
+.pm-lemma {
+  background-color: var(--pmOrange);
+}
+.pm-lemma .pm-head {
+  color: rgb(204, 51, 0);
 }
 
 /* Example / remark — red, RawSienna head */
@@ -141,6 +154,11 @@
 .pm-proof > :last-child::after {
   content: "\25A0"; /* \blacksquare — \qedsymbol */
   float: right;
+}
+/* nested proofs (e.g. a lemma inside a proof) get the open □ so only
+   the outermost ■ marks the true end of the proof */
+.pm-proof .pm-proof > :last-child::after {
+  content: "\25A1";
 }
 
 /* Case labels — \case{1} → red!80!black "Case 1)" */

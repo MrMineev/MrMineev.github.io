@@ -828,6 +828,54 @@ It turns out constructing Galois closure's isn't that difficult, in fact,
 
 \section{Algebraic Topology}
 
+\subsection{Homology of the Suspension}
+
+Let us first show the following result,
+\begin{theorem}
+  $\tilde{H}_n(SX) \cong \tilde{H}_{n - 1}(X)$
+\end{theorem}
+\begin{proof}Observe,
+\begin{lemma}
+  H_n(X, A) \cong \tilde{H}_n(X \cup CA)
+\end{lemma}
+This follows from Excision since,
+\[
+  \tilde{H}_n(X \cup CA) \cong H_n(X \cup CA, CA) \cong H_n(X \cup CA \setminus \{p\}, CA \setminus\{p\}) \cong H_n(X, A)
+\]
+where the first isomorphism follows from $CA$ being contractible! $\square$
+
+Observe that since $SX = CX \bigcup_{X} CX$, thus by the lemma we know that $\tilde{H}_n(SX) \cong H_n(CX, X)$ and by the long reduced homology chain,
+\[
+  \ldots \longrightarrow \tilde{H}_n(CX) \longrightarrow H_n(CX, X) \longrightarrow \tilde{H}_{n - 1}(X) \longrightarrow \tilde{H}_{n - 1}(CX) \longrightarrow \ldots
+\]
+and since $\tilde{H}_n(CX)$ is zero (since $CX$ is contractible) we conclude the desired result!
+\end{proof}
+
+Now let us explore the problem more generally, let $C^kX$ be $k$ copies of $CX$ glued over $X$.
+
+\begin{theorem}
+  $\tilde{H}_n(C^kX) \cong \bigoplus_{i = 1}^{k - 1} \tilde{H}_{n - 1}(X)$
+\end{theorem}
+\begin{proof}
+  Let us decompose $C^kX = CX \cup C^{k - 1}X$, then $CX \cap C^{k - 1}X = X$, thus by the Mayer–Vietoris sequence we obtain,
+  \begin{multline*}
+    \ldots \longrightarrow \tilde{H}_n(X) \longrightarrow \tilde{H}_n(C^{k - 1}X) \oplus \tilde{H}_n(CX) \longrightarrow \tilde{H}_n(C^kX)
+    \\ \longrightarrow \tilde{H}_{n - 1}(X) \longrightarrow \ldots
+  \end{multline*}
+  since $CX$ is contractible the $\tilde{H}_n(CX)$ term disappears. Let us closely look at the map $\tilde{H}_n(X) \longrightarrow \tilde{H}_n(C^{k - 1}X)$, clearly this induces the zero map (via the inclusion $X \hookrightarrow C^{k - 1}X$) since every cycle in $X$ becomes contractible in $C^{k - 1}X$, thus we obtain the short exact sequence,
+  \[
+    0 \longrightarrow \tilde{H}_n(C^{k - 1}X) \longrightarrow \tilde{H}_n(C^kX) \longrightarrow \tilde{H}_{n - 1}(X) \longrightarrow 0
+  \]
+  now to apply the \textit{Split Lemma} we try to construct the inverse map which we can do since for the first map simply consider the map that maps the last cone into the first one. Thus,
+  \[
+    \tilde{H}_n(C^kX) \cong \tilde{H}_n(C^{k - 1}X) \oplus \tilde{H}_{n - 1}(X)
+  \]
+  thus by induction we obtain the desired result!
+\end{proof}
+\begin{remark}
+  A much simpler approach can be obtained by observing that $C^k X \simeq C^kX / C_1X$ (choosing an arbitrary cone $C_1X$) thus when collapsed will collapse $X$ and thus $C^k X \simeq \bigvee_{i = 1}^{k - 1} SX$ , thus by the previous lemma we obtain the desired result.
+\end{remark}
+
 \subsection{Euler Charecteristic}
 
 Given a space $X$ with a CW structure, let us define the \textit{Euler Charecteristic} of the space as,
