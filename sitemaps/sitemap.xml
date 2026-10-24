@@ -79,6 +79,46 @@
     <loc>https://mrmineev.com/articles/thebaults-theorem/doc.html</loc>
     <changefreq>weekly</changefreq>
   </url>
+  <url>
+    <loc>https://mrmineev.com/articles/anchor-point/main.html</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://mrmineev.com/articles/handout/main.html</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://mrmineev.com/articles/hpm/hpm.html</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://mrmineev.com/articles/hpm/packages.html</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://mrmineev.com/articles/imo-2025/main.html</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://mrmineev.com/notes.html</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://mrmineev.com/notes/euler-characteristic.html</loc>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://mrmineev.com/notes/homology-of-the-suspension.html</loc>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://mrmineev.com/notes/taming-the-yoneda-lemma.html</loc>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://mrmineev.com/notes/caseys-theorem.html</loc>
+    <changefreq>monthly</changefreq>
+  </url>
 </urlset>
 
 
