@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Taming the Yoneda Lemma | MrMineev</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="notes-style.css">
+
+    <link rel="icon" href="../assets/website-logo.png">
+
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <script src="mathjax-config.js"></script>
+    <script type="text/javascript" id="MathJax-script" async
+      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+    </script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+    <h1 id="global-name">MrMineev</h1>
+    <div id="global-name-line"></div>
+
+    <br>
+
+    <div style="text-align: center;">
+      <button class="button-link" onclick="window.location.href='../index.html'">
+        Go to Articles
+      </button>
+      <button class="button-link" onclick="window.location.href='../notes.html'">
+        Mathematical Notes
+      </button>
+    </div>
+
+    <div class="note-body">
+      <h2 class="note-title">Taming the Yoneda Lemma</h2>
+      <div class="note-meta">1-Category Theory &middot; based on the Farum lectures &middot; 🗓️ October 24, 2026</div>
+
+      <div class="note-photos">
+        <img src="../assets/2026-10-24 15.17.28.jpg" alt="Lecture at Farum">
+        <img src="../assets/2026-10-24 15.17.33.jpg" alt="Lecture at Farum">
+      </div>
+
+      <p style="text-align: center;">
+        <i>This post followed from efforts to understand a lecture given at <a href="https://geometriamafia.xyz">Farum</a>.</i>
+      </p>
+
+      <p>
+        Let us have two sets \(X_0\) and \(X_1\), then a category is a collection equipped with a composition map \(X_1 \times_{X_0} X_1 \overset{\circ}{\rightarrow} X_1\),
+        \[
+          \begin{cases}
+            X_0 \overset{s_0}{\rightarrow} X_1 \\
+            X_1 \overset{d_0}{\rightarrow} X_0 \\
+            X_1 \overset{d_1}{\rightarrow} X_0
+          \end{cases}
+        \]
+        then we usually call \(X_0\) to be the <i>objects</i> and \(X_1\) the <i>morphisms</i> of the category.
+      </p>
+
+      <div class="pm-box pm-example">
+        <p class="pm-head">Example 1.1</p>
+        <p>
+          If \(X_0\) is the collection of sets and \(X_1\) is the collection of functions between sets, let,
+        </p>
+        <ol>
+          <li>\(d_0\) target map</li>
+          <li>\(d_1\) source map</li>
+          <li>\(s_0\) is the identity map</li>
+        </ol>
+      </div>
+
+      <div class="pm-box pm-example">
+        <p class="pm-head">Example 1.2</p>
+        <p>
+          Let \(X_0\) be the collection of groups and \(X_1\) group homomorphisms, then we can define \(d_0\), \(d_1\) and \(s_0\) in the same way as done with the sets.
+        </p>
+      </div>
+
+      <div class="pm-box pm-example">
+        <p class="pm-head">Example 1.3</p>
+        <p>
+          Similarly we can have the category of topological spaces, were \(X_0\) are topological spaces and \(X_1\) are continuous maps.
+        </p>
+      </div>
+
+      <p>
+        Now let us define the \(\text{Hom}\)-functor,
+        \[
+          \text{Hom}_\mathcal{C}(X, Y) = \{f \in X_1 \mid d_1 f = x,\ d_0 f = y\}
+        \]
+      </p>
+
+      <div class="pm-box pm-example">
+        <p class="pm-head">Example 1.4</p>
+        <p>
+          If we have a poset \((X, \leq)\), then take,
+          \[
+            \text{Hom}(x, y) = \begin{cases}
+              \star, \text{ if } x \leq y \\
+              \emptyset, \text{ otherwise}
+            \end{cases}
+          \]
+          indeed since if \(x \leq y \land y \leq z \implies x \leq z\) and we know that \(s_0\) (the identity) is true since \(x \leq x\) and it commutes with the rest of the category.
+        </p>
+      </div>
+
+      <p>
+        Now take \(X_0\) to be one object, then let \(X_1\) be the elements of the group. The functions \(d_0\) and \(d_1\) are just constant, and the identity map \(s_0\) sends the single object to the identity element of the group. This category will be denoted by \(\mathcal{B} G\).
+      </p>
+
+      <div class="pm-box pm-definition">
+        <p class="pm-head">Definition 1.5</p>
+        <p>
+          Given categories \(\mathcal{C}\) and \(\mathcal{D}\), then a functor from \(\mathcal{C}\) to \(\mathcal{D}\) is map \(F : \text{Ob } \mathcal{C} \rightarrow \text{Ob } \mathcal{D}\) and for every \(X, Y \in \mathcal{C}\) there is a map \(F : \text{Mor}_{\mathcal{C}}(X, Y) \rightarrow \text{Mor}_{\mathcal{D}}(F(X), F(Y))\).
+        </p>
+        <p>
+          The functor \(F\) must satisfy the following axioms,
+        </p>
+        <ol>
+          <li>If \(X \overset{f}{\rightarrow}Y, Y \overset{g}{\rightarrow}Z\) then we have,
+            \[F(g) \circ F(f) = F(g \circ f)\]</li>
+          <li>For all \(X \in \text{Ob }\mathcal{C}\) it must be that \(F(\text{id}_{x}) = \text{id}_{F(X)}\)</li>
+        </ol>
+      </div>
+
+      <p>
+        Let us consider a functor \(F\) from <b>Group</b> to <b>Set</b>, this can be done by just mapping every homomorphism to a function between the sets, this is called the <i>forgetful</i> functor.
+      </p>
+
+      <div class="pm-box pm-example">
+        <p class="pm-head">Example 1.6</p>
+        <p>
+          Notice that a group action \(F\) of a group \(G\) on a set \(S\) is a functor \(\mathcal{B}G \overset{F}{\rightarrow} \text{Set}\).
+        </p>
+      </div>
+
+      <div class="pm-box pm-definition">
+        <p class="pm-head">Definition 1.7</p>
+        <p>
+          \(\mu : F \rightarrow G\) is a natural transformation if it assigns to each \(X \in \text{Ob }\mathcal{C}\) a morphism \(\mu_X : F(X) \rightarrow G(X)\) in \(\mathcal{D}\) such that for every \(f: X \rightarrow Y\) in \(\mathcal{C}\), the following square commutes:
+          \[
+            \begin{array}{ccc}
+              F(X) & \overset{\mu_X}{\longrightarrow} & G(X) \\
+              F(f) \Big\downarrow & & \Big\downarrow G(f) \\
+              F(Y) & \overset{\mu_Y}{\longrightarrow} & G(Y)
+            \end{array}
+          \]
+        </p>
+      </div>
+
+      <div class="pm-box pm-example">
+        <p class="pm-head">Example 1.8</p>
+        <p>
+          Let us fix two categories \(\mathcal{C}\) and \(\mathcal{D}\), then let \(X_0\) be functors and \(X_1\) be <i>natural</i> transformations.
+        </p>
+      </div>
+
+      <div class="pm-box pm-example">
+        <p class="pm-head">Example 1.9</p>
+        <p>
+          Consider the functor \(\text{Ring} \rightarrow \text{Group}\) which sends a ring to \(\text{GL}(R)\). Then we can consider,
+          \(\det_n : \text{GL}_n(-) \implies (-)^{\times}\)
+        </p>
+      </div>
+
+      <p>
+        For a category \(\mathcal{C}\) we can define \(\mathcal{C}^{\text{op}}\) which swaps \(d_0\) and \(d_1\).
+      </p>
+
+      <div class="pm-box pm-definition">
+        <p class="pm-head">Definition 1.10</p>
+        <p>
+          Consider the following functor,
+          \[
+            F : \mathcal{C} \rightarrow \text{Fun}(\mathcal{C}^{\text{op}}, \text{Set})
+          \]
+        </p>
+      </div>
+
+      <div class="pm-box pm-theorem">
+        <p class="pm-head">Theorem 1.11 &nbsp;(Yoneda Lemma)</p>
+        <p>
+          \[
+            \text{Hom}_{\text{Fun}(\mathcal{C}^{\text{op}}, \text{Set})}(\text{Hom}(-, x), F) \cong F(x)
+          \]
+        </p>
+      </div>
+
+      <div class="pm-proof">
+        <p>
+          <span class="pm-head">Proof.</span>
+          Given a natural transformation \(\mu: \text{Hom}(-, x) \to F\), naturality for any morphism \(f: y \to x\) yields the commutative square:
+          \[
+            \begin{array}{ccc}
+              \text{Hom}(x, x) & \overset{\mu_x}{\longrightarrow} & F(x) \\
+              f \circ - \Big\downarrow & & \Big\downarrow F(f) \\
+              \text{Hom}(y, x) & \overset{\mu_y}{\longrightarrow} & F(y)
+            \end{array}
+          \]
+
+          Tracing elements through the diagram:
+          \[
+            \begin{array}{ccc}
+              \text{id}_x & \longmapsto & \mu_x(\text{id}_x) \\
+              f \Big\downarrow & & \Big\downarrow F(f) \\
+              f & \longmapsto & \mu_y(f)
+            \end{array}
+          \]
+
+          This forces \(\mu_y(f) = F(f)(\mu_x(\text{id}_x))\), meaning the entire natural transformation is uniquely determined by the single element \(\mu_x(\text{id}_x) \in F(x)\).
+
+          Conversely, any element \(c \in F(x)\) defines a valid natural transformation via \(\mu_y(f) = F(f)(c)\).
+
+          Thus, the assignment \(\mu \mapsto \mu_x(\text{id}_x)\) is a bijection, proving the isomorphism.
+        </p>
+      </div>
+
+      <h3 class="pm-subsection"><span class="secnum">1.1</span> Yoneda Applications</h3>
+
+      <h4 class="pm-subsubsection"><span class="secnum">1.1.1</span> Polynomial Forms</h4>
+
+      <div class="pm-box pm-remark">
+        <p class="pm-head">Remark 1.12</p>
+        <p>
+          <i>This part is based on a <a href="https://terrytao.wordpress.com/2023/08/25/yonedas-lemma-as-an-identification-of-form-and-function-the-case-study-of-polynomials/">note</a> by Terence Tao</i>
+        </p>
+      </div>
+
+      <p>
+        Let us try to prove the following result,
+      </p>
+
+      <div class="pm-box pm-theorem">
+        <p class="pm-head">Theorem 1.13</p>
+        <p>
+          Given maps \(f_R\) for every ring \(R\), such that for any ring \(R\) and a homomorphism \(\varphi: R \rightarrow S\) one has that \(f_S \circ \varphi = \varphi \circ f_R\) it must be that \(f\) is the polynomial map (interpreting \(R\) is a \(\mathbb{Z}\)-module).
+        </p>
+      </div>
+
+      <div class="pm-proof">
+        <p>
+          <span class="pm-head">Proof.</span>
+          Consider the forgetful functor \(F\) (from \(\text{Ring}\) to \(\text{Set}\) which forgets the algebraic structure of the ring and reduces it to only its elements), then we can interpret the maps \(f_R\) as simply a <i>natural transformation</i> from \(F\) to \(F\), since,
+          \[
+            \begin{array}{ccccc}
+              R & & R' & \overset{f_R}{\longrightarrow} & R' \\
+              \varphi \Big\downarrow & & \Big\downarrow \varphi & & \Big\downarrow \varphi \\
+              S & & S' & \overset{f_S}{\longrightarrow} & S'
+            \end{array}
+          \]
+          any map \(\varphi: R \rightarrow S\) per definition induces the commutative square above on the elements of \(\text{Set}\) (for notational purposes \(X'\) represents a set and \(X\) a ring).
+        </p>
+
+        <p>
+          Now, let us try to understand what is the \(F\) functor in another way,
+        </p>
+
+        <div class="pm-box pm-lemma">
+          <p class="pm-head">Lemma 1.14</p>
+          <p>
+            \(F(R) \longleftrightarrow \text{Hom}_{\text{Ring}}(\mathbb{Z}[x], R)\)
+          </p>
+        </div>
+
+        <div class="pm-proof">
+          <p>
+            This is simply the evaluation map, clearly it has a well-defined inverse since if \(\mathbb{Z}[x] \overset{g}{\longrightarrow} R\) is a homomorphism we only need to look at the image of \(x\) to uniquely determine \(g\)!
+          </p>
+        </div>
+
+        <p>
+          Thus, the problem is to show that there is a bijection,
+          \[
+            F(\mathbb{Z}[x]) \longleftrightarrow \text{Nat}(\text{Hom}_{\text{Ring}}(\mathbb{Z}[x], -), F)
+          \]
+          however this follows from Yoneda!
+        </p>
+      </div>
+
+      <p>
+        Let us now attempt to rewrite this proof by substituting the proof of Yoneda and avoid the utilization of terminology from category theory. The only real idea of the Yoneda lemma is the map defined via \(\mu \rightarrow \mu(\text{Id}_x)\).
+      </p>
+
+      <div class="pm-proof">
+        <p>
+          <span class="pm-head">Proof.</span>
+          Observe that \(f\) induces a homomorphism between \(\mathbb{Z}[x]\) and \(\mathbb{Z}[x]\) (the \(f_{\mathbb{Z}[x]}\) map), however \(\mathbb{Z}[x]\) can be identified with \(\text{Hom}(\mathbb{Z}[x], \mathbb{Z}[x])\) (given by the evaluation map), thus \(f_{\mathbb{Z}[x]}\) gives rise to a map,
+          \[
+            g: \text{Hom}(\mathbb{Z}[x], \mathbb{Z}[x]) \longrightarrow \mathbb{Z}[x]
+          \]
+          let \(\omega_f = g(\text{Id})\), or in other words \(\omega_f = f(x)\). Let us define function \(\mu: f \rightarrow \mathbb{Z}[x]\) as \(\mu(f) = \omega_f\) and show it is bijective.
+        </p>
+
+        <p>
+          <b>Injectivity</b> follows from the commutative square,
+          \[
+            \begin{array}{ccc}
+              \mathbb{Z}[x] & \overset{f_{\mathbb{Z}[x]}}{\longrightarrow} & \mathbb{Z}[x] \\
+              \varphi \Big\downarrow & & \Big\downarrow \varphi \\
+              R & \overset{f_R}{\longrightarrow} & R
+            \end{array}
+            \quad \text{and} \quad
+            \begin{array}{ccc}
+              x & \overset{f_{\mathbb{Z}[x]}}{\longmapsto} & f(x) \\
+              \varphi \Big\downarrow & & \Big\downarrow \varphi \\
+              \varphi(x) & \overset{f_R}{\longmapsto} & f_R(\varphi(x))
+            \end{array}
+          \]
+          thus any value is uniquely determined by \(\omega_f\).
+        </p>
+
+        <p>
+          <b>Surjectivity</b> also trivially follows from replacing \(f(x)\) in the diagram with an arbitrary polynomial in \(\mathbb{Z}[x]\)!
+        </p>
+
+        <p>
+          Thus, we have shown a bijection between all possible \(f\)'s and the polynomials in \(\mathbb{Z}[x]\), clearly from the definitions this implies the desired result!
+        </p>
+      </div>
+
+      <h4 class="pm-subsubsection"><span class="secnum">1.1.2</span> Graph-Theoretic Trivialities</h4>
+
+      <div class="pm-box pm-remark">
+        <p class="pm-head">Remark 1.15</p>
+        <p>
+          Based on this insightful <a href="https://math.stackexchange.com/q/5089743">post</a>.
+        </p>
+      </div>
+
+      <p>
+        Here is another silly application.
+      </p>
+
+      <p>
+        Observe that a graph is actually a functor from from the two-point category \(\mathcal{C}\) to \(\text{Set}\), since a graph can be represented as a bipartite graph with nodes in one of the partites and edges in the other, then the two morphisms will define the start and end of each edge.
+      </p>
+
+      <p>
+        By Yoneda we have that for \(X \in \mathcal{C}\) (let us choose it to be the edges partite),
+        \[
+          F(X) \longleftrightarrow \text{Nat}(\text{Hom}(X, -), F)
+        \]
+        let us try to understand what are the natural transformations, clearly this represents a graph embedding. In other words this bijection is saying that there is a natural bijection between the edges of a graph and the ways to embed a <i>single edge</i> into the graph.
+      </p>
+
+      <h4 class="pm-subsubsection"><span class="secnum">1.1.3</span> Cayley's Embedding Theorem</h4>
+
+      <p>
+        Let us now introduce several definitions,
+      </p>
+
+      <div class="pm-box pm-definition">
+        <p class="pm-head">Definition 1.16</p>
+        <p>
+          A functor \(F : \mathcal{C} \rightarrow \mathcal{D}\) is <i>fully faithful</i> if for any \(X, Y \in \mathcal{C}\) the induced map,
+          \[
+            \text{Hom}_{\mathcal{C}} (X, Y) \longleftarrow \text{Hom}_{\mathcal{D}}(F(X), F(Y))
+          \]
+          is a bijection.
+        </p>
+      </div>
+
+      <p>
+        Observe that,
+      </p>
+
+      <div class="pm-box pm-theorem">
+        <p class="pm-head">Theorem 1.17</p>
+        <p>
+          The Yoneda embedding (functor from \(\mathcal{C}^{\text{op}} \rightarrow \text{Set}\) given by \(\text{Hom}(-, x)\) for a specific \(x\)) is <i>fully faithful</i>.
+        </p>
+      </div>
+
+      <div class="pm-proof">
+        <p>
+          <span class="pm-head">Proof.</span>
+          Observe,
+          \[
+            \text{Hom}(\text{Hom}(-, X), \text{Hom}(-, Y)) \leftrightarrow \text{Hom}(X, Y)
+          \]
+          follows from Yoneda by applying it to \(F = \text{Hom}(-, Y)\)!
+        </p>
+      </div>
+
+      <p>
+        Let us now prove the following famous result,
+      </p>
+
+      <div class="pm-box pm-theorem">
+        <p class="pm-head">Theorem 1.18</p>
+        <p>
+          Every finite group \(G\) is a subgroup of some symmetric group \(S_n\).
+        </p>
+      </div>
+
+      <div class="pm-proof">
+        <p>
+          <span class="pm-head">Proof.</span>
+          Let us represent the abelian group \(G\) as a one-point category \(\mathcal{G}\) consisting of a single object \(\ast\), where the set of morphisms is \(\text{Hom}(\ast, \ast) = G\) and composition is given by the group operation:
+          <svg viewBox="0 0 140 115" width="140" xmlns="http://www.w3.org/2000/svg"
+               role="img" aria-label="One-object category with endomorphisms g and h in G"
+               style="display: block; margin: 0.8em auto;">
+            <defs>
+              <marker id="loopArrow" viewBox="0 0 10 10" refX="8" refY="5"
+                      markerWidth="7" markerHeight="7" orient="auto">
+                <path d="M0,0 L10,5 L0,10 z" fill="black"/>
+              </marker>
+            </defs>
+
+            <!-- loop above -->
+            <path d="M 54 63 C 42 60, 36 42, 46 33 C 56 24, 72 26, 76 36 C 80 46, 72 55, 64 58"
+                  fill="none" stroke="black" stroke-width="1.3" marker-end="url(#loopArrow)"/>
+            <text x="58" y="16" text-anchor="middle" font-size="14"
+                  font-style="italic" font-family="Georgia, serif">g ∈ G</text>
+
+            <!-- node -->
+            <text x="60" y="76" text-anchor="middle" font-size="18"
+                  font-family="Georgia, serif">∗</text>
+
+            <!-- loop right -->
+            <path d="M 68 68 C 84 58, 104 62, 106 76 C 108 90, 88 94, 66 76"
+                  fill="none" stroke="black" stroke-width="1.3" marker-end="url(#loopArrow)"/>
+            <text x="124" y="78" text-anchor="middle" font-size="14"
+                  font-style="italic" font-family="Georgia, serif">h ∈ G</text>
+          </svg>
+          The Yoneda embedding gives a fully faithful functor,
+          \[
+            h: \mathcal{G} \to \text{Fun}(\mathcal{G}^{\text{op}}, \text{Set})
+          \]
+          Since \(h\) is <i>fully faithful</i>, it induces a bijection (and thus an injective group homomorphism),
+          \[
+            \text{Hom}_{\mathcal{G}}(\ast, \ast) \overset{\cong}{\longrightarrow} \text{Nat}(h(\ast), h(\ast))
+          \]
+          however we know that \(\text{Hom}_{\mathcal{G}}(\ast, \ast) = G\), and \(h(\ast)\) maps the single element to the set of \(G\) and the natural transformations correspond to endomorphisms on \(G\). Since multiplication by an element in \(G\) is some permutation of the group, it clearly follows that \(G \hookrightarrow S_G\), which proves the desired result!
+        </p>
+      </div>
+
+      <div class="pm-box pm-remark">
+        <p class="pm-head">Remark 1.19</p>
+        <p>
+          Observe that the Yoneda lemma allowed us to find a bijection between the elements of \(G\) and the endomorphisms, of course another way to prove the result without Yoneda would be to directly show that \(f(x) = gx\) for \(g \in G\) determine unique bijections (permutations) on the underlying set of \(G\).
+        </p>
+      </div>
+
+      <br>
+
+      <div class="section-name" style="text-align: center;">
+        <h2 style="display: inline;" class="symbol-change">§</h2><h2 style="display: inline;"> 💬 Comments</h2>
+      </div>
+
+      <br>
+
+      <script src="https://utteranc.es/client.js"
+          repo="MrMineev/MrMineev.github.io"
+          issue-term="pathname"
+          label="WEBSITE_COMMENT"
+          theme="github-light"
+          crossorigin="anonymous"
+          async>
+      </script>
+    </div>
+  </body>
+</html>

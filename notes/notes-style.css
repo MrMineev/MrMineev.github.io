@@ -30,6 +30,20 @@
   overflow-x: auto;
 }
 
+/* photos at the top of a note — two side by side */
+.note-photos {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin: 1em 0;
+}
+.note-photos img {
+  width: 49%;
+  height: auto;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
 .note-title {
   font-family: 'Trebuchet MS', 'Open Sans', sans-serif;
   text-align: center;
@@ -63,6 +77,16 @@
 .pm-subsection .secnum {
   color: red;
   margin-right: 0.8em;
+}
+.pm-subsubsection {
+  font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+  font-weight: bold;
+  font-size: 1.05rem;
+  margin: 1em 0 0.4em;
+}
+.pm-subsubsection .secnum {
+  color: red;
+  margin-right: 0.6em;
 }
 
 /* Base box — mdframed baseBox: 4pt round corner, 1pt gray line */

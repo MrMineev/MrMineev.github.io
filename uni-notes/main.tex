@@ -923,7 +923,7 @@ The remarable aspect is that the homology groups do not depend on the CW structu
 
 \section{1-Categories (based on Farum lectures)}
 
-Let us have two sets $X_0$ and $X_1$, then a category is a collection,
+Let us have two sets $X_0$ and $X_1$, then a category is a collection equipped with a composition map $X_1 \times_{X_0} X_1 \overset{\circ}{\rightarrow} X_1$,
 \[
 \begin{cases}
     X_0 \overset{s_0}{\rightarrow} X_1 \\
@@ -961,7 +961,7 @@ Now let us define the $\text{Hom}$-functor,
     indeed since if $x \leq y \land y \leq z \implies x \leq z$ and we know that $s_0$ (the identity) is true since $x \leq x$ and it commutes with the rest of the category.
 \end{example}
 
-Now take $X_0$ to be one object, then let $X_1$ be the elements of the group. The functions $d_0$ and $d_1$ are just constant, and the identity sends every element to the identity. This category will be denoted by $\mathcal{B} G$.
+Now take $X_0$ to be one object, then let $X_1$ be the elements of the group. The functions $d_0$ and $d_1$ are just constant, and the identity map $s_0$ sends the single object to the identity element of the group. This category will be denoted by $\mathcal{B} G$.
 
 \begin{definition}
     Given categories $\mathcal{C}$ and $\mathcal{D}$, then a functor from $\mathcal{C}$ to $\mathcal{D}$ is map $F : \text{Ob } \mathcal{C} \rightarrow \text{Ob } \mathcal{D}$ and for every $X, Y \in \mathcal{C}$ there is a map $F : \text{Mor}_{\mathcal{C}}(X, Y) \rightarrow \text{Mor}_{\mathcal{D}}(F(X), F(Y))$.
@@ -979,9 +979,12 @@ Let us consider a functor $F$ from \textbf{Group} to \textbf{Set}, this can be d
     Notice that a group action $F$ of a group $G$ on a set $S$ is a functor $\mathcal{B}G \overset{F}{\rightarrow} \text{Set}$.
 \end{example}
 \begin{definition}
-    $\mu : F \rightarrow G$ is a natural transformation if,
+    $\mu : F \rightarrow G$ is a natural transformation if it assigns to each $X \in \text{Ob }\mathcal{C}$ a morphism $\mu_X : F(X) \rightarrow G(X)$ in $\mathcal{D}$ such that for every $f: X \rightarrow Y$ in $\mathcal{C}$, the following square commutes:
     \[
-    \mathcal{C}_0 \rightarrow \mathcal{D}_{1}
+    \begin{tikzcd}
+        F(X) \ar[r, "\mu_X"] \ar[d, "F(f)"'] & G(X) \ar[d, "G(f)"] \\
+        F(Y) \ar[r, "\mu_Y"] & G(Y)
+    \end{tikzcd}
     \]
 \end{definition}
 \begin{example}
@@ -989,7 +992,7 @@ Let us consider a functor $F$ from \textbf{Group} to \textbf{Set}, this can be d
 \end{example}
 \begin{example}
     Consider the functor $\text{Ring} \rightarrow \text{Group}$ which sends a ring to $\text{GL}(R)$. Then we can consider,
-    $\det_n : \text{GL}_n(-) \implies (-)^X$
+    $\det_n : \text{GL}_n(-) \implies (-)^{\times}$
 \end{example}
 For a category $\mathcal{C}$ we can define $\mathcal{C}^{\text{op}}$ which swaps $d_0$  and $d_1$.
 
@@ -1005,12 +1008,154 @@ For a category $\mathcal{C}$ we can define $\mathcal{C}^{\text{op}}$ which swaps
     \]
 \end{theorem}
 \begin{proof}
-    Take a natural transformation,
+    Given a natural transformation $\mu: \text{Hom}(-, x) \to F$, naturality for any morphism $f: y \to x$ yields the commutative square:
     \[
-    \mu_x : \text{Hom}_{\mathcal{C}}(x, x) \rightarrow F(x)
+    \begin{tikzcd}
+        \text{Hom}(x, x) \ar[r, "\mu_x"] \ar[d, "f \circ -"'] & F(x) \ar[d, "F(f)"] \\
+        \text{Hom}(y, x) \ar[r, "\mu_y"] & F(y)
+    \end{tikzcd}
     \]
-    then it will be defined 
+
+    Tracing elements through the diagram:
+    \[
+    \begin{tikzcd}
+        \text{id}_x \ar[r, mapsto] \ar[d, mapsto, "f"'] & \mu_x(\text{id}_x) \ar[d, mapsto, "F(f)"] \\
+        f \ar[r, mapsto] & \mu_y(f)
+    \end{tikzcd}
+    \]
+
+    This forces $\mu_y(f) = F(f)(\mu_x(\text{id}_x))$, meaning the entire natural transformation is uniquely determined by the single element $\mu_x(\text{id}_x) \in F(x)$. 
+
+    Conversely, any element $c \in F(x)$ defines a valid natural transformation via $\mu_y(f) = F(f)(c)$. 
+
+    Thus, the assignment $\mu \mapsto \mu_x(\text{id}_x)$ is a bijection, proving the isomorphism.
 \end{proof}
+
+\subsection{Yoneda Applications}
+
+\subsubsection{Polynomial Forms}
+
+\begin{remark}
+\textit{This part is based on a \href{https://terrytao.wordpress.com/2023/08/25/yonedas-lemma-as-an-identification-of-form-and-function-the-case-study-of-polynomials/}{note} by Terence Tao}
+\end{remark}
+
+Let us try to prove the following result,
+\begin{theorem}
+  Given maps $f_R$ for every ring $R$, such that for any ring $R$ and a homomorphism $\varphi: R \rightarrow S$ one has that $f_S \circ \varphi = \varphi \circ f_R$ it must be that $f$ is the polynomial map (intepreting $R$ is a $\mathbb{Z}$-module).
+\end{theorem}
+\begin{proof}
+  Consider the forgetfull functor $F$ (from $\text{Ring}$ to $\text{Set}$ which forgets the algebraic structure of the ring and reduces it to only its elements), then we can intepret the maps $f_R$ as simply a \textit{natural transformation} from $F$ to $F$, since,
+  \[
+  \begin{tikzcd}
+    R \ar[d, "\varphi"'] & & R' \ar[r, "f_R"] \ar[d, "\varphi"'] & R' \ar[d, "\varphi"] \\
+    S & & S' \ar[r, "f_S"] & S'
+  \end{tikzcd}
+  \]
+  any map $\varphi: R \rightarrow S$ per definition induces the commutative square above on the elements of $\text{Set}$ (for notational purposes $X'$ represents a set and $X$ a ring).
+
+  Now, let us try to understand what is the $F$ functor in another way,
+  \begin{lemma}
+    $F(R) \longleftrightarrow \text{Hom}_{\text{Ring}}(\mathbb{Z}[x], R)$
+  \end{lemma}
+  This is simply the evaluation map, clearly it has a well-defined inverse since if $\mathbb{Z}[x] \overset{g}{\longrightarrow} R$ is a homomorphism we only need to look at the image of $x$ to uniquely determine $g$! $\square$
+
+  Thus, the problem is to show that there is a bijection,
+  \[
+    F(\mathbb{Z}[x]) \longleftrightarrow \text{Nat}(\text{Hom}_{\text{Ring}}(\mathbb{Z}[x], -), F)
+  \]
+  however this follows from Yoneda!
+\end{proof}
+
+Let us now attempt to rewrite this proof by substituting the proof of Yoneda and avoid the utilization of terminology from category theory. The only real idea of the Yoneda lemma is the map defined via $\mu \rightarrow \mu(\text{Id}_x)$.
+
+\begin{proof}
+  Observe that $f$ induces a homomorphism between $\mathbb{Z}[x]$ and $\mathbb{Z}[x]$ (the $f_{\mathbb{Z}[x]}$ map), however $\mathbb{Z}[x]$ can be identified with $\text{Hom}(\mathbb{Z}[x], \mathbb{Z}[x])$ (given by the evaluation map), thus $f_{\mathbb{Z}[x]}$ gives rise to a map,
+  \[
+    g: \text{Hom}(\mathbb{Z}[x], \mathbb{Z}[x]) \longrightarrow \mathbb{Z}[x]
+  \]
+  let $\omega_f = g(\text{Id})$, or in other words $\omega_f = f(x)$. Let us define function $\mu: f \rightarrow \mathbb{Z}[x]$ as $\mu(f) = \omega_f$ and show it is bijective.
+
+  \textbf{Injectivity} follows from the commutative square,
+  \[
+  \begin{tikzcd}
+    \mathbb{Z}[x] \ar[r, "f_{\mathbb{Z}[x]}"] \ar[d, "\varphi"'] & \mathbb{Z}[x] \ar[d, "\varphi"] \\
+    R \ar[r, "f_R"] & R
+  \end{tikzcd}
+  \quad \text{and} \quad
+  \begin{tikzcd}
+    x \ar[r, mapsto, "f_{\mathbb{Z}[x]}"] \ar[d, mapsto, "\varphi"] & f(x) \ar[d, mapsto, "\varphi"] \\
+    \varphi(x) \ar[r, mapsto, "f_R"] & f_R(\varphi(x))
+  \end{tikzcd}
+  \]
+  thus any value is uniquely determined by $\omega_f$.
+
+  \textbf{Surjectivity} also trivially follows from replacing $f(x)$ in the diagram with an arbitrary polynomial in $\mathbb{Z}[x]$!
+
+  Thus, we have shown a bijection between all possible $f$'s and the polynomials in $\mathbb{Z}[x]$, clearly from the definitions this implies the desired result!
+\end{proof}
+
+\subsubsection{Graph-Theoretic Trivialities}
+
+\begin{remark}
+  Based on this insightful \href{https://math.stackexchange.com/q/5089743}{post}.
+\end{remark}
+
+Here is another silly application.
+
+Observe that a graph is actually a functor from from the two-point category $\mathcal{C}$ to $\text{Set}$, since a graph can be represented as a bipartite graph with nodes in one of the partites and edges in the other, then the two morphisms will define the start and end of each edge.
+
+By Yoneda we have that for $X \in \mathcal{C}$ (let us choose it to be the edges partite),
+\[
+  F(X) \longleftrightarrow \text{Nat}(\text{Hom}(X, -), F)
+\]
+let us try to understand what are the natural transformations, clearly this represents a graph embedding.  In other words this bijection is saying that there is a natural bijection between the edges of a graph and the ways to embed a \textit{single edge} into the graph.
+
+\subsubsection{Cayley's Embedding Theorem}
+
+Let us now introduce several definitions,
+\begin{definition}
+  A functor $F : \mathcal{C} \rightarrow \mathcal{D}$ is \textit{fully faithful} if for any $X, Y \in \mathcal{C}$ the induced map,
+  \[
+    \text{Hom}_{\mathcal{C}} (X, Y) \longleftarrow \text{Hom}_{\mathcal{D}}(F(X), F(Y))
+  \]
+  is a bijection.
+\end{definition}
+Observe that,
+\begin{theorem}
+  The Yoneda embedding (functor from $\mathcal{C}^{\text{op}} \rightarrow \text{Set}$ given by $\text{Hom}(-, x)$ for a specific $x$) is \textit{fully faithful}.
+\end{theorem}
+\begin{proof}
+  Observe,
+  \[
+    \text{Hom}(\text{Hom}(-, X), \text{Hom}(-, Y)) \leftrightarrow \text{Hom}(X, Y)
+  \]
+  follows from Yoneda by applying it to $F = \text{Hom}(-, Y)$!
+\end{proof}
+
+Let us now prove the following famous result,
+\begin{theorem}
+  Every finite group $G$ is a subgroup of some symmetric group $S_n$.
+\end{theorem}
+\begin{proof}
+  Let us represent the abelian group $G$ as a one-point category $\mathcal{G}$ consisting of a single object $\ast$, where the set of morphisms is $\text{Hom}(\ast, \ast) = G$ and composition is given by the group operation:
+  \[
+  \begin{tikzcd}
+      {\ast} \arrow[loop above, "g \in G"] \arrow[loop right, "h \in G"]
+  \end{tikzcd}
+  \]
+  The Yoneda embedding gives a fully faithful functor,
+  \[
+  h: \mathcal{G} \to \text{Fun}(\mathcal{G}^{\text{op}}, \text{Set})
+  \]
+  Since $h$ is \textit{fully faithful}, it induces a bijection (and thus an injective group homomorphism),
+  \[
+    \text{Hom}_{\mathcal{G}}(\ast, \ast) \overset{\cong}{\longrightarrow} \text{Nat}(h(\ast), h(\ast))
+  \]
+  however we know that $\text{Hom}_{\mathcal{G}}(\ast, \ast) = G$, and $h(\ast)$ maps the single element to the set of $G$ and the natural transformations correspond to endomorphisms on $G$. Since multiplication by an element in $G$ is some permutation of the group, it clearly follows that $G \hookrightarrow S_G$, which proves the desired result!
+\end{proof}
+\begin{remark}
+  Observe that the Yoneda lemma allowed us to find a bijection between the elements of $G$ and the endomorphisms, of course another way to prove the result without Yoneda would be to directly show that $f(x) = gx$ for $g \in G$ determine unique bijections (permutations) on the underlying set of $G$.
+\end{remark}
 
 \end{document}
 
