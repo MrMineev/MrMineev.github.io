@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Some Applications of Casey | MrMineev</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="notes-style.css">
+
+    <link rel="icon" href="../assets/website-logo.png">
+
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <script src="mathjax-config.js"></script>
+    <script type="text/javascript" id="MathJax-script" async
+      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+    </script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+    <h1 id="global-name">MrMineev</h1>
+    <div id="global-name-line"></div>
+
+    <br>
+
+    <div style="text-align: center;">
+      <button class="button-link" onclick="window.location.href='../index.html'">
+        Go to Articles
+      </button>
+      <button class="button-link" onclick="window.location.href='../notes.html'">
+        Mathematical Notes
+      </button>
+    </div>
+
+    <div class="note-body">
+      <h2 class="note-title">Some Applications of Casey</h2>
+      <div class="note-meta">Geometry &middot; 🗓️ October 24, 2026</div>
+
+      <p>
+        <a href="https://en.wikipedia.org/wiki/Casey%27s_theorem">Casey's theorem</a> — the special case for the circumcircle of a triangle tangent to another circle.
+      </p>
+
+      <div class="pm-box pm-theorem">
+        <p class="pm-head">Theorem 1.1 &nbsp;(Casey)</p>
+        <p>
+          Let \(\omega\) be a circle and let \(A\), \(B\) and \(C\) be points. The circumcircle of \(\triangle ABC\) is tangent to \(\omega\) if and only if
+          \[
+            \pm\, t_A \cdot BC \ \pm\ t_B \cdot CA \ \pm\ t_C \cdot AB = 0
+          \]
+          for a suitable choice of signs — i.e. one of the three products equals the sum of the other two — where \(t_X\) denotes the length of a tangent from \(X\) to \(\omega\).
+        </p>
+      </div>
+
+      <div class="pm-box pm-exercise">
+        <p class="pm-head">Exercise 1</p>
+        <p>
+          Prove Feuerbach tangency theorem.
+        </p>
+      </div>
+
+      <div class="pm-box pm-problem">
+        <p class="pm-head">Problem 1 &nbsp;<span style="font-weight: normal;">(2025 ELMO Shortlist G8)</span></p>
+        <p>
+          Let \(\omega_1\) and \(\omega_2\) be circles intersecting at \(A\) and \(B\). Let \(\ell\) be the common tangent of both circles closer to \(A\). The line through \(A\) tangent to \(\omega_1\) intersects \(\omega_2\) at \(A\) and \(C\). Prove that there exists a circle tangent to \(\omega_1,\omega_2,\) and the lines through \(A\) and \(C\) parallel to \(\ell\).
+        </p>
+        <img src="assets/elmo-g8.svg" alt="Configuration" style="display: block; margin: 1em auto; max-width: 90%;">
+        <p style="text-align: center;">
+          <a href="https://artofproblemsolving.com/community/u1159306h3600607p39619373">My post on AoPS</a>
+        </p>
+      </div>
+
+      <p>
+        Inverting in \(A\) we can rephrase the problem as given a \(\triangle{DEF}\), let \(A\) be the \(F\)-extouch point and let \(C\) be the intersection of the line through \(A\) parallel to \(DF\) with \(EF\). Then we want to show that the circle passing through \(A\) and \(C\) tangent to \(DE\) must be tangent to the \(D\)-excircle.
+      </p>
+
+      <p>
+        Let \(P\) be the \(D\)-extouch point. It feels like we want to apply Casey's theorem, however to make it work we need to identity a third point, it must be one of the intersections with the sides, thus the only natural choice is \(Y = \Gamma \cap EF\). Observe that \(\angle{AYC} = \angle{DAC} = 180^{\circ} - \angle{EDF}\), thus it must be that \(DAYF\) is cyclic!
+      </p>
+
+      <p>
+        Now, we are ready to apply Casey's theorem to \(AYC\), and consequently we must show that,
+        \[
+          AC \times YP - YC \times AQ + AY \times CP = 0
+        \]
+        observe that \(AQ = DF\) (since \(DA = PF\)), then we may rewrite the equation as, (where \(p\) is the half perimeter of \(\triangle{DEF}\))
+        \[
+          \begin{align*}
+            \frac{DF \times AE}{DE} \times \left( EP - EC \right) - \left( EC - EY \right) \times DF + \frac{DF \times AE}{EF} \times \left( EP - CP \right)
+            \\ = \frac{DF(p - EF)}{DE} \left( (p - DE) - \frac{DE \cdot (p - EF)}{EF} \right) - \left( \frac{EF \times AE}{DE} - \frac{DE \times AE}{EF} \right) \times DF
+            \\ + \frac{DF \times AE}{EF} \left( (p - DE) - \frac{EF \times AE}{DE} \right)
+          \end{align*}
+        \]
+        now let us rewrite \(a, b, c = EF, DF, DE\) then we want to show that,
+        \[
+          \begin{align*}
+            &\frac{b(b + c - a)}{2c}\left( \frac{a + b - c}{2} - \frac{c(b + c - a)}{2a} \right) - \left( \frac{a(b + c - a)}{2c} - \frac{c(b + c - a)}{2a} \right) b \\
+            &+ \frac{b(b + c - a)}{2a} \left( \frac{a + b - c}{2} - \frac{a(b + c - a)}{2c} \right) \\
+            &\cong \frac{1}{2c}\left( \frac{a + b - c}{2} - \frac{c(b + c - a)}{2a} \right) - \left( \frac{a}{2c} - \frac{c}{2a} \right) + \frac{1}{2a}\left( \frac{a + b - c}{2} - \frac{a(b + c - a)}{2c} \right) \\
+            &= \frac{a + b - c}{4c} - \frac{b + c - a}{4a} - \frac{a}{2c} + \frac{c}{2a} + \frac{a + b - c}{4a} - \frac{b + c - a}{4c} \\
+            &= \left( \frac{a + b - c}{4c} - \frac{2a}{4c} - \frac{b + c - a}{4c} \right) + \left( -\frac{b + c - a}{4a} + \frac{2c}{4a} + \frac{a + b - c}{4a} \right) \\
+            &= \left( \frac{a + b - c - 2a - b - c + a}{4c} \right) + \left( \frac{-b - c + a + 2c + a + b - c}{4a} \right) \\
+            &= -\frac{2c}{4c} + \frac{2a}{4a} = -\frac{1}{2} + \frac{1}{2} = 0
+          \end{align*}
+        \]
+        where by \(\cong\) I meant dividing by \(b(b + c - a)\), and thus we are done! \(\blacksquare\)
+      </p>
+
+      <div class="pm-box pm-problem">
+        <p class="pm-head">Problem 2</p>
+        <p>
+          Circles \(\omega\) and \(\Omega\) meet at points \(A\) and \(B\). Let \(M\) be the midpoint of the arc \(AB\) of circle \(\omega\) (\(M\) lies inside \(\Omega\)). A chord \(MP\) of circle \(\omega\) intersects \(\Omega\) at \(Q\) (\(Q\) lies inside \(\omega\)). Let \(\ell_P\) be the tangent line to \(\omega\) at \(P\), and let \(\ell_Q\) be the tangent line to \(\Omega\) at \(Q\). Prove that the circumcircle of the triangle formed by the lines \(\ell_P\), \(\ell_Q\) and \(AB\) is tangent to \(\Omega\).
+        </p>
+        <img src="assets/tangent-arcs.svg" alt="Configuration" style="display: block; margin: 1em auto; max-width: 80%;">
+        <p style="text-align: center;">
+          <a href="https://artofproblemsolving.com/community/c6h582820p3444910">AoPS thread</a>
+        </p>
+      </div>
+
+      <div class="pm-proof">
+        <p>
+          <span class="pm-head">Proof.</span>
+          Let \(X = \ell_P \cap AB\), \(Y = \ell_Q \cap AB\) and \(Z = \ell_P \cap \ell_Q\), then by Casey's theorem it is enough to show that,
+          \[
+            ZQ \times XY + YQ \times XZ = XP \times YZ
+          \]
+          however since \(XP = XR\) (since if we intersect \(S = \ell_P \cap \ell_M\) then clearly \(SP = SM\), then since \(XR \parallel SM\) by homothety we obtain the equality) thus \(XP \times YZ = XR \times YZ\)! By Menelaus on \(\triangle{XYZ}\) we obtain,
+          \[
+            \frac{ZP}{XP} \cdot \frac{XR}{YR} \cdot \frac{YQ}{ZQ} = 1
+          \]
+          thus \(\frac{ZP}{YR} \cdot \frac{YQ}{ZQ} = \frac{XZ + XP}{XP - XY} \cdot \frac{YQ}{ZQ} = 1\) thus \(XZ \cdot YQ + XP \cdot YQ = ZQ \cdot XP - XY \cdot ZQ\) thus \(XZ \cdot YQ + XY \cdot ZQ = XP \cdot YZ\) which is what we wanted to show!
+        </p>
+      </div>
+
+      <br>
+
+      <div class="section-name" style="text-align: center;">
+        <h2 style="display: inline;" class="symbol-change">§</h2><h2 style="display: inline;"> 💬 Comments</h2>
+      </div>
+
+      <br>
+
+      <script src="https://utteranc.es/client.js"
+          repo="MrMineev/MrMineev.github.io"
+          issue-term="pathname"
+          label="WEBSITE_COMMENT"
+          theme="github-light"
+          crossorigin="anonymous"
+          async>
+      </script>
+    </div>
+  </body>
+</html>

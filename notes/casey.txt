@@ -1,0 +1,134 @@
+Casey's theorem (https://en.wikipedia.org/wiki/Casey%27s_theorem) special case for circumcircle of a triangle tangent to another circle
+
+Exercise: Prove Feuerbach tangency theorem.
+
+https://artofproblemsolving.com/community/u1159306h3600607p39619373
+
+Source: 2025 ELMO Shortlist G8
+ 
+DottedCaculator
+7596 posts	
+#1VPMJun 30, 2025, 2:43 AM
+Let $\omega_1$ and $\omega_2$ be circles intersecting at $A$ and $B$. Let $\ell$ be the common tangent of both circles closer to $A$. The line through $A$ tangent to $\omega_1$ intersects $\omega_2$ at $A$ and $C$. Prove that there exists a circle tangent to $\omega_1,\omega_2,$ and the lines through $A$ and $C$ parallel to $\ell$.
+
+[asy]
+    /*
+Converted from GeoGebra by User:Azjps using Evan's magic cleaner
+https://github.com/vEnhance/dotfiles/blob/main/py-scripts/export-ggb-clean-asy.py
+*/
+pair D = (0.,0.);
+pair E = (1.16712,3.22615);
+pair F = (5.,0.);
+pair A = (0.58524,1.61772);
+pair C = (3.07803,1.61772);
+pair P = (3.68383,1.10782);
+pair Q = (2.28620,6.31950);
+pair G = (-0.14146,4.32760);
+pair H = (-1.72033,0.);
+pair I = (6.72033,0.);
+pair B = (2.99486,7.60597);
+pair J = (9.16687,0.68434);
+pair Y = (2.06325,2.47187);
+
+import graph;
+size(15cm);
+
+draw(D--E--F--cycle, linewidth(0.6));
+draw(D--E, linewidth(0.6));
+draw(E--F, linewidth(0.6));
+draw(F--D, linewidth(0.6));
+draw(circle((-1.72033,2.45181), 2.45181), linewidth(0.4));
+draw(circle((1.83164,1.16681), 1.32545), linewidth(0.4) + linetype("4 4"));
+draw(H--D, linewidth(0.4));
+draw(F--I, linewidth(0.4));
+draw(E--Q, linewidth(0.4));
+draw(E--G, linewidth(0.4));
+draw(shift((6.72033,4.71536))*xscale(4.71536)*yscale(4.71536)*arc((0,0),1,142.19193,301.25467), linewidth(0.4));
+draw(circle((2.5,0.01029), 2.50002), linewidth(0.4));
+draw(A--C, linewidth(0.4));
+
+dot("$D$", D, dir(222));
+dot("$E$", E, dir(110));
+dot("$F$", F, dir(286));
+dot("$A$", A, dir(139));
+dot("$C$", C, dir(57));
+dot("$P$", P, dir(55));
+dot("$Q$", Q, dir(149));
+dot("$Y$", Y, dir(96));
+[/asy]
+
+Inverting in $A$ we can rephrase the problem as given a $\triangle{DEF}$, let $A$ be the $F$-extouch point and let $C$ be the intersection of the line through $A$ parallel to $DF$ with $EF$. Then we want to show that the circle passing through $A$ and $C$ tangent to $DE$ must be tangent to the $D$-excircle.
+
+Let $P$ be the $D$-extouch point. It feels like we want to apply Casey's theorem, however to make it work we need to identity a third point, it must be one of the intersections with the sides, thus the only natural choice is $Y = \Gamma \cap EF$. Observe that $\angle{AYC} = \angle{DAC} = 180^{\circ} - \angle{EDF}$, thus it must be that $DAYF$ is cyclic!
+
+Now, we are ready to apply Casey's theorem to $AYC$, and consequently we must show that,
+\[
+    AC \times YP - YC \times AQ + AY \times CP = 0
+  \]observe that $AQ = DF$ (since $DA = PF$), then we may rewrite the equation as, (where $p$ is the half perimeter of $\triangle{DEF}$)
+
+\begin{align*}
+    \frac{DF \times AE}{DE} \times \left( EP - EC \right) - \left( EC - EY \right) \times DF + \frac{DF \times AE}{EF} \times \left( EP - CP \right)
+    \\ = \frac{DF(p - EF)}{DE} \left( (p - DE) - \frac{DE \cdot (p - EF)}{EF} \right) - \left( \frac{EF \times AE}{DE} - \frac{DE \times AE}{EF} \right) \times DF
+    \\ + \frac{DF \times AE}{EF} \left( (p - DE) - \frac{EF \times AE}{DE} \right)
+  \end{align*}now let us rewrite $a, b, c = EF, DF, DE$ then we want to show that,
+\begin{align*}
+    &\frac{b(b + c - a)}{2c}\left( \frac{a + b - c}{2} - \frac{c(b + c - a)}{2a} \right) - \left( \frac{a(b + c - a)}{2c} - \frac{c(b + c - a)}{2a} \right) b \\
+    &+ \frac{b(b + c - a)}{2a} \left( \frac{a + b - c}{2} - \frac{a(b + c - a)}{2c} \right) \\
+    &\cong \frac{1}{2c}\left( \frac{a + b - c}{2} - \frac{c(b + c - a)}{2a} \right) - \left( \frac{a}{2c} - \frac{c}{2a} \right) + \frac{1}{2a}\left( \frac{a + b - c}{2} - \frac{a(b + c - a)}{2c} \right) \\
+    &= \frac{a + b - c}{4c} - \frac{b + c - a}{4a} - \frac{a}{2c} + \frac{c}{2a} + \frac{a + b - c}{4a} - \frac{b + c - a}{4c} \\
+    &= \left( \frac{a + b - c}{4c} - \frac{2a}{4c} - \frac{b + c - a}{4c} \right) + \left( -\frac{b + c - a}{4a} + \frac{2c}{4a} + \frac{a + b - c}{4a} \right) \\
+    &= \left( \frac{a + b - c - 2a - b - c + a}{4c} \right) + \left( \frac{-b - c + a + 2c + a + b - c}{4a} \right) \\
+    &= -\frac{2c}{4c} + \frac{2a}{4a} = -\frac{1}{2} + \frac{1}{2} = 0
+  \end{align*}where by $\cong$ I meant dividing by $b(b + c - a)$, and thus we are done! $\blacksquare$
+
+
+https://artofproblemsolving.com/community/c6h582820p3444910
+
+Circles $\omega$ and $\Omega$ meet at points $A$ and $B$. Let $M$ be the midpoint of the arc $AB$ of circle $\omega$ ($M$ lies inside $\Omega$). A chord $MP$ of circle $\omega$ intersects $\Omega$ at $Q$ ($Q$ lies inside $\omega$). Let $\ell_P$ be the tangent line to $\omega$ at $P$, and let $\ell_Q$ be the tangent line to $\Omega$ at $Q$. Prove that the circumcircle of the triangle formed by the lines $\ell_P$, $\ell_Q$ and $AB$ is tangent to $\Omega$.
+
+\begin{center}
+  \begin{asy}
+pair A = (0.,2.);
+pair B = (0.,-2.);
+pair M = (1.5,0.);
+pair P = (-2.19954,-1.31459);
+pair Q = (-0.69331,-0.77936);
+pair X = (0.,-4.01879);
+pair Y = (0.,-3.26424);
+pair Z = (0.32045,-4.41276);
+pair R = (0.,-0.53300);
+
+import graph;
+size(10cm);
+draw(circle((2.1,0.), 2.9), linewidth(0.8));
+draw(circle((-0.58333,0.), 2.08333), linewidth(0.8));
+draw(M--P, linewidth(0.4));
+draw(P--Z, linewidth(0.4));
+draw(Z--Q, linewidth(0.4));
+draw(A--X, linewidth(0.4));
+draw(circle((0.86624,-3.64151), 0.94483), linewidth(0.6) + linetype("4 4"));
+
+dot("$A$", A, dir(90));
+dot("$B$", B, dir(239));
+dot("$M$", M, dir(0));
+dot("$P$", P, dir(217));
+dot("$Q$", Q, dir(160));
+dot("$X$", X, dir(211));
+dot("$Y$", Y, dir(209));
+dot("$Z$", Z, dir(232));
+dot("$R$", R, dir(-30));
+  \end{asy}
+\end{center}
+
+\begin{proof}
+  Let $X = \ell_P \cap AB$, $Y = \ell_Q \cap AB$ and $Z = \ell_P \cap \ell_Q$, then by Casey's theorem it is enough to show that,
+  \[
+    ZQ \times XY + YQ \times XZ = XP \times YZ
+  \]
+  however since $XP = XR$ (since if we intersect $S = \ell_P \cap \ell_M$ then clearly $SP = SM$, then since $XR \parallel SM$ by homothety we obtain the equality) thus $XP \times YZ = XR \times YZ$! By Menelaus on $\triangle{XYZ}$ we obtain,
+  \[
+    \frac{ZP}{XP} \cdot \frac{XR}{YR} \cdot \frac{YQ}{ZQ} = 1
+  \]
+  thus $\frac{ZP}{YR} \cdot \frac{YQ}{ZQ} = \frac{XZ + XP}{XP - XY} \cdot \frac{YQ}{ZQ} = 1$ thus $XZ \cdot YQ + XP \cdot YQ = ZQ \cdot XP - XY \cdot ZQ$ thus $XZ \cdot YQ + XY \cdot ZQ = XP \cdot YZ$ which is what we wanted to show!
+\end{proof}
+
