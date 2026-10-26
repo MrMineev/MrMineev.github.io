@@ -54,6 +54,8 @@
 \lhead{\sffamily\bfseries Daniel Alex Mineev -- \today}
 \rhead{\sffamily mrmineev.com}
 \cfoot{\thepage}
+\AtBeginDocument{\setlength{\headwidth}{\textwidth}}
+\setlength{\emergencystretch}{3em}
 
 %%% Basic shortcuts
 \providecommand{\arc}[1]{\wideparen{#1}}
@@ -148,10 +150,20 @@
   postheadspace=1em
 ]{orangeExercise}
 
+\declaretheoremstyle[
+  headfont=\sffamily\bfseries\color{OrangeRed!80!black},
+  headformat=\NAME~\NUMBER,
+  headpunct={},
+  postheadspace=1em,
+  mdframed={style=baseBox,backgroundcolor=pmOrange,linecolor=pmLine,frametitlebackgroundcolor=pmOrange!30},
+]{orangeLemma}
+
 %%% Declare theorem-like environments
 \declaretheorem[style=blueTheorem,numberwithin=section]{theorem}
-\declaretheorem[style=blueTheorem,sibling=theorem]{lemma}
-\declaretheorem[style=blueTheorem,sibling=theorem]{proposition}
+\declaretheorem[style=orangeLemma,sibling=theorem]{lemma}
+\declaretheorem[style=greenAlgo,sibling=theorem]{proposition}
+\declaretheorem[style=greenAlgo,sibling=theorem,name=Proposition]{prop}
+\declaretheorem[style=greenAlgo,numbered=no,name=Proposition]{prop*}
 \declaretheorem[style=blueTheorem,sibling=theorem]{corollary}
 
 \declaretheorem[style=redExample,sibling=theorem]{example}

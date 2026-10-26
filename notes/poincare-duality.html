@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Poincaré Duality | MrMineev</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="notes-style.css">
+
+    <link rel="icon" href="../assets/website-logo.png">
+
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <script src="mathjax-config.js"></script>
+    <script type="text/javascript" id="MathJax-script" async
+      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+    </script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+      .pd-diagram { display: block; margin: 1em auto; max-width: 100%; height: auto; }
+    </style>
+  </head>
+  <body>
+    <h1 id="global-name">MrMineev</h1>
+    <div id="global-name-line"></div>
+
+    <br>
+
+    <div style="text-align: center;">
+      <button class="button-link" onclick="window.location.href='../index.html'">
+        Go to Articles
+      </button>
+      <button class="button-link" onclick="window.location.href='../notes.html'">
+        Mathematical Notes
+      </button>
+    </div>
+
+    <div class="note-body">
+      <h2 class="note-title">Poincaré Duality</h2>
+      <div class="note-meta">Algebraic Topology &middot; 🗓️ October 26, 2026</div>
+
+      <p>
+        <i>This is me rewriting the proof just for it to stick better in memory, it can be found in its entirety in Hatcher.</i>
+      </p>
+
+      <p>
+        Let us prove the following result,
+      </p>
+
+      <div class="pm-box pm-theorem" id="thm-pd">
+        <p class="pm-head">Theorem 1.1</p>
+        <p>
+          Given any orientable compact manifold \(X\) (\(n\)-dimensional) we have that \(H^k(X) \cong H_{n - k}(X)\).
+        </p>
+      </div>
+
+      <p>
+        It turns out, that proving this result is more natural by proving an even more general result,
+      </p>
+
+      <div class="pm-box pm-theorem">
+        <p class="pm-head">Theorem 1.2</p>
+        <p>
+          Given any \(R\)-orientable manifold \(X\) (\(n\)-dimensional) it holds that \(H_C^k(X;R) \cong H_{n - k}(X;R)\), where the isomorphism is given by the cap product with the fundamental class (i.e. induced by \(\varphi \mapsto \varphi \frown \mu_K\) on \(H^k(X \mid K; R)\) for compact \(K \subseteq X\)).
+        </p>
+      </div>
+
+      <p>
+        Trivially, per definition of cohomology with compact support one has <a href="#thm-pd">Theorem 1.1</a> as a special case for compact manifolds. The usefuless of this more general statement boils down to the capability to perform <i>induction</i> on open sets, since compactness allows us to extract finite covers.
+      </p>
+
+      <p>
+        The \(R\)-orientability condition is what allows the proof to work, another important result that will be heavily used is the following.
+      </p>
+
+      <div class="pm-box pm-proposition">
+        <p class="pm-head">Proposition</p>
+        <p>
+          Given any \(R\)-orientable \(n\)-manifold \(M\) and any compact \(K \subseteq M\), there exists a <b>unique</b> fundamental class \(\mu_K \in H_n(M \mid K; R)\) such that the image of \(\mu_K\) under the inclusion map \(H_n(M \mid K; R) \rightarrow H_n(M|x; R)\) goes to the orientation of \(M\) at \(x\) for all \(x \in K\).
+        </p>
+      </div>
+
+      <p>
+        The main element of the proof of the theorem is the following commutative (up to sign) diagram.
+      </p>
+
+      <div class="pm-box pm-lemma">
+        <p class="pm-head">Lemma 1.3</p>
+        <p>
+          Given any open sets \(U\) and \(V\), let \(M = U \cup V\), then the following diagram is commutative (up to sign),
+        </p>
+        <img class="pd-diagram" src="assets/pd-mayer-vietoris.svg" alt="Mayer–Vietoris ladder for compactly supported cohomology and homology">
+      </div>
+
+      <p>
+        Thus, observe that if we know the theorem to be true for \(U\), \(V\) and \(U \cap V\) it must be true for \(U \cup V\) (by the Five Star Lemma since almost all the vertical arrows in the diagram above will become isomorphisms), thus all that would be left is to verify the lemma for the <i>base open sets</i> of the manifold, which amounts to only verifying it for \(\mathbb{R}^n\) (since locally a manifold is homeomorphic it).
+      </p>
+
+      <p>
+        Let us now attempt to prove the lemma. The first step is to use the definition of the cohomology with compact support via the colimit of relative cohomologies, thus obtaining the diagram. Let \(K \subset U\) and \(L \subset V\) be two compact subsets, then consider the diagram below,
+      </p>
+      <img class="pd-diagram" src="assets/pd-excision.svg" alt="Relative Mayer–Vietoris diagram with excision isomorphisms and squares 1, 2, 3">
+      <p>
+        where the vertical isomorphisms come from the Excision axiom. Showing commutativity of this diagram (up to sign) will result in commutativity of its corresponding colimit diagram of desire. The proof requires showing commutativity of the three boxes \(1\), \(2\) and \(3\).
+      </p>
+
+      <div class="pm-box pm-proposition">
+        <p class="pm-head">Proposition 1.4</p>
+        <p>
+          The \(1\)st square commutes (from here on I will omit clarrifying that it is up to sign).
+        </p>
+      </div>
+
+      <div class="pm-proof">
+        <p>
+          <span class="pm-head">Proof.</span>
+          Indeed, if \(\varphi \in H^k(M \mid K \cap L)\), then the left-down path results in \(\varphi \frown \mu_{K \cap L} \in H_{n-k}(U \cap V)\). Mapping this result across the bottom horizontal arrow (which is induced by the inclusions \(i_U: U \cap V \hookrightarrow U\) and \(i_V: U \cap V \hookrightarrow V\)) yields \((i_{U*}(\varphi \frown \mu_{K \cap L}), -i_{V*}(\varphi \frown \mu_{K \cap L}))\) in \(H_{n-k}(U) \oplus H_{n-k}(V)\).
+        </p>
+        <img class="pd-diagram" src="assets/pd-naturality.svg" alt="Naturality square of the cap product">
+        <p>
+          By the naturality of the cap product with respect to continuous maps, we have the identity \(i_{U*}(i_U^*\varphi \frown \mu_{K \cap L}) = \varphi \frown i_{U*}(\mu_{K \cap L})\). Thus, per uniqueness of the fundamental class \(i_{U*}(\mu_{K \cap L})\) is the image of \(\mu_K\) under \(H_n(U \mid K) \rightarrow H_n(U \mid K \cap L)\) and \(i_{V*}(\mu_{K \cap L})\) is the image of \(\mu_L\) under \(H_n(V \mid L) \rightarrow H_n(V \mid K \cap L)\). Following the right-down path, the top horizontal map restricts \(\varphi\) to \((\varphi, -\varphi)\). Pushing this down via the cap product (using naturality once more for \((U, U - K) \hookrightarrow (U, U - K \cap L)\) and similarly for \(V\)) directly yields \((\varphi \frown \mu_K, -\varphi \frown \mu_L)\), thus the box commutes!
+        </p>
+      </div>
+
+      <div class="pm-box pm-proposition">
+        <p class="pm-head">Proposition 1.5</p>
+        <p>
+          The \(2\)nd square commutes.
+        </p>
+      </div>
+
+      <div class="pm-proof">
+        <p>
+          <span class="pm-head">Proof.</span>
+          The top horizontal map is given by \((\alpha, \beta) \mapsto \alpha + \beta\), thus one needs to show that \(\alpha \frown \mu_K + \beta \frown \mu_L = (\alpha + \beta) \frown \mu_{K \cup L}\) in \(H_{n - k}(M)\), which follows from \(\mu_{K \cup L}\) mapping to \(\mu_K\) and \(\mu_L\) under \(H_n(M \mid K \cup L) \rightarrow H_n(M \mid K)\) and \(H_n(M \mid K \cup L) \rightarrow H_n(M \mid L)\) respectively (by uniqueness of the fundamental class), naturality and distributivity of the cap product.
+        </p>
+      </div>
+
+      <p>
+        The third square is in some sense the hardest to prove.
+      </p>
+
+      <div class="pm-box pm-proposition">
+        <p class="pm-head">Proposition 1.6</p>
+        <p>
+          The \(3\)rd box commutes.
+        </p>
+      </div>
+
+      <div class="pm-proof">
+        <p>
+          <span class="pm-head">Proof.</span>
+          Let us explicitly consider the square with the Excision maps,
+        </p>
+        <img class="pd-diagram" src="assets/pd-third-square.svg" alt="The third square with the coboundary and boundary maps">
+        <p>
+          Let us consider an arbitrary element \(\varphi \in H^k(M |K \cup L)\), then the Mayer–Vietoris map is given by writing \(\varphi = \varphi_U + \varphi_V\) (where \(\varphi_U\) vanishes on chains in \(M - K\) and \(\varphi_V\) vanishes on chains in \(M - L\)), then since \(\delta \varphi = \delta \varphi_U + \delta\varphi_V = 0\) (since \(\varphi\) is a cocycle) we know that \(\delta \varphi_U = -\delta \varphi_V\), which implies that both vanish on chains in \(M - K \cap L\), then \(\varphi \mapsto \delta \varphi_U\).
+        </p>
+        <p>
+          The trick is to expand \(\mu_{K \cup L}\) via barycentric subdivision by considering the open cover \(M = (U - L) \cup (V - K) \cup (U \cap V)\), then we may write,
+          \[
+            \mu_{K \cup L} = \alpha_{U - L} + (\alpha_{V - K} + \alpha_{U \cap V})
+          \]
+          where the second term clearly lies in \(V\), thus will be ignored by the Mayer-Vietoris map. Thus, the top-right path to \(H_{n - k - 1}(U \cap V)\) will be given by \(\mu_{K \cap L} \frown \delta\varphi_U\). To find the bottom path result, let us first apply the vertical cap product,
+          \[
+            \mu_{K \cup L} \frown \varphi = \alpha_{U - L} \frown \varphi + (\alpha_{V - K} + \alpha_{U \cap V}) \frown \varphi
+          \]
+          observe how the second term lies in \(V\), thus may be ignored (under the Mayer-Vietoris map), thus applying \(\partial\) we obtain,
+          \[
+            \partial(\alpha_{U - L} \frown \varphi) = (-1)^{k + 1}(\partial \alpha_{U - L} \frown \varphi - \alpha_{U - L} \frown \delta \varphi) = (-1)^{k + 1}(\partial \alpha_{U - L} \frown \varphi)
+          \]
+          again we may replace \(\varphi\) by \(\varphi_U\) since \(\partial \alpha_{U - L}\) lies in \(M - L\) where \(\varphi_V\) vanishes and thus obtain \((-1)^{k + 1} (\partial \alpha_{U - L} \frown \varphi_U)\).
+        </p>
+        <p>
+          To connect this to the top path, observe that the sum \(\alpha_{U - L} + \alpha_{U \cap V}\) represents the fundamental class \(\mu_K\). Since \(\partial(\alpha_{U - L} + \alpha_{U \cap V}) = \partial \mu_{K \cup L} - \partial \alpha_{V - K}\) lies in \(M - K\) and \(\varphi_U\) vanishes on chains in \(M - K\), we have the relation \(\partial(\alpha_{U - L} + \alpha_{U \cap V}) \frown \varphi_U = 0\), which forces the identity \(\partial \alpha_{U - L} \frown \varphi_U = - \partial \alpha_{U \cap V} \frown \varphi_U\) which further simplifies our bottom path as \((-1)^{k+2}(\partial \alpha_{U \cap V} \frown \varphi_U)\).
+        </p>
+        <p>
+          Thus, we only need to show that \(\mu_{K \cap L} \frown \delta \varphi_U = \pm (\partial \alpha_{U \cap V} \frown \varphi_U)\), and since \(\alpha_{U \cap V}\) represents \(\mu_{K \cap L}\) (its boundary lies in \(M - K \cap L\) and \(\alpha_{U - L}\), \(\alpha_{V - K}\) avoid \(K \cap L\)), we only need to show that \(\alpha_{U \cap V} \frown \delta \varphi_U\) and \(\partial \alpha_{U \cap V} \frown \varphi_U\) have the same homology classes in \(H_{n - k - 1}(U \cap V)\), to do this consider the chain \(\alpha_{U \cap V} \frown \varphi_U\) in \(U \cap V\), then their difference is a boundary,
+          \[
+            \partial(\alpha_{U \cap V} \frown \varphi_U) = (-1)^{k + 1}(\partial \alpha_{U \cap V} \frown \varphi_U - \alpha_{U \cap V} \frown \delta \varphi_U)
+          \]
+          which implies the desired result!
+        </p>
+      </div>
+
+      <p>
+        Now, let us perform the final induction step. Let us show the theorem for any open \(Y \subset \mathbb{R}^n\), observe that we first need the following.
+      </p>
+
+      <div class="pm-box pm-lemma">
+        <p class="pm-head">Lemma 1.7</p>
+        <p>
+          If \(M = \bigcup_i U_i\) for a directed family of open sets \(U_i\) (e.g. \(U_1 \subseteq U_2 \subseteq \ldots\)) and \(D_{U_i}\) is an isomorphism for all \(i\), then so is \(D_M\).
+        </p>
+      </div>
+
+      <div class="pm-proof">
+        <p>
+          <span class="pm-head">Proof.</span>
+          Every compact \(K \subseteq M\) lies in some \(U_i\), thus \(H^k_C(M;R) = \varinjlim H^k_C(U_i;R)\), and since every singular chain has compact image also \(H_{n - k}(M;R) = \varinjlim H_{n - k}(U_i;R)\). The maps \(D_{U_i}\) commute with the inclusions (by naturality of the cap product, as in the \(1\)st square), thus \(D_M = \varinjlim D_{U_i}\) is a colimit of isomorphisms, hence an isomorphism.
+        </p>
+      </div>
+
+      <p>
+        We now proceed in three steps.
+      </p>
+      <ol>
+        <li><b>\(Y\) convex.</b> Then \(Y \cong \mathbb{R}^n\) and every compact set lies in a closed ball \(B\), thus \(H^k_C(\mathbb{R}^n;R) = \varinjlim_B H^k(\mathbb{R}^n \mid B;R)\) where \(H^k(\mathbb{R}^n \mid B;R) \cong \tilde{H}^{k - 1}(S^{n - 1};R)\) is \(R\) for \(k = n\) and \(0\) otherwise (with all maps in the colimit isomorphisms). For \(k = n\), \(\mu_B\) generates \(H_n(\mathbb{R}^n \mid B;R)\), so by universal coefficients we may pick \(\varphi\) with \(\varphi(\mu_B) = 1\), then \(\varphi \frown \mu_B\) is a generator of \(H_0(\mathbb{R}^n;R) \cong R\), thus \(D_Y\) is an isomorphism.</li>
+        <li><b>\(Y = U_1 \cup \ldots \cup U_m\) with \(U_i\) convex.</b> Let \(U = U_1 \cup \ldots \cup U_{m - 1}\) and \(V = U_m\), then \(U \cap V = (U_1 \cap U_m) \cup \ldots \cup (U_{m - 1} \cap U_m)\) is a union of \(m - 1\) convex sets, thus by induction on \(m\) the theorem holds for \(U\), \(V\) and \(U \cap V\), hence by the Mayer–Vietoris lemma and the five lemma also for \(Y\).</li>
+        <li><b>\(Y\) arbitrary open.</b> \(Y\) is a union of countably many open balls \(B_1, B_2, \ldots\) (rational centers and radii), thus \(Y = \bigcup_m Y_m\) with \(Y_m = B_1 \cup \ldots \cup B_m\) increasing, each \(Y_m\) is covered by step \(2\), and we conclude by the lemma above.</li>
+      </ol>
+
+      <p>
+        Finally, for a general \(M\) consider the collection of open \(U \subseteq M\) for which \(D_U\) is an isomorphism, ordered by inclusion. It is non-empty (it contains every chart by step \(3\)) and every chain has an upper bound, namely its union (by the directed union lemma), thus by Zorn's lemma there is a maximal such \(U\). If \(U \neq M\), pick a chart \(V \cong \mathbb{R}^n\) around a point of \(M - U\), then \(V\) and \(U \cap V\) (an open subset of \(V \cong \mathbb{R}^n\)) satisfy the theorem by step \(3\), hence by the Mayer–Vietoris lemma and the five lemma so does \(U \cup V \supsetneq U\), contradicting maximality. Thus \(U = M\). \(\blacksquare\)
+      </p>
+
+      <br>
+
+      <div class="section-name" style="text-align: center;">
+        <h2 style="display: inline;" class="symbol-change">§</h2><h2 style="display: inline;"> 💬 Comments</h2>
+      </div>
+
+      <br>
+
+      <script src="https://utteranc.es/client.js"
+          repo="MrMineev/MrMineev.github.io"
+          issue-term="pathname"
+          label="WEBSITE_COMMENT"
+          theme="github-light"
+          crossorigin="anonymous"
+          async>
+      </script>
+    </div>
+  </body>
+</html>

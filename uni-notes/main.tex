@@ -1,4 +1,4 @@
-\documentclass[17pt]{extarticle}
+\documentclass[12pt]{extarticle}
 
 \usepackage{mrmineev}
 \usepackage{tikz-cd}
@@ -9,6 +9,7 @@
 \usepackage{amssymb}
 \usepackage{amsthm}
 \usepackage{adjustbox}
+\usepackage[margin=2.5cm]{geometry}
 
 \tikzcdset{scale cd/.style={every label/.append style={scale=#1},
     cells={nodes={scale=#1}}}}
@@ -58,16 +59,16 @@ This document contains my personal notes from the courses I am taking at \textbf
   thus \(\phi(\alpha) = \phi(\beta)\), so the function is well-defined.
 
   Now, all that is left is to notice that if \(x, y \in A / \ker \phi\), then,
-  \begin{multline*}
-  f(x) \cdot f(y) = f(\alpha + \ker \phi) \cdot f(\beta + \ker \phi) \\ = \phi(\alpha) \cdot \phi(\beta) = \phi(\alpha \beta) = f(xy)
-  \end{multline*}
+  \[
+  f(x) \cdot f(y) = f(\alpha + \ker \phi) \cdot f(\beta + \ker \phi) = \phi(\alpha) \cdot \phi(\beta) = \phi(\alpha \beta) = f(xy)
+\]
   \[f(x) + f(y) = \phi(\alpha) + \phi(\beta) = \phi(\alpha + \beta) = f(x + y)\]
   thus \(f\) is a homomorphism, trivially it is surjective.
 
   Let us show that \(f\) is injective, indeed if \(f(\alpha + \ker \phi) = f(\beta + \ker \phi)\), then it must be that,
-  \begin{multline*}
-  f(\alpha + \ker \phi) - f(\beta + \ker \phi) = f((\alpha - \beta) + \ker \phi) = 0 \\ \implies \alpha - \beta \in \ker \phi
-  \end{multline*}
+  \[
+  f(\alpha + \ker \phi) - f(\beta + \ker \phi) = f((\alpha - \beta) + \ker \phi) = 0 \implies \alpha - \beta \in \ker \phi
+\]
   Thus, \(\alpha \in \beta + \ker \phi\), thus it must be that \(\alpha + \ker \phi = \beta + \ker \phi\), since \(\ker \phi\) is known to be an ideal.
 
   Thus, since \(f\) is a homomorphism which is both surjective and injective it must be that an isomorphism, thus proving the desired isomorphism.
@@ -346,8 +347,9 @@ Now,
   To prove the second statement, assume that \(A\) is a ring such that,
   \[M = \{f \in A | f \text{ is not a unit}\}\]
   is an ideal. Then,
-  \begin{multline*}M \text{ is a unique maximal ideal} \\ \Leftrightarrow \text{every ideal \(I \neq (1)\) is such that \(I \subseteq M\)}
-  \end{multline*}
+  \[
+  M \text{ is a unique maximal ideal} \Leftrightarrow \text{every ideal \(I \neq (1)\) is such that \(I \subseteq M\)}
+\]
   Let \(x \in I\), then \((x) \subseteq I \subseteq (1)\) since this holds for all \(x \in I\) it must be that \(I \subseteq m\).
 \end{proof}
 \begin{example}
@@ -366,9 +368,9 @@ A known result in number theory is that if \((n, m) = 1\), then \(ax + by\) can 
 \end{definition}
 \begin{example}
   In \(\mathbb{Q}[x]\) we can consider the principle ideals \((x - 2)\) and \((2x^2 - 2)\), then,
-  \begin{multline*}
-  (x - 2) + (2x^2 - 2) = (x - 2, 2x^2 - 2) \\ = (x - 2, 2x^2 - 2 - 2x^2 +2x) = (x - 2, 6) = (1)
-\end{multline*}
+  \[
+  (x - 2) + (2x^2 - 2) = (x - 2, 2x^2 - 2) = (x - 2, 2x^2 - 2 - 2x^2 +2x) = (x - 2, 6) = (1)
+\]
   thus proving that \((x - 2)\) is relatively prime to \((2x^2 - 2)\).
 \end{example}
 Notice, if we consider \(\mathbb{Z}\), then if we have some relatively prime ideals \((2)\) and \((3)\), then \((2) \cdot (3) = (6)\) which is just \((2) \cap (3)\), this leads one to question whether this is always true. It turns out it is,
@@ -399,9 +401,9 @@ Now, we are ready to formulate the Generalized Chinese Remainder Theorem (someti
 \end{theorem}
 \begin{example}
   Consider the two coprime ideals \((x - 2)\) and \((x^2 - 2)\) in \(\mathbb{Q}[x]\). Then,
-  \begin{multline*}
-  \mathbb{Q}[x]/(x - 2)(x^2 - 2) \cong \mathbb{Q}[x]/(x - 2) \times \mathbb{Q}[x]/(x^2 - 2) \\ \cong \mathbb{Q} \times \mathbb{Q}(\sqrt{2})
-  \end{multline*}
+  \[
+  \mathbb{Q}[x]/(x - 2)(x^2 - 2) \cong \mathbb{Q}[x]/(x - 2) \times \mathbb{Q}[x]/(x^2 - 2) \cong \mathbb{Q} \times \mathbb{Q}(\sqrt{2})
+\]
   where the last step can be done due to the fundamental homomorphism theorem.
 \end{example}
 
@@ -792,10 +794,9 @@ Now, this discussion naturally leads to the following definition,
   \[|\Aut(K/F)| = [K : F]\]
 \end{definition}
 Notice, if \(K / F = F(\alpha_1, \ldots, \alpha_n)\), then,
-\begin{multline*}
-  |\Aut(K/F)| = [F(a_1, \ldots, a_k) : F(a_1, \ldots, a_{k - 1})] \cdot \ldots \cdot [F(a_1) : F] \\
-  = [K : F]
-\end{multline*}
+\[
+  |\Aut(K/F)| = [F(a_1, \ldots, a_k) : F(a_1, \ldots, a_{k - 1})] \cdot \ldots \cdot [F(a_1) : F] = [K : F]
+\]
 the only condition required for this proof to work is that \(K/F\) is \textit{normal} (i.e. given any irreducable polynomial \(p \in F[X]\) with at least one root in \(K/F\) it splits completely in \(K/F\)) and seperable, thus we obtain the following,
 \begin{theorem}
   If a field extension is seperable and \textit{normal}, then it is a Galois field extension.
@@ -858,10 +859,9 @@ Now let us explore the problem more generally, let $C^kX$ be $k$ copies of $CX$ 
 \end{theorem}
 \begin{proof}
   Let us decompose $C^kX = CX \cup C^{k - 1}X$, then $CX \cap C^{k - 1}X = X$, thus by the Mayer–Vietoris sequence we obtain,
-  \begin{multline*}
-    \ldots \longrightarrow \tilde{H}_n(X) \longrightarrow \tilde{H}_n(C^{k - 1}X) \oplus \tilde{H}_n(CX) \longrightarrow \tilde{H}_n(C^kX)
-    \\ \longrightarrow \tilde{H}_{n - 1}(X) \longrightarrow \ldots
-  \end{multline*}
+  \[
+  \ldots \longrightarrow \tilde{H}_n(X) \longrightarrow \tilde{H}_n(C^{k - 1}X) \oplus \tilde{H}_n(CX) \longrightarrow \tilde{H}_n(C^kX) \longrightarrow \tilde{H}_{n - 1}(X) \longrightarrow \ldots
+\]
   since $CX$ is contractible the $\tilde{H}_n(CX)$ term disappears. Let us closely look at the map $\tilde{H}_n(X) \longrightarrow \tilde{H}_n(C^{k - 1}X)$, clearly this induces the zero map (via the inclusion $X \hookrightarrow C^{k - 1}X$) since every cycle in $X$ becomes contractible in $C^{k - 1}X$, thus we obtain the short exact sequence,
   \[
     0 \longrightarrow \tilde{H}_n(C^{k - 1}X) \longrightarrow \tilde{H}_n(C^kX) \longrightarrow \tilde{H}_{n - 1}(X) \longrightarrow 0
@@ -912,12 +912,186 @@ where $n_i(X)$ counts the number of $i$-cells of $X$.
 \end{proof}
 \begin{remark}
   Note that the $\rank C_n$ argument in the end can be more directly written as,
-  \begin{multline*}
-  \rank H_k(X^k, X^{k - 1}) = \rank H_k \left( \bigvee_{i = 1}^{n_k(X)} S^k \right)
-  \\ = \rank \bigoplus_{i = 1}^{n_k(X)} H_k(S^k) = \rank \mathbb{Z}^{n_k(X)} = n_k(X)
-  \end{multline*}
+  \[
+  \rank H_k(X^k, X^{k - 1}) = \rank H_k \left( \bigvee_{i = 1}^{n_k(X)} S^k \right) = \rank \bigoplus_{i = 1}^{n_k(X)} H_k(S^k) = \rank \mathbb{Z}^{n_k(X)} = n_k(X)
+\]
 \end{remark}
 The remarable aspect is that the homology groups do not depend on the CW structure imposed on $X$, since singular homology is the same as simplicial for CW complexes.
+
+\subsection{Poincare Duality}
+
+Let us prove the following result,
+\begin{theorem}\label{thm:pd}
+    Given any orientable compact manifold $X$ ($n$-dimensional) we have that $H^k(X) \cong H_{n - k}(X)$.
+\end{theorem}
+It turns out, that proving this result is more natural by proving an even more general result,
+\begin{theorem}
+    Given any $R$-orientable manifold $X$ ($n$-dimensional) it holds that $H_C^k(X;R) \cong H_{n - k}(X;R)$, where the isomorphism is given by the cap product with the fundamental class (i.e. induced by $\varphi \mapsto \varphi \frown \mu_K$ on $H^k(X \mid K; R)$ for compact $K \subseteq X$).
+\end{theorem}
+Trivially, per definition of cohomology with compact support one has \textcolor{blue}{Theorem~\ref{thm:pd}} as a special case for compact manifolds. The usefuless of this more general statement boils down to the capability to perform \textit{induction} on open sets, since compactness allows us to extract finite covers.
+
+The $R$-orientability condition is what allows the proof to work, another important result that will be heavily used is the following.
+
+\begin{prop*}
+    Given any $R$-orientable $n$-manifold $M$ and any compact $K \subseteq M$, there exists a \textbf{unique} fundamental class $\mu_K \in H_n(M \mid K; R)$ such that the image of $\mu_K$ under the inclusion map $H_n(M \mid K; R) \rightarrow H_n(M|x; R)$ goes to the orientation of $M$ at $x$ for all $x \in K$.
+\end{prop*}
+
+The main element of the proof of the theorem is the following commutative (up to sign) diagram.
+
+\begin{lemma}
+    Given any open sets $U$ and $V$, let $M = U \cup V$, then the following diagram is commutative (up to sign),
+$$
+\begin{adjustbox}{max width=\linewidth}
+\begin{tikzcd}[column sep=small]
+	\ldots & {H_C^k(U \cap V)} & {H^k_C(U) \oplus H^k_C(V)} & {H_C^k(M)} & {H_C^{k + 1}(U \cap V)} & \ldots \\
+	&&&&& \\
+	\ldots & {H_{n - k}(U \cap V)} & {H_{n-k}(U) \oplus H_{n - k}(V)} & {H_{n - k}(M)} & {H_{n - k - 1}(U \cap V)} & \ldots
+	\arrow[from=1-1, to=1-2]
+	\arrow[from=1-2, to=1-3]
+	\arrow[from=1-2, to=3-2]
+	\arrow[from=1-3, to=1-4]
+	\arrow[from=1-3, to=3-3]
+	\arrow[from=1-4, to=1-5]
+	\arrow[from=1-4, to=3-4]
+	\arrow[from=1-5, to=1-6]
+	\arrow[from=1-5, to=3-5]
+	\arrow[from=3-1, to=3-2]
+	\arrow[from=3-2, to=3-3]
+	\arrow[from=3-3, to=3-4]
+	\arrow[from=3-4, to=3-5]
+	\arrow[from=3-5, to=3-6]
+\end{tikzcd}
+\end{adjustbox}
+$$
+\end{lemma}
+
+Thus, observe that if we know the theorem to be true for $U$, $V$ and $U \cap V$ it must be true for $U \cup V$ (by the Five Star Lemma since almost all the vertical arrows in the diagram above will become isomorphisms), thus all that would be left is to verify the lemma for the \textit{base open sets} of the manifold, which amounts to only verifying it for $\mathbb{R}^n$ (since locally a manifold is homeomorphic it).
+
+Let us now attempt to prove the lemma. The first step is to use the definition of the cohomology with compact support via the colimit of relative cohomologies, thus obtaining the diagram. Let $K \subset U$ and $L \subset V$ be two compact subsets, then consider the diagram below,
+$$
+\begin{adjustbox}{max width=\linewidth}
+\begin{tikzcd}[column sep=small]
+	\ldots & {H^k(M \mid K \cap L)} & {H^k(M \mid K) \oplus H^k(M \mid L)} & {H^k(M \mid K \cup L)} & \ldots \\
+	&&&& \\
+	\ldots & {H^k(U \cap V \mid K \cap L)} & {H^k(U \mid K) \oplus H^k(V \mid L)} & {H^k(M \mid K \cup L)} & \ldots \\
+	&&&& \\
+	\ldots & {H_{n - k}(U \cap V)} & {H_{n-k}(U) \oplus H_{n - k}(V)} & {H_{n - k}(M)} & \ldots
+	\arrow[from=1-1, to=1-2]
+	\arrow[from=1-2, to=1-3]
+	\arrow[from=1-2, to=3-2, "\cong"']
+	\arrow[from=1-3, to=1-4]
+	\arrow[from=1-3, to=3-3, "\cong"']
+	\arrow[from=1-4, to=1-5]
+	\arrow[from=1-4, to=3-4, "\cong"']
+	\arrow[from=3-1, to=3-2]
+	\arrow[from=3-2, to=3-3]
+	\arrow[from=3-2, to=5-2]
+	\arrow[from=3-3, to=3-4]
+	\arrow[from=3-3, to=5-3]
+	\arrow[from=3-4, to=3-5]
+	\arrow[from=3-4, to=5-4]
+	\arrow[from=5-1, to=5-2]
+	\arrow[from=5-2, to=5-3]
+	\arrow[from=5-3, to=5-4]
+	\arrow[from=5-4, to=5-5]
+	\arrow[from=3-2, to=5-3, phantom, "\textcircled{1}" description]
+	\arrow[from=3-3, to=5-4, phantom, "\textcircled{2}" description]
+	\arrow[from=3-4, to=5-5, phantom, "\textcircled{3}" description]
+\end{tikzcd}
+\end{adjustbox}
+$$
+where the vertical isomorphisms come from the Excision axiom. Showing commutativity of this diagram (up to sign) will result in commutativity of its corresponding colimit diagram of desire. The proof requires showing commutativity of the three boxes $1$, $2$ and $3$.
+\begin{prop}
+    The $1$st square commutes (from here on I will omit clarrifying that it is up to sign).
+\end{prop}
+\begin{proof}
+    Indeed, if $\varphi \in H^k(M \mid K \cap L)$, then the left-down path results in $\varphi \frown \mu_{K \cap L} \in H_{n-k}(U \cap V)$. Mapping this result across the bottom horizontal arrow (which is induced by the inclusions $i_U: U \cap V \hookrightarrow U$ and $i_V: U \cap V \hookrightarrow V$) yields $(i_{U*}(\varphi \frown \mu_{K \cap L}), -i_{V*}(\varphi \frown \mu_{K \cap L}))$ in $H_{n-k}(U) \oplus H_{n-k}(V)$.
+
+$$
+\begin{tikzcd}
+	{H_n(U \cap V \mid K \cap L)} & {H_{n-k}(U \cap V)} \\
+	{H_n(U \mid K \cap L)} & {H_{n-k}(U)}
+	\arrow["{i_U^*\varphi \frown -}", from=1-1, to=1-2]
+	\arrow["{i_{U*}}"', from=1-1, to=2-1]
+	\arrow["{i_{U*}}", from=1-2, to=2-2]
+	\arrow["{\varphi \frown -}"', from=2-1, to=2-2]
+\end{tikzcd}
+$$
+
+    By the naturality of the cap product with respect to continuous maps, we have the identity $i_{U*}(i_U^*\varphi \frown \mu_{K \cap L}) = \varphi \frown i_{U*}(\mu_{K \cap L})$. Thus, per uniqueness of the fundamental class $i_{U*}(\mu_{K \cap L})$ is the image of $\mu_K$ under $H_n(U \mid K) \rightarrow H_n(U \mid K \cap L)$ and $i_{V*}(\mu_{K \cap L})$ is the image of $\mu_L$ under $H_n(V \mid L) \rightarrow H_n(V \mid K \cap L)$. Following the right-down path, the top horizontal map restricts $\varphi$ to $(\varphi, -\varphi)$. Pushing this down via the cap product (using naturality once more for $(U, U - K) \hookrightarrow (U, U - K \cap L)$ and similarly for $V$) directly yields $(\varphi \frown \mu_K, -\varphi \frown \mu_L)$, thus the box commutes!
+\end{proof}
+\begin{prop}
+    The $2$nd square commutes.
+\end{prop}
+\begin{proof}
+    The top horizontal map is given by $(\alpha, \beta) \mapsto \alpha + \beta$, thus one needs to show that $\alpha \frown \mu_K + \beta \frown \mu_L = (\alpha + \beta) \frown \mu_{K \cup L}$ in $H_{n - k}(M)$, which follows from $\mu_{K \cup L}$ mapping to $\mu_K$ and $\mu_L$ under $H_n(M \mid K \cup L) \rightarrow H_n(M \mid K)$ and $H_n(M \mid K \cup L) \rightarrow H_n(M \mid L)$ respectively (by uniqueness of the fundamental class), naturality and distributivity of the cap product.
+\end{proof}
+
+The third square is in some sense the hardest to prove.
+
+\begin{prop}
+    The $3$rd box commutes.
+\end{prop}
+\begin{proof}
+    Let us explicitly consider the square with the Excision maps,
+    $$
+\begin{adjustbox}{max width=\linewidth}
+\begin{tikzcd}[column sep=small]
+	& {H^{k+1}(M \mid K \cap L)} \\
+	{H^k(M \mid K \cup L)} & {H^{k + 1}(U \cap V \mid K \cap L)} \\
+	{H_{n - k}(M)} & {H_{n - k - 1}(U \cap V)}
+	\arrow[from=2-1, to=1-2, "\delta"]
+	\arrow[from=1-2, to=2-2, "\cong"]
+	\arrow[from=2-1, to=2-2]
+	\arrow[from=2-1, to=3-1, "\mu_{K \cup L} \frown"']
+	\arrow[from=2-2, to=3-2, "\mu_{K \cap L} \frown"]
+	\arrow[from=3-1, to=3-2, "\partial"]
+\end{tikzcd}
+\end{adjustbox}
+$$
+
+    Let us consider an arbitrary element $\varphi \in H^k(M |K \cup L)$, then the Mayer–Vietoris map is given by writing $\varphi = \varphi_U + \varphi_V$ (where $\varphi_U$ vanishes on chains in $M - K$ and $\varphi_V$ vanishes on chains in $M - L$), then since $\delta \varphi = \delta \varphi_U + \delta\varphi_V = 0$ (since $\varphi$ is a cocycle) we know that $\delta \varphi_U = -\delta \varphi_V$, which implies that both vanish on chains in $M - K \cap L$, then $\varphi \mapsto \delta \varphi_U$.
+
+    The trick is to expand $\mu_{K \cup L}$ via barycentric subdivision by considering the open cover $M = (U - L) \cup (V - K) \cup (U \cap V)$, then we may write,
+    \[
+    \mu_{K \cup L} = \alpha_{U - L} + (\alpha_{V - K} + \alpha_{U \cap V})
+    \]
+    where the second term clearly lies in $V$, thus will be ignored by the Mayer-Vietoris map. Thus, the top-right path to $H_{n - k - 1}(U \cap V)$ will be given by $\mu_{K \cap L} \frown \delta\varphi_U$. To find the bottom path result, let us first apply the vertical cap product,
+    \[
+        \mu_{K \cup L} \frown \varphi = \alpha_{U - L} \frown \varphi + (\alpha_{V - K} + \alpha_{U \cap V}) \frown \varphi      
+    \]
+    observe how the second term lies in $V$, thus may be ignored (under the Mayer-Vietoris map), thus applying $\partial$ we obtain,
+    \[
+    \partial(\alpha_{U - L} \frown \varphi) = (-1)^{k + 1}(\partial \alpha_{U - L} \frown \varphi - \alpha_{U - L} \frown \delta \varphi) = (-1)^{k + 1}(\partial \alpha_{U - L} \frown \varphi)
+    \]
+    again we may replace $\varphi$ by $\varphi_U$ since $\partial \alpha_{U - L}$ lies in $M - L$ where $\varphi_V$ vanishes and thus obtain $(-1)^{k + 1} (\partial \alpha_{U - L} \frown \varphi_U)$.
+
+    To connect this to the top path, observe that the sum $\alpha_{U - L} + \alpha_{U \cap V}$ represents the fundamental class $\mu_K$. Since $\partial(\alpha_{U - L} + \alpha_{U \cap V}) = \partial \mu_{K \cup L} - \partial \alpha_{V - K}$ lies in $M - K$ and $\varphi_U$ vanishes on chains in $M - K$, we have the relation $\partial(\alpha_{U - L} + \alpha_{U \cap V}) \frown \varphi_U = 0$, which forces the identity $\partial \alpha_{U - L} \frown \varphi_U = - \partial \alpha_{U \cap V} \frown \varphi_U$ which further simplifies our bottom path as $(-1)^{k+2}(\partial \alpha_{U \cap V} \frown \varphi_U)$.
+
+    Thus, we only need to show that $\mu_{K \cap L} \frown \delta \varphi_U = \pm (\partial \alpha_{U \cap V} \frown \varphi_U)$, and since $\alpha_{U \cap V}$ represents $\mu_{K \cap L}$ (its boundary lies in $M - K \cap L$ and $\alpha_{U - L}$, $\alpha_{V - K}$ avoid $K \cap L$), we only need to show that $\alpha_{U \cap V} \frown \delta \varphi_U$ and $\partial \alpha_{U \cap V} \frown \varphi_U$ have the same homology classes in $H_{n - k - 1}(U \cap V)$, to do this consider the chain $\alpha_{U \cap V} \frown \varphi_U$ in $U \cap V$, then their difference is a boundary,
+    \[
+    \partial(\alpha_{U \cap V} \frown \varphi_U) = (-1)^{k + 1}(\partial \alpha_{U \cap V} \frown \varphi_U - \alpha_{U \cap V} \frown \delta \varphi_U)
+    \]
+    which implies the desired result!
+\end{proof}
+
+Now, let us perform the final induction step. Let us show the theorem for any open $Y \subset \mathbb{R}^n$, observe that we first need the following.
+
+\begin{lemma}
+    If $M = \bigcup_i U_i$ for a directed family of open sets $U_i$ (e.g. $U_1 \subseteq U_2 \subseteq \ldots$) and $D_{U_i}$ is an isomorphism for all $i$, then so is $D_M$.
+\end{lemma}
+\begin{proof}
+    Every compact $K \subseteq M$ lies in some $U_i$, thus $H^k_C(M;R) = \varinjlim H^k_C(U_i;R)$, and since every singular chain has compact image also $H_{n - k}(M;R) = \varinjlim H_{n - k}(U_i;R)$. The maps $D_{U_i}$ commute with the inclusions (by naturality of the cap product, as in the $1$st square), thus $D_M = \varinjlim D_{U_i}$ is a colimit of isomorphisms, hence an isomorphism.
+\end{proof}
+
+We now proceed in three steps.
+\begin{enumerate}
+    \item \textbf{$Y$ convex.} Then $Y \cong \mathbb{R}^n$ and every compact set lies in a closed ball $B$, thus $H^k_C(\mathbb{R}^n;R) = \varinjlim_B H^k(\mathbb{R}^n \mid B;R)$ where $H^k(\mathbb{R}^n \mid B;R) \cong \tilde{H}^{k - 1}(S^{n - 1};R)$ is $R$ for $k = n$ and $0$ otherwise (with all maps in the colimit isomorphisms). For $k = n$, $\mu_B$ generates $H_n(\mathbb{R}^n \mid B;R)$, so by universal coefficients we may pick $\varphi$ with $\varphi(\mu_B) = 1$, then $\varphi \frown \mu_B$ is a generator of $H_0(\mathbb{R}^n;R) \cong R$, thus $D_Y$ is an isomorphism.
+    \item \textbf{$Y = U_1 \cup \ldots \cup U_m$ with $U_i$ convex.} Let $U = U_1 \cup \ldots \cup U_{m - 1}$ and $V = U_m$, then $U \cap V = (U_1 \cap U_m) \cup \ldots \cup (U_{m - 1} \cap U_m)$ is a union of $m - 1$ convex sets, thus by induction on $m$ the theorem holds for $U$, $V$ and $U \cap V$, hence by the Mayer–Vietoris lemma and the five lemma also for $Y$.
+    \item \textbf{$Y$ arbitrary open.} $Y$ is a union of countably many open balls $B_1, B_2, \ldots$ (rational centers and radii), thus $Y = \bigcup_m Y_m$ with $Y_m = B_1 \cup \ldots \cup B_m$ increasing, each $Y_m$ is covered by step $2$, and we conclude by the lemma above.
+\end{enumerate}
+
+Finally, for a general $M$ consider the collection of open $U \subseteq M$ for which $D_U$ is an isomorphism, ordered by inclusion. It is non-empty (it contains every chart by step $3$) and every chain has an upper bound, namely its union (by the directed union lemma), thus by Zorn's lemma there is a maximal such $U$. If $U \neq M$, pick a chart $V \cong \mathbb{R}^n$ around a point of $M - U$, then $V$ and $U \cap V$ (an open subset of $V \cong \mathbb{R}^n$) satisfy the theorem by step $3$, hence by the Mayer–Vietoris lemma and the five lemma so does $U \cup V \supsetneq U$, contradicting maximality. Thus $U = M$. $\blacksquare$
 
 \newpage
 

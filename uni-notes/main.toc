@@ -1,20 +1,21 @@
-\contentsline {section}{\numberline {1}Commutative Algebra}{5}{section.1}%
-\contentsline {subsection}{\numberline {1.1}Ideals}{5}{subsection.1.1}%
-\contentsline {subsection}{\numberline {1.2}Units and Fields}{8}{subsection.1.2}%
-\contentsline {subsection}{\numberline {1.3}Prime/Maximal Ideals and Krull's theorem}{11}{subsection.1.3}%
-\contentsline {subsection}{\numberline {1.4}Principle Ideal Domains \& Unique Factorization Domains}{15}{subsection.1.4}%
-\contentsline {subsection}{\numberline {1.5}The Chinese Remainder Theorem}{20}{subsection.1.5}%
-\contentsline {subsection}{\numberline {1.6}Extension \& Contraction of ideals}{23}{subsection.1.6}%
-\contentsline {subsection}{\numberline {1.7}Modules \& Free Modules and Quotient Modules}{26}{subsection.1.7}%
-\contentsline {subsection}{\numberline {1.8}Module Isomorphism Theorems \& Presentations of Modules}{28}{subsection.1.8}%
-\contentsline {subsection}{\numberline {1.9}Nakayama's Lemma}{31}{subsection.1.9}%
-\contentsline {subsection}{\numberline {1.10}Additive functions \& exact sequences}{33}{subsection.1.10}%
-\contentsline {section}{\numberline {2}Galois Theory}{37}{section.2}%
-\contentsline {section}{\numberline {3}Algebraic Topology}{43}{section.3}%
-\contentsline {subsection}{\numberline {3.1}Homology of the Suspension}{43}{subsection.3.1}%
-\contentsline {subsection}{\numberline {3.2}Euler Charecteristic}{45}{subsection.3.2}%
-\contentsline {section}{\numberline {4}1-Categories (based on Farum lectures)}{48}{section.4}%
-\contentsline {subsection}{\numberline {4.1}Yoneda Applications}{52}{subsection.4.1}%
-\contentsline {subsubsection}{\numberline {4.1.1}Polynomial Forms}{52}{subsubsection.4.1.1}%
-\contentsline {subsubsection}{\numberline {4.1.2}Graph-Theoretic Trivialities}{55}{subsubsection.4.1.2}%
-\contentsline {subsubsection}{\numberline {4.1.3}Cayley's Embedding Theorem}{55}{subsubsection.4.1.3}%
+\contentsline {section}{\numberline {1}Commutative Algebra}{4}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Ideals}{4}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}Units and Fields}{5}{subsection.1.2}%
+\contentsline {subsection}{\numberline {1.3}Prime/Maximal Ideals and Krull's theorem}{7}{subsection.1.3}%
+\contentsline {subsection}{\numberline {1.4}Principle Ideal Domains \& Unique Factorization Domains}{9}{subsection.1.4}%
+\contentsline {subsection}{\numberline {1.5}The Chinese Remainder Theorem}{12}{subsection.1.5}%
+\contentsline {subsection}{\numberline {1.6}Extension \& Contraction of ideals}{13}{subsection.1.6}%
+\contentsline {subsection}{\numberline {1.7}Modules \& Free Modules and Quotient Modules}{15}{subsection.1.7}%
+\contentsline {subsection}{\numberline {1.8}Module Isomorphism Theorems \& Presentations of Modules}{16}{subsection.1.8}%
+\contentsline {subsection}{\numberline {1.9}Nakayama's Lemma}{18}{subsection.1.9}%
+\contentsline {subsection}{\numberline {1.10}Additive functions \& exact sequences}{18}{subsection.1.10}%
+\contentsline {section}{\numberline {2}Galois Theory}{21}{section.2}%
+\contentsline {section}{\numberline {3}Algebraic Topology}{24}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Homology of the Suspension}{24}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Euler Charecteristic}{25}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}Poincare Duality}{26}{subsection.3.3}%
+\contentsline {section}{\numberline {4}1-Categories (based on Farum lectures)}{31}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Yoneda Applications}{33}{subsection.4.1}%
+\contentsline {subsubsection}{\numberline {4.1.1}Polynomial Forms}{33}{subsubsection.4.1.1}%
+\contentsline {subsubsection}{\numberline {4.1.2}Graph-Theoretic Trivialities}{34}{subsubsection.4.1.2}%
+\contentsline {subsubsection}{\numberline {4.1.3}Cayley's Embedding Theorem}{35}{subsubsection.4.1.3}%

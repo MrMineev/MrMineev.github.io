@@ -107,12 +107,11 @@
   margin-top: 0;
 }
 
-/* Theorem / proposition / corollary — blue, MidnightBlue head */
-.pm-theorem, .pm-proposition, .pm-corollary {
+/* Theorem / corollary — blue, MidnightBlue head */
+.pm-theorem, .pm-corollary {
   background-color: var(--pmBlue);
 }
-.pm-theorem .pm-head,
-.pm-proposition .pm-head, .pm-corollary .pm-head {
+.pm-theorem .pm-head, .pm-corollary .pm-head {
   color: MidnightBlue;
 }
 
@@ -132,11 +131,11 @@
   color: rgb(199, 97, 20);
 }
 
-/* Algorithm — green, ForestGreen!70!black head */
-.pm-algorithm {
+/* Algorithm / proposition — green, ForestGreen!70!black head */
+.pm-algorithm, .pm-proposition {
   background-color: var(--pmGreen);
 }
-.pm-algorithm .pm-head {
+.pm-algorithm .pm-head, .pm-proposition .pm-head {
   color: rgb(0, 109, 23);
 }
 
