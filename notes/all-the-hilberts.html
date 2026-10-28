@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>All the Hilberts... | MrMineev</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="notes-style.css">
+
+    <link rel="icon" href="../assets/website-logo.png">
+
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <script src="mathjax-config.js"></script>
+    <script type="text/javascript" id="MathJax-script" async
+      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+    </script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+    <h1 id="global-name">MrMineev</h1>
+    <div id="global-name-line"></div>
+
+    <br>
+
+    <div style="text-align: center;">
+      <button class="button-link" onclick="window.location.href='../index.html'">
+        Go to Articles
+      </button>
+      <button class="button-link" onclick="window.location.href='../notes.html'">
+        Mathematical Notes
+      </button>
+    </div>
+
+    <div class="note-body">
+      <h2 class="note-title">All the Hilberts...</h2>
+      <div class="note-meta">Commutative Algebra &middot; 🗓️ October 28, 2026</div>
+
+      <h3 class="pm-subsection"><span class="secnum">1.1</span> Hilbert's Basis Theorem</h3>
+
+      <p>
+        First, let us show that the chain condition definition of a Noetherian ring is equivalent to every ideal being finitely generated.
+      </p>
+
+      <div class="pm-box pm-proposition">
+        <p class="pm-head">Proposition 1.1</p>
+        <p>
+          The two following definitions of a Noetherian ring are equivalent,
+        </p>
+        <ol>
+          <li>Every ascending chain of ideals \(Z_1 \subseteq Z_2 \subseteq Z_3 \subseteq \ldots\) stabilizes.</li>
+          <li>Every ideal is finitely generated.</li>
+        </ol>
+      </div>
+
+      <div class="pm-proof">
+        <p>
+          <span class="pm-head">Proof.</span>
+          To show (1) implies (2), simply consider the following process of starting with an empty ideal \(I\) and then iteratively adding elements in \(A \setminus I\) as generators, then let \(I_x\) be the ideal obtained after the \(x\)th step. This process induces an ascending chain,
+          \[
+            I_0 \subseteq I_1 \subseteq I_2 \subseteq \ldots
+          \]
+          which must stabilize, thus proving that \(I\) is finitely generated!
+        </p>
+        <p>
+          The (2) implies (1), let \(Z = \bigcup_{i = 1}^{\infty} Z_i\), which clearly is an ideal (verify this!) and thus finitely generated, since each generator will appear somewhere in the chain it follows that some \(Z_k\) will contain all the generators and thus imply that the chain stabilized!
+        </p>
+      </div>
+
+      <div class="pm-box pm-theorem">
+        <p class="pm-head">Theorem 1.2</p>
+        <p>
+          If \(A\) is Noetherian, then \(A[x]\) is as well.
+        </p>
+      </div>
+
+      <div class="pm-proof">
+        <p>
+          <span class="pm-head">Proof.</span>
+          Let us initiate a process, where we start with the empty ideal \(I\) and then iteratively add generators by finding lowest degree polynomials \(f\) that are not in \(I\). Let \(a_i\) be the coefficient in front of the largest exponent monomial of \(f_i\), then since \(A\) is Noetherian we may choose a large enough \(k\) such that \((a_1, \ldots, a_k) = A\).
+        </p>
+        <p>
+          Thus, we may write \(a_{k + 1} = \sum_{i = 1}^{k} b_i a_i\). Let \(f \in A[x] \setminus I\) be the lowest of such degree, then consider the following peculiar function,
+          \[
+            g(x) = f_{k + 1}(x) - \sum_{i = 1}^{k} b_i f_i \cdot x^{\deg f_{k + 1} - \deg f_i}
+          \]
+          clearly all the exponents are non-negative since at each step the lowest degree function not present in \(I\) was added. Observe that \(\deg g < \deg f_{k + 1}\) since the largest exponent monomial in \(f_{k + 1}\) will be canceled by the sum of \(b_i a_i\) coefficients, however clearly \(g(x) \not\in I\) (since \(f_{k + 1} \not\in I\)), thus contradicting the minimality of \(f_{k + 1}\)!
+        </p>
+      </div>
+
+      <h3 class="pm-subsection"><span class="secnum">1.2</span> Noether Normalization Theorem</h3>
+
+      <p>
+        Let us prove the following result,
+      </p>
+
+      <div class="pm-box pm-theorem">
+        <p class="pm-head">Theorem 1.3 &nbsp;(Noether Normalization Lemma)</p>
+        <p>
+          Let \(k\) be a field, and let \(A\) be a finitely generated \(k\)-algebra. Then there exist algebraically independent elements \(y_1, \ldots, y_d \in A\) such that the polynomial ring \(k[y_1, \ldots, y_d]\) injects into \(A\),
+          \[
+            k[y_1, \ldots, y_d] \hookrightarrow A,
+          \]
+          and \(A\) is integral (and finitely generated as a module) over \(k[y_1, \ldots, y_d]\).
+        </p>
+      </div>
+
+      <div class="pm-proof">
+        <p>
+          <span class="pm-head">Proof.</span>
+          Let \(A = k[x_1, \ldots, x_k] / I\) (since \(A\) is finitely generated), let us now consider some polynomial \(P(X) = \sum_{i=0}^{n} \alpha_i X^i\), where \(\alpha_i \in k\), by Euclid we know that \(k[x_1, \ldots, x_k] = k[x_1 - x_k^m, x_2 - x_k^m, \ldots, x_{k - 1} - x_k^m, x_k^m]\) (let \(S_i = x_i - x_k^m\)), thus we may rewrite \(P\) as,
+          \[
+            P(x) = \sum_{i =0}^{n} \alpha_i X^i = \sum_{i = 0}^{n} \alpha_i (S_1 + x_k^m)^{\alpha_{i1}}\ldots(S_{k - 1} + x_{k}^m)^{\alpha_{i(k-1)}} x_k^{\alpha_{ik}}
+          \]
+          by choosing \(m\) large enough we may force the polynomial to be monic in \(x_k\) (it will have a coefficient in \(k\) which is a field, thus all coefficients are units). Thus, we obtain that \(A\) is integral over \(k[S_1, \ldots, S_k]\) and thus it is integral over \(k[S_1, \ldots, S_{k - 1}]/(I \cap k[x_1, \ldots, x_k])\) and consequently we may repeat this until we quotient by an empty ideal by induction!
+        </p>
+      </div>
+
+      <h3 class="pm-subsection"><span class="secnum">1.3</span> Hilbert's Nullstellensatz</h3>
+
+      <p>
+        Let us first show a rather fundamental result about finite extensions.
+      </p>
+
+      <div class="pm-box pm-proposition">
+        <p class="pm-head">Proposition 1.4</p>
+        <p>
+          Let \(S \subseteq R\) be two commutative rings, then if \(R\) is a finitely generated \(S\)-module, it must be that \(R\) is integral over \(S\).
+        </p>
+      </div>
+
+      <div class="pm-proof">
+        <p>
+          <span class="pm-head">Proof.</span>
+          Let \(u \in R\), then consider the sequence \(u, u^2, u^3, \ldots\), since \(R\) is finitely generated there must be some linear relationship between \(\{u, \ldots, u^n\}\) (choosing the smallest \(n\) with a linear relationship) that gives,
+          \[
+            u^n - \sum_{i = 1}^{n - 1} \alpha_i u^i = 0, \text{ where } \alpha_i \in S
+          \]
+          which is a monic polynomial with a root \(u\)!
+        </p>
+      </div>
+
+      <p>
+        First let us show the <i>weak</i> version of the theorem, (called <i>The Weak Hilbert Theorem</i>)
+      </p>
+
+      <div class="pm-box pm-theorem">
+        <p class="pm-head">Theorem 1.5 &nbsp;(Weak Nullstellensatz)</p>
+        <p>
+          If \(k\) is an algebraically closed field, then the maximal ideals \(\mathfrak{m}\) of \(k[x_1, \ldots, x_k]\) correspond to points in \(k^n\), so that,
+          \[
+            k[x_1, \ldots, x_k] \supseteq \mathfrak{m} = (x_1 - a_1, x_2 - a_2, \ldots, x_k - a_k)
+          \]
+        </p>
+      </div>
+
+      <p>
+        The proof will require to show that \(k[x_1, \ldots, x_k]/\mathfrak{m} \cong k\), then looking at the images of \(x_i\), let us assume that \(x_i \mapsto \alpha_i\), we will deduce that it must be that \(x_i - \alpha_i \mapsto 0\), which will imply that \((x_1 - \alpha_1, x_2 - \alpha_2, \ldots, x_k - \alpha_k) \subseteq \mathfrak{m}\), however since both are maximal ideals equality will follow!
+      </p>
+
+      <p>
+        To show the isomorphism we need to prove the following result,
+      </p>
+
+      <div class="pm-box pm-proposition">
+        <p class="pm-head">Proposition 1.6</p>
+        <p>
+          Let \(A\) be a finitely generated \(k\)-algebra (over algebraically closed field) and \(\mathfrak{m}\) a maximal ideal of \(A\), then \(A/\mathfrak{m}\) is integral over \(k\).
+        </p>
+      </div>
+
+      <div class="pm-proof">
+        <p>
+          <span class="pm-head">Proof.</span>
+          By <b>Noethers Normalization Lemma</b> \(A / \mathfrak{m}\) is integral over \(k[x_1, x_2, \ldots, x_k]\) for some \(k \in \mathbb{Z}\), where \(k = \dim A / \mathfrak{m} = 0\), thus we obtain the desired result!
+        </p>
+      </div>
+
+      <p>
+        Another way to proving this result without utilizing the formula for \(k\) is the following,
+      </p>
+
+      <div class="pm-proof">
+        <p>
+          <span class="pm-head">Proof.</span>
+          By <b>Noethers Normalization Lemma</b>, we have an injective homorphism \(k[x_1, \ldots, x_k] \hookrightarrow A/\mathfrak{m}\), then consider the image of \(x_1\) in this map, since \(A / \mathfrak{m}\) is a field it has an inverse \(1 / x_1\) (slight abuse of notation for the image of \(x_1\)), then since \(A / \mathfrak{m}\) is integral over \(k[x_1, \ldots, x_k]\) we have some monic polynomial with root \(1 / x_1\),
+          \[
+            \left( \frac{1}{x_1} \right)^n + Q_{n - 1} \cdot \left( \frac{1}{x_1} \right)^{n - 1} + \ldots + Q_1\cdot  \left( \frac{1}{x} \right) + Q_0 = 0
+          \]
+          multiplying this equation by \(x_1^n\) one obtains,
+          \[
+            1 + x_1 Q_{n - 1} + \ldots + x_1^{n - 1}Q_1 + x_1^n = 1 + x_1 \cdot Q = 0
+          \]
+          thus \(x_1\) is invertible in \(k[x_1, \ldots, x_k]\), which is of course nonsense, thus \(k = 0\)!
+        </p>
+      </div>
+
+      <p>
+        A very nice consequence of <i>Weak Nullstellensatz</i> is the following corrolary,
+      </p>
+
+      <div class="pm-box pm-proposition">
+        <p class="pm-head">Proposition 1.7</p>
+        <p>
+          If \(I \subseteq k[x_1, \ldots, x_n]\) has no common roots, then \(I\) is the entire ideal.
+        </p>
+      </div>
+
+      <div class="pm-proof">
+        <p>
+          <span class="pm-head">Proof.</span>
+          Since every ideal is part of a maximal ideal, which has has a common root given by the point it corresponds to, thus it must be the entire ideal!
+        </p>
+      </div>
+
+      <p>
+        Let \(V(I)\) be the set of common zeros of all the polynomials in \(I\) and \(Z(J)\) be the set of polynomials vanishing on \(J \subseteq k^n\). It turns out the following result holds,
+      </p>
+
+      <div class="pm-box pm-theorem">
+        <p class="pm-head">Theorem 1.8 &nbsp;(Hilbert's Nullstellensatz)</p>
+        <p>
+          For any ideal \(I \subseteq k[x_1, \ldots, x_n]\) we have that,
+          \[
+            Z(V(I)) \cong \sqrt{I}
+          \]
+          where \(\sqrt{I}\) denotes the radical of \(I\).
+        </p>
+      </div>
+
+      <div class="pm-proof">
+        <p>
+          <span class="pm-head">Proof.</span>
+          It is clear that \(\sqrt{I} \subseteq Z(V(I))\), since the zeros of \(p^n\) are the same as \(p\). To show the other direction, one can utlize the so called <i>Rabinowitsch trick</i>.
+        </p>
+        <p>
+          Let \(p \in Z(V(I))\), the idea is that we can map \(I \subseteq k[x_1, \ldots, x_n]\) into \(k[x_1, \ldots, x_n, y]\) by considering,
+          \[
+            J = I \cdot k[x_1, \ldots, x_n] + (1-yp)
+          \]
+          The zeros of \(J\) must be those that all polynomials in \(I\) vanish on the first coordinates and \(1 - yp = 0\), so \(yp = 1\), however since \(p\) vanishes on all common zeros it must be that \(p = 0\), thus there are no zeros! By the <i>Weak Nullstellensatz</i> this implies that \(1 \in J\), thus,
+          \[
+            1 = \sum_{i} f_i h_i(x_1, \ldots, x_n, y) + (1 - yp) h_{n+1}(x_1, \ldots, x_{n}, y)
+          \]
+          now we take \(y = \frac{1}{p}\), then multiplying by a sufficiently large power of \(p\), we will obtain that,
+          \[
+            p^n = \sum_{i} f_i H_i(x_1, \ldots, x_{n})
+          \]
+          which proves that \(p \in \sqrt{I}\)!
+        </p>
+      </div>
+
+      <br>
+
+      <div class="section-name" style="text-align: center;">
+        <h2 style="display: inline;" class="symbol-change">§</h2><h2 style="display: inline;"> 💬 Comments</h2>
+      </div>
+
+      <br>
+
+      <script src="https://utteranc.es/client.js"
+          repo="MrMineev/MrMineev.github.io"
+          issue-term="pathname"
+          label="WEBSITE_COMMENT"
+          theme="github-light"
+          crossorigin="anonymous"
+          async>
+      </script>
+    </div>
+  </body>
+</html>

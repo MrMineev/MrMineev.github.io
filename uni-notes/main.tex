@@ -1331,6 +1331,142 @@ Let us now prove the following famous result,
   Observe that the Yoneda lemma allowed us to find a bijection between the elements of $G$ and the endomorphisms, of course another way to prove the result without Yoneda would be to directly show that $f(x) = gx$ for $g \in G$ determine unique bijections (permutations) on the underlying set of $G$.
 \end{remark}
 
+\newpage
+
+\section{All the Hilberts...}
+
+\subsection{Hilbert's Basis Theorem}
+
+First, let us show that the chain condition definition of a Noetherian ring is equivalent to every ideal being finitely generated.
+
+\begin{prop}
+    The two following definitions of a Noetherian ring are equivalent,
+    \begin{enumerate}
+        \item Every ascending chain of ideals $Z_1 \subseteq Z_2 \subseteq Z_3 \subseteq \ldots$ stabilizes.
+        \item Every ideal is finitely generated.
+    \end{enumerate}
+\end{prop}
+\begin{proof}
+To show (1) implies (2), simply consider the following process of starting with an empty ideal $I$ and then iteratively adding elements in $A \setminus I$ as generators, then let $I_x$ be the ideal obtained after the $x$th step. This process induces an ascending chain,
+\[
+I_0 \subseteq I_1 \subseteq I_2 \subseteq \ldots
+\]
+which must stabilize, thus proving that $I$ is finitely generated!
+
+The (2) implies (1), let $Z = \bigcup_{i = 1}^{\infty} Z_i$, which clearly is an ideal (verify this!) and thus finitely generated, since each generator will appear somewhere in the chain it follows that some $Z_k$ will contain all the generators and thus imply that the chain stabilized!
+\end{proof}
+
+\begin{theorem}
+    If $A$ is Noetherian, then $A[x]$ is as well.
+\end{theorem}
+\begin{proof}
+    Let us initiate a process, where we start with the empty ideal $I$ and then iteratively add generators by finding lowest degree polynomials $f$ that are not in $I$. Let $a_i$ be the coefficient in front of the largest exponent monomial of $f_i$, then since $A$ is Noetherian we may choose a large enough $k$ such that $(a_1, \ldots, a_k) = A$.
+
+    Thus, we may write $a_{k + 1} = \sum_{i = 1}^{k} b_i a_i$. Let $f \in A[x] \setminus I$ be the lowest of such degree, then consider the following peculiar function,
+    \[
+    g(x) = f_{k + 1}(x) - \sum_{i = 1}^{k} b_i f_i \cdot x^{\deg f_{k + 1} - \deg f_i}
+    \]
+    clearly all the exponents are non-negative since at each step the lowest degree function not present in $I$ was added. Observe that $\deg g < \deg f_{k + 1}$ since the largest exponent monomial in $f_{k + 1}$ will be canceled by the sum of $b_i a_i$ coefficients, however clearly $g(x) \not\in I$ (since $f_{k + 1} \not\in I$), thus contradicting the minimality of $f_{k + 1}$!
+\end{proof}
+
+\subsection{Noether Normalization Theorem}
+
+Let us prove the following result,
+\begin{theorem}[Noether Normalization Lemma]
+    Let $k$ be a field, and let $A$ be a finitely generated $k$-algebra. Then there exist algebraically independent elements $y_1, \ldots, y_d \in A$ such that the polynomial ring $k[y_1, \ldots, y_d]$ injects into $A$,
+    \[
+    k[y_1, \ldots, y_d] \hookrightarrow A,
+    \]
+    and $A$ is integral (and finitely generated as a module) over $k[y_1, \ldots, y_d]$.
+\end{theorem}
+\begin{proof}
+    Let $A = k[x_1, \ldots, x_k] / I$ (since $A$ is finitely generated), let us now consider some polynomial $P(X) = \sum_{i=0}^{n} \alpha_i X^i$, where $\alpha_i \in k$, by Euclid we know that $k[x_1, \ldots, x_k] = k[x_1 - x_k^m, x_2 - x_k^m, \ldots, x_{k - 1} - x_k^m, x_k^m]$ (let $S_i = x_i - x_k^m$), thus we may rewrite $P$ as,
+    \[
+    P(x) = \sum_{i =0}^{n} \alpha_i X^i = \sum_{i = 0}^{n} \alpha_i (S_1 + x_k^m)^{\alpha_{i1}}\ldots(S_{k - 1} + x_{k}^m)^{\alpha_{i(k-1)}} x_k^{\alpha_{ik}}
+    \]
+    by choosing $m$ large enough we may force the polynomial to be monic in $x_k$ (it will have a coefficient in $k$ which is a field, thus all coefficients are units). Thus, we obtain that $A$ is integral over $k[S_1, \ldots, S_k]$ and thus it is integral over $k[S_1, \ldots, S_{k - 1}]/(I \cap k[x_1, \ldots, x_k])$ and consequently we may repeat this until we quotient by an empty ideal by induction!
+\end{proof}
+
+\subsection{Hilbert's Nullstellensatz}
+
+Let us first show a rather fundamental result about finite extensions.
+
+\begin{prop}
+    Let $S \subseteq R$ be two commutative rings, then if $R$ is a finitely generated $S$-module, it must be that $R$ is integral over $S$.
+\end{prop}
+\begin{proof}
+    Let $u \in R$, then consider the sequence $u, u^2, u^3, \ldots$, since $R$ is finitely generated there must be some linear relationship between $\{u, \ldots, u^n\}$ (choosing the smallest $n$ with a linear relationship) that gives,
+    \[
+    u^n - \sum_{i = 1}^{n - 1} \alpha_i u^i = 0, \text{ where } \alpha_i \in S
+    \]
+    which is a monic polynomial with a root $u$!
+\end{proof}
+
+First let us show the \textit{weak} version of the theorem, (called \textit{The Weak Hilbert Theorem})
+
+\begin{theorem}[Weak Nullstellensatz]
+    If $k$ is an algebraically closed field, then the maximal ideals $\mathfrak{m}$ of $k[x_1, \ldots, x_k]$ correspond to points in $k^n$, so that,
+    \[
+    k[x_1, \ldots, x_k] \supseteq \mathfrak{m} = (x_1 - a_1, x_2 - a_2, \ldots, x_k - a_k) 
+    \]
+\end{theorem}
+The proof will require to show that $k[x_1, \ldots, x_k]/\mathfrak{m} \cong k$, then looking at the images of $x_i$, let us assume that $x_i \mapsto \alpha_i$, we will deduce that it must be that $x_i - \alpha_i \mapsto 0$, which will imply that $(x_1 - \alpha_1, x_2 - \alpha_2, \ldots, x_k - \alpha_k) \subseteq \mathfrak{m}$, however since both are maximal ideals equality will follow!
+
+To show the isomorphism we need to prove the following result,
+\begin{prop}
+    Let $A$ be a finitely generated $k$-algebra (over algebraically closed field) and $\mathfrak{m}$ a maximal ideal of $A$, then $A/\mathfrak{m}$ is integral over $k$.
+\end{prop}
+\begin{proof}
+    By \textbf{Noethers Normalization Lemma} $A / \mathfrak{m}$ is integral over $k[x_1, x_2, \ldots, x_k]$ for some $k \in \mathbb{Z}$, where $k = \dim A / \mathfrak{m} = 0$, thus we obtain the desired result!
+\end{proof}
+Another way to proving this result without utilizing the formula for $k$ is the following,
+\begin{proof}
+    By \textbf{Noethers Normalization Lemma}, we have an injective homorphism $k[x_1, \ldots, x_k] \hookrightarrow A/\mathfrak{m}$, then consider the image of $x_1$ in this map, since $A / \mathfrak{m}$ is a field it has an inverse $1 / x_1$ (slight abuse of notation for the image of $x_1$), then since $A / \mathfrak{m}$ is integral over $k[x_1, \ldots, x_k]$ we have some monic polynomial with root $1 / x_1$,
+    \[
+    \left( \frac{1}{x_1} \right)^n + Q_{n - 1} \cdot \left( \frac{1}{x_1} \right)^{n - 1} + \ldots + Q_1\cdot  \left( \frac{1}{x} \right) + Q_0 = 0
+    \]
+    multiplying this equation by $x_1^n$ one obtains,
+    \[
+    1 + x_1 Q_{n - 1} + \ldots + x_1^{n - 1}Q_1 + x_1^n = 1 + x_1 \cdot Q = 0
+    \]
+    thus $x_1$ is invertible in $k[x_1, \ldots, x_k]$, which is of course nonsense, thus $k = 0$!
+\end{proof}
+
+A very nice consequence of \textit{Weak Nullstellensatz} is the following corrolary,
+\begin{prop}
+    If $I \subseteq k[x_1, \ldots, x_n]$ has no common roots, then $I$ is the entire ideal.
+\end{prop}
+\begin{proof}
+    Since every ideal is part of a maximal ideal, which has has a common root given by the point it corresponds to, thus it must be the entire ideal!
+\end{proof}
+
+Let $V(I)$ be the set of common zeros of all the polynomials in $I$ and $Z(J)$ be the set of polynomials vanishing on $J \subseteq k^n$. It turns out the following result holds,
+
+\begin{theorem}[Hilbert's Nullstellensatz]
+    For any ideal $I \subseteq k[x_1, \ldots, x_n]$ we have that,
+    \[
+    Z(V(I)) \cong \sqrt{I}
+    \]
+    where $\sqrt{I}$ denotes the radical of $I$.
+\end{theorem}
+\begin{proof}
+    It is clear that $\sqrt{I} \subseteq Z(V(I))$, since the zeros of $p^n$ are the same as $p$. To show the other direction, one can utlize the so called \textit{Rabinowitsch trick}.
+
+    Let $p \in Z(V(I))$, the idea is that we can map $I \subseteq k[x_1, \ldots, x_n]$ into $k[x_1, \ldots, x_n, y]$ by considering,
+    \[
+    J = I \cdot k[x_1, \ldots, x_n] + (1-yp)
+    \]
+    The zeros of $J$ must be those that all polynomials in $I$ vanish on the first coordinates and $1 - yp = 0$, so $yp = 1$, however since $p$ vanishes on all common zeros it must be that $p = 0$, thus there are no zeros! By the \textit{Weak Nullstellensatz} this implies that $1 \in J$, thus,
+    \[
+    1 = \sum_{i} f_i h_i(x_1, \ldots, x_n, y) + (1 - yp) h_{n+1}(x_1, \ldots, x_{n}, y)
+    \]
+    now we take $y = \frac{1}{p}$, then multiplying by a sufficiently large power of $p$, we will obtain that,
+    \[
+    p^n = \sum_{i} f_i H_i(x_1, \ldots, x_{n})
+    \]
+    which proves that $p \in \sqrt{I}$!
+\end{proof}
+
 \end{document}
 
 
