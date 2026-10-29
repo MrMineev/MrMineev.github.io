@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>All-Russian 2007 | MrMineev</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="notes-style.css">
+
+    <link rel="icon" href="../assets/website-logo.png">
+
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <script src="mathjax-config.js"></script>
+    <script type="text/javascript" id="MathJax-script" async
+      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+    </script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+    <h1 id="global-name">MrMineev</h1>
+    <div id="global-name-line"></div>
+
+    <br>
+
+    <div style="text-align: center;">
+      <button class="button-link" onclick="window.location.href='../index.html'">
+        Go to Articles
+      </button>
+      <button class="button-link" onclick="window.location.href='../notes.html'">
+        Mathematical Notes
+      </button>
+    </div>
+
+    <div class="note-body">
+      <h2 class="note-title">All-Russian 2007</h2>
+      <div class="note-meta">Algebra &middot; 🗓️ October 29, 2026</div>
+
+      <p>
+        This post shows a nice application of <i>Hilbert's Basis Theorem</i>, the proof of which can be found in the <a href="all-the-hilberts.html">previous post</a>.
+      </p>
+
+      <div class="pm-box pm-problem">
+        <p class="pm-head">Problem 1 &nbsp;<span style="font-weight: normal;">(All-Russian 2007)</span></p>
+        <p>
+          Do there exist non-zero reals \(a\), \(b\), \(c\) such that, for any \(n>3\), there exists a polynomial \(P_{n}(x) = x^{n}+\dots+a x^{2}+bx+c\), which has exactly \(n\) (not necessary distinct) integral roots?
+        </p>
+        <p style="text-align: center;">
+          <a href="https://artofproblemsolving.com/community/u1159306h147176p39662015">My post on AoPS</a>
+        </p>
+      </div>
+
+      <div class="pm-proof">
+        <p>
+          <span class="pm-head">Proof.</span>
+          Let us first show the following result,
+        </p>
+
+        <div class="pm-box pm-lemma">
+          <p class="pm-head">Lemma 1.1</p>
+          <p>
+            There are no \(n\) and \(m\) such that \(P_n \mid P_m\) and the ratio has zero \(x\) and \(x^2\) terms.
+          </p>
+        </div>
+
+        <div class="pm-proof">
+          <p>
+            Since both \(P_n\) and \(P_m\) have the same last coefficients, it must be that,
+            \[
+              (\ldots + ax^2 + bx + c) \cdot (\ldots + dx^2 + ex + f) = \ldots + ax^2 + bx + c
+            \]
+            trivially it means that \(f = 1\), \(b = ce + bf = ce + b\) and \(a = af + be + cd = a + be + cd\), however this implies that \(d = e = 0\)!
+          </p>
+        </div>
+
+        <p>
+          Observe, that by Vieta (looking at \(c\)) it must be that \(P_n(x) = (x - 1)^{\alpha_n} (x + 1)^{\beta_n} Q_n(x)\), where \(\deg Q\) has bounded degree. Observe, that thus by Veita (for \(c\)) there exists some \(Q\) such that there are infinitely many \(k\) such that \(Q_k = Q\).
+        </p>
+        <p>
+          Let us look for all of those <i>same class</i> \(P_n\) (where the <i>class</i> is \(Q_n\)) and look at the pairs \((\alpha_n, \beta_n)\). Let us assume that \((\alpha_n, \beta_n) < (\alpha_m, \beta_m)\) (less in both coordinates), then this will imply that, that \(P_n \mid P_m\) and the ratio is of the form \((x - 1)^{\alpha} (x + 1)^{\beta}\).
+        </p>
+
+        <div class="pm-box pm-lemma">
+          <p class="pm-head">Lemma 1.2</p>
+          <p>
+            The \(x\) and \(x^2\) term of \((x - 1)^{\alpha} (x + 1)^{\beta}\) cannot both be zero.
+          </p>
+        </div>
+
+        <div class="pm-proof">
+          <p>
+            Indeed, by looking at the \(x\) term we conclude that \(\alpha = \beta\) (if the coefficient is zero) and the coefficient in front of \(x^2\) up to sign is equal to \(\binom{\alpha}{2} + \binom{\beta}{2} - \alpha \beta\) which cannot be zero if \(\alpha = \beta\)!
+          </p>
+        </div>
+
+        <p>
+          Thus, if \((\alpha_n, \beta_n) < (\alpha_m, \beta_m)\) we obtain a contradiction. Let us now plot on the \(\mathbb{Z}^2_{\geq 0}\) the points, then all we need to show is the following result.
+        </p>
+
+        <div class="pm-box pm-lemma">
+          <p class="pm-head">Lemma 1.3 &nbsp;(Infinite Chomp)</p>
+          <p>
+            There is no infinite sequence of points \((x, y)\) such that no two are <b>contained</b> (so both coordinates less than the other) in each other.
+          </p>
+        </div>
+
+        <img src="assets/russia-2007-chomp.svg" alt="Monomial ideals as infinite up-right rectangles" style="display: block; margin: 1em auto; max-width: 60%;">
+
+        <div class="pm-proof">
+          <p>
+            One can reinterpret the problem as drawing infinite rectangles to the up-right of a point and one is required to show that some two rectangles are contained in each other. Let us associate to each point the monomial \(x^{a} y^b\) where \(a, b\) are the coordinates of the point.
+          </p>
+          <p>
+            The infinite rectangle may be interpreted as the ideal generated by the monomial in the ring \(\mathbb{Z}[x, y]\), then by iteratively putting points on the plane one is creating larger and larger ideals, thus creating an infinite chain,
+            \[
+              I_0 \subseteq I_1 \subseteq I_2 \subseteq \ldots
+            \]
+            however by Hilbert's Basis theorem we know that \(\mathbb{Z}[x, y]\) is Noetherian (since \(\mathbb{Z}\) is Noetherian), thus by definition this sequence must stabilize, which will imply that one point is contained in another!
+          </p>
+        </div>
+
+        <p>
+          This will give us the desired pair \(n, m\) with \((\alpha_n, \beta_n) < (\alpha_m, \beta_m)\) and thus we are done!
+        </p>
+        <p>
+          Consequently, no desired triple \((a, b, c)\) exists!
+        </p>
+      </div>
+
+      <br>
+
+      <div class="section-name" style="text-align: center;">
+        <h2 style="display: inline;" class="symbol-change">§</h2><h2 style="display: inline;"> 💬 Comments</h2>
+      </div>
+
+      <br>
+
+      <script src="https://utteranc.es/client.js"
+          repo="MrMineev/MrMineev.github.io"
+          issue-term="pathname"
+          label="WEBSITE_COMMENT"
+          theme="github-light"
+          crossorigin="anonymous"
+          async>
+      </script>
+    </div>
+  </body>
+</html>
