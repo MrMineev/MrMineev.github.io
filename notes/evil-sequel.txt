@@ -1,0 +1,251 @@
+\documentclass[11pt]{article}
+\usepackage[margin=0.9in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,graphicx}
+\usepackage[hidelinks]{hyperref}
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}[theorem]{Corollary}
+\newcommand{\diagram}[2][0.37]{%
+  \begin{center}
+    \includegraphics[width=0.86\linewidth,height=#1\textheight,
+                     keepaspectratio]{figures/#2.pdf}
+  \end{center}
+}
+\begin{document}
+\begin{center}
+  {\LARGE\bfseries Projective Evil Anchor Points}
+\end{center}
+\vspace{0.5em}
+
+\begin{theorem}[Four-base conic-pencil Evil]
+\label{thm:evil}
+Let \(\mathcal K\) be a nonsingular conic through
+\(A,B,C,I,J,F\), and fix \(D\notin\mathcal K\).
+As \(\mathcal H\) varies through \(A,I,J,D\), put
+\[
+ R=(\mathcal H\cap\mathcal K)\setminus\{A,I,J\},
+ \quad X=(\mathcal H\cap AC)\setminus\{A\},
+ \quad P=FR\cap BC.
+\]
+The lines \(PX\) pass through one fixed point
+\(Z=Z(D)\). If \(\mathcal K=(ABC)\) and \(I,J\)
+are the circular points at infinity, this
+is the \(AC\)-half of Evil;
+interchanging \(B,C\) gives the other half.
+\end{theorem}
+\diagram{sequel-evil}
+\begin{proof}
+The pencil parameter gives projectivities
+to the remaining points \(X\in AC\) and
+\(R\in\mathcal K\); projecting \(R\) from
+\(F\) gives \(P\in BC\). These two point
+rows agree at their common point \(C\):
+the member through \(C\) gives \(R=X=P=C\).
+Hence their projectivity is a perspectivity,
+with center \(Z\).
+\end{proof}
+
+Exchanging \(B\) and \(C\) proves the existence of the
+other Evil anchor point in exactly the same way.
+
+\begin{theorem}[Conic-to-line anchor]
+\label{thm:line}
+In Theorem~\ref{thm:evil}, instead take a
+fixed line \(\ell\) through the fourth
+base point \(D\), and put
+\(V=(\mathcal H\cap\ell)\setminus\{D\}\).
+Then the lines \(RV\) pass through one
+fixed point \(S\) \emph{on} \(\mathcal K\).
+The point \(F\) plays no role in this reading.
+\end{theorem}
+\diagram{sequel-line}
+\begin{proof}
+The correspondence \(R\in\mathcal K
+\leftrightarrow V\in\ell\) is projective.
+At each of the two points of
+\(\ell\cap\mathcal K\), both points
+of the correspondence coincide.
+Choose any third pair \(R_0,V_0\)
+and let \(S\) be the other intersection
+of \(R_0V_0\) with \(\mathcal K\).
+Projection from \(S\) gives the same
+three correspondences, hence all of them.
+\end{proof}
+
+\begin{theorem}[Residual line of a conic pencil]
+\label{thm:residual}
+Fix \(V,I,J,F\in\mathcal K\) and
+\(D\notin\mathcal K\). For the pencil
+\(\mathcal H\) through \(V,I,J,D\),
+let \(U\) be its fourth point on
+\(\mathcal K\), and let \(S_U\) be
+its other intersection with the
+line \(FU\). All \(S_U\) lie on
+one fixed line \(L_{V,F}(D)\) through
+\(D\); moreover \(U\mapsto S_U\)
+is projective.
+\end{theorem}
+\begin{proof}
+Write matching conic and line pencils
+\(h_{s,t}=s h_0+t h_1\) and
+\(\ell_{s,t}=s\ell_0+t\ell_1=FU\).
+Eliminating \((s:t)\) gives the cubic
+\(h_0\ell_1-h_1\ell_0=0\).
+It contains every \(U\in\mathcal K\),
+so it factors as \(\mathcal K\cup L\).
+The fourth base point \(D\) lies on
+the cubic but not on \(\mathcal K\),
+so \(D\in L\); every other intersection
+\(S_U\) lies on \(L\).
+Restriction of the conic pencil to \(L\),
+with fixed root \(D\), makes \(S_U\)
+projective in its parameter.
+\end{proof}
+\diagram{sequel-pascal}
+
+With \(I,J\) circular, the circles
+\((UVD)\) are this pencil as
+\(U\) varies on \(\Gamma\).
+The \href{https://artofproblemsolving.com/community/u1159306h3745146p36855351}
+{Evil characterization} puts the
+conjugate for \emph{any} triangle
+\(UVW\) on \(DS_U=L_{V,F}(D)\):
+the third vertex \(W\) is irrelevant.
+Equivalently,
+\[
+ \angle(DV,L_{V,F}(D))
+                 =\angle VUF\pmod{180^\circ},
+\]
+which depends only on chord \(VF\).
+Taking \(V=A,B,C\) gives the
+three lines through \(D\) containing
+the six conjugates in the handout.
+\diagram[0.31]{sequel-six}
+
+\begin{theorem}[\href{https://artofproblemsolving.com/community/c6h287213p1552306}
+{Irish Mathematical Olympiad 2007, Paper 1 Problem 3}]
+The point \(P\) is a fixed point on a circle and \(Q\)
+is a fixed point on a line. The point \(R\) is a variable
+point on the circle such that \(P,Q,\) and \(R\) are not
+collinear. The circle through \(P,Q,\) and \(R\) meets
+the line again at \(V\). Show that the line \(VR\) passes
+through a fixed point.
+\end{theorem}
+\diagram[0.38]{sequel-irish}
+
+\begin{proof}
+Call the fixed circle \(\Gamma\) and the fixed line
+\(\ell\). The circles \((PQR)\) form the pencil through
+\(P,Q,I,J\), where \(I,J\) are circular. It shares
+\(P,I,J\) with \(\Gamma\), while \(Q\in\ell\)
+is its fourth base point. Theorem~\ref{thm:line}
+gives the fixed point of \(VR\) on \(\Gamma\).
+\end{proof}
+
+\newpage
+\begin{theorem}[USEMO 2025 Day 1 P2, Iman Maghsoudi]
+Let \(ABC\) be a triangle with circumcircle
+\(\Gamma\), and let \(P\) vary inside \(ABC\).
+Set \(X=CP\cap AB\), \(Y=BP\cap AC\),
+\(Q=(AXY)\cap\Gamma\setminus\{A\}\),
+and \(K=AP\cap\Gamma\setminus\{A\}\).
+The circumcircles \((QPK)\) have a
+common radical center.
+\end{theorem}
+\diagram[0.30]{usemo-config}
+
+\begin{proof}
+Let \(M\) be the midpoint of \(BC\).
+We prove that every defined circle
+\((QPK)\) has power \(MB^2\) at \(M\).
+Fix \(K\) off the \(A\)-median
+and let \(P\) move on \(AK\).
+Give \(AK\) a projective parameter
+\(t\) with \(AK\cap BC\) at \(0\)
+and \(A\) at \(\infty\).
+Projecting from \(C,B\) and
+inverting about \(A\) gives
+\(X^*=(1+\alpha t)B^*\),
+\(Y^*=(1+\beta t)C^*\)
+for fixed \(\alpha\ne\beta\).
+Since \(Q^*=X^*Y^*\cap B^*C^*\),
+an affine intercept calculation gives
+\[
+ Q^*=\frac{\beta(1+\alpha t)}{\beta-\alpha}B^*
+       -\frac{\alpha(1+\beta t)}{\beta-\alpha}C^*.
+                                                        \tag{4}
+\]
+Thus \(P\mapsto Q\in\Gamma\) is
+projective, with \(P=A\mapsto Q=A\)
+as \(t\to\infty\).
+
+Now invert about \(K\). The images
+of \(P\in AK\) and \(Q\in\Gamma\)
+lie on two lines and correspond
+projectively. They coincide at
+their common point \(A^\dagger\)
+when \(P=Q=A\). Hence their
+joining lines have a fixed center;
+inverting back, all circles
+\((QPK)\) pass through a fixed
+second point \(R_K\).
+\end{proof}
+\diagram[0.24]{usemo-inverted}
+
+\noindent
+To locate \(R_K\), the two limiting
+values \(t=-1/\alpha,-1/\beta\) in (4)
+give \(Q=C,B\), respectively.
+Let \(P_C\) lie on \(AK\) and on
+the line through \(C\) parallel
+to \(AB\); similarly let
+\(P_B\in AK\) lie on the line
+through \(B\) parallel to \(AC\).
+The two limiting circles are
+\[
+              \Omega_C=(CP_CK),
+              \qquad\Omega_B=(BP_BK).
+\]
+By the tangent--chord theorem,
+\(\Omega_C\) is tangent to \(BC\)
+at \(C\), because
+\(\angle CP_CK=\angle BAK=\angle BCK\);
+symmetrically, \(\Omega_B\)
+is tangent to \(BC\) at \(B\).
+Their other intersection is \(R_K\).
+The next diagram takes another generic
+position of \(K\) so both limiting circles
+are visible.
+\diagram[0.32]{usemo-limits}
+
+\noindent
+Their powers at \(M\) are
+\(\operatorname{Pow}_{\Omega_C}(M)=MC^2
+ =MB^2=\operatorname{Pow}_{\Omega_B}(M)\).
+Thus \(M\) lies on their radical
+axis \(KR_K\), giving
+\(MK\cdot MR_K=MB^2\).
+Every \((QPK)\) contains \(K,R_K\),
+so its power at \(M\) is \(MB^2\),
+independent of both \(P\) and \(K\).
+The exceptional limiting positions
+follow by continuity.
+
+When \(P\) lies on the \(A\)-median,
+\(\alpha=\beta\): \((AXY)\) is homothetic
+to \(\Gamma\) about \(A\) and tangent
+there, so \(Q=A\) and \(A,P,K\)
+are collinear. The original
+\((QPK)\) is then undefined as
+an ordinary circle.
+
+\noindent\textbf{Reusable three-position criterion.}
+More generally, fix \(K\) off the
+\(A\)-median. Any projectivity
+\(\phi:AK\to\Gamma\) with
+\(\phi(A)=A,\ \phi(P_C)=C,\ \phi(P_B)=B\)
+has the same conclusion:
+\(\operatorname{Pow}_{(K\,P\,\phi(P))}(M)=MB^2\).
+The proof above uses no other properties
+of how \(\phi\) was constructed.
+
+\end{document}
