@@ -205,11 +205,6 @@
   \IfNoValueTF{#1}
     {\begin{problemax}}
     {\begin{problemax}[#1]}
-  % 2) write the TOC line at subsection level
-  \addcontentsline{toc}{subsection}{%
-    \protect\numberline{\theproblemax}~~Problem%
-    \IfNoValueF{#1}{~--~#1}%
-  }%
   % now the user’s content…
   \ignorespaces
  }

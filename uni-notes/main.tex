@@ -827,6 +827,8 @@ It turns out constructing Galois closure's isn't that difficult, in fact,
   Consequently, we obtain the the Galois closure of \(K/F\) is simply the splitting field of the minimal polynomials of the generators of \(K/F\).
 \end{proof}
 
+\newpage
+
 \section{Algebraic Topology}
 
 \subsection{Homology of the Suspension}
@@ -1092,6 +1094,48 @@ We now proceed in three steps.
 \end{enumerate}
 
 Finally, for a general $M$ consider the collection of open $U \subseteq M$ for which $D_U$ is an isomorphism, ordered by inclusion. It is non-empty (it contains every chart by step $3$) and every chain has an upper bound, namely its union (by the directed union lemma), thus by Zorn's lemma there is a maximal such $U$. If $U \neq M$, pick a chart $V \cong \mathbb{R}^n$ around a point of $M - U$, then $V$ and $U \cap V$ (an open subset of $V \cong \mathbb{R}^n$) satisfy the theorem by step $3$, hence by the Mayer–Vietoris lemma and the five lemma so does $U \cup V \supsetneq U$, contradicting maximality. Thus $U = M$. $\blacksquare$
+
+\subsection{Degree of a $p$-sheeted Covering Map (Exercise)}
+
+\begin{problem}[Hatcher Exercise 3.3.9]
+    Show that a $p$ sheeted covering space projection $M \rightarrow N$ has degree $\pm p$, when $M$
+and $N$ are connected closed orientable manifolds.
+\end{problem}
+\begin{proof}
+First let us prove the following relatively simple fact,
+\begin{prop}[Hatcher Exercise 3.3.8]
+    For a map $f : M \rightarrow N$ between connected closed orientable $n$ manifolds, suppose there is a ball $B \subset N$ such that $f^{-1}(B)$ is the disjoint union of balls $B_i$ each mapped homeomorphically by $f$ onto $B$. Show the degree of $f$ is $\sum \epsilon_i$ where $\epsilon_i$ is $\pm 1$ according to whether $f : B_i \rightarrow B$ preserves or reverses local orientations induced from given fundamental classes $[M]$ and $[N]$.
+\end{prop}
+\begin{proof}
+    Let $x \in B$, then $\deg f = \sum_{i = 1}^{k} \deg f_{x_i}$, where $\{x_1, \ldots, x_k\} = f^{-1}(x)$. Observe that the local degree is given by the degree of the map $H_n(M|x_i) \rightarrow H_n(N|x)$, however by Excision this is the degree of the induced map,
+    \[
+    H_n(B_i | x_i) \overset{g}{\longrightarrow} H_n(B|x)
+    \]
+    and since $f : B_i \rightarrow B$ is a homeomorphism, it induces an isomorphism on the homology groups, thus $g$ is an isomorphism and thus $\deg g= \pm 1$, which is defined as $\epsilon_i$.
+\end{proof}
+
+Let $x \in N$. Since $M$ and $N$ are both closed orientable manifolds, we only need to show that $\epsilon_i$ are all equal (because then the sum is $\pm p$), since $M$ may be covered by $p$ sheets of $N$. The trick is to define the following two sets,
+\[
+\begin{cases}
+    M_+ = \{y \in M \mid f_{\star}(\mu_y) = \mu_{f(y)}\} \\
+    M_- = \{y \in M \mid f_{\star}(\mu_y) = -\mu_{f(y)}\}
+\end{cases}
+\]
+and show that they are open.
+
+    Let $x \in N$ and let $x_1, \dots, x_p$ be its preimages in $M$. Choose a small ball $B$ around $x$ such that $f^{-1}(B) = \bigcup B_i$, where each $B_i$ is an open ball containing $x_i$ and $f : B_i \to B$ is a homeomorphism.  To show $M_+$ is open, let $x_i \in M_+$. We claim that the open ball $B_i$ is entirely contained in $M_+$. For any $y_1 \in B_i$, let $y = f(y_1) \in B$. The local behavior of the map $f$ around $y_1$ is identical to its behavior around $x_i$ because $f$ is a homeomorphism on $B_i$. Thus, $f_*(\mu_{y_1}) = \mu_y$, showing that $B_i \subseteq M_+$.
+    \[
+    \begin{tikzcd}
+    H_n(M \mid x_i) \arrow[r, "f_*"] \arrow[d, "\cong"'] 
+    & H_n(N \mid x) \arrow[d, "\cong"] \\
+    H_n(M \mid y_1) \arrow[r, "f_*"] 
+    & H_n(N \mid y)
+\end{tikzcd}
+\]
+    consequently, since every point in $M_+$ has an open neighborhood (since we can repeat the argument for a point in the open neighborhood of the image under $f$), it must be that both $M_+$ and $M_-$ are open!
+
+    Thus, $M_+$ and $M_-$ form a disjoint open cover of $M$, which implies that the space is disconnected, contradiction, thus one of the spaces it empty and the other is full! Thus all the points in $M$ have the same local orientation and thus we are done!
+\end{proof}
 
 \newpage
 

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Degree of a p-sheeted Covering Map (Exercise) | MrMineev</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="notes-style.css">
+
+    <link rel="icon" href="../assets/website-logo.png">
+
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <script src="mathjax-config.js"></script>
+    <script type="text/javascript" id="MathJax-script" async
+      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+    </script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+    <h1 id="global-name">MrMineev</h1>
+    <div id="global-name-line"></div>
+
+    <br>
+
+    <div style="text-align: center;">
+      <button class="button-link" onclick="window.location.href='../index.html'">
+        Go to Articles
+      </button>
+      <button class="button-link" onclick="window.location.href='../notes.html'">
+        Mathematical Notes
+      </button>
+    </div>
+
+    <div class="note-body">
+      <h2 class="note-title">Degree of a \(p\)-sheeted Covering Map (Exercise)</h2>
+      <div class="note-meta">Algebraic Topology &middot; 🗓️ November 2, 2026</div>
+
+      <div class="pm-box pm-problem">
+        <p class="pm-head">Problem 1 &nbsp;<span style="font-weight: normal;">(Hatcher Exercise 3.3.9)</span></p>
+        <p>
+          Show that a \(p\) sheeted covering space projection \(M \rightarrow N\) has degree \(\pm p\), when \(M\) and \(N\) are connected closed orientable manifolds.
+        </p>
+      </div>
+
+      <div class="pm-proof">
+        <p>
+          <span class="pm-head">Proof.</span>
+          First let us prove the following relatively simple fact,
+        </p>
+
+        <div class="pm-box pm-proposition">
+          <p class="pm-head">Proposition 1.1 &nbsp;(Hatcher Exercise 3.3.8)</p>
+          <p>
+            For a map \(f : M \rightarrow N\) between connected closed orientable \(n\) manifolds, suppose there is a ball \(B \subset N\) such that \(f^{-1}(B)\) is the disjoint union of balls \(B_i\) each mapped homeomorphically by \(f\) onto \(B\). Show the degree of \(f\) is \(\sum \epsilon_i\) where \(\epsilon_i\) is \(\pm 1\) according to whether \(f : B_i \rightarrow B\) preserves or reverses local orientations induced from given fundamental classes \([M]\) and \([N]\).
+          </p>
+        </div>
+
+        <div class="pm-proof">
+          <p>
+            Let \(x \in B\), then \(\deg f = \sum_{i = 1}^{k} \deg f_{x_i}\), where \(\{x_1, \ldots, x_k\} = f^{-1}(x)\). Observe that the local degree is given by the degree of the map \(H_n(M|x_i) \rightarrow H_n(N|x)\), however by Excision this is the degree of the induced map,
+            \[
+              H_n(B_i | x_i) \overset{g}{\longrightarrow} H_n(B|x)
+            \]
+            and since \(f : B_i \rightarrow B\) is a homeomorphism, it induces an isomorphism on the homology groups, thus \(g\) is an isomorphism and thus \(\deg g= \pm 1\), which is defined as \(\epsilon_i\).
+          </p>
+        </div>
+
+        <p>
+          Let \(x \in N\). Since \(M\) and \(N\) are both closed orientable manifolds, we only need to show that \(\epsilon_i\) are all equal (because then the sum is \(\pm p\)), since \(M\) may be covered by \(p\) sheets of \(N\). The trick is to define the following two sets,
+          \[
+            \begin{cases}
+              M_+ = \{y \in M \mid f_{\star}(\mu_y) = \mu_{f(y)}\} \\
+              M_- = \{y \in M \mid f_{\star}(\mu_y) = -\mu_{f(y)}\}
+            \end{cases}
+          \]
+          and show that they are open.
+        </p>
+        <p>
+          Let \(x \in N\) and let \(x_1, \dots, x_p\) be its preimages in \(M\). Choose a small ball \(B\) around \(x\) such that \(f^{-1}(B) = \bigcup B_i\), where each \(B_i\) is an open ball containing \(x_i\) and \(f : B_i \to B\) is a homeomorphism. To show \(M_+\) is open, let \(x_i \in M_+\). We claim that the open ball \(B_i\) is entirely contained in \(M_+\). For any \(y_1 \in B_i\), let \(y = f(y_1) \in B\). The local behavior of the map \(f\) around \(y_1\) is identical to its behavior around \(x_i\) because \(f\) is a homeomorphism on \(B_i\). Thus, \(f_*(\mu_{y_1}) = \mu_y\), showing that \(B_i \subseteq M_+\).
+        </p>
+        <img src="assets/covering-degree-square.svg" alt="Commutative square of local homology groups" style="display: block; margin: 1em auto; max-width: 100%;">
+        <p>
+          consequently, since every point in \(M_+\) has an open neighborhood (since we can repeat the argument for a point in the open neighborhood of the image under \(f\)), it must be that both \(M_+\) and \(M_-\) are open!
+        </p>
+        <p>
+          Thus, \(M_+\) and \(M_-\) form a disjoint open cover of \(M\), which implies that the space is disconnected, contradiction, thus one of the spaces it empty and the other is full! Thus all the points in \(M\) have the same local orientation and thus we are done!
+        </p>
+      </div>
+
+      <br>
+
+      <div class="section-name" style="text-align: center;">
+        <h2 style="display: inline;" class="symbol-change">§</h2><h2 style="display: inline;"> 💬 Comments</h2>
+      </div>
+
+      <br>
+
+      <script src="https://utteranc.es/client.js"
+          repo="MrMineev/MrMineev.github.io"
+          issue-term="pathname"
+          label="WEBSITE_COMMENT"
+          theme="github-light"
+          crossorigin="anonymous"
+          async>
+      </script>
+    </div>
+  </body>
+</html>
