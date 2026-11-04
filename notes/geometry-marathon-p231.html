@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Geometry Marathon P231 | MrMineev</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="notes-style.css">
+
+    <link rel="icon" href="../assets/website-logo.png">
+
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <script src="mathjax-config.js"></script>
+    <script type="text/javascript" id="MathJax-script" async
+      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+    </script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+    <h1 id="global-name">MrMineev</h1>
+    <div id="global-name-line"></div>
+
+    <br>
+
+    <div style="text-align: center;">
+      <button class="button-link" onclick="window.location.href='../index.html'">
+        Go to Articles
+      </button>
+      <button class="button-link" onclick="window.location.href='../notes.html'">
+        Mathematical Notes
+      </button>
+    </div>
+
+    <div class="note-body">
+      <h2 class="note-title">Geometry Marathon P231</h2>
+      <div class="note-meta">Geometry &middot; 🗓️ November 4, 2026</div>
+
+      <div class="pm-box pm-problem">
+        <p class="pm-head">Problem 1 &nbsp;<span style="font-weight: normal;">(Geometry Marathon P231)</span></p>
+        <p>
+          Let \(P\) be a finite point not on the sidelines of \(\triangle ABC\), and let \(P'\) be its isogonal conjugate. Let \(XYZ\) be the antipedal triangle of \(P'\). If \(Q\) and \(J\) are the inverses of \(P\) in \((ABC)\) and of \(P'\) in \((XYZ)\), respectively, prove that \(J,Q,P'\) are collinear and that one of them is the midpoint of the other two.
+        </p>
+        <p style="text-align: center;">
+          <a href="https://artofproblemsolving.com/community/u1159306h2665078p39718620">My post on AoPS</a>
+        </p>
+      </div>
+
+      <img src="assets/geometry-marathon-p231.svg" alt="Configuration of Geometry Marathon P231" style="display: block; margin: 1em auto; max-width: 90%;">
+
+      <div class="pm-proof">
+        <p>
+          <span class="pm-head">Proof.</span>
+          Let \(M\) be defined as the midpoint of \(P'J\), one may reformulate the problem as showing that \(M\) is the inverse of \(P\) in \((ABC)\), which is equivalent to \((ABC)\) being the Apollonius circle of \(P\) and \(M\) and consequently it will suffice to show that \(\frac{PA}{MA} = \frac{BP}{BM} = \frac{CP}{CM}\).
+        </p>
+
+        <div class="pm-box pm-lemma">
+          <p class="pm-head">Lemma 1.1</p>
+          <p>
+            \(\triangle{PAB} \sim \triangle{P'YX}\)
+          </p>
+        </div>
+
+        <div class="pm-proof">
+          <p>
+            Since \(\angle{PAB} = \angle{CAP'} = \angle{XYP'}\) and \(\angle{PBA} = \angle{CBP'} = \angle{YXP'}\) one obtained the desired similarity!
+          </p>
+        </div>
+
+        <p>
+          This implies that,
+          \[
+            PA = \frac{AB}{XY} \cdot P'Y = \frac{P'Z \sin \angle{YZX} \cdot P'Y}{2R \sin \angle{YZX}} = \frac{P'Z \cdot P'Y}{2R}
+          \]
+          where \(R\) is the circumradius of \(\triangle{XYZ}\)! Now in order to calculate \(MA\), let us find \(DJ\) and apply homothety centered at \(P'\) with coefficient \(2\) (where \(D\) is the reflection of \(P'\) over the line \(YZ\)).
+        </p>
+
+        <div class="pm-box pm-lemma">
+          <p class="pm-head">Lemma 1.2</p>
+          <p>
+            \(\triangle{JYD} \sim \triangle{ZOP'}\)
+          </p>
+        </div>
+
+        <div class="pm-proof">
+          <p>
+            Indeed since \(\triangle{JYO} \sim \triangle{YP'O}\), thus \(\frac{JY}{DY} = \frac{JY}{P'Y} = \frac{R}{OP'}\) (since \((XYZ)\) is the Apollonius circle wrt \(P'\) and \(J\)) and,
+            \begin{align*}
+              \angle{JYD} = \angle{JYO} - \angle{OYP'} - 2\angle{P'YA} = \angle{OP'Y} - \angle{OYP'} - 2\angle{YP'A}
+              \\= \angle(OP', YZ) - \angle{OYZ} = \angle(OP', YZ) - \angle{OZY} = \angle{ZOP'}
+            \end{align*}
+            thus by the angle and the ratio one obtains the desired similarity!
+          </p>
+        </div>
+
+        <p>
+          Thus,
+          \[
+            DJ = P'Z \cdot \frac{YD}{OP'} = \frac{P'Z \cdot P'Y}{OP'}
+          \]
+          thus \(\frac{PA}{MA} = \frac{OP'}{R}\) which is symmetric and thus the same as \(\frac{BP}{BM}\) and \(\frac{CP}{CM}\)!
+        </p>
+      </div>
+
+      <br>
+
+      <div class="section-name" style="text-align: center;">
+        <h2 style="display: inline;" class="symbol-change">§</h2><h2 style="display: inline;"> 💬 Comments</h2>
+      </div>
+
+      <br>
+
+      <script src="https://utteranc.es/client.js"
+          repo="MrMineev/MrMineev.github.io"
+          issue-term="pathname"
+          label="WEBSITE_COMMENT"
+          theme="github-light"
+          crossorigin="anonymous"
+          async>
+      </script>
+    </div>
+  </body>
+</html>
