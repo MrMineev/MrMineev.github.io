@@ -17,6 +17,8 @@ window.MathJax = {
       Spl: "\\operatorname{Spl}",
       Gal: "\\operatorname{Gal}",
       Spec: "\\operatorname{Spec}",
+      mult: "\\operatorname{mult}",
+      tot: "\\operatorname{Tot}",
 
       /* number sets */
       RR: "\\mathbb{R}",

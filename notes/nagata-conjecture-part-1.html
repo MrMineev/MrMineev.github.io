@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Nagata Conjecture: Part 1 | MrMineev</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="notes-style.css">
+
+    <link rel="icon" href="../assets/website-logo.png">
+
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <script src="mathjax-config.js"></script>
+    <script type="text/javascript" id="MathJax-script" async
+      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+    </script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+    <h1 id="global-name">MrMineev</h1>
+    <div id="global-name-line"></div>
+
+    <br>
+
+    <div style="text-align: center;">
+      <button class="button-link" onclick="window.location.href='../index.html'">
+        Go to Articles
+      </button>
+      <button class="button-link" onclick="window.location.href='../notes.html'">
+        Mathematical Notes
+      </button>
+    </div>
+
+    <div class="note-body">
+      <h2 class="note-title">Nagata Conjecture: Part 1</h2>
+      <div class="note-meta">Algebraic Geometry &middot; 🗓️ November 22, 2026</div>
+
+      <p>
+        <i>My notes from reading Jenia Tevelev's exposition (<a href="https://arxiv.org/abs/2610.30050">arXiv:2610.30050</a>) of the proof of the Nagata conjecture announced by OpenAI. I am not an expert in algebraic geometry, and I wrote these to understand the proof myself, with help from AI along the way. There are likely mistakes; corrections are very welcome.</i>
+      </p>
+
+      <h2 class="pm-section"><span class="secnum">§1</span> Introduction</h2>
+
+      <p>
+        This text will be focused on the <i>Nagata Conjecture</i> stated below,
+      </p>
+
+      <div class="pm-box pm-theorem">
+        <p class="pm-head">Theorem 1 &nbsp;(Nagata Conjecture)</p>
+        <p>
+          For <i>very general</i> points \(p_1, \ldots, p_r \in \mathbb{P}^2\) (\(r \geq 10\)), every nonzero homogeneous polynomial of degree \(d\) vanishing to order at least \(m_i \geq 1\) at each \(p_i\), satisfies,
+          \[
+            d > \left( \sum_{i = 1}^{r} m_i\right) / \sqrt{r}
+          \]
+          the sum \(\sum_{i = 1}^{r} m_i\) will be denoted by \(M\).
+        </p>
+      </div>
+
+      <p>
+        The term <i>very general</i> refers to a configuration in \((\mathbb{P}^2)^r \setminus S\), where \(S\) is some countable union of proper <i>Zariski</i> closed sets. A special case of this conjecture is its homogeneous version.
+      </p>
+
+      <div class="pm-box pm-theorem" id="hom-nagata">
+        <p class="pm-head">Theorem 2 &nbsp;(Homogeneous Nagata Conjecture)</p>
+        <p>
+          For <i>very general</i> points \(p_1, \ldots, p_r \in \mathbb{P}^2\) (\(r \geq 10\)), every nonzero homogeneous polynomial of degree \(d\) vanishing to order at least \(m\) at each \(p_i\), satisfies,
+          \[
+            d > m \sqrt{r}
+          \]
+        </p>
+      </div>
+
+      <div class="pm-box pm-proposition">
+        <p class="pm-head">Proposition 1</p>
+        <p>
+          The Nagata Conjecture and its homogeneous version are equivalent.
+        </p>
+      </div>
+
+      <div class="pm-proof">
+        <p>
+          <span class="pm-head">Proof.</span>
+          Let \(B_{d, \mathcal{M}} \subset (\mathbb{P}^2)^r\) (where \(\mathcal{M}\) denotes \(\{m_i\}\)) denote the set of \(r\) points such that there exists some non-zero form of degree \(d\) vanishing to order at least \(m_i\) at each point \(p_i\) (it is shown in <i><a href="#zariski-closed-solutions">Proposition 2</a></i>) that this set is <i>Zariski</i> closed. Let us define <i>very general</i> in the Nagata conjecture to mean in \((\mathbb{P}^2)^r \setminus \left( S \cup \bigcup \left\{ B_{d, \mathcal{M}} : B_{d, \mathcal{M}} \neq (\mathbb{P}^2)^r \right\} \right)\) (where \(S\) is the exceptional set of the Homogeneous Nagata Conjecture). Thus, if \(F\) is some non-zero form vanishing (with the conditions described in the theorem) at points \(p_1, \ldots, p_r\) (some <i>very general</i> points) with multiplicities \(m_1, \ldots, m_r\), then \(B_{d, \mathcal{M}}\) must be everything. Thus, one can choose \(F_i\) such that it vanishes at \(p_j\) to order at least \(m_{i + j}\). Observe that then \(F_0 F_1 \ldots F_{r - 1}\) is a form that vanishes at every point to order at least \(M\) and thus by <i><a href="#hom-nagata">Theorem 2</a></i>) it will follow that \(dr > M \sqrt{r}\) which is equivalent to the desired result!
+        </p>
+      </div>
+
+      <p>
+        Let \(B_{d, m} \subset (\mathbb{P}^2)^r\) denote the set of \(r\) points such that there exists some non-zero form of degree \(d\) vanishing to order at least \(m\) at every point, it will be shown in a moment that this set is <i>Zariski closed</i>. If \(d \leq m \sqrt{r}\), then by exhibiting some \(T \not \in B_{d, m}\) it will imply that \(B_{d, m}\) is a proper closed subset of \((\mathbb{P}^2)^r\) and consequently a <i>very general</i> position of points will avoid \(B_{d, m}\) which will imply the Nagata conjecture.
+      </p>
+
+      <div class="pm-box pm-theorem" id="elim-theory">
+        <p class="pm-head">Theorem 3 &nbsp;(Main Theorem of Elimination Theory)</p>
+        <p>
+          For any variety \(Y\) the projection map \(\pi : Y \times \mathbb{P}^n \rightarrow Y\) is closed, i.e. closed Zariski sets go to closed Zariski sets.
+        </p>
+      </div>
+
+      <div class="pm-box pm-proposition" id="zariski-closed-solutions">
+        <p class="pm-head">Proposition 2</p>
+        <p>
+          \(B_{d, m}\) is a Zariski closed set
+        </p>
+      </div>
+
+      <div class="pm-proof">
+        <p>
+          <span class="pm-head">Proof.</span>
+          Consider the set,
+          \[
+            Z = \{[F], P_1, \ldots, P_r \mid \mult F_{P_i} \geq m \text{ for all } i\}
+          \]
+          where \(Z \subset \mathbb{P}^N \times (\mathbb{P}^2)^r = \mathcal{A}\) (where \(N\) denotes all the monomials of a homogeneous degree \(d\) polynomial), since all the conditions are polynomial equations in the coefficients of \(F\) and the coordinates of the \(P_i\) it must be that \(Z\) is closed in \(\mathcal{A}\). By <i><a href="#elim-theory">Theorem 3</a></i> this implies that \(\pi(Z) = B_{d, m}\) is closed!
+        </p>
+      </div>
+
+      <p>
+        A simple <i>decorative</i> trick is to observe that if \(d \leq m \sqrt{r}\) and \(F\) is some non-zero form satisfying the above conditions, then \(F^3\) has degree \(3d\) and the multiplicity at each point is \(3m\), thus giving a form with \(3d \leq 3m \sqrt{r}\). Thus, it is enough to show the theorem for all forms of degree multiples of \(3\) (more generally the same works for any multiples of \(k\), but this proof will use \(3\)).
+      </p>
+
+      <h2 class="pm-section"><span class="secnum">§2</span> Limits and Collisions</h2>
+
+      <p>
+        Let us choose a point \(P = (\xi, \eta)\) (some holomorphic coordinates), then let us have \(r\) points \(P_i = (sc_i, 0)\) where \(c_i\) are distinct complex numbers and small enough \(s\). Let,
+        \[
+          I_s = \{F: \mult_{P_i} F \geq m \text{ for } i \leq r \}
+        \]
+        and define \(p_s(w) = \prod_{i = 1}^{r} (w - sc_i)\). Let us rewrite \(F\) using the holomorphic coordinates as \(F = \sum_{a \geq 0} f_a(\xi) \eta^a\) (where \(f_a(\xi)\) is some power series in \(\xi\)). The condition that \(F \in I_s\) is equivalent to \(f_{a}(\xi)\) vanishing to order at least \(m - a\) for \(0 \leq a \leq m - 1\) at \(\xi = sc_i\), thus \(p_s(\xi)^{m - a} \mid f_a(\xi)\), which gives the alternative definition (for \(s \neq 0\)) of \(I_s\) as,
+        \[
+          I_s = \left\{ F = \sum_{a \geq 0} f_a(\xi) \eta^a : p_s(\xi)^{m - a} \mid f_a(\xi) \right\}
+        \]
+        which now can be extended to the case \(s = 0\) that is going to be of importance,
+        \[
+          I_0 = \left\{ F = \sum_{a \geq 0} f_a(\xi) \eta^a : \xi^{r(m - a)} \mid f_a(\xi) \right\} = (\xi^r, \eta)^m
+        \]
+        Let \(V_d\) denote the vector space of homogeneous degree \(d\) forms. I will slightly abuse notation when writing \(V_d \cap I_s\) it will be assumed that the forms are <i>dehomogenized</i> by dividing by some power of some linear form.
+      </p>
+
+      <div class="pm-box pm-theorem">
+        <p class="pm-head">Theorem 4 &nbsp;(Collision)</p>
+        <p>
+          Given a point \(P = (\xi, \eta)\) with \(V_d \cap (\xi^r, \eta)^m = \{0\}\), for all sufficiently small \(s \neq 0\) it holds that \(V_d \cap I_s = \{0\}\).
+        </p>
+      </div>
+
+      <div class="pm-proof">
+        <p>
+          <span class="pm-head">Proof.</span>
+          Let \(F = \sum_{a \geq 0} f_a(\xi) \eta^a \in V_d\), then \(p_{s, a}(w)\) denote the remainder of \(f_a(w)\) from division by \(p_s(w)^{m - a}\), then consider the following map,
+          \[
+            R_s : V_d \longrightarrow \bigoplus_{a = 0}^{m - 1} \mathbb{C}[\xi]_{\lt r(m - a)}, \text{ where } F \longmapsto (p_{s, a})_{0 \leq a \leq m - 1}
+          \]
+          observe that \(\ker R_s = I_s \cap V_d\). Suppose the theorem is false, then let \(F_n\) be a sequence of non-zero forms in \(\ker R_{s_n}\) where \(s_n \rightarrow 0\). Let us fix some norm \(\lVert\cdot\rVert\) (which exists since \(V_d\) is a vector space over \(\mathbb{C}\)) on \(V_d\), then scale all the forms so that \(\lVert F_n \rVert = 1\), then since the unit sphere is compact (since \(V_d\) is finite-dimensional) we may choose a subsequence \(\{k_i\}\) by Bolzano–Weierstrass so that the limit \(F = \lim_{i \rightarrow \infty} F_{k_i}\) makes sense, then by continuity of \(R_s\) in \(s\) it must be that,
+          \[
+            R_0 (F) = \lim_{i \rightarrow \infty} R_{s_{k_i}}(F_{k_i}) = 0
+          \]
+          which contradicts \(\ker R_0\) being \(\{0\}\) since \(F \neq 0\) (since \(\lVert F \rVert = 1\))!
+        </p>
+      </div>
+
+      <p>
+        Thus, one needs to only construct \(P = (\xi, \eta)\) with \(V_d \cap (\xi^r, \eta)^m = \{0\}\) and then there will be some construction of \(r\) distinct points not in \(B_{d, m}\) which as noted earlier would imply the Nagata conjecture.
+      </p>
+
+      <br>
+
+      <div class="section-name" style="text-align: center;">
+        <h2 style="display: inline;" class="symbol-change">§</h2><h2 style="display: inline;"> 💬 Comments</h2>
+      </div>
+
+      <br>
+
+      <script src="https://utteranc.es/client.js"
+          repo="MrMineev/MrMineev.github.io"
+          issue-term="pathname"
+          label="WEBSITE_COMMENT"
+          theme="github-light"
+          crossorigin="anonymous"
+          async>
+      </script>
+    </div>
+  </body>
+</html>
